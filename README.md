@@ -1,7 +1,7 @@
 # Celebrity Aesthetic Suite
 
 A unified healthcare and aesthetic clinic platform containing two independent, fully featured applications:
-1. **`celebrity-aesthetic`**: Clinic Management System (CRM) (Next.js 15, Prisma, local PostgreSQL, Sales & POS Module, auth bypass).
+1. **`CRM`**: Clinic Management System (Next.js 15, Prisma, local PostgreSQL, Sales & POS Module, auth bypass).
 2. **`web`**: Patient-Facing Website & Booking Portal (Next.js 16, Tailwind CSS v4, Framer Motion, GSAP, Lenis smooth scrolling, hero canvas sequence, treatments explorer, online booking).
 
 ---
@@ -10,14 +10,14 @@ A unified healthcare and aesthetic clinic platform containing two independent, f
 
 ```
 celebrity-aesthetic-suite/
-├── celebrity-aesthetic/    # Clinic Management System (CRM) (Port 3000)
+├── CRM/                    # Clinic Management System (Port 3000)
 │   ├── src/                # Next.js 15 app, components, actions, lib
 │   │   ├── app/(main)/sales/ # NEW Sales & POS Terminal, Orders & Analytics
 │   │   ├── actions/sales.ts  # Sales transactions, receipts, refund logic
 │   │   └── components/sales/ # POS terminal, receipt modal, ledger, analytics
 │   ├── prisma/             # Prisma schema, migrations, generated client
 │   ├── .env                # Local PostgreSQL connection string
-│   └── package.json
+│   └── package.json        # Name: celebrity-aesthetic-crm
 │
 ├── web/                    # Patient-Facing Website (Port 3001)
 │   ├── app/                # Next.js 16 App Router (51+ pages & SSG routes)
@@ -25,7 +25,7 @@ celebrity-aesthetic-suite/
 │   ├── public/             # Hero sequence WebP frames, treatment images, team
 │   ├── raw-assets/         # Raw photography and treatment spreadsheets
 │   ├── .env                # Public CRM API URL (http://localhost:3000/api/public)
-│   └── package.json
+│   └── package.json        # Name: celebrity-aesthetic
 │
 ├── docker-compose.yml      # Local PostgreSQL container (Port 5432)
 └── package.json            # Root workspace orchestrator
@@ -71,7 +71,7 @@ npm run build:web
 
 ## Key Features & Capabilities
 
-### 1. `celebrity-aesthetic` (Clinic Management System / CRM)
+### 1. `CRM` (Clinic Management System)
 - **Sales & POS Module (`/sales`)**:
   - **POS Counter**: Real-time product & service search, category filters, stock level indicators.
   - **Dynamic Cart**: Item quantity adjustment, line-item discounts, custom tax percentage, gross/net pricing.
