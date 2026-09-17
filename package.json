@@ -1,23 +1,23 @@
 {
-  "name": "zafoor-clinic-suite",
+  "name": "celebrity-aesthetic-suite",
   "version": "1.0.0",
   "private": true,
-  "description": "Zafoor Clinic & Celebrity Aesthetic Suite - Full CRM & Patient Website",
+  "description": "Celebrity Aesthetic Suite - Clinic Management System (CRM) & Patient Website",
   "workspaces": [
-    "CRM",
+    "celebrity-aesthetic",
     "web"
   ],
   "scripts": {
-    "dev": "concurrently -n \"CRM,WEB\" -c \"blue,magenta\" \"npm --prefix CRM run dev\" \"npm --prefix web run dev\"",
-    "dev:crm": "npm --prefix CRM run dev",
+    "dev": "concurrently -n \"CRM,WEB\" -c \"blue,magenta\" \"npm --prefix celebrity-aesthetic run dev\" \"npm --prefix web run dev\"",
+    "dev:crm": "npm --prefix celebrity-aesthetic run dev",
     "dev:web": "npm --prefix web run dev",
-    "build": "npm --prefix CRM run build && npm --prefix web run build",
-    "build:crm": "npm --prefix CRM run build",
+    "build": "npm --prefix celebrity-aesthetic run build && npm --prefix web run build",
+    "build:crm": "npm --prefix celebrity-aesthetic run build",
     "build:web": "npm --prefix web run build",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down"
   },
   "devDependencies": {
-    "concurrently": "^9.2.4"
+    "concurrently": "^9.1.2"
   }
 }

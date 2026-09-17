@@ -49,7 +49,7 @@ export function Header({ user }: { user: { name: string; role: string; permissio
           }
         />
         <SheetContent side="left" className="p-0 w-72 max-w-[85vw]">
-          <SheetTitle className="sr-only">Zafoor Clinic Navigation Menu</SheetTitle>
+          <SheetTitle className="sr-only">Celebrity Aesthetic Navigation Menu</SheetTitle>
           <NavContent role={user.role} permissions={user.permissions} onNavigate={() => setMobileMenuOpen(false)} />
         </SheetContent>
       </Sheet>
@@ -109,7 +109,7 @@ export function Header({ user }: { user: { name: string; role: string; permissio
               </Avatar>
               <div className="min-w-0 flex-1">
                 <p className="font-semibold text-sm text-foreground truncate">{user.name}</p>
-                <p className="text-xs text-muted-foreground capitalize">{user.role.replace("_", " ").toLowerCase()} · Zafoor Clinic</p>
+                <p className="text-xs text-muted-foreground capitalize">{user.role.replace("_", " ").toLowerCase()} · Celebrity Aesthetic</p>
               </div>
             </div>
           </DropdownMenuLabel>

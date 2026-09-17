@@ -83,19 +83,19 @@ export function ReceiptModal({
             {/* Clinic Brand Header */}
             <div className="text-center pb-4 border-b border-dashed border-border/80">
               <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-base mb-1.5">
-                Z
+                CA
               </div>
               <h2 className="font-bold text-sm sm:text-base tracking-tight text-foreground font-sans">
-                ZAFOOR CLINIC
+                CELEBRITY AESTHETIC
               </h2>
               <p className="text-[11px] text-muted-foreground font-sans mt-0.5">
-                Outpatient Review, Aesthetic & Family Clinic
+                Skin, Hair, PMU & Laser Aesthetics Clinic
               </p>
               <p className="text-[10px] text-muted-foreground font-sans leading-tight mt-1">
                 No. 69/70, St. Xavier Street, George Town, Chennai - 600001
               </p>
               <p className="text-[10px] text-muted-foreground font-sans">
-                Phone: +91 8940399403 • Reg #ZC-TN-2026
+                Phone: +91 8940399403 • Reg #CA-TN-2026
               </p>
             </div>
 

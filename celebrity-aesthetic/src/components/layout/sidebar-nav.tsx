@@ -147,7 +147,7 @@ export function NavContent({
           <Stethoscope className="h-5 w-5" />
         </div>
         <div className="leading-tight">
-          <p className="text-sm font-bold tracking-tight">Zafoor Clinic</p>
+          <p className="text-sm font-bold tracking-tight">Celebrity Aesthetic</p>
           <p className="text-xs text-muted-foreground">{isAdmin ? "Admin CRM" : "Reception Desk"}</p>
         </div>
       </div>

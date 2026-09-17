@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zafoor Clinic CRM",
-  description: "Clinic management system — Zafoor Clinic",
+  title: "Celebrity Aesthetic CRM",
+  description: "Clinic management system — Celebrity Aesthetic",
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
-# Zafoor Clinic & Celebrity Aesthetic Suite
+# Celebrity Aesthetic Suite
 
 A unified healthcare and aesthetic clinic platform containing two independent, fully featured applications:
-1. **`CRM`**: Clinic Management System (Next.js 15, Prisma, local PostgreSQL, Sales & POS Module, auth bypass).
+1. **`celebrity-aesthetic`**: Clinic Management System (CRM) (Next.js 15, Prisma, local PostgreSQL, Sales & POS Module, auth bypass).
 2. **`web`**: Patient-Facing Website & Booking Portal (Next.js 16, Tailwind CSS v4, Framer Motion, GSAP, Lenis smooth scrolling, hero canvas sequence, treatments explorer, online booking).
 
 ---
@@ -9,8 +9,8 @@ A unified healthcare and aesthetic clinic platform containing two independent, f
 ## Workspace Structure
 
 ```
-zafoor-clinic/
-├── CRM/                    # Clinic Management System (Port 3000)
+celebrity-aesthetic-suite/
+├── celebrity-aesthetic/    # Clinic Management System (CRM) (Port 3000)
 │   ├── src/                # Next.js 15 app, components, actions, lib
 │   │   ├── app/(main)/sales/ # NEW Sales & POS Terminal, Orders & Analytics
 │   │   ├── actions/sales.ts  # Sales transactions, receipts, refund logic
@@ -23,7 +23,7 @@ zafoor-clinic/
 │   ├── app/                # Next.js 16 App Router (51+ pages & SSG routes)
 │   ├── components/         # Hero sequence, treatments, booking form, navbar
 │   ├── public/             # Hero sequence WebP frames, treatment images, team
-│   ├── raw-assets/         # Raw source assets & clinic space imagery
+│   ├── raw-assets/         # Raw photography and treatment spreadsheets
 │   ├── .env                # Public CRM API URL (http://localhost:3000/api/public)
 │   └── package.json
 │
@@ -45,7 +45,7 @@ npm run db:up
 ```powershell
 npm run dev
 ```
-- **CRM System**: Available at [http://localhost:3000](http://localhost:3000)
+- **CRM (Celebrity Aesthetic)**: Available at [http://localhost:3000](http://localhost:3000)
 - **Web App**: Available at [http://localhost:3001](http://localhost:3001)
 
 ### 3. Or Run Either Application Individually
@@ -71,13 +71,13 @@ npm run build:web
 
 ## Key Features & Capabilities
 
-### 1. `CRM` (Clinic Management System)
+### 1. `celebrity-aesthetic` (Clinic Management System / CRM)
 - **Sales & POS Module (`/sales`)**:
   - **POS Counter**: Real-time product & service search, category filters, stock level indicators.
   - **Dynamic Cart**: Item quantity adjustment, line-item discounts, custom tax percentage, gross/net pricing.
   - **Customer Selection**: Autocomplete lookup for registered patients or rapid walk-in registration.
   - **Multi-Payment Modes**: Cash, UPI, Card, Net Banking with split payment support.
-  - **Branded Receipts**: Printable thermal POS (80mm) and A4 standard invoice format with clinic branding.
+  - **Branded Receipts**: Printable thermal POS (80mm) and A4 standard invoice format with Celebrity Aesthetic branding.
   - **Orders Ledger**: Searchable, date-filtered transaction history with instant receipt re-printing.
   - **Returns & Refunds**: Formal refund modal with automatic inventory restocking and audit log.
   - **Sales Analytics**: Revenue metrics, AOV, payment method split, and top-selling leaderboard.
