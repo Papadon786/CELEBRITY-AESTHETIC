@@ -15,8 +15,17 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">Today at a glance across Zafoor Clinic.</p>
+        <p className="text-sm text-muted-foreground">Today at a glance across Celebrity Aesthetic.</p>
       </div>
+
+      {stats.dbError && (
+        <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-700 dark:text-amber-400">
+          <p className="font-semibold">Notice: Database connection or tables initializing</p>
+          <p className="text-xs mt-1 text-muted-foreground">
+            Please ensure your Vercel Project Settings has the <code>DATABASE_URL</code> environment variable set to your PostgreSQL database.
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-6">
         <StatCard label="New Patients" value={stats.newPatientsToday} icon={UserPlus} tone="default" />

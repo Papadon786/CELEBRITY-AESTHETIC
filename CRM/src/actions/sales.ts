@@ -87,40 +87,45 @@ export type SalesReceiptData = {
  * Fetches all sellable services and inventory products in one combined catalog.
  */
 export async function getSalesCatalog(): Promise<SalesCatalogItem[]> {
-  const [services, inventoryItems] = await Promise.all([
-    prisma.service.findMany({
-      where: { active: true },
-      orderBy: [{ displayOrder: "asc" }, { name: "asc" }],
-    }),
-    prisma.inventoryItem.findMany({
-      where: { active: true },
-      orderBy: { name: "asc" },
-    }),
-  ])
+  try {
+    const [services, inventoryItems] = await Promise.all([
+      prisma.service.findMany({
+        where: { active: true },
+        orderBy: [{ displayOrder: "asc" }, { name: "asc" }],
+      }),
+      prisma.inventoryItem.findMany({
+        where: { active: true },
+        orderBy: { name: "asc" },
+      }),
+    ])
 
-  const serviceItems: SalesCatalogItem[] = services.map((s) => ({
-    id: s.id,
-    type: "SERVICE",
-    name: s.name,
-    category: "Clinical Services",
-    price: Number(s.price ?? 0),
-    durationMinutes: s.durationMinutes,
-    description: s.shortDescription || s.description || undefined,
-  }))
+    const serviceItems: SalesCatalogItem[] = services.map((s) => ({
+      id: s.id,
+      type: "SERVICE",
+      name: s.name,
+      category: "Clinical Services",
+      price: Number(s.price ?? 0),
+      durationMinutes: s.durationMinutes,
+      description: s.shortDescription || s.description || undefined,
+    }))
 
-  const productItems: SalesCatalogItem[] = inventoryItems.map((item) => ({
-    id: item.id,
-    type: "PRODUCT",
-    name: item.name,
-    category: item.category || "Pharmacy & Products",
-    price: Number(item.unitPrice ?? 0),
-    sku: item.sku,
-    stock: item.currentStock,
-    unit: item.unit,
-    description: item.description || undefined,
-  }))
+    const productItems: SalesCatalogItem[] = inventoryItems.map((item) => ({
+      id: item.id,
+      type: "PRODUCT",
+      name: item.name,
+      category: item.category || "Pharmacy & Products",
+      price: Number(item.unitPrice ?? 0),
+      sku: item.sku,
+      stock: item.currentStock,
+      unit: item.unit,
+      description: item.description || undefined,
+    }))
 
-  return [...serviceItems, ...productItems]
+    return [...serviceItems, ...productItems]
+  } catch (err) {
+    console.error("[getSalesCatalog] Database query failed:", err)
+    return []
+  }
 }
 
 /**
@@ -526,55 +531,60 @@ export async function getSalesOrders(params?: {
     }
   }
 
-  const [total, bills] = await Promise.all([
-    prisma.bill.count({ where }),
-    prisma.bill.findMany({
-      where,
-      include: {
-        patient: {
-          select: { firstName: true, lastName: true, uhid: true, phone: true },
+  try {
+    const [total, bills] = await Promise.all([
+      prisma.bill.count({ where }),
+      prisma.bill.findMany({
+        where,
+        include: {
+          patient: {
+            select: { firstName: true, lastName: true, uhid: true, phone: true },
+          },
+          items: true,
+          payments: {
+            include: { receivedBy: { select: { name: true } } },
+            orderBy: { paidAt: "desc" },
+          },
         },
-        items: true,
-        payments: {
-          include: { receivedBy: { select: { name: true } } },
-          orderBy: { paidAt: "desc" },
-        },
-      },
-      orderBy: { issuedAt: "desc" },
-      skip,
-      take: pageSize,
-    }),
-  ])
+        orderBy: { issuedAt: "desc" },
+        skip,
+        take: pageSize,
+      }),
+    ])
 
-  const orders: SalesOrderRow[] = bills.map((b) => {
-    const primaryPayment = b.payments?.[0]
-    const itemsList = b.items || []
-    const summary =
-      itemsList.length <= 2
-        ? itemsList.map((i) => `${i.description} (×${i.quantity})`).join(", ")
-        : `${itemsList[0].description}, ${itemsList[1].description} +${itemsList.length - 2} more`
+    const orders: SalesOrderRow[] = bills.map((b) => {
+      const primaryPayment = b.payments?.[0]
+      const itemsList = b.items || []
+      const summary =
+        itemsList.length <= 2
+          ? itemsList.map((i) => `${i.description} (×${i.quantity})`).join(", ")
+          : `${itemsList[0].description}, ${itemsList[1].description} +${itemsList.length - 2} more`
 
-    return {
-      id: b.id,
-      billNumber: b.billNumber,
-      issuedAt: b.issuedAt.toISOString(),
-      patientName: `${b.patient?.firstName ?? "Customer"} ${b.patient?.lastName ?? ""}`.trim(),
-      patientUhid: b.patient?.uhid ?? "—",
-      patientPhone: b.patient?.phone ?? "—",
-      itemCount: itemsList.length,
-      itemsSummary: summary || "General Sale",
-      totalAmount: Number(b.totalAmount),
-      discountAmount: Number(b.discountAmount),
-      taxAmount: Number(b.taxAmount),
-      netAmount: Number(b.netAmount),
-      paymentMethod: primaryPayment?.method ?? "CASH",
-      receiptNumber: primaryPayment?.receiptNumber ?? "—",
-      status: b.status,
-      cashierName: primaryPayment?.receivedBy?.name ?? "Staff",
-    }
-  })
+      return {
+        id: b.id,
+        billNumber: b.billNumber,
+        issuedAt: b.issuedAt.toISOString(),
+        patientName: `${b.patient?.firstName ?? "Customer"} ${b.patient?.lastName ?? ""}`.trim(),
+        patientUhid: b.patient?.uhid ?? "—",
+        patientPhone: b.patient?.phone ?? "—",
+        itemCount: itemsList.length,
+        itemsSummary: summary || "General Sale",
+        totalAmount: Number(b.totalAmount),
+        discountAmount: Number(b.discountAmount),
+        taxAmount: Number(b.taxAmount),
+        netAmount: Number(b.netAmount),
+        paymentMethod: primaryPayment?.method ?? "CASH",
+        receiptNumber: primaryPayment?.receiptNumber ?? "—",
+        status: b.status,
+        cashierName: primaryPayment?.receivedBy?.name ?? "Staff",
+      }
+    })
 
-  return { orders, total, page, pageSize }
+    return { orders, total, page, pageSize }
+  } catch (err) {
+    console.error("[getSalesLedger] Database query error:", err)
+    return { orders: [], total: 0, page, pageSize }
+  }
 }
 
 export type SalesAnalytics = {
@@ -618,86 +628,100 @@ export async function getSalesAnalytics(period: "today" | "7days" | "30days" | "
     where.issuedAt = { gte: start }
   }
 
-  const bills = await prisma.bill.findMany({
-    where,
-    include: {
-      items: true,
-      payments: true,
-    },
-  })
+  try {
+    const bills = await prisma.bill.findMany({
+      where,
+      include: {
+        items: true,
+        payments: true,
+      },
+    })
 
-  let totalRevenue = 0
-  let totalGross = 0
-  let totalDiscounts = 0
-  let totalTax = 0
-  const orderCount = bills.length
+    let totalRevenue = 0
+    let totalGross = 0
+    let totalDiscounts = 0
+    let totalTax = 0
+    const orderCount = bills.length
 
-  const paymentStats: Record<string, { count: number; total: number }> = {
-    CASH: { count: 0, total: 0 },
-    UPI: { count: 0, total: 0 },
-    CARD: { count: 0, total: 0 },
-    NET_BANKING: { count: 0, total: 0 },
-  }
-
-  const itemStats: Record<string, { quantity: number; revenue: number }> = {}
-
-  for (const b of bills) {
-    const net = Number(b.netAmount)
-    const gross = Number(b.totalAmount)
-    const disc = Number(b.discountAmount)
-    const tax = Number(b.taxAmount)
-
-    totalRevenue += net
-    totalGross += gross
-    totalDiscounts += disc
-    totalTax += tax
-
-    for (const p of b.payments) {
-      const m = p.method || "CASH"
-      if (!paymentStats[m]) paymentStats[m] = { count: 0, total: 0 }
-      paymentStats[m].count += 1
-      paymentStats[m].total += Number(p.amount)
+    const paymentStats: Record<string, { count: number; total: number }> = {
+      CASH: { count: 0, total: 0 },
+      UPI: { count: 0, total: 0 },
+      CARD: { count: 0, total: 0 },
+      NET_BANKING: { count: 0, total: 0 },
     }
 
-    for (const it of b.items) {
-      if (!itemStats[it.description]) {
-        itemStats[it.description] = { quantity: 0, revenue: 0 }
+    const itemStats: Record<string, { quantity: number; revenue: number }> = {}
+
+    for (const b of bills) {
+      const net = Number(b.netAmount)
+      const gross = Number(b.totalAmount)
+      const disc = Number(b.discountAmount)
+      const tax = Number(b.taxAmount)
+
+      totalRevenue += net
+      totalGross += gross
+      totalDiscounts += disc
+      totalTax += tax
+
+      for (const p of b.payments) {
+        const m = p.method || "CASH"
+        if (!paymentStats[m]) paymentStats[m] = { count: 0, total: 0 }
+        paymentStats[m].count += 1
+        paymentStats[m].total += Number(p.amount)
       }
-      itemStats[it.description].quantity += it.quantity
-      itemStats[it.description].revenue += Number(it.amount)
+
+      for (const it of b.items) {
+        if (!itemStats[it.description]) {
+          itemStats[it.description] = { quantity: 0, revenue: 0 }
+        }
+        itemStats[it.description].quantity += it.quantity
+        itemStats[it.description].revenue += Number(it.amount)
+      }
     }
-  }
 
-  const averageOrderValue = orderCount > 0 ? Math.round(totalRevenue / orderCount) : 0
+    const averageOrderValue = orderCount > 0 ? Math.round(totalRevenue / orderCount) : 0
 
-  const paymentMethodSplit = Object.entries(paymentStats)
-    .filter(([, s]) => s.count > 0 || s.total > 0)
-    .map(([method, stats]) => ({
-      method,
-      count: stats.count,
-      total: stats.total,
-      percentage: totalRevenue > 0 ? Math.round((stats.total / totalRevenue) * 100) : 0,
-    }))
-    .sort((a, b) => b.total - a.total)
+    const paymentMethodSplit = Object.entries(paymentStats)
+      .filter(([, s]) => s.count > 0 || s.total > 0)
+      .map(([method, stats]) => ({
+        method,
+        count: stats.count,
+        total: stats.total,
+        percentage: totalRevenue > 0 ? Math.round((stats.total / totalRevenue) * 100) : 0,
+      }))
+      .sort((a, b) => b.total - a.total)
 
-  const topSellingItems = Object.entries(itemStats)
-    .map(([name, stats]) => ({
-      name,
-      quantity: stats.quantity,
-      revenue: stats.revenue,
-    }))
-    .sort((a, b) => b.revenue - a.revenue)
-    .slice(0, 6)
+    const topSellingItems = Object.entries(itemStats)
+      .map(([name, stats]) => ({
+        name,
+        quantity: stats.quantity,
+        revenue: stats.revenue,
+      }))
+      .sort((a, b) => b.revenue - a.revenue)
+      .slice(0, 6)
 
-  return {
-    totalRevenue,
-    totalGross,
-    totalDiscounts,
-    totalTax,
-    orderCount,
-    averageOrderValue,
-    paymentMethodSplit,
-    topSellingItems,
+    return {
+      totalRevenue,
+      totalGross,
+      totalDiscounts,
+      totalTax,
+      orderCount,
+      averageOrderValue,
+      paymentMethodSplit,
+      topSellingItems,
+    }
+  } catch (err) {
+    console.error("[getSalesAnalytics] Database query error:", err)
+    return {
+      totalRevenue: 0,
+      totalGross: 0,
+      totalDiscounts: 0,
+      totalTax: 0,
+      orderCount: 0,
+      averageOrderValue: 0,
+      paymentMethodSplit: [],
+      topSellingItems: [],
+    }
   }
 }
 

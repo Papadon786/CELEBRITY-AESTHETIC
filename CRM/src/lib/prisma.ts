@@ -2,7 +2,11 @@ import { PrismaClient } from "@/generated/prisma/client"
 import { PrismaPg } from "@prisma/adapter-pg"
 
 const connectionString =
-  process.env.DATABASE_URL || "postgresql://zafoor:zafoor_password@localhost:5432/zafoor_clinic"
+  process.env.DATABASE_URL ||
+  process.env.POSTGRES_PRISMA_URL ||
+  process.env.POSTGRES_URL ||
+  process.env.DIRECT_URL ||
+  "postgresql://zafoor:zafoor_password@localhost:5432/zafoor_clinic"
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
