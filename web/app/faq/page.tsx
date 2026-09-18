@@ -5,7 +5,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Answers to common questions about booking, treatments and consultations at Celebrity Aesthetic.",
+    "Answers to common questions about booking, treatments and consultations at Crown Celebrity Aesthetic.",
   alternates: { canonical: "/faq" },
 };
 

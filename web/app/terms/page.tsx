@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "Terms of use for Celebrity Aesthetic.",
+  description: "Terms of use for Crown Celebrity Aesthetic.",
   alternates: { canonical: "/terms" },
 };
 

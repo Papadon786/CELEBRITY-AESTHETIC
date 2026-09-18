@@ -26,7 +26,7 @@ export interface HeroBeat {
 export const HERO_BEATS: HeroBeat[] = [
   {
     range: [1, 10],
-    eyebrow: "Hair & Skin · Aesthetics · PMU · Academy",
+    eyebrow: "Crown Celebrity Aesthetic · Hair & Skin Clinic · PMU Academy",
     headline: ["Refined care,"],
     script: "considered results.",
     body: "A consultation-led approach to skin, hair, aesthetics and permanent makeup, brought together under one roof.",
@@ -59,7 +59,7 @@ export const HERO_BEATS: HeroBeat[] = [
   },
   {
     range: [28, 30],
-    eyebrow: "Hair & Skin · Aesthetics · PMU · Academy",
+    eyebrow: "Crown Celebrity Aesthetic · Hair & Skin Clinic · PMU Academy",
     headline: ["Your skin.", "Your confidence."],
     body: "Personalised care for skin, hair, aesthetics and permanent makeup — all under one roof.",
     ctas: true,

@@ -245,7 +245,7 @@ export default function Hero() {
                   <ButtonLink
                     href="/contact"
                     variant="primary"
-                    className="!bg-charcoal !text-ivory hover:!bg-charcoal-light"
+                    className="!bg-ivory !text-gold-dark hover:!bg-ivory-100"
                   >
                     Book A Consultation →
                   </ButtonLink>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for Celebrity Aesthetic.",
+  description: "Privacy Policy for Crown Celebrity Aesthetic.",
   alternates: { canonical: "/privacy" },
 };
 

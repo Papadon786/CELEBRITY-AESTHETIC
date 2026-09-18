@@ -9,7 +9,7 @@ import GoogleReviews from "@/components/GoogleReviews";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Celebrity Aesthetic — Hair & Skin Clinic, PMU Services & Academy",
+  title: "Crown Celebrity Aesthetic — Hair & Skin Clinic, PMU Services & Academy",
   description:
     "A consultation-led hair and skin clinic offering skin, hair, aesthetics and PMU treatments, plus a dedicated PMU academy.",
   alternates: { canonical: "/" },

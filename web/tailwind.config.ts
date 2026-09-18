@@ -11,14 +11,13 @@ import type { Config } from "tailwindcss";
  *  - charcoal : Deep Burgundy #5A1F32 — primary typography, headings, logo
  *    and important elements (charcoal.light = a darker burgundy shade, for
  *    hover states and dark feature panels).
- *  - gold     : Pastel Blue #AFCBD8 — secondary text, icons, tags, subtle
- *    borders and accents (gold.light = a paler tint, for use on dark
- *    burgundy backgrounds). gold.dark is burgundy again, not blue — it's
- *    used for "important" accented text (active nav, hover states, CTA
- *    labels), which per the brief stays burgundy, not pastel blue.
- *  - sage     : large pale-blue section washes (a light tint of the same
- *    Pastel Blue, not a separate hue) — sage.dark is burgundy, for the
- *    dark feature panels/CTAs.
+ *  - gold     : Champagne Gold #C6A664 — secondary text, icons, tags,
+ *    subtle borders and accents (gold.light = a pale gold tint, for use on
+ *    dark burgundy backgrounds). gold.dark is a deeper antique gold, used
+ *    for "important" accented text (active nav, hover states, CTA labels).
+ *  - sage     : large pale-blue section washes (unrelated to gold — a
+ *    light neutral tint) — sage.dark is burgundy, for the dark feature
+ *    panels/CTAs.
  *
  * Typography — editorial pairing (see app/fonts.ts):
  *  - Oswald ("--font-display" / `font-display`) — condensed display font,
@@ -45,9 +44,9 @@ const config: Config = {
           300: "#F7EBDD",
         },
         gold: {
-          DEFAULT: "#AFCBD8",
-          light: "#D3E4EA",
-          dark: "#5A1F32",
+          DEFAULT: "#C6A664",
+          light: "#E8D9B5",
+          dark: "#8A6A2D",
         },
         sage: {
           DEFAULT: "#E3EEF2",

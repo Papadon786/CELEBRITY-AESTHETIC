@@ -1,6 +1,6 @@
-export const SITE_NAME = "Celebrity Aesthetic";
+export const SITE_NAME = "Crown Celebrity Aesthetic";
 export const SITE_TAGLINE = "Hair & Skin Clinic · PMU Services & Academy";
-export const SITE_URL = "https://celebrity-aesthetic.example.com";
+export const SITE_URL = "https://crown-celebrity-aesthetic.com";
 
 export const PHONE_DISPLAY = "9591047171";
 export const PHONE_INTL = "919591047171";

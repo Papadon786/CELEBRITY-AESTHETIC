@@ -10,11 +10,11 @@ import type { TreatmentCategory } from "@/lib/treatments";
 const pillars = [
   {
     number: "01",
-    name: "Skin",
+    name: "Skin & Aesthetics",
     category: "skin" as TreatmentCategory,
     href: "/treatments?category=skin",
     description:
-      "Facials, laser-based techniques and pigmentation-focused care for the skin.",
+      "Acne scars, pigmentation, Medi Facials, Korean Glass Skin, laser hair removal, Botox, fillers & HIFU.",
   },
   {
     number: "02",
@@ -22,23 +22,15 @@ const pillars = [
     category: "hair" as TreatmentCategory,
     href: "/treatments?category=hair",
     description:
-      "Scalp and hair-focused approaches, from PRP to transplant consultation.",
+      "Autologous protocols (GFC, PRP, BIOCELL, HF, Exosomes, CBL) and 22 precision Hair Transplant specialities.",
   },
   {
     number: "03",
-    name: "Aesthetics",
-    category: "aesthetics" as TreatmentCategory,
-    href: "/treatments?category=aesthetics",
-    description:
-      "Injectable and device-based techniques discussed within a considered plan.",
-  },
-  {
-    number: "04",
     name: "PMU",
     category: "pmu" as TreatmentCategory,
     href: "/pmu-services",
     description:
-      "Semi-permanent makeup techniques for brows, lips and scalp density.",
+      "Eyebrow microblading, semi-permanent lip blush, scalp micropigmentation (SMP), and certified PMU Academy.",
   },
 ];
 
@@ -50,19 +42,19 @@ export default function ServicePillars() {
     >
       <div className="mx-auto max-w-8xl px-5 sm:px-8">
         <SectionHeading
-          kicker="Our Treatments"
+          kicker="Our Pillars"
           title="Treatments designed around you"
-          description="A starting point across skin, hair, aesthetics and PMU — explore the full range on the Treatments page."
+          description="A considered approach across hair restoration, clinical skin care & aesthetics, and permanent makeup (PMU)."
           align="center"
         />
         <Reveal className="mt-6 text-center">
           <ButtonLink href="/treatments" variant="primary">
-            Explore All Treatments →
+            Explore All 57 Treatments →
           </ButtonLink>
         </Reveal>
       </div>
 
-      <div className="mx-auto mt-14 flex max-w-8xl snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 sm:px-8 sm:grid sm:grid-cols-2 sm:snap-none sm:overflow-visible sm:pb-0 lg:grid-cols-4">
+      <div className="mx-auto mt-14 flex max-w-8xl snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-2 sm:px-8 sm:grid sm:grid-cols-3 sm:snap-none sm:overflow-visible sm:pb-0">
         {pillars.map((pillar, i) => (
           <DirectionalCard
             key={pillar.number}

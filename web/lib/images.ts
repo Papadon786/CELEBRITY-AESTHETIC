@@ -1,15 +1,5 @@
 import type { Treatment, TreatmentCategory } from "./treatments";
 
-/**
- * Editorial stock photography (Unsplash, free license) standing in for real
- * clinic/treatment photography. Swap any of these for genuine photos by
- * replacing the `src` — every consumer (PhotoPanel) takes a plain URL.
- *
- * IMPORTANT: this file intentionally does NOT cover Testimonials — that
- * section explicitly promises not to show fabricated client photos, so it
- * stays text-only until real client material is available.
- */
-
 function unsplash(id: string, w = 1200) {
   return `https://images.unsplash.com/${id}?fm=jpg&q=80&w=${w}&auto=format&fit=crop`;
 }
@@ -20,132 +10,134 @@ export const categoryImages: Record<
 > = {
   skin: {
     src: "/treatments/skin-pillar.jpg",
-    alt: "Close-up of skin pigmentation and texture on the cheek",
+    alt: "Skin care and clinical aesthetics treatment at Crown Celebrity Aesthetic",
   },
   hair: {
     src: "/treatments/hair-pillar.jpg",
-    alt: "Collage of scalp and hair treatment devices in use",
+    alt: "Scalp and hair restoration clinic equipment at Crown Celebrity Aesthetic",
   },
   aesthetics: {
     src: "/treatments/aesthetics-pillar.jpg",
-    alt: "Facial injection treatment being administered",
+    alt: "Facial aesthetic treatment and clinical contouring",
   },
   pmu: {
     src: "/treatments/pmu-pillar.jpg",
-    alt: "Lip tinting pigment being applied",
+    alt: "Permanent makeup and aesthetic micropigmentation",
   },
 };
 
 /**
- * Real per-treatment photography, keyed by treatment slug — covers the
- * treatments we have genuine photos for. Anything not listed here falls
- * back to its category's stock image via getTreatmentImage() below.
+ * Real per-treatment photography, keyed by treatment slug.
+ * Integrates authentic clinic poster crops, clinical suite photos, and procedure photography.
  */
 const treatmentImages: Partial<Record<string, { src: string; alt: string }>> = {
-  "laser-hair-removal": {
-    src: "/treatments/laser-hair-removal.jpg",
-    alt: "Laser hair removal treatment on the neck",
+  // --- Hair Restoration ---
+  "advanced-gfc": {
+    src: "/treatments/advanced-gfc.jpg",
+    alt: "GFC Growth Factor Concentrate scalp therapy",
   },
-  "carbon-laser-facial": {
-    src: "/treatments/carbon-laser-facial.jpg",
-    alt: "Carbon laser facial treatment with charcoal mask",
+  "advanced-prp": {
+    src: "/treatments/advanced-prp.jpg",
+    alt: "PRP Platelet-Rich Plasma hair treatment being applied",
   },
-  "carbon-laser-facial-aesthetics": {
-    src: "/treatments/carbon-laser-facial-aesthetics.jpg",
-    alt: "Carbon laser facial treatment with charcoal mask",
+  exosomes: {
+    src: "/treatments/exosomes.jpg",
+    alt: "Exosome scalp restoration treatment",
   },
-  "hydra-facial": {
-    src: "/treatments/hydra-facial.jpg",
-    alt: "HydraFacial device treatment in progress",
+  // --- Hair Transplant (All Sub-Specialties) ---
+  "male-hair-transplant": {
+    src: "/treatments/male-hair-transplant.jpg",
+    alt: "Male hair transplant precision hairline restoration",
   },
-  "pigmentation-treatment": {
-    src: "/treatments/pigmentation-treatment.jpg",
-    alt: "Pigmentation treatment with brush and serum",
+  "hair-patch": {
+    src: "/treatments/hair-patch.jpg",
+    alt: "Non-surgical hair patch result",
   },
-  "underarm-pigmentation": {
-    src: "/treatments/underarm-pigmentation.jpg",
-    alt: "Close-up of underarm skin with pigmentation",
+  "smp-hair": {
+    src: "/treatments/smp-hair.jpg",
+    alt: "Scalp micropigmentation follicle replication",
   },
-  "iv-glutathione": {
-    src: "/treatments/iv-glutathione.jpg",
-    alt: "IV glutathione infusion being administered alongside a facial treatment",
+  "hairfall-treatment": {
+    src: "/treatments/hairfall-treatment.jpg",
+    alt: "Hairfall diagnosis and clinical scalp treatment",
   },
-  "skin-lightening": {
-    src: "/treatments/skin-lightening.jpg",
-    alt: "Close-up comparison of skin tones showing an even, brightened glow",
+  "dandruff-treatment": {
+    src: "/treatments/dandruff-treatment.jpg",
+    alt: "Scalp clinical dandruff detox treatment",
   },
-  "acne-treatment": {
-    src: "/treatments/acne-treatment.jpg",
-    alt: "Close-up of acne-affected skin being assessed",
-  },
-  "acne-scar-treatment": {
-    src: "/treatments/acne-scar-treatment.jpg",
-    alt: "Before and after of acne scar improvement",
-  },
+  // --- Skin Treatments (Acne & Scars from Clinic Wall) ---
   "chemical-peels": {
     src: "/treatments/chemical-peels.jpg",
-    alt: "Chemical peel solution being applied to the forehead",
-  },
-  "post-pregnancy-stretch-mark-removal": {
-    src: "/treatments/post-pregnancy-stretch-mark-removal.jpg",
-    alt: "Close-up of stretch marks before treatment",
+    alt: "Chemical peel application for acne and skin renewal",
   },
   "vampire-facial": {
     src: "/treatments/vampire-facial.jpg",
-    alt: "Vampire facial device treatment being applied to the cheek",
+    alt: "Vampire facial device treatment on the cheek",
+  },
+  mnrf: {
+    src: "/treatments/mnrf.jpg",
+    alt: "MNRF micro-needling radiofrequency device on the skin",
+  },
+  "post-pregnancy-stretch-mark-removal": {
+    src: "/treatments/post-pregnancy-stretch-mark-removal.jpg",
+    alt: "Post-pregnancy belly skin being cared for during stretch mark removal treatment",
+  },
+  "acne-treatment": {
+    src: "/treatments/acne-treatment.jpg",
+    alt: "Clinical acne treatment and dermatological evaluation",
+  },
+  "acne-scar-treatment": {
+    src: "/treatments/acne-scar-treatment.jpg",
+    alt: "No More Acne Scars clinical protocol poster at Crown Celebrity Aesthetic",
+  },
+  "scar-revision": {
+    src: "/treatments/scar-revision.jpg",
+    alt: "Scar revision and texture remodeling",
+  },
+  // --- Skin Treatments (Pigmentation from Clinic Wall) ---
+  "pigmentation-treatment": {
+    src: "/treatments/pigmentation-treatment.jpg",
+    alt: "No More Pigmentation clinical protocol poster at Crown Celebrity Aesthetic",
   },
   "melasma-treatment": {
     src: "/treatments/melasma-treatment.jpg",
     alt: "Melasma treatment being applied to the cheek",
   },
-  "bb-glow-facial": {
-    src: "/treatments/bb-glow-facial.jpg",
-    alt: "BB Glow facial treatment device on the cheek",
+  "skin-lightening": {
+    src: "/treatments/skin-lightening.jpg",
+    alt: "Skin lightening and radiant complexion glow",
   },
-  mnrf: {
-    src: "/treatments/mnrf.jpg",
-    alt: "Micro-needling radiofrequency device on the cheek",
-  },
-  "mnrf-aesthetics": {
-    src: "/treatments/mnrf-aesthetics.jpg",
-    alt: "Radiofrequency skin tightening treatment",
+  "iv-glutathione": {
+    src: "/treatments/iv-glutathione.jpg",
+    alt: "IV glutathione antioxidant infusion",
   },
   "under-eye-dark-circles": {
     src: "/treatments/under-eye-dark-circles.jpg",
-    alt: "Close-up of under-eye dark circles",
+    alt: "Under-eye dark circles rejuvenation",
   },
-  "hairfall-treatment": {
-    src: "/treatments/hairfall-treatment.jpg",
-    alt: "Scalp treatment for hairfall being applied",
+  "underarm-pigmentation": {
+    src: "/treatments/underarm-pigmentation.jpg",
+    alt: "Underarm pigmentation correction",
   },
-  "advanced-prp": {
-    src: "/treatments/advanced-prp.jpg",
-    alt: "PRP scalp treatment being applied",
+  // --- Skin Treatments (Medi Facials from Clinic Wall) ---
+  "hydra-facial": {
+    src: "/treatments/hydra-facial.jpg",
+    alt: "HydraFacial featured on Medi Facials clinic poster at Crown Celebrity Aesthetic",
   },
-  "hair-transplant": {
-    src: "/treatments/hair-transplant.jpg",
-    alt: "Close-up of a hair transplant procedure using a DHI implanter pen",
+  "carbon-laser-facial": {
+    src: "/treatments/carbon-laser-facial.jpg",
+    alt: "Carbon laser facial with charcoal mask",
   },
-  "hair-patch": {
-    src: "/treatments/hair-patch.jpg",
-    alt: "Before and after side profile of a hair patch result",
+  "bb-glow-facial": {
+    src: "/treatments/bb-glow-facial.jpg",
+    alt: "BB Glow radiance facial treatment",
   },
-  "smp-hair": {
-    src: "/treatments/smp-hair.jpg",
-    alt: "Before and after top-down view of scalp micropigmentation results",
+  // --- Laser Hair Removal from Clinic Wall ---
+  "laser-hair-removal": {
+    src: "/treatments/laser-hair-removal.jpg",
+    alt: "No More Unwanted Hair USA FDA Approved laser hair removal poster at Crown Celebrity Aesthetic",
   },
-  "advanced-gfc": {
-    src: "/treatments/advanced-gfc.jpg",
-    alt: "GFC scalp treatment being applied",
-  },
-  "dandruff-treatment": {
-    src: "/treatments/dandruff-treatment.jpg",
-    alt: "Close-up of dandruff flakes in hair viewed through a magnifier",
-  },
-  exosomes: {
-    src: "/treatments/exosomes.jpg",
-    alt: "Exosome scalp treatment being applied with a mesotherapy device",
-  },
+  // --- Aesthetics & PMU ---
   botox: {
     src: "/treatments/botox.jpg",
     alt: "Botox injection being administered",
@@ -156,24 +148,42 @@ const treatmentImages: Partial<Record<string, { src: string; alt: string }>> = {
   },
   "hifu-double-chin": {
     src: "/treatments/hifu-double-chin.jpg",
-    alt: "HIFU device treating the jawline and chin",
+    alt: "HIFU device treating the jawline and double chin",
   },
   "thread-lift": {
     src: "/treatments/thread-lift.jpg",
-    alt: "Thread lift treatment being marked on the face",
+    alt: "Thread lift treatment markings on the face",
+  },
+  "mnrf-aesthetics": {
+    src: "/treatments/mnrf-aesthetics.jpg",
+    alt: "Radiofrequency skin tightening treatment",
+  },
+  "carbon-laser-facial-aesthetics": {
+    src: "/treatments/carbon-laser-facial-aesthetics.jpg",
+    alt: "Carbon laser facial treatment",
   },
   "skin-rejuvenation": {
     src: "/treatments/skin-rejuvenation.jpg",
     alt: "Laser skin rejuvenation treatment in progress",
   },
+  "eyebrow-microblading": {
+    src: "/treatments/smp-hair.jpg",
+    alt: "Microblading tool depositing fine hair-stroke pigment for eyebrow microblading",
+  },
   "lip-tinting": {
     src: "/treatments/lip-tinting.jpg",
     alt: "Lip tinting pigment being applied",
   },
+  micropigmentation: {
+    src: "/treatments/lip-tinting.jpg",
+    alt: "Permanent makeup pigment and tattoo needle used for aesthetic micropigmentation",
+  },
+  "smp-pmu": {
+    src: "/treatments/smp-hair.jpg",
+    alt: "Fine micropigmentation needle used for scalp micropigmentation PMU aesthetics",
+  },
 };
 
-/** The best available image for a treatment: its real photo if we have
- * one, otherwise its category's stock image. */
 export function getTreatmentImage(treatment: Treatment): {
   src: string;
   alt: string;
@@ -182,50 +192,49 @@ export function getTreatmentImage(treatment: Treatment): {
 }
 
 export const interiorImage = {
-  src: "/about/clinic-room.jpeg",
-  alt: "A treatment room at Celebrity Aesthetic with a reclining treatment chair and laser equipment",
+  src: "/clinic/clinic-about-treatment-room.jpg",
+  alt: "A state-of-the-art treatment suite at Crown Celebrity Aesthetic with modern laser equipment",
 };
 
-/** Real clinic interior photography for the About page's gallery. Width/
- * height are each photo's real intrinsic size, in pixels — required by
- * next/image whenever it isn't rendered with `fill` (used here in a CSS
- * multi-column masonry layout, where each tile keeps its natural aspect
- * ratio rather than being forced into a fixed-height box). */
 export const clinicSpaceImages = [
   {
-    src: "/about/clinic-space-1.jpeg",
-    alt: "Reception and waiting area at Celebrity Aesthetic with skin concern posters and clinic accreditations on display",
-    width: 1364,
-    height: 768,
+    src: "/clinic/clinic-wall-posters.jpg",
+    alt: "Wall of clinical specialty posters at Crown Celebrity Aesthetic: Acne, Pigmentation, Medi Facials, Hydroxy, and Laser Hair Removal",
+    width: 1600,
+    height: 900,
   },
   {
-    src: "/about/clinic-space-2.jpeg",
-    alt: "A treatment room at Celebrity Aesthetic with a reclining chair and laser and skin devices",
-    width: 1364,
-    height: 768,
+    src: "/clinic/clinic-procedure-suite.jpg",
+    alt: "Modern procedure suite at Crown Celebrity Aesthetic equipped with advanced laser consoles and treatment couch",
+    width: 1600,
+    height: 901,
   },
   {
-    src: "/about/clinic-space-3.jpeg",
-    alt: "A consultation and treatment room with a whiteboard, mirror and clinic equipment",
-    width: 1364,
-    height: 768,
+    src: "/clinic/clinic-treatment-suite-bright.jpg",
+    alt: "High-tech aesthetic treatment room with modern medical equipment and seating",
+    width: 1600,
+    height: 901,
   },
   {
-    src: "/about/clinic-space-4.jpeg",
-    alt: "A treatment room with a reclining chair, laser devices and seating area",
-    width: 1254,
-    height: 1254,
+    src: "/clinic/clinic-consultation-room.jpg",
+    alt: "Consultation and training suite at Crown Celebrity Aesthetic",
+    width: 1600,
+    height: 901,
   },
   {
-    src: "/about/clinic-space-5.jpeg",
-    alt: "Reception hallway at Celebrity Aesthetic with framed accreditations, a Buddha statue nook and treatment room doors",
-    width: 1376,
-    height: 768,
+    src: "/clinic/clinic-corridor.jpg",
+    alt: "Reception hallway at Crown Celebrity Aesthetic with certificates and treatment rooms",
+    width: 1600,
+    height: 900,
+  },
+  {
+    src: "/clinic/clinic-hallway-tall.jpg",
+    alt: "Elegantly styled clinic corridor with gold geometric design and natural lighting",
+    width: 900,
+    height: 1600,
   },
 ];
 
-/** Real team member photography for the About page's "Meet The Team"
- * cards, ordered to match `teamMembers` in app/about/page.tsx. */
 export const teamPhotos = [
   { src: "/about/team-member-1.png", alt: "Portrait of Naziya Baig" },
   { src: "/about/team-member-2.jpeg", alt: "Portrait of Reehal Baig" },

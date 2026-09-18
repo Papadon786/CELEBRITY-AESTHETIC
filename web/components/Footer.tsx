@@ -75,11 +75,10 @@ export default function Footer() {
     <footer className="border-t border-gold/20 bg-charcoal">
       <RevealStagger className="mx-auto grid max-w-8xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-4">
         <RevealItem className="md:col-span-2">
-          <Logo variant="light" />
-          <p className="mt-4 font-grotesk text-base text-ivory/70">
-            Hair &amp; Skin Clinic
-            <br />
-            PMU Services &amp; Academy
+          <Logo variant="light" size="large" />
+          <p className="mt-4 font-grotesk text-base text-ivory/75 max-w-md">
+            Premier consultation-led clinic for advanced hair restoration,
+            clinical skin care &amp; aesthetics, and certified PMU academy training.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <WhatsAppButton variant="light" />
@@ -160,7 +159,7 @@ export default function Footer() {
       <Reveal className="border-t border-ivory/15">
         <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-3 px-5 py-6 text-center sm:flex-row sm:px-8 sm:text-left">
           <p className="font-grotesk text-[13px] text-ivory/60">
-            © 2026 Celebrity Aesthetic. All rights reserved.
+            © 2026 Crown Celebrity Aesthetic. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link

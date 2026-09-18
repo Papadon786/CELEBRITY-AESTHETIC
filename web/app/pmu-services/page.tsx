@@ -10,7 +10,7 @@ import { getTreatmentsByCategory } from "@/lib/treatments";
 export const metadata: Metadata = {
   title: "PMU Services",
   description:
-    "Explore Celebrity Aesthetic's PMU services: eyebrow microblading, lip tinting, micropigmentation and SMP.",
+    "Explore Crown Celebrity Aesthetic's PMU services: eyebrow microblading, lip tinting, micropigmentation and SMP.",
   alternates: { canonical: "/pmu-services" },
 };
 

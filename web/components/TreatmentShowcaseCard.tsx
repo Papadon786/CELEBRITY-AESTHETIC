@@ -24,6 +24,16 @@ export default function TreatmentShowcaseCard({ treatment }: { treatment: Treatm
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5">
+        <div className="mb-2 flex items-center justify-between gap-2">
+          <span className="font-grotesk text-[10px] font-semibold uppercase tracking-wider text-gold-dark">
+            {treatment.subCategoryLabel || treatment.category}
+          </span>
+          {treatment.badge && (
+            <span className="rounded bg-gold/20 px-2 py-0.5 font-grotesk text-[9px] font-semibold uppercase tracking-wider text-charcoal">
+              {treatment.badge}
+            </span>
+          )}
+        </div>
         <h3 className="font-display text-base font-bold uppercase leading-tight text-charcoal">
           {treatment.name}
         </h3>

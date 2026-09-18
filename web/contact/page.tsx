@@ -16,7 +16,7 @@ import DirectionalCard from "@/components/ui/DirectionalCard";
 export const metadata: Metadata = {
   title: "Contact & Booking",
   description:
-    "Book a consultation with Celebrity Aesthetic. Complete the form to send your enquiry via WhatsApp.",
+    "Book a consultation with Crown Celebrity Aesthetic. Complete the form to send your enquiry via WhatsApp.",
   alternates: { canonical: "/contact" },
 };
 

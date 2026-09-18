@@ -16,7 +16,7 @@ const advancedTechImage = getTreatmentImage(getTreatmentBySlug("mnrf")!);
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Celebrity Aesthetic's consultation-led approach to skin, hair, aesthetics and PMU services.",
+    "Learn about Crown Celebrity Aesthetic's consultation-led approach to skin, hair, aesthetics and PMU services.",
   alternates: { canonical: "/about" },
 };
 
@@ -52,7 +52,7 @@ const teamMembers = [
   },
   {
     name: "Reehal Baig",
-    role: "Mechanical Engineer, Entrepreneur & Fashion Influencer — Model, Actor & Casting Director",
+    role: "Consultant",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-8xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <DirectionalCard direction="left">
             <p className="font-grotesk text-[13px] font-semibold uppercase tracking-widest2 text-gold-dark">
-              About Celebrity Aesthetic
+              About Crown Celebrity Aesthetic
             </p>
             <h1 className="mt-3 font-display text-4xl font-bold uppercase leading-tight text-charcoal sm:text-5xl">
               <WordReveal text="A practice built around" />
@@ -96,7 +96,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 max-w-lg font-grotesk text-[17px] leading-relaxed text-charcoal/75">
-              Celebrity Aesthetic brings skin, hair, aesthetics and PMU
+              Crown Celebrity Aesthetic brings skin, hair, aesthetics and PMU
               services together within one consultation-led practice. We
               believe the right treatment plan begins with genuinely
               understanding your concern.
@@ -177,10 +177,7 @@ export default function AboutPage() {
                   sizes="(min-width: 640px) 45vw, 90vw"
                 />
                 <div className="p-7">
-                  <p className="font-grotesk text-xs font-semibold uppercase tracking-widest2 text-gold-dark">
-                    Team Member 0{i + 1}
-                  </p>
-                  <h3 className="mt-1 font-display text-2xl font-bold uppercase text-charcoal">
+                  <h3 className="font-display text-2xl font-bold uppercase text-charcoal">
                     {member.name}
                   </h3>
                   <p className="mt-1 font-grotesk text-base text-charcoal/60">

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s — ${SITE_NAME}`,
   },
   description:
-    "Celebrity Aesthetic is a hair and skin clinic offering skin, hair, aesthetics and PMU treatments, alongside a dedicated PMU academy — consultation-led, and conservative in approach.",
+    "Crown Celebrity Aesthetic is a premier hair and skin clinic offering specialized hair restoration, advanced hair transplants, clinical skin treatments, aesthetics and PMU services, alongside a dedicated PMU academy.",
   openGraph: {
     title: SITE_NAME,
     description: SITE_TAGLINE,

@@ -94,15 +94,17 @@ const placeholderResults: {
   { treatment: "Laser Hair Removal", category: "skin" },
   { treatment: "Carbon Laser Facial", category: "skin" },
   { treatment: "Advanced PRP", category: "hair" },
-  { treatment: "Botox", category: "aesthetics" },
+  { treatment: "Botox Wrinkle Softening", category: "skin" },
   { treatment: "Eyebrow Microblading", category: "pmu" },
   { treatment: "Hydra Facial", category: "skin" },
 ];
 
-const filters: ("all" | TreatmentCategory)[] = ["all", "skin", "hair", "aesthetics", "pmu"];
-const filterLabels: Record<"all" | TreatmentCategory, string> = {
+const filters: ("all" | "hair" | "skin" | "pmu")[] = ["all", "hair", "skin", "pmu"];
+const filterLabels: Record<"all" | "hair" | "skin" | "pmu", string> = {
   all: "All",
-  ...categoryLabels,
+  hair: categoryLabels.hair,
+  skin: categoryLabels.skin,
+  pmu: categoryLabels.pmu,
 };
 
 export default function ResultsSection({ showCta = true }: { showCta?: boolean }) {

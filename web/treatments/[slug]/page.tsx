@@ -47,7 +47,7 @@ export default async function TreatmentDetailPage({
   const treatment = getTreatmentBySlug(slug);
   if (!treatment) notFound();
 
-  const whatsappMessage = `Hello Celebrity Aesthetic, I would like to know more about ${treatment.name}.`;
+  const whatsappMessage = `Hello Crown Celebrity Aesthetic, I would like to know more about ${treatment.name}.`;
 
   return (
     <article className="py-16 sm:py-24">

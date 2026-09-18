@@ -43,7 +43,7 @@ function PlaceholderIcon({ icon }: { icon: string }) {
     height: 28,
     viewBox: "0 0 28 28",
     fill: "none" as const,
-    stroke: "#AFCBD8",
+    stroke: "#C6A664",
     strokeWidth: 1,
   };
   switch (icon) {

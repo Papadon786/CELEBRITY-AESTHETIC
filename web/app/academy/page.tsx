@@ -10,7 +10,7 @@ import { academyImage } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Academy",
   description:
-    "Celebrity Aesthetic Academy focuses on PMU training, technique and professional development.",
+    "Crown Celebrity Aesthetic Academy focuses on PMU training, technique and professional development.",
   alternates: { canonical: "/academy" },
 };
 
@@ -43,7 +43,7 @@ export default function AcademyPage() {
         <div className="mx-auto grid max-w-8xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <Reveal>
             <p className="font-grotesk text-[13px] font-semibold uppercase tracking-widest2 text-gold-dark">
-              Celebrity Aesthetic Academy
+              Crown Celebrity Aesthetic Academy
             </p>
             <h1 className="mt-3 font-display text-4xl font-bold uppercase leading-tight text-charcoal sm:text-5xl">
               <WordReveal text="Training in precision PMU technique" />

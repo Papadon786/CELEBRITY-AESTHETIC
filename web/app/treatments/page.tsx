@@ -6,7 +6,7 @@ import TreatmentsExplorer from "@/components/TreatmentsExplorer";
 export const metadata: Metadata = {
   title: "Treatments",
   description:
-    "Browse skin, hair, aesthetics and PMU & beauty treatments offered at Celebrity Aesthetic, filterable by category.",
+    "Browse hair restoration, skin care & aesthetics, and PMU treatments offered at Crown Celebrity Aesthetic, filterable by category.",
   alternates: { canonical: "/treatments" },
 };
 

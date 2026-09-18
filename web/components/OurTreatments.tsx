@@ -5,15 +5,19 @@ import Link from "next/link";
 import SectionHeading from "./SectionHeading";
 import TreatmentCard from "./TreatmentCard";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
-import { getTreatmentsByCategory, type TreatmentCategory } from "@/lib/treatments";
+import { getTreatmentBySlug } from "@/lib/treatments";
 
-const categories: TreatmentCategory[] = ["skin", "hair", "aesthetics", "pmu"];
+// Featured signature treatments across the 3 core clinic pillars
+const featuredSlugs = [
+  "advanced-gfc",
+  "male-hair-transplant",
+  "acne-scar-treatment",
+  "eyebrow-microblading",
+];
 
-// One representative treatment per category — a single 4-card row for the
-// four core areas, not a repeated 4-cards-per-category block.
-const featuredPerCategory = categories.map(
-  (category) => getTreatmentsByCategory(category)[0]
-);
+const featuredTreatments = featuredSlugs
+  .map((slug) => getTreatmentBySlug(slug))
+  .filter((t): t is NonNullable<typeof t> => Boolean(t));
 
 export default function OurTreatments() {
   return (
@@ -26,8 +30,8 @@ export default function OurTreatments() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             kicker="Our Treatments"
-            title="Four areas of focused, personalised care"
-            description="A starting point across skin, hair, aesthetics and PMU — explore the full range on the Treatments page."
+            title="Focused, physician-led clinical care"
+            description="Signature treatments across hair restoration, hair transplantation, skin care & aesthetics, and permanent makeup (PMU)."
           />
           <Link
             href="/treatments"
@@ -44,7 +48,7 @@ export default function OurTreatments() {
           viewport={viewportOnce}
           className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {featuredPerCategory.map(
+          {featuredTreatments.map(
             (treatment) =>
               treatment && (
                 <motion.div key={treatment.slug} variants={fadeUp}>
