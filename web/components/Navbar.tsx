@@ -146,41 +146,9 @@ export default function Navbar() {
                           >
                             Hair Restoration
                             <span className="block text-[11px] font-normal font-grotesk tracking-normal text-gold-dark">
-                              GFC · PRP · BIOCELL · HF · EXOSOME · CBL
+                              GFC · PRP · Exosome
                             </span>
                           </Link>
-                          <ul className="mt-3 space-y-2">
-                            <li>
-                              <Link href="/treatments/advanced-gfc" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                GFC Growth Factor Concentrate
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/advanced-prp" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Advanced PRP Therapy
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/biocell-hair-therapy" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                BIOCELL Cellular Rejuvenation
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/hf-hair-therapy" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                HF Follicle Stimulation
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/exosomes" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Exosome Scalp Therapy
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/cbl-hair-therapy" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                CBL Cold Bio-Laser
-                              </Link>
-                            </li>
-                          </ul>
                           <Link
                             href="/treatments?category=hair"
                             className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
@@ -200,46 +168,9 @@ export default function Navbar() {
                               22 Specialized Clinical Techniques
                             </span>
                           </Link>
-                          <ul className="mt-3 space-y-2">
-                            <li>
-                              <Link href="/treatments/celebrity-hair-transplant" className="block text-[13px] font-medium text-charcoal/90 transition-colors hover:text-gold-dark">
-                                Celebrity Hair Transplant
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/crown-hair-transplant" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Crown Hair Transplant
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/fue-hair-transplant" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                FUE Micro-Grafting
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/hairline-reconstruction" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Hairline Reconstruction
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/male-hair-transplant" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Male Hair Restoration
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/female-hair-transplant" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Female Hair Transplant
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/beard-hair-transplant" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Beard &amp; Moustache FUE
-                              </Link>
-                            </li>
-                          </ul>
                           <Link
                             href="/treatments?subCategory=hair-transplant"
-                            className="mt-3 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
+                            className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
                           >
                             View All 22 Transplant Options →
                           </Link>
@@ -256,51 +187,9 @@ export default function Navbar() {
                               Acne · Pigment · Medi Facials · Botox · Fillers
                             </span>
                           </Link>
-                          <ul className="mt-3 space-y-2">
-                            <li>
-                              <Link href="/treatments/acne-scar-treatment" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Acne &amp; Scar Remodeling (MNRF, CO2)
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/pigmentation-treatment" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Pigmentation &amp; Laser Toning
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/korean-medi-facial" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Korean Glass Skin Medi Facial
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/laser-hair-removal" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                US FDA Laser Hair Removal
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/botox" className="block text-[13px] font-medium text-charcoal/90 transition-colors hover:text-gold-dark">
-                                Botox &amp; Wrinkle Softening
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/fillers" className="block text-[13px] font-medium text-charcoal/90 transition-colors hover:text-gold-dark">
-                                Dermal Fillers (Lips &amp; Cheeks)
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/hifu-double-chin" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                HIFU Non-Surgical Lift
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/thread-lift" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Collagen Thread Lift
-                              </Link>
-                            </li>
-                          </ul>
                           <Link
                             href="/treatments?category=skin"
-                            className="mt-3 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
+                            className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
                           >
                             Explore All Skin &amp; Aesthetics →
                           </Link>
@@ -317,41 +206,9 @@ export default function Navbar() {
                               Permanent Makeup &amp; Academy
                             </span>
                           </Link>
-                          <ul className="mt-3 space-y-2">
-                            <li>
-                              <Link href="/treatments/eyebrow-microblading" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Eyebrow Microblading &amp; Shading
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/lip-tinting" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Semi-Permanent Lip Blush
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/permanent-eyeliner" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Permanent Eyeliner Definition
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/treatments/smp-pmu" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Scalp Micropigmentation (SMP)
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/academy" className="block text-[13px] font-medium text-gold-dark transition-colors hover:underline">
-                                🎓 PMU Certified Academy
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/academy" className="block text-[13px] text-charcoal/80 transition-colors hover:text-gold-dark">
-                                Hands-On Masterclass Training
-                              </Link>
-                            </li>
-                          </ul>
                           <Link
                             href="/pmu-services"
-                            className="mt-3 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
+                            className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
                           >
                             PMU Services &amp; Academy →
                           </Link>
@@ -393,7 +250,11 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 font-grotesk text-[13px] font-semibold uppercase tracking-widest2 text-charcoal transition-colors hover:bg-gold-light"
+            className={`inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-grotesk text-[13px] font-semibold uppercase tracking-widest2 transition-colors ${
+              onDarkHero
+                ? "bg-ivory text-charcoal hover:bg-ivory-100"
+                : "bg-gold text-charcoal hover:bg-gold-light"
+            }`}
           >
             Book Consultation →
           </Link>
