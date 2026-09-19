@@ -161,19 +161,29 @@ export default function Footer() {
           <p className="font-grotesk text-[13px] text-ivory/60">
             © 2026 Crown Celebrity Aesthetic. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <Link
-              href="/privacy"
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+            <div className="flex gap-6">
+              <Link
+                href="/privacy"
+                className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
+              >
+                Terms
+              </Link>
+            </div>
+            <a
+              href="https://naazailabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
             >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
-            >
-              Terms
-            </Link>
+              Designed and developed by Naaz AI Labs
+            </a>
           </div>
         </div>
       </Reveal>
