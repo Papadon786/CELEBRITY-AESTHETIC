@@ -8,34 +8,45 @@ export function StatCard({
   icon: Icon,
   tone = "default",
   hint,
+  className,
 }: {
   label: string
   value: number | string
   icon: LucideIcon
   tone?: "default" | "info" | "accent" | "warning" | "danger" | "success"
   hint?: string
+  className?: string
 }) {
   const toneClasses: Record<string, string> = {
-    default: "bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300",
-    info: "bg-violet-100 text-violet-700 dark:bg-violet-950 dark:text-violet-300",
-    accent: "bg-teal-100 text-teal-700 dark:bg-teal-950 dark:text-teal-300",
-    warning: "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
-    danger: "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300",
-    success: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
+    default: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400 border border-blue-500/15",
+    info: "bg-violet-500/10 text-violet-600 dark:bg-violet-500/15 dark:text-violet-400 border border-violet-500/15",
+    accent: "bg-teal-500/10 text-teal-600 dark:bg-teal-500/15 dark:text-teal-400 border border-teal-500/15",
+    warning: "bg-amber-500/10 text-amber-600 dark:bg-amber-500/15 dark:text-amber-400 border border-amber-500/15",
+    danger: "bg-rose-500/10 text-rose-600 dark:bg-rose-500/15 dark:text-rose-400 border border-rose-500/15",
+    success: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400 border border-emerald-500/15",
   }
 
   return (
-    <Card>
-      <CardContent className="flex items-center gap-2.5 py-3.5 sm:gap-4 sm:py-5">
-        <div className={cn("flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-11 sm:w-11 sm:rounded-xl", toneClasses[tone])}>
-          <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+    <Card className={cn("group flex flex-col justify-between overflow-hidden border border-border/60 bg-card p-3.5 sm:p-4 shadow-xs transition-all duration-150 hover:border-border hover:shadow-sm", className)}>
+      <div className="flex items-center justify-between gap-2">
+        <div
+          className={cn(
+            "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-transform duration-150 group-hover:scale-105 sm:h-10 sm:w-10",
+            toneClasses[tone]
+          )}
+        >
+          <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
         </div>
-        <div className="min-w-0">
-          <p className="text-xl font-semibold leading-tight sm:text-2xl">{value}</p>
-          <p className="text-xs text-muted-foreground leading-snug sm:text-sm">{label}</p>
-          {hint && <p className="text-xs text-muted-foreground/80 mt-0.5">{hint}</p>}
-        </div>
-      </CardContent>
+        <p className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl tabular-nums text-right">
+          {value}
+        </p>
+      </div>
+      <div className="mt-2.5 min-w-0">
+        <p className="text-xs sm:text-sm font-medium text-muted-foreground leading-snug break-words">
+          {label}
+        </p>
+        {hint && <p className="text-[11px] text-muted-foreground/80 mt-0.5 truncate">{hint}</p>}
+      </div>
     </Card>
   )
 }

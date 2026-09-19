@@ -452,6 +452,9 @@ export type PatientWhereInput = {
   refunds?: Prisma.RefundListRelationFilter
   advances?: Prisma.PatientAdvanceListRelationFilter
   campaignRecipients?: Prisma.CampaignRecipientListRelationFilter
+  convertedFromLeads?: Prisma.LeadListRelationFilter
+  convertedFromProspects?: Prisma.ProspectListRelationFilter
+  clientAccounts?: Prisma.ClientAccountListRelationFilter
 }
 
 export type PatientOrderByWithRelationInput = {
@@ -517,6 +520,9 @@ export type PatientOrderByWithRelationInput = {
   refunds?: Prisma.RefundOrderByRelationAggregateInput
   advances?: Prisma.PatientAdvanceOrderByRelationAggregateInput
   campaignRecipients?: Prisma.CampaignRecipientOrderByRelationAggregateInput
+  convertedFromLeads?: Prisma.LeadOrderByRelationAggregateInput
+  convertedFromProspects?: Prisma.ProspectOrderByRelationAggregateInput
+  clientAccounts?: Prisma.ClientAccountOrderByRelationAggregateInput
 }
 
 export type PatientWhereUniqueInput = Prisma.AtLeast<{
@@ -585,6 +591,9 @@ export type PatientWhereUniqueInput = Prisma.AtLeast<{
   refunds?: Prisma.RefundListRelationFilter
   advances?: Prisma.PatientAdvanceListRelationFilter
   campaignRecipients?: Prisma.CampaignRecipientListRelationFilter
+  convertedFromLeads?: Prisma.LeadListRelationFilter
+  convertedFromProspects?: Prisma.ProspectListRelationFilter
+  clientAccounts?: Prisma.ClientAccountListRelationFilter
 }, "id" | "uhid">
 
 export type PatientOrderByWithAggregationInput = {
@@ -723,6 +732,9 @@ export type PatientCreateInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateInput = {
@@ -787,6 +799,9 @@ export type PatientUncheckedCreateInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUpdateInput = {
@@ -851,6 +866,9 @@ export type PatientUpdateInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateInput = {
@@ -915,6 +933,9 @@ export type PatientUncheckedUpdateInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateManyInput = {
@@ -1648,6 +1669,54 @@ export type PatientUpdateOneWithoutInventoryTransactionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PatientUpdateToOneWithWhereWithoutInventoryTransactionsInput, Prisma.PatientUpdateWithoutInventoryTransactionsInput>, Prisma.PatientUncheckedUpdateWithoutInventoryTransactionsInput>
 }
 
+export type PatientCreateNestedOneWithoutConvertedFromLeadsInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromLeadsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromLeadsInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutConvertedFromLeadsInput
+  connect?: Prisma.PatientWhereUniqueInput
+}
+
+export type PatientUpdateOneWithoutConvertedFromLeadsNestedInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromLeadsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromLeadsInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutConvertedFromLeadsInput
+  upsert?: Prisma.PatientUpsertWithoutConvertedFromLeadsInput
+  disconnect?: Prisma.PatientWhereInput | boolean
+  delete?: Prisma.PatientWhereInput | boolean
+  connect?: Prisma.PatientWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PatientUpdateToOneWithWhereWithoutConvertedFromLeadsInput, Prisma.PatientUpdateWithoutConvertedFromLeadsInput>, Prisma.PatientUncheckedUpdateWithoutConvertedFromLeadsInput>
+}
+
+export type PatientCreateNestedOneWithoutConvertedFromProspectsInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromProspectsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromProspectsInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutConvertedFromProspectsInput
+  connect?: Prisma.PatientWhereUniqueInput
+}
+
+export type PatientUpdateOneWithoutConvertedFromProspectsNestedInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromProspectsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromProspectsInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutConvertedFromProspectsInput
+  upsert?: Prisma.PatientUpsertWithoutConvertedFromProspectsInput
+  disconnect?: Prisma.PatientWhereInput | boolean
+  delete?: Prisma.PatientWhereInput | boolean
+  connect?: Prisma.PatientWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PatientUpdateToOneWithWhereWithoutConvertedFromProspectsInput, Prisma.PatientUpdateWithoutConvertedFromProspectsInput>, Prisma.PatientUncheckedUpdateWithoutConvertedFromProspectsInput>
+}
+
+export type PatientCreateNestedOneWithoutClientAccountsInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutClientAccountsInput, Prisma.PatientUncheckedCreateWithoutClientAccountsInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutClientAccountsInput
+  connect?: Prisma.PatientWhereUniqueInput
+}
+
+export type PatientUpdateOneWithoutClientAccountsNestedInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutClientAccountsInput, Prisma.PatientUncheckedCreateWithoutClientAccountsInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutClientAccountsInput
+  upsert?: Prisma.PatientUpsertWithoutClientAccountsInput
+  disconnect?: Prisma.PatientWhereInput | boolean
+  delete?: Prisma.PatientWhereInput | boolean
+  connect?: Prisma.PatientWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PatientUpdateToOneWithWhereWithoutClientAccountsInput, Prisma.PatientUpdateWithoutClientAccountsInput>, Prisma.PatientUncheckedUpdateWithoutClientAccountsInput>
+}
+
 export type PatientCreateWithoutRegisteredByInput = {
   id?: string
   uhid: string
@@ -1709,6 +1778,9 @@ export type PatientCreateWithoutRegisteredByInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutRegisteredByInput = {
@@ -1772,6 +1844,9 @@ export type PatientUncheckedCreateWithoutRegisteredByInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutRegisteredByInput = {
@@ -1897,6 +1972,9 @@ export type PatientCreateWithoutTagsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutTagsInput = {
@@ -1960,6 +2038,9 @@ export type PatientUncheckedCreateWithoutTagsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutTagsInput = {
@@ -2039,6 +2120,9 @@ export type PatientUpdateWithoutTagsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutTagsInput = {
@@ -2102,6 +2186,9 @@ export type PatientUncheckedUpdateWithoutTagsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutFamilyMembersInput = {
@@ -2165,6 +2252,9 @@ export type PatientCreateWithoutFamilyMembersInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutFamilyMembersInput = {
@@ -2228,6 +2318,9 @@ export type PatientUncheckedCreateWithoutFamilyMembersInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutFamilyMembersInput = {
@@ -2296,6 +2389,9 @@ export type PatientCreateWithoutRelatedToFamilyOfInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutRelatedToFamilyOfInput = {
@@ -2359,6 +2455,9 @@ export type PatientUncheckedCreateWithoutRelatedToFamilyOfInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutRelatedToFamilyOfInput = {
@@ -2438,6 +2537,9 @@ export type PatientUpdateWithoutFamilyMembersInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutFamilyMembersInput = {
@@ -2501,6 +2603,9 @@ export type PatientUncheckedUpdateWithoutFamilyMembersInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUpsertWithoutRelatedToFamilyOfInput = {
@@ -2575,6 +2680,9 @@ export type PatientUpdateWithoutRelatedToFamilyOfInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutRelatedToFamilyOfInput = {
@@ -2638,6 +2746,9 @@ export type PatientUncheckedUpdateWithoutRelatedToFamilyOfInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutInsurancesInput = {
@@ -2701,6 +2812,9 @@ export type PatientCreateWithoutInsurancesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutInsurancesInput = {
@@ -2764,6 +2878,9 @@ export type PatientUncheckedCreateWithoutInsurancesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutInsurancesInput = {
@@ -2843,6 +2960,9 @@ export type PatientUpdateWithoutInsurancesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutInsurancesInput = {
@@ -2906,6 +3026,9 @@ export type PatientUncheckedUpdateWithoutInsurancesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutEmergencyContactsInput = {
@@ -2969,6 +3092,9 @@ export type PatientCreateWithoutEmergencyContactsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutEmergencyContactsInput = {
@@ -3032,6 +3158,9 @@ export type PatientUncheckedCreateWithoutEmergencyContactsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutEmergencyContactsInput = {
@@ -3111,6 +3240,9 @@ export type PatientUpdateWithoutEmergencyContactsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutEmergencyContactsInput = {
@@ -3174,6 +3306,9 @@ export type PatientUncheckedUpdateWithoutEmergencyContactsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutMedicalAlertsInput = {
@@ -3237,6 +3372,9 @@ export type PatientCreateWithoutMedicalAlertsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutMedicalAlertsInput = {
@@ -3300,6 +3438,9 @@ export type PatientUncheckedCreateWithoutMedicalAlertsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutMedicalAlertsInput = {
@@ -3379,6 +3520,9 @@ export type PatientUpdateWithoutMedicalAlertsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutMedicalAlertsInput = {
@@ -3442,6 +3586,9 @@ export type PatientUncheckedUpdateWithoutMedicalAlertsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutAllergiesInput = {
@@ -3505,6 +3652,9 @@ export type PatientCreateWithoutAllergiesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutAllergiesInput = {
@@ -3568,6 +3718,9 @@ export type PatientUncheckedCreateWithoutAllergiesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutAllergiesInput = {
@@ -3647,6 +3800,9 @@ export type PatientUpdateWithoutAllergiesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutAllergiesInput = {
@@ -3710,6 +3866,9 @@ export type PatientUncheckedUpdateWithoutAllergiesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutChronicDiseasesInput = {
@@ -3773,6 +3932,9 @@ export type PatientCreateWithoutChronicDiseasesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutChronicDiseasesInput = {
@@ -3836,6 +3998,9 @@ export type PatientUncheckedCreateWithoutChronicDiseasesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutChronicDiseasesInput = {
@@ -3915,6 +4080,9 @@ export type PatientUpdateWithoutChronicDiseasesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutChronicDiseasesInput = {
@@ -3978,6 +4146,9 @@ export type PatientUncheckedUpdateWithoutChronicDiseasesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutDocumentsInput = {
@@ -4041,6 +4212,9 @@ export type PatientCreateWithoutDocumentsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutDocumentsInput = {
@@ -4104,6 +4278,9 @@ export type PatientUncheckedCreateWithoutDocumentsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutDocumentsInput = {
@@ -4183,6 +4360,9 @@ export type PatientUpdateWithoutDocumentsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutDocumentsInput = {
@@ -4246,6 +4426,9 @@ export type PatientUncheckedUpdateWithoutDocumentsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutCommunicationPreferenceInput = {
@@ -4309,6 +4492,9 @@ export type PatientCreateWithoutCommunicationPreferenceInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutCommunicationPreferenceInput = {
@@ -4372,6 +4558,9 @@ export type PatientUncheckedCreateWithoutCommunicationPreferenceInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutCommunicationPreferenceInput = {
@@ -4451,6 +4640,9 @@ export type PatientUpdateWithoutCommunicationPreferenceInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutCommunicationPreferenceInput = {
@@ -4514,6 +4706,9 @@ export type PatientUncheckedUpdateWithoutCommunicationPreferenceInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutAppointmentsInput = {
@@ -4577,6 +4772,9 @@ export type PatientCreateWithoutAppointmentsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutAppointmentsInput = {
@@ -4640,6 +4838,9 @@ export type PatientUncheckedCreateWithoutAppointmentsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutAppointmentsInput = {
@@ -4719,6 +4920,9 @@ export type PatientUpdateWithoutAppointmentsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutAppointmentsInput = {
@@ -4782,6 +4986,9 @@ export type PatientUncheckedUpdateWithoutAppointmentsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutWaitingListEntriesInput = {
@@ -4845,6 +5052,9 @@ export type PatientCreateWithoutWaitingListEntriesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutWaitingListEntriesInput = {
@@ -4908,6 +5118,9 @@ export type PatientUncheckedCreateWithoutWaitingListEntriesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutWaitingListEntriesInput = {
@@ -4987,6 +5200,9 @@ export type PatientUpdateWithoutWaitingListEntriesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutWaitingListEntriesInput = {
@@ -5050,6 +5266,9 @@ export type PatientUncheckedUpdateWithoutWaitingListEntriesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutPrescriptionsInput = {
@@ -5113,6 +5332,9 @@ export type PatientCreateWithoutPrescriptionsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutPrescriptionsInput = {
@@ -5176,6 +5398,9 @@ export type PatientUncheckedCreateWithoutPrescriptionsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutPrescriptionsInput = {
@@ -5255,6 +5480,9 @@ export type PatientUpdateWithoutPrescriptionsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutPrescriptionsInput = {
@@ -5318,6 +5546,9 @@ export type PatientUncheckedUpdateWithoutPrescriptionsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutBillsInput = {
@@ -5381,6 +5612,9 @@ export type PatientCreateWithoutBillsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutBillsInput = {
@@ -5444,6 +5678,9 @@ export type PatientUncheckedCreateWithoutBillsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutBillsInput = {
@@ -5523,6 +5760,9 @@ export type PatientUpdateWithoutBillsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutBillsInput = {
@@ -5586,6 +5826,9 @@ export type PatientUncheckedUpdateWithoutBillsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutPaymentsInput = {
@@ -5649,6 +5892,9 @@ export type PatientCreateWithoutPaymentsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutPaymentsInput = {
@@ -5712,6 +5958,9 @@ export type PatientUncheckedCreateWithoutPaymentsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutPaymentsInput = {
@@ -5791,6 +6040,9 @@ export type PatientUpdateWithoutPaymentsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutPaymentsInput = {
@@ -5854,6 +6106,9 @@ export type PatientUncheckedUpdateWithoutPaymentsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutRefundsInput = {
@@ -5917,6 +6172,9 @@ export type PatientCreateWithoutRefundsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutRefundsInput = {
@@ -5980,6 +6238,9 @@ export type PatientUncheckedCreateWithoutRefundsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutRefundsInput = {
@@ -6059,6 +6320,9 @@ export type PatientUpdateWithoutRefundsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutRefundsInput = {
@@ -6122,6 +6386,9 @@ export type PatientUncheckedUpdateWithoutRefundsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutAdvancesInput = {
@@ -6185,6 +6452,9 @@ export type PatientCreateWithoutAdvancesInput = {
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPatientInput
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutAdvancesInput = {
@@ -6248,6 +6518,9 @@ export type PatientUncheckedCreateWithoutAdvancesInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPatientInput
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutAdvancesInput = {
@@ -6327,6 +6600,9 @@ export type PatientUpdateWithoutAdvancesInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPatientNestedInput
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutAdvancesInput = {
@@ -6390,6 +6666,9 @@ export type PatientUncheckedUpdateWithoutAdvancesInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPatientNestedInput
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutMessagesInput = {
@@ -6453,6 +6732,9 @@ export type PatientCreateWithoutMessagesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutMessagesInput = {
@@ -6516,6 +6798,9 @@ export type PatientUncheckedCreateWithoutMessagesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutMessagesInput = {
@@ -6595,6 +6880,9 @@ export type PatientUpdateWithoutMessagesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutMessagesInput = {
@@ -6658,6 +6946,9 @@ export type PatientUncheckedUpdateWithoutMessagesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutCampaignRecipientsInput = {
@@ -6721,6 +7012,9 @@ export type PatientCreateWithoutCampaignRecipientsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPatientInput
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutCampaignRecipientsInput = {
@@ -6784,6 +7078,9 @@ export type PatientUncheckedCreateWithoutCampaignRecipientsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPatientInput
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutCampaignRecipientsInput = {
@@ -6863,6 +7160,9 @@ export type PatientUpdateWithoutCampaignRecipientsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPatientNestedInput
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutCampaignRecipientsInput = {
@@ -6926,6 +7226,9 @@ export type PatientUncheckedUpdateWithoutCampaignRecipientsInput = {
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPatientNestedInput
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutNotesInput = {
@@ -6989,6 +7292,9 @@ export type PatientCreateWithoutNotesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutNotesInput = {
@@ -7052,6 +7358,9 @@ export type PatientUncheckedCreateWithoutNotesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutNotesInput = {
@@ -7131,6 +7440,9 @@ export type PatientUpdateWithoutNotesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutNotesInput = {
@@ -7194,6 +7506,9 @@ export type PatientUncheckedUpdateWithoutNotesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutFollowUpsInput = {
@@ -7257,6 +7572,9 @@ export type PatientCreateWithoutFollowUpsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutFollowUpsInput = {
@@ -7320,6 +7638,9 @@ export type PatientUncheckedCreateWithoutFollowUpsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutFollowUpsInput = {
@@ -7399,6 +7720,9 @@ export type PatientUpdateWithoutFollowUpsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutFollowUpsInput = {
@@ -7462,6 +7786,9 @@ export type PatientUncheckedUpdateWithoutFollowUpsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutFeedbackInput = {
@@ -7525,6 +7852,9 @@ export type PatientCreateWithoutFeedbackInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutFeedbackInput = {
@@ -7588,6 +7918,9 @@ export type PatientUncheckedCreateWithoutFeedbackInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutFeedbackInput = {
@@ -7667,6 +8000,9 @@ export type PatientUpdateWithoutFeedbackInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutFeedbackInput = {
@@ -7730,6 +8066,9 @@ export type PatientUncheckedUpdateWithoutFeedbackInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutEncountersInput = {
@@ -7793,6 +8132,9 @@ export type PatientCreateWithoutEncountersInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutEncountersInput = {
@@ -7856,6 +8198,9 @@ export type PatientUncheckedCreateWithoutEncountersInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutEncountersInput = {
@@ -7935,6 +8280,9 @@ export type PatientUpdateWithoutEncountersInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutEncountersInput = {
@@ -7998,6 +8346,9 @@ export type PatientUncheckedUpdateWithoutEncountersInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutMedicalHistoryInput = {
@@ -8061,6 +8412,9 @@ export type PatientCreateWithoutMedicalHistoryInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutMedicalHistoryInput = {
@@ -8124,6 +8478,9 @@ export type PatientUncheckedCreateWithoutMedicalHistoryInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutMedicalHistoryInput = {
@@ -8203,6 +8560,9 @@ export type PatientUpdateWithoutMedicalHistoryInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutMedicalHistoryInput = {
@@ -8266,6 +8626,9 @@ export type PatientUncheckedUpdateWithoutMedicalHistoryInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutFamilyHistoryInput = {
@@ -8329,6 +8692,9 @@ export type PatientCreateWithoutFamilyHistoryInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutFamilyHistoryInput = {
@@ -8392,6 +8758,9 @@ export type PatientUncheckedCreateWithoutFamilyHistoryInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutFamilyHistoryInput = {
@@ -8471,6 +8840,9 @@ export type PatientUpdateWithoutFamilyHistoryInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutFamilyHistoryInput = {
@@ -8534,6 +8906,9 @@ export type PatientUncheckedUpdateWithoutFamilyHistoryInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutSurgicalHistoryInput = {
@@ -8597,6 +8972,9 @@ export type PatientCreateWithoutSurgicalHistoryInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutSurgicalHistoryInput = {
@@ -8660,6 +9038,9 @@ export type PatientUncheckedCreateWithoutSurgicalHistoryInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutSurgicalHistoryInput = {
@@ -8739,6 +9120,9 @@ export type PatientUpdateWithoutSurgicalHistoryInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutSurgicalHistoryInput = {
@@ -8802,6 +9186,9 @@ export type PatientUncheckedUpdateWithoutSurgicalHistoryInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutCurrentMedicationsInput = {
@@ -8865,6 +9252,9 @@ export type PatientCreateWithoutCurrentMedicationsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutCurrentMedicationsInput = {
@@ -8928,6 +9318,9 @@ export type PatientUncheckedCreateWithoutCurrentMedicationsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutCurrentMedicationsInput = {
@@ -9007,6 +9400,9 @@ export type PatientUpdateWithoutCurrentMedicationsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutCurrentMedicationsInput = {
@@ -9070,6 +9466,9 @@ export type PatientUncheckedUpdateWithoutCurrentMedicationsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutClinicalReportsInput = {
@@ -9133,6 +9532,9 @@ export type PatientCreateWithoutClinicalReportsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutClinicalReportsInput = {
@@ -9196,6 +9598,9 @@ export type PatientUncheckedCreateWithoutClinicalReportsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutClinicalReportsInput = {
@@ -9275,6 +9680,9 @@ export type PatientUpdateWithoutClinicalReportsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutClinicalReportsInput = {
@@ -9338,6 +9746,9 @@ export type PatientUncheckedUpdateWithoutClinicalReportsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutReferralNotesInput = {
@@ -9401,6 +9812,9 @@ export type PatientCreateWithoutReferralNotesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutReferralNotesInput = {
@@ -9464,6 +9878,9 @@ export type PatientUncheckedCreateWithoutReferralNotesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutReferralNotesInput = {
@@ -9543,6 +9960,9 @@ export type PatientUpdateWithoutReferralNotesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutReferralNotesInput = {
@@ -9606,6 +10026,9 @@ export type PatientUncheckedUpdateWithoutReferralNotesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutCertificatesInput = {
@@ -9669,6 +10092,9 @@ export type PatientCreateWithoutCertificatesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutCertificatesInput = {
@@ -9732,6 +10158,9 @@ export type PatientUncheckedCreateWithoutCertificatesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutCertificatesInput = {
@@ -9811,6 +10240,9 @@ export type PatientUpdateWithoutCertificatesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutCertificatesInput = {
@@ -9874,6 +10306,9 @@ export type PatientUncheckedUpdateWithoutCertificatesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientCreateWithoutInventoryTransactionsInput = {
@@ -9937,6 +10372,9 @@ export type PatientCreateWithoutInventoryTransactionsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
 }
 
 export type PatientUncheckedCreateWithoutInventoryTransactionsInput = {
@@ -10000,6 +10438,9 @@ export type PatientUncheckedCreateWithoutInventoryTransactionsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
   advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
 }
 
 export type PatientCreateOrConnectWithoutInventoryTransactionsInput = {
@@ -10079,6 +10520,9 @@ export type PatientUpdateWithoutInventoryTransactionsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutInventoryTransactionsInput = {
@@ -10142,6 +10586,849 @@ export type PatientUncheckedUpdateWithoutInventoryTransactionsInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
+}
+
+export type PatientCreateWithoutConvertedFromLeadsInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  registeredBy?: Prisma.UserCreateNestedOneWithoutRegisteredPatientsInput
+  tags?: Prisma.PatientTagCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
+}
+
+export type PatientUncheckedCreateWithoutConvertedFromLeadsInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registeredById?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tags?: Prisma.PatientTagUncheckedCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceUncheckedCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyUncheckedCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillUncheckedCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
+}
+
+export type PatientCreateOrConnectWithoutConvertedFromLeadsInput = {
+  where: Prisma.PatientWhereUniqueInput
+  create: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromLeadsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromLeadsInput>
+}
+
+export type PatientUpsertWithoutConvertedFromLeadsInput = {
+  update: Prisma.XOR<Prisma.PatientUpdateWithoutConvertedFromLeadsInput, Prisma.PatientUncheckedUpdateWithoutConvertedFromLeadsInput>
+  create: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromLeadsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromLeadsInput>
+  where?: Prisma.PatientWhereInput
+}
+
+export type PatientUpdateToOneWithWhereWithoutConvertedFromLeadsInput = {
+  where?: Prisma.PatientWhereInput
+  data: Prisma.XOR<Prisma.PatientUpdateWithoutConvertedFromLeadsInput, Prisma.PatientUncheckedUpdateWithoutConvertedFromLeadsInput>
+}
+
+export type PatientUpdateWithoutConvertedFromLeadsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registeredBy?: Prisma.UserUpdateOneWithoutRegisteredPatientsNestedInput
+  tags?: Prisma.PatientTagUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
+}
+
+export type PatientUncheckedUpdateWithoutConvertedFromLeadsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tags?: Prisma.PatientTagUncheckedUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUncheckedUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUncheckedUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUncheckedUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUncheckedUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUncheckedUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUncheckedUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUncheckedUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
+}
+
+export type PatientCreateWithoutConvertedFromProspectsInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  registeredBy?: Prisma.UserCreateNestedOneWithoutRegisteredPatientsInput
+  tags?: Prisma.PatientTagCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
+}
+
+export type PatientUncheckedCreateWithoutConvertedFromProspectsInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registeredById?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tags?: Prisma.PatientTagUncheckedCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceUncheckedCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyUncheckedCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillUncheckedCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
+}
+
+export type PatientCreateOrConnectWithoutConvertedFromProspectsInput = {
+  where: Prisma.PatientWhereUniqueInput
+  create: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromProspectsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromProspectsInput>
+}
+
+export type PatientUpsertWithoutConvertedFromProspectsInput = {
+  update: Prisma.XOR<Prisma.PatientUpdateWithoutConvertedFromProspectsInput, Prisma.PatientUncheckedUpdateWithoutConvertedFromProspectsInput>
+  create: Prisma.XOR<Prisma.PatientCreateWithoutConvertedFromProspectsInput, Prisma.PatientUncheckedCreateWithoutConvertedFromProspectsInput>
+  where?: Prisma.PatientWhereInput
+}
+
+export type PatientUpdateToOneWithWhereWithoutConvertedFromProspectsInput = {
+  where?: Prisma.PatientWhereInput
+  data: Prisma.XOR<Prisma.PatientUpdateWithoutConvertedFromProspectsInput, Prisma.PatientUncheckedUpdateWithoutConvertedFromProspectsInput>
+}
+
+export type PatientUpdateWithoutConvertedFromProspectsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registeredBy?: Prisma.UserUpdateOneWithoutRegisteredPatientsNestedInput
+  tags?: Prisma.PatientTagUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
+}
+
+export type PatientUncheckedUpdateWithoutConvertedFromProspectsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tags?: Prisma.PatientTagUncheckedUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUncheckedUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUncheckedUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUncheckedUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUncheckedUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUncheckedUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUncheckedUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUncheckedUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
+}
+
+export type PatientCreateWithoutClientAccountsInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  registeredBy?: Prisma.UserCreateNestedOneWithoutRegisteredPatientsInput
+  tags?: Prisma.PatientTagCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+}
+
+export type PatientUncheckedCreateWithoutClientAccountsInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registeredById?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tags?: Prisma.PatientTagUncheckedCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceUncheckedCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyUncheckedCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillUncheckedCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+}
+
+export type PatientCreateOrConnectWithoutClientAccountsInput = {
+  where: Prisma.PatientWhereUniqueInput
+  create: Prisma.XOR<Prisma.PatientCreateWithoutClientAccountsInput, Prisma.PatientUncheckedCreateWithoutClientAccountsInput>
+}
+
+export type PatientUpsertWithoutClientAccountsInput = {
+  update: Prisma.XOR<Prisma.PatientUpdateWithoutClientAccountsInput, Prisma.PatientUncheckedUpdateWithoutClientAccountsInput>
+  create: Prisma.XOR<Prisma.PatientCreateWithoutClientAccountsInput, Prisma.PatientUncheckedCreateWithoutClientAccountsInput>
+  where?: Prisma.PatientWhereInput
+}
+
+export type PatientUpdateToOneWithWhereWithoutClientAccountsInput = {
+  where?: Prisma.PatientWhereInput
+  data: Prisma.XOR<Prisma.PatientUpdateWithoutClientAccountsInput, Prisma.PatientUncheckedUpdateWithoutClientAccountsInput>
+}
+
+export type PatientUpdateWithoutClientAccountsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registeredBy?: Prisma.UserUpdateOneWithoutRegisteredPatientsNestedInput
+  tags?: Prisma.PatientTagUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+}
+
+export type PatientUncheckedUpdateWithoutClientAccountsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tags?: Prisma.PatientTagUncheckedUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUncheckedUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUncheckedUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUncheckedUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUncheckedUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUncheckedUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUncheckedUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUncheckedUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
 }
 
 export type PatientCreateManyRegisteredByInput = {
@@ -10237,6 +11524,9 @@ export type PatientUpdateWithoutRegisteredByInput = {
   refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateWithoutRegisteredByInput = {
@@ -10300,6 +11590,9 @@ export type PatientUncheckedUpdateWithoutRegisteredByInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
   advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
   campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
 }
 
 export type PatientUncheckedUpdateManyWithoutRegisteredByInput = {
@@ -10370,6 +11663,9 @@ export type PatientCountOutputType = {
   refunds: number
   advances: number
   campaignRecipients: number
+  convertedFromLeads: number
+  convertedFromProspects: number
+  clientAccounts: number
 }
 
 export type PatientCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -10403,6 +11699,9 @@ export type PatientCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   refunds?: boolean | PatientCountOutputTypeCountRefundsArgs
   advances?: boolean | PatientCountOutputTypeCountAdvancesArgs
   campaignRecipients?: boolean | PatientCountOutputTypeCountCampaignRecipientsArgs
+  convertedFromLeads?: boolean | PatientCountOutputTypeCountConvertedFromLeadsArgs
+  convertedFromProspects?: boolean | PatientCountOutputTypeCountConvertedFromProspectsArgs
+  clientAccounts?: boolean | PatientCountOutputTypeCountClientAccountsArgs
 }
 
 /**
@@ -10625,6 +11924,27 @@ export type PatientCountOutputTypeCountCampaignRecipientsArgs<ExtArgs extends ru
   where?: Prisma.CampaignRecipientWhereInput
 }
 
+/**
+ * PatientCountOutputType without action
+ */
+export type PatientCountOutputTypeCountConvertedFromLeadsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.LeadWhereInput
+}
+
+/**
+ * PatientCountOutputType without action
+ */
+export type PatientCountOutputTypeCountConvertedFromProspectsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProspectWhereInput
+}
+
+/**
+ * PatientCountOutputType without action
+ */
+export type PatientCountOutputTypeCountClientAccountsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ClientAccountWhereInput
+}
+
 
 export type PatientSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -10689,6 +12009,9 @@ export type PatientSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   refunds?: boolean | Prisma.Patient$refundsArgs<ExtArgs>
   advances?: boolean | Prisma.Patient$advancesArgs<ExtArgs>
   campaignRecipients?: boolean | Prisma.Patient$campaignRecipientsArgs<ExtArgs>
+  convertedFromLeads?: boolean | Prisma.Patient$convertedFromLeadsArgs<ExtArgs>
+  convertedFromProspects?: boolean | Prisma.Patient$convertedFromProspectsArgs<ExtArgs>
+  clientAccounts?: boolean | Prisma.Patient$clientAccountsArgs<ExtArgs>
   _count?: boolean | Prisma.PatientCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["patient"]>
 
@@ -10827,6 +12150,9 @@ export type PatientInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   refunds?: boolean | Prisma.Patient$refundsArgs<ExtArgs>
   advances?: boolean | Prisma.Patient$advancesArgs<ExtArgs>
   campaignRecipients?: boolean | Prisma.Patient$campaignRecipientsArgs<ExtArgs>
+  convertedFromLeads?: boolean | Prisma.Patient$convertedFromLeadsArgs<ExtArgs>
+  convertedFromProspects?: boolean | Prisma.Patient$convertedFromProspectsArgs<ExtArgs>
+  clientAccounts?: boolean | Prisma.Patient$clientAccountsArgs<ExtArgs>
   _count?: boolean | Prisma.PatientCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PatientIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -10871,6 +12197,9 @@ export type $PatientPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     refunds: Prisma.$RefundPayload<ExtArgs>[]
     advances: Prisma.$PatientAdvancePayload<ExtArgs>[]
     campaignRecipients: Prisma.$CampaignRecipientPayload<ExtArgs>[]
+    convertedFromLeads: Prisma.$LeadPayload<ExtArgs>[]
+    convertedFromProspects: Prisma.$ProspectPayload<ExtArgs>[]
+    clientAccounts: Prisma.$ClientAccountPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -11329,6 +12658,9 @@ export interface Prisma__PatientClient<T, Null = never, ExtArgs extends runtime.
   refunds<T extends Prisma.Patient$refundsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$refundsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RefundPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   advances<T extends Prisma.Patient$advancesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$advancesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PatientAdvancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   campaignRecipients<T extends Prisma.Patient$campaignRecipientsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$campaignRecipientsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CampaignRecipientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  convertedFromLeads<T extends Prisma.Patient$convertedFromLeadsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$convertedFromLeadsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  convertedFromProspects<T extends Prisma.Patient$convertedFromProspectsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$convertedFromProspectsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProspectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  clientAccounts<T extends Prisma.Patient$clientAccountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$clientAccountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClientAccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12544,6 +13876,78 @@ export type Patient$campaignRecipientsArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.CampaignRecipientScalarFieldEnum | Prisma.CampaignRecipientScalarFieldEnum[]
+}
+
+/**
+ * Patient.convertedFromLeads
+ */
+export type Patient$convertedFromLeadsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Lead
+   */
+  select?: Prisma.LeadSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Lead
+   */
+  omit?: Prisma.LeadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
+  where?: Prisma.LeadWhereInput
+  orderBy?: Prisma.LeadOrderByWithRelationInput | Prisma.LeadOrderByWithRelationInput[]
+  cursor?: Prisma.LeadWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.LeadScalarFieldEnum | Prisma.LeadScalarFieldEnum[]
+}
+
+/**
+ * Patient.convertedFromProspects
+ */
+export type Patient$convertedFromProspectsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Prospect
+   */
+  select?: Prisma.ProspectSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Prospect
+   */
+  omit?: Prisma.ProspectOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProspectInclude<ExtArgs> | null
+  where?: Prisma.ProspectWhereInput
+  orderBy?: Prisma.ProspectOrderByWithRelationInput | Prisma.ProspectOrderByWithRelationInput[]
+  cursor?: Prisma.ProspectWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProspectScalarFieldEnum | Prisma.ProspectScalarFieldEnum[]
+}
+
+/**
+ * Patient.clientAccounts
+ */
+export type Patient$clientAccountsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ClientAccount
+   */
+  select?: Prisma.ClientAccountSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ClientAccount
+   */
+  omit?: Prisma.ClientAccountOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ClientAccountInclude<ExtArgs> | null
+  where?: Prisma.ClientAccountWhereInput
+  orderBy?: Prisma.ClientAccountOrderByWithRelationInput | Prisma.ClientAccountOrderByWithRelationInput[]
+  cursor?: Prisma.ClientAccountWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ClientAccountScalarFieldEnum | Prisma.ClientAccountScalarFieldEnum[]
 }
 
 /**

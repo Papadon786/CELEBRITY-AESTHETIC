@@ -1021,6 +1021,91 @@ export type EnumInventoryAlertStatusWithAggregatesFilter<$PrismaModel = never> =
   _max?: Prisma.NestedEnumInventoryAlertStatusFilter<$PrismaModel>
 }
 
+export type EnumLeadStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadStatus | Prisma.EnumLeadStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadStatusFilter<$PrismaModel> | $Enums.LeadStatus
+}
+
+export type EnumLeadSourceFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadSource | Prisma.EnumLeadSourceFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadSourceFilter<$PrismaModel> | $Enums.LeadSource
+}
+
+export type EnumLeadStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadStatus | Prisma.EnumLeadStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadStatusWithAggregatesFilter<$PrismaModel> | $Enums.LeadStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLeadStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLeadStatusFilter<$PrismaModel>
+}
+
+export type EnumLeadSourceWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadSource | Prisma.EnumLeadSourceFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadSourceWithAggregatesFilter<$PrismaModel> | $Enums.LeadSource
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLeadSourceFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLeadSourceFilter<$PrismaModel>
+}
+
+export type EnumProspectStageFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProspectStage | Prisma.EnumProspectStageFieldRefInput<$PrismaModel>
+  in?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProspectStageFilter<$PrismaModel> | $Enums.ProspectStage
+}
+
+export type EnumProspectStageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProspectStage | Prisma.EnumProspectStageFieldRefInput<$PrismaModel>
+  in?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProspectStageWithAggregatesFilter<$PrismaModel> | $Enums.ProspectStage
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProspectStageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProspectStageFilter<$PrismaModel>
+}
+
+export type EnumClientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClientStatus | Prisma.EnumClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClientStatusFilter<$PrismaModel> | $Enums.ClientStatus
+}
+
+export type EnumRenewalStageFilter<$PrismaModel = never> = {
+  equals?: $Enums.RenewalStage | Prisma.EnumRenewalStageFieldRefInput<$PrismaModel>
+  in?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRenewalStageFilter<$PrismaModel> | $Enums.RenewalStage
+}
+
+export type EnumClientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClientStatus | Prisma.EnumClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClientStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClientStatusFilter<$PrismaModel>
+}
+
+export type EnumRenewalStageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RenewalStage | Prisma.EnumRenewalStageFieldRefInput<$PrismaModel>
+  in?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRenewalStageWithAggregatesFilter<$PrismaModel> | $Enums.RenewalStage
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRenewalStageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRenewalStageFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -2012,6 +2097,91 @@ export type NestedEnumInventoryAlertStatusWithAggregatesFilter<$PrismaModel = ne
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumInventoryAlertStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumInventoryAlertStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumLeadStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadStatus | Prisma.EnumLeadStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadStatusFilter<$PrismaModel> | $Enums.LeadStatus
+}
+
+export type NestedEnumLeadSourceFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadSource | Prisma.EnumLeadSourceFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadSourceFilter<$PrismaModel> | $Enums.LeadSource
+}
+
+export type NestedEnumLeadStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadStatus | Prisma.EnumLeadStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadStatus[] | Prisma.ListEnumLeadStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadStatusWithAggregatesFilter<$PrismaModel> | $Enums.LeadStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLeadStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLeadStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumLeadSourceWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LeadSource | Prisma.EnumLeadSourceFieldRefInput<$PrismaModel>
+  in?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LeadSource[] | Prisma.ListEnumLeadSourceFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLeadSourceWithAggregatesFilter<$PrismaModel> | $Enums.LeadSource
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLeadSourceFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLeadSourceFilter<$PrismaModel>
+}
+
+export type NestedEnumProspectStageFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProspectStage | Prisma.EnumProspectStageFieldRefInput<$PrismaModel>
+  in?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProspectStageFilter<$PrismaModel> | $Enums.ProspectStage
+}
+
+export type NestedEnumProspectStageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProspectStage | Prisma.EnumProspectStageFieldRefInput<$PrismaModel>
+  in?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProspectStage[] | Prisma.ListEnumProspectStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProspectStageWithAggregatesFilter<$PrismaModel> | $Enums.ProspectStage
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProspectStageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProspectStageFilter<$PrismaModel>
+}
+
+export type NestedEnumClientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClientStatus | Prisma.EnumClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClientStatusFilter<$PrismaModel> | $Enums.ClientStatus
+}
+
+export type NestedEnumRenewalStageFilter<$PrismaModel = never> = {
+  equals?: $Enums.RenewalStage | Prisma.EnumRenewalStageFieldRefInput<$PrismaModel>
+  in?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRenewalStageFilter<$PrismaModel> | $Enums.RenewalStage
+}
+
+export type NestedEnumClientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClientStatus | Prisma.EnumClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClientStatus[] | Prisma.ListEnumClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClientStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClientStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumRenewalStageWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RenewalStage | Prisma.EnumRenewalStageFieldRefInput<$PrismaModel>
+  in?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RenewalStage[] | Prisma.ListEnumRenewalStageFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRenewalStageWithAggregatesFilter<$PrismaModel> | $Enums.RenewalStage
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRenewalStageFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRenewalStageFilter<$PrismaModel>
 }
 
 

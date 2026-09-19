@@ -4,7 +4,16 @@ export const genderEnum = z.enum(["MALE", "FEMALE", "OTHER"])
 export const bloodGroupEnum = z.enum([
   "A_POS", "A_NEG", "B_POS", "B_NEG", "AB_POS", "AB_NEG", "O_POS", "O_NEG", "UNKNOWN",
 ])
-export const careCategoryEnum = z.enum(["SKIN_HAIR_LASER", "DIABETOLOGY", "GENERAL_MEDICINE"])
+export const careCategoryEnum = z.enum([
+  "HAIR_RESTORATION",
+  "HAIR_TRANSPLANT",
+  "SKIN_AND_LASER",
+  "PERMANENT_MAKEUP",
+  "ACADEMY",
+  "SKIN_HAIR_LASER",
+  "DIABETOLOGY",
+  "GENERAL_MEDICINE",
+])
 export const patientCoreSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required"),
   careCategory: careCategoryEnum,

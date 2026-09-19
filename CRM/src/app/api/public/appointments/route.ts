@@ -9,92 +9,115 @@ const INDIAN_MOBILE = /^(?:\+?91)?[6-9]\d{9}$/
 
 const SLOT_TAKEN = "This slot was just booked. Please choose another slot."
 
-const bookingSchema = z.object({
-  firstName: z.string().trim().min(1, "First name is required"),
-  lastName: z
-    .preprocess((v) => (typeof v === "string" && v.trim() === "" ? undefined : v), z.string().trim().optional()),
-  phone: z
-    .string()
-    .trim()
-    .refine((v) => INDIAN_MOBILE.test(v.replace(/[\s-]/g, "")), "Enter a valid 10-digit Indian mobile number"),
-  email: z
-    .preprocess(
-      (v) => (typeof v === "string" && v.trim() === "" ? undefined : v),
-      z.string().trim().email("Enter a valid email address").optional()
-    ),
-  gender: z
-    .preprocess((v) => {
-      if (typeof v === "string") {
-        const up = v.trim().toUpperCase()
-        return up === "" ? undefined : up
-      }
-      return v
-    }, z.enum(["MALE", "FEMALE", "OTHER"]).optional()),
-  serviceId: z.string().trim().min(1, "Service is required"),
-  doctorId: z.string().trim().min(1, "Doctor is required"),
-  scheduledAt: z
-    .string()
-    .trim()
-    .min(1, "Appointment time is required")
-    .refine((v) => !Number.isNaN(new Date(v).getTime()), "Appointment time is invalid")
-    .refine(
-      (v) => new Date(v).getTime() > Date.now() - 5 * 60 * 1000,
-      "Appointment time must be in the future"
-    ),
-  reason: z
-    .preprocess((v) => (typeof v === "string" && v.trim() === "" ? undefined : v), z.string().trim().optional()),
-  durationMinutes: z.number().int().positive().optional(),
-})
-
-/** Normalise "+919876543210" / "91 98765 43210" to the bare 10 digits. */
-function normalisePhone(raw: string) {
+function normalisePhone(raw: string): string {
   const digits = raw.replace(/\D/g, "")
   return digits.length > 10 ? digits.slice(-10) : digits
 }
 
-/** POST /api/public/appointments — public website booking. */
+/** POST /api/public/appointments — public website booking & enquiry capture. */
 export async function POST(request: Request) {
-  let body: unknown
+  let body: any
   try {
     body = await request.json()
   } catch {
     return error(request, "Validation failed", 400, { fields: { body: "Request body must be valid JSON" } })
   }
 
-  const parsed = bookingSchema.safeParse(body)
-  if (!parsed.success) {
-    const fields: Record<string, string> = {}
-    for (const issue of parsed.error.issues) {
-      const key = String(issue.path[0] ?? "body")
-      if (!fields[key]) fields[key] = issue.message
-    }
-    return error(request, "Validation failed", 400, { fields })
+  // Resolve flexible input fields from web
+  const rawName =
+    body.firstName ||
+    body.patientName ||
+    body.name ||
+    ""
+  const lastName = body.lastName || ""
+  const fullName = [rawName, lastName].filter(Boolean).join(" ").trim()
+
+  const rawPhone = body.phone || body.patientPhone || body.mobile || ""
+  const phone = normalisePhone(rawPhone)
+
+  if (!fullName) {
+    return error(request, "Validation failed", 400, { fields: { firstName: "Name is required" } })
+  }
+  if (!phone || phone.length < 7) {
+    return error(request, "Validation failed", 400, { fields: { phone: "A valid mobile phone number is required" } })
   }
 
-  const data = parsed.data
-  const scheduledAt = new Date(data.scheduledAt)
-  const phone = normalisePhone(data.phone)
+  const email = (body.email || body.patientEmail || "").trim() || null
+  const treatment = (body.treatment || body.service || "").trim()
+  const dateStr = (body.date || body.preferredDate || "").trim()
+  const timeStr = (body.time || body.startTime || body.preferredTime || "").trim()
+  const reason = (body.reason || body.chiefComplaint || body.message || "").trim()
 
-  const [service, doctor] = await Promise.all([
-    prisma.service.findFirst({
-      where: { id: data.serviceId, active: true },
-      select: { id: true, name: true, durationMinutes: true },
-    }),
-    prisma.user.findFirst({
-      where: { id: data.doctorId, role: "DOCTOR", active: true },
-      select: { id: true, name: true },
-    }),
-  ])
-
-  if (!service || !doctor) {
-    const fields: Record<string, string> = {}
-    if (!service) fields.serviceId = "Selected service is not available"
-    if (!doctor) fields.doctorId = "Selected doctor is not available"
-    return error(request, "Validation failed", 400, { fields })
+  // Resolve scheduledAt
+  let scheduledAt: Date
+  if (body.scheduledAt) {
+    scheduledAt = new Date(body.scheduledAt)
+  } else if (dateStr) {
+    const t = timeStr && timeStr.includes(":") ? timeStr : "11:00"
+    scheduledAt = new Date(`${dateStr}T${t}:00`)
+  } else {
+    // default to next business day at 11am if not specified
+    const nextDay = new Date()
+    nextDay.setDate(nextDay.getDate() + 1)
+    nextDay.setHours(11, 0, 0, 0)
+    scheduledAt = nextDay
   }
+
+  if (Number.isNaN(scheduledAt.getTime())) {
+    return error(request, "Validation failed", 400, { fields: { scheduledAt: "Invalid appointment time" } })
+  }
+
+  // Resolve Service
+  let service: any = null
+  if (body.serviceId) {
+    service = await prisma.service.findFirst({
+      where: { id: body.serviceId, active: true },
+    })
+  }
+  if (!service && treatment) {
+    const slugAttempt = treatment.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+    service = await prisma.service.findFirst({
+      where: {
+        OR: [
+          { slug: slugAttempt },
+          { name: { contains: treatment, mode: "insensitive" } },
+        ],
+        active: true,
+      },
+    })
+  }
+  if (!service) {
+    service = await prisma.service.findFirst({
+      where: { active: true },
+      orderBy: { displayOrder: "asc" },
+    })
+  }
+
+  // Resolve Doctor
+  let doctor: any = null
+  if (body.doctorId) {
+    doctor = await prisma.user.findFirst({
+      where: { id: body.doctorId, role: "DOCTOR", active: true },
+    })
+  }
+  if (!doctor) {
+    doctor = await prisma.user.findFirst({
+      where: { role: "DOCTOR", active: true },
+      orderBy: { createdAt: "asc" },
+    })
+  }
+
+  if (!doctor) {
+    return error(request, "Selected doctor is not available", 400)
+  }
+
+  const nameParts = fullName.split(/\s+/)
+  const firstName = nameParts[0]
+  const parsedLastName = nameParts.slice(1).join(" ") || null
 
   try {
     const result = await prisma.$transaction(async (tx) => {
+      // 1. Check conflict
       const conflict = await tx.appointment.findFirst({
         where: {
           doctorId: doctor.id,
@@ -105,6 +128,7 @@ export async function POST(request: Request) {
       })
       if (conflict) throw new Error(SLOT_TAKEN)
 
+      // 2. Find or create patient
       let patient = await tx.patient.findFirst({
         where: { phone },
         select: { id: true, uhid: true },
@@ -115,46 +139,79 @@ export async function POST(request: Request) {
         patient = await tx.patient.create({
           data: {
             uhid,
-            firstName: data.firstName,
-            lastName: data.lastName || null,
+            firstName,
+            lastName: parsedLastName,
             phone,
-            email: data.email || null,
-            gender: data.gender ?? null,
+            email,
             source: "WEBSITE",
             communicationPreference: {
-              create: { preferredChannel: "SMS" },
+              create: { preferredChannel: "WHATSAPP", allowWhatsapp: true, allowSms: true },
             },
           },
           select: { id: true, uhid: true },
         })
       }
 
+      // 3. Create Appointment
       const appointmentCode = await generateAppointmentCode(tx)
       const appointment = await tx.appointment.create({
         data: {
           appointmentCode,
           patientId: patient.id,
           doctorId: doctor.id,
-          serviceId: service.id,
+          serviceId: service?.id || null,
           scheduledAt,
-          durationMinutes: data.durationMinutes ?? service.durationMinutes ?? 30,
+          durationMinutes: body.durationMinutes ?? service?.durationMinutes ?? 30,
           type: "IN_PERSON",
           status: "PENDING",
           source: "WEBSITE",
-          reason: data.reason || null,
+          reason: reason || (treatment ? `Website enquiry: ${treatment}` : "Website consultation booking"),
         },
         select: { appointmentCode: true, scheduledAt: true },
       })
 
-      return { appointment, patientUhid: patient.uhid }
+      // 4. Create Lead in CRM Sales Pipeline
+      const lead = await tx.lead.create({
+        data: {
+          name: fullName,
+          phone,
+          email,
+          status: "NEW",
+          source: "WEBSITE",
+          sourceDetail: treatment ? `Website Booking: ${treatment}` : "Website Appointment Booking",
+          notes: [
+            treatment ? `Treatment: ${treatment}` : null,
+            `Scheduled: ${scheduledAt.toLocaleString("en-IN")}`,
+            reason ? `Notes: ${reason}` : null,
+          ].filter(Boolean).join("\n"),
+          value: service?.price ?? 1500,
+          icpScore: 8,
+          assignedToId: doctor.id,
+          convertedPatientId: patient.id,
+        },
+      })
+
+      // 5. Add Lead Activity
+      await tx.leadActivity.create({
+        data: {
+          leadId: lead.id,
+          type: "NOTE",
+          title: "Website Appointment Booked",
+          details: `Appointment booked online (${appointmentCode}) for ${scheduledAt.toLocaleString("en-IN")}.\nService: ${service?.name || "Consultation"}`,
+        },
+      })
+
+      return { appointment, patientUhid: patient.uhid, leadId: lead.id }
     })
 
     return json(
       request,
       {
+        success: true,
         appointmentCode: result.appointment.appointmentCode,
         patientUhid: result.patientUhid,
-        service: service.name,
+        leadId: result.leadId,
+        service: service?.name || "Consultation",
         doctor: doctor.name,
         scheduledAt: result.appointment.scheduledAt.toISOString(),
       },

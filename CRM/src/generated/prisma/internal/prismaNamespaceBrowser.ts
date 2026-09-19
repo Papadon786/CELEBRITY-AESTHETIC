@@ -110,7 +110,13 @@ export const ModelName = {
   InventoryTransaction: 'InventoryTransaction',
   InventoryAlert: 'InventoryAlert',
   AuditLog: 'AuditLog',
-  WhatsAppTemplate: 'WhatsAppTemplate'
+  WhatsAppTemplate: 'WhatsAppTemplate',
+  Lead: 'Lead',
+  LeadActivity: 'LeadActivity',
+  Prospect: 'Prospect',
+  ProspectActivity: 'ProspectActivity',
+  ClientAccount: 'ClientAccount',
+  ClientActivity: 'ClientActivity'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1040,6 +1046,121 @@ export const WhatsAppTemplateScalarFieldEnum = {
 } as const
 
 export type WhatsAppTemplateScalarFieldEnum = (typeof WhatsAppTemplateScalarFieldEnum)[keyof typeof WhatsAppTemplateScalarFieldEnum]
+
+
+export const LeadScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  company: 'company',
+  email: 'email',
+  phone: 'phone',
+  status: 'status',
+  source: 'source',
+  sourceDetail: 'sourceDetail',
+  value: 'value',
+  icpScore: 'icpScore',
+  assignedToId: 'assignedToId',
+  followUpDate: 'followUpDate',
+  notes: 'notes',
+  lostReason: 'lostReason',
+  convertedPatientId: 'convertedPatientId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
+
+
+export const LeadActivityScalarFieldEnum = {
+  id: 'id',
+  leadId: 'leadId',
+  type: 'type',
+  title: 'title',
+  details: 'details',
+  authorId: 'authorId',
+  createdAt: 'createdAt'
+} as const
+
+export type LeadActivityScalarFieldEnum = (typeof LeadActivityScalarFieldEnum)[keyof typeof LeadActivityScalarFieldEnum]
+
+
+export const ProspectScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  company: 'company',
+  email: 'email',
+  phone: 'phone',
+  stage: 'stage',
+  value: 'value',
+  icpScore: 'icpScore',
+  engagement: 'engagement',
+  dueDate: 'dueDate',
+  assignedToId: 'assignedToId',
+  notes: 'notes',
+  source: 'source',
+  treatmentCategory: 'treatmentCategory',
+  treatmentInterest: 'treatmentInterest',
+  candidateConcern: 'candidateConcern',
+  doctorPreference: 'doctorPreference',
+  leadId: 'leadId',
+  convertedClientId: 'convertedClientId',
+  convertedPatientId: 'convertedPatientId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProspectScalarFieldEnum = (typeof ProspectScalarFieldEnum)[keyof typeof ProspectScalarFieldEnum]
+
+
+export const ProspectActivityScalarFieldEnum = {
+  id: 'id',
+  prospectId: 'prospectId',
+  type: 'type',
+  title: 'title',
+  details: 'details',
+  authorId: 'authorId',
+  createdAt: 'createdAt'
+} as const
+
+export type ProspectActivityScalarFieldEnum = (typeof ProspectActivityScalarFieldEnum)[keyof typeof ProspectActivityScalarFieldEnum]
+
+
+export const ClientAccountScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  company: 'company',
+  email: 'email',
+  phone: 'phone',
+  status: 'status',
+  healthScore: 'healthScore',
+  accountManagerId: 'accountManagerId',
+  accountManagerName: 'accountManagerName',
+  contractValue: 'contractValue',
+  renewalDate: 'renewalDate',
+  renewalStage: 'renewalStage',
+  notes: 'notes',
+  membershipTier: 'membershipTier',
+  treatmentFocus: 'treatmentFocus',
+  boosterFrequency: 'boosterFrequency',
+  patientId: 'patientId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClientAccountScalarFieldEnum = (typeof ClientAccountScalarFieldEnum)[keyof typeof ClientAccountScalarFieldEnum]
+
+
+export const ClientActivityScalarFieldEnum = {
+  id: 'id',
+  clientAccountId: 'clientAccountId',
+  type: 'type',
+  title: 'title',
+  details: 'details',
+  authorId: 'authorId',
+  createdAt: 'createdAt'
+} as const
+
+export type ClientActivityScalarFieldEnum = (typeof ClientActivityScalarFieldEnum)[keyof typeof ClientActivityScalarFieldEnum]
 
 
 export const SortOrder = {

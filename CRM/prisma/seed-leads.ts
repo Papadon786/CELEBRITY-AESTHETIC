@@ -12,12 +12,20 @@ const firstNames = ["Aisha","Fatima","Ayesha","Zainab","Meera","Kavya","Divya","
 const lastNames = ["Khan","Sharma","Iyer","Reddy","Nair","Rao","Patel","Ahmed","Fernandes","Menon"]
 const cities = [["Bengaluru","Karnataka","560001"],["Chennai","Tamil Nadu","600001"],["Hyderabad","Telangana","500001"],["Kochi","Kerala","682001"],["Mysuru","Karnataka","570001"],["Coimbatore","Tamil Nadu","641001"]]
 const sources = ["Instagram Ad","Google Ads","Website Form","Referral","Walk-in Enquiry","Facebook Ad","WhatsApp Enquiry"]
-const reasons = ["Hairfall consultation interest","Acne treatment enquiry","Thyroid review follow-up","Skin consultation callback","Diabetes review enquiry","General review interest"]
+const reasons = [
+  "GFC Hair Restoration enquiry",
+  "FUE Hair Transplant consultation (Satyam Centre)",
+  "Eyebrow Microblading PMU interest",
+  "MNRF Acne Scar Resurfacing",
+  "HydraFacial MD booking inquiry",
+  "Laser Hair Removal package enquiry",
+  "Crown Celebrity Aesthetic Academy PMU course"
+]
 
 function pick<T>(arr: T[], i: number) { return arr[i % arr.length] }
 
 async function main() {
-  const admin = await prisma.user.findFirst({ where: { email: "admin@zafoorclinic.com" } })
+  const admin = await prisma.user.findFirst({ where: { role: "ADMIN" } })
   let tag = await prisma.tag.findUnique({ where: { name: "Lead" } })
   if (!tag) tag = await prisma.tag.create({ data: { name: "Lead", color: "#D97706" } })
 

@@ -107,17 +107,19 @@ export function ManageScopesDialog({
     })
   }
 
-  const groups: ("Care" | "Clinical" | "Billing & Finance" | "Website" | "Calendar")[] = [
+  const groups: ("Care" | "Clinical" | "Sales" | "Billing & Finance" | "Website" | "Calendar")[] = [
     "Care",
     "Clinical",
+    "Sales",
     "Billing & Finance",
     "Website",
     "Calendar",
   ]
 
-  const actionCategories: ("Appointments" | "Medicines & Inventory" | "Billing & Cash" | "Patient Data & Exports")[] = [
+  const actionCategories: ("Appointments" | "Medicines & Inventory" | "Sales & Leads" | "Billing & Cash" | "Patient Data & Exports")[] = [
     "Appointments",
     "Medicines & Inventory",
+    "Sales & Leads",
     "Billing & Cash",
     "Patient Data & Exports",
   ]

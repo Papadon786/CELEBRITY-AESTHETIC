@@ -29,6 +29,11 @@ export type Gender = (typeof Gender)[keyof typeof Gender]
 
 
 export const CareCategory = {
+  HAIR_RESTORATION: 'HAIR_RESTORATION',
+  HAIR_TRANSPLANT: 'HAIR_TRANSPLANT',
+  SKIN_AND_LASER: 'SKIN_AND_LASER',
+  PERMANENT_MAKEUP: 'PERMANENT_MAKEUP',
+  ACADEMY: 'ACADEMY',
   SKIN_HAIR_LASER: 'SKIN_HAIR_LASER',
   DIABETOLOGY: 'DIABETOLOGY',
   GENERAL_MEDICINE: 'GENERAL_MEDICINE'
@@ -414,3 +419,65 @@ export const InventoryAlertSeverity = {
 } as const
 
 export type InventoryAlertSeverity = (typeof InventoryAlertSeverity)[keyof typeof InventoryAlertSeverity]
+
+
+export const LeadStatus = {
+  NEW: 'NEW',
+  CONTACTED: 'CONTACTED',
+  QUALIFIED: 'QUALIFIED',
+  DEMO: 'DEMO',
+  PROPOSAL: 'PROPOSAL',
+  NEGOTIATION: 'NEGOTIATION',
+  WON: 'WON',
+  LOST: 'LOST'
+} as const
+
+export type LeadStatus = (typeof LeadStatus)[keyof typeof LeadStatus]
+
+
+export const LeadSource = {
+  LINKEDIN: 'LINKEDIN',
+  WEBSITE: 'WEBSITE',
+  INSTAGRAM: 'INSTAGRAM',
+  WHATSAPP: 'WHATSAPP',
+  GOOGLE: 'GOOGLE',
+  REFERRAL: 'REFERRAL',
+  WALK_IN: 'WALK_IN',
+  PHONE: 'PHONE',
+  OTHER: 'OTHER'
+} as const
+
+export type LeadSource = (typeof LeadSource)[keyof typeof LeadSource]
+
+
+export const ProspectStage = {
+  QUALIFIED: 'QUALIFIED',
+  DEMO_BOOKED: 'DEMO_BOOKED',
+  PROPOSAL_SENT: 'PROPOSAL_SENT',
+  NEGOTIATION: 'NEGOTIATION',
+  CLOSED_WON: 'CLOSED_WON',
+  CLOSED_LOST: 'CLOSED_LOST'
+} as const
+
+export type ProspectStage = (typeof ProspectStage)[keyof typeof ProspectStage]
+
+
+export const ClientStatus = {
+  ACTIVE: 'ACTIVE',
+  AT_RISK: 'AT_RISK',
+  CHURNED: 'CHURNED',
+  PAUSED: 'PAUSED'
+} as const
+
+export type ClientStatus = (typeof ClientStatus)[keyof typeof ClientStatus]
+
+
+export const RenewalStage = {
+  NOT_STARTED: 'NOT_STARTED',
+  IN_DISCUSSION: 'IN_DISCUSSION',
+  PROPOSAL_SENT: 'PROPOSAL_SENT',
+  CONFIRMED: 'CONFIRMED',
+  COMPLETED: 'COMPLETED'
+} as const
+
+export type RenewalStage = (typeof RenewalStage)[keyof typeof RenewalStage]

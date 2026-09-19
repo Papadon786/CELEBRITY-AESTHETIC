@@ -6,17 +6,18 @@ import { prisma } from "@/lib/prisma"
 import { serializeDecimal } from "@/lib/serialize"
 import type { StaffRole, User } from "@/types/database"
 
-const SESSION_COOKIE = "zafoor_session"
+const SESSION_COOKIE = "celebrity_session"
+const FALLBACK_COOKIE = "zafoor_session"
 const SESSION_TTL_DAYS = 30
 
 export const DEFAULT_ADMIN: User = {
   id: "usr_admin_default",
   name: "Clinic Administrator",
-  email: "admin@zafoorclinic.com",
-  phone: "8940399403",
+  email: "admin@celebrityaesthetic.com",
+  phone: "9591047171",
   passwordHash: "",
   role: "ADMIN" as StaffRole,
-  specialization: "Clinic Management",
+  specialization: "Aesthetic Clinic Management",
   consultationFee: null as any,
   active: true,
   permissions: null,
@@ -87,7 +88,7 @@ export async function destroySession() {
 export const getCurrentUserOrNull = cache(async (): Promise<User> => {
   try {
     const cookieStore = await cookies()
-    const sessionId = cookieStore.get(SESSION_COOKIE)?.value
+    const sessionId = cookieStore.get(SESSION_COOKIE)?.value || cookieStore.get(FALLBACK_COOKIE)?.value
 
     if (sessionId) {
       const session = await prisma.session.findUnique({

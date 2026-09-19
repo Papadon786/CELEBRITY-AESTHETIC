@@ -19,7 +19,7 @@ celebrity-aesthetic-suite/
 │   ├── .env                # Local PostgreSQL connection string
 │   └── package.json        # Name: celebrity-aesthetic-crm
 │
-├── web/                    # Patient-Facing Website (Port 3001)
+├── web/                    # Patient-Facing Website (Port 3005)
 │   ├── app/                # Next.js 16 App Router (51+ pages & SSG routes)
 │   ├── components/         # Hero sequence, treatments, booking form, navbar
 │   ├── public/             # Hero sequence WebP frames, treatment images, team
@@ -46,14 +46,14 @@ npm run db:up
 npm run dev
 ```
 - **CRM (Celebrity Aesthetic)**: Available at [http://localhost:3000](http://localhost:3000)
-- **Web App**: Available at [http://localhost:3001](http://localhost:3001)
+- **Web App**: Available at [http://localhost:3005](http://localhost:3005)
 
 ### 3. Or Run Either Application Individually
 ```powershell
 # Run only CRM (Port 3000)
 npm run dev:crm
 
-# Run only Web (Port 3001)
+# Run only Web (Port 3005)
 npm run dev:web
 ```
 

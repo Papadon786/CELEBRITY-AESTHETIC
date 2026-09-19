@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import {
   LayoutDashboard,
@@ -30,6 +31,9 @@ import {
   IndianRupee,
   Pill,
   ShoppingCart,
+  Target,
+  Star,
+  Briefcase,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { hasTabAccess } from "@/lib/permissions"
@@ -69,6 +73,17 @@ const navGroups: NavGroup[] = [
     ],
   },
   {
+    label: "Sales",
+    dot: "bg-amber-500",
+    text: "text-amber-600 dark:text-amber-400",
+    items: [
+      { href: "/sales/leads", label: "Leads & Pipeline", icon: Target },
+      { href: "/sales/prospects", label: "Prospects", icon: Star },
+      { href: "/sales/clients", label: "Clients", icon: Briefcase },
+      { href: "/sales", label: "Sales & POS", icon: ShoppingCart },
+    ],
+  },
+  {
     label: "Clinical & Staff",
     dot: "bg-violet-500",
     text: "text-violet-600 dark:text-violet-400",
@@ -85,7 +100,6 @@ const navGroups: NavGroup[] = [
     dot: "bg-emerald-500",
     text: "text-emerald-600 dark:text-emerald-400",
     items: [
-      { href: "/sales", label: "Sales & POS", icon: ShoppingCart },
       { href: "/payments", label: "Payments", icon: IndianRupee },
       { href: "/billing", label: "Billing", icon: Receipt },
       { href: "/billing/refunds", label: "Refunds", icon: Undo2 },
@@ -142,13 +156,19 @@ export function NavContent({
 
   return (
     <div className="flex h-full flex-col bg-background">
-      <div className="flex items-center gap-2.5 px-5 h-16 border-b shrink-0">
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-          <Stethoscope className="h-5 w-5" />
+      <div className="flex items-center gap-2.5 px-4 h-16 border-b shrink-0">
+        <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-500/30 overflow-hidden shadow-sm shrink-0">
+          <Image
+            src="/logo.jpg"
+            alt="Crown Celebrity Aesthetic"
+            width={40}
+            height={40}
+            className="h-full w-full object-cover"
+          />
         </div>
-        <div className="leading-tight">
-          <p className="text-sm font-bold tracking-tight">Celebrity Aesthetic</p>
-          <p className="text-xs text-muted-foreground">{isAdmin ? "Admin CRM" : "Reception Desk"}</p>
+        <div className="leading-tight min-w-0">
+          <p className="text-sm font-bold tracking-tight text-foreground truncate">Crown Celebrity Aesthetic</p>
+          <p className="text-[11px] text-muted-foreground truncate">{isAdmin ? "Admin CRM · Bangalore" : "Reception Desk"}</p>
         </div>
       </div>
       <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-4">

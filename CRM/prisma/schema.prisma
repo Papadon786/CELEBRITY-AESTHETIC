@@ -1,6 +1,6 @@
-// Zafoor Clinic CRM — data model
-// Trimmed from the original hospital-crm baseline down to what a single
-// outpatient review clinic needs: Patient CRM, Appointments, EMR (encounter
+// Crown Celebrity Aesthetic CRM — data model
+// Outpatient aesthetic, trichology, PMU, and hair transplant clinic CRM:
+// Patient CRM, Appointments, EMR, Leads Pipeline, Inventory, Billing, and Content Management.
 // workflow), Billing, and Website content management. Hospital-operations
 // (beds/ICU/OT/ambulance/pharmacy-inventory) and HRMS (payroll/recruitment/
 // chat/etc.) were dropped — see ARCHITECTURE.md for the audit that justifies
@@ -75,6 +75,14 @@ model User {
 
   campaignsCreated Campaign[] @relation("CampaignCreatedBy")
 
+  leadsAssigned         Lead[]                 @relation("LeadAssignedTo")
+  leadActivitiesWritten LeadActivity[]         @relation("LeadActivityAuthor")
+
+  prospectsAssigned         Prospect[]             @relation("ProspectAssignedTo")
+  prospectActivitiesWritten ProspectActivity[]     @relation("ProspectActivityAuthor")
+  clientsManaged            ClientAccount[]        @relation("ClientAccountManager")
+  clientActivitiesWritten   ClientActivity[]       @relation("ClientActivityAuthor")
+
   @@index([role])
 }
 
@@ -105,9 +113,14 @@ enum Gender {
   OTHER
 }
 
-// The 3 real treatment categories the clinic offers (zafoorclinic.com) —
+// The real treatment categories the clinic offers (crown-celebrity-aesthetic.com) —
 // what the patient is registering to be seen for.
 enum CareCategory {
+  HAIR_RESTORATION
+  HAIR_TRANSPLANT
+  SKIN_AND_LASER
+  PERMANENT_MAKEUP
+  ACADEMY
   SKIN_HAIR_LASER
   DIABETOLOGY
   GENERAL_MEDICINE
@@ -206,6 +219,10 @@ model Patient {
   advances PatientAdvance[]
 
   campaignRecipients CampaignRecipient[]
+
+  convertedFromLeads Lead[]
+  convertedFromProspects Prospect[]
+  clientAccounts        ClientAccount[]
 
   @@index([phone])
   @@index([email])
@@ -1261,19 +1278,19 @@ model Certificate {
 model ClinicSettings {
   id String @id @default("clinic")
 
-  name       String  @default("Zafoor Clinic")
-  addressLine String @default("No. 69/70, St. Xavier Street, Broadway, Sevenwells, George Town, Chennai - 600001, Tamil Nadu, India")
-  landmark   String  @default("Opposite Huda Mosque")
-  phone      String  @default("8940399403")
-  email      String  @default("ZafoorClinic@gmail.com")
-  mapQuery   String  @default("Zafoor Clinic, St. Xavier Street, George Town, Chennai")
+  name        String  @default("Crown Celebrity Aesthetic")
+  addressLine String  @default("The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India")
+  landmark    String  @default("Near J.P. Nagar / Satyam Centre")
+  phone       String  @default("9591047171")
+  email       String  @default("celebrityaestheticcrown@gmail.com")
+  mapQuery    String  @default("The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore")
 
-  weekdayOpen  String  @default("18:00") // Mon-Sat
-  weekdayClose String  @default("22:00")
-  sundayClosed Boolean @default(true)
+  weekdayOpen  String  @default("10:00") // Mon-Sat
+  weekdayClose String  @default("20:00")
+  sundayClosed Boolean @default(false)
 
-  heroHeadline String? @default("Trusted healthcare for your everyday health.")
-  aboutText    String?
+  heroHeadline String? @default("Advanced Hair Restoration, Clinical Skin Aesthetics & Permanent Makeup.")
+  aboutText    String? @default("Crown Celebrity Aesthetic brings skin, hair, aesthetics and PMU services together within one consultation-led practice in Bangalore.")
 
   // WhatsApp Business API connection — stub only. No credentials are
   // configured anywhere in this repo/environment; Broadcasts (see
@@ -1454,5 +1471,211 @@ model WhatsAppTemplate {
   body      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Sales & CRM Pipeline (Leads, Deal Pipeline, Overdue Follow-ups, Activities)
+// ─────────────────────────────────────────────────────────────────────────
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  DEMO
+  PROPOSAL
+  NEGOTIATION
+  WON
+  LOST
+}
+
+enum LeadSource {
+  LINKEDIN
+  WEBSITE
+  INSTAGRAM
+  WHATSAPP
+  GOOGLE
+  REFERRAL
+  WALK_IN
+  PHONE
+  OTHER
+}
+
+model Lead {
+  id                 String         @id @default(cuid())
+  name               String
+  company            String?
+  email              String?
+  phone              String?
+  status             LeadStatus     @default(NEW)
+  source             LeadSource     @default(WEBSITE)
+  sourceDetail       String?
+  value              Decimal?       @db.Decimal(12, 2)
+  icpScore           Int?           @default(5) // 0 to 10 scale
+  assignedToId       String?
+  assignedTo         User?          @relation("LeadAssignedTo", fields: [assignedToId], references: [id])
+  followUpDate       DateTime?
+  notes              String?
+  lostReason         String?
+  convertedPatientId String?
+  convertedPatient   Patient?       @relation(fields: [convertedPatientId], references: [id])
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  activities         LeadActivity[]
+
+  @@index([status])
+  @@index([assignedToId])
+  @@index([followUpDate])
+  @@index([createdAt])
+}
+
+model LeadActivity {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  type      String   // "STATUS_CHANGE" | "NOTE" | "CALL" | "EMAIL" | "FOLLOW_UP"
+  title     String
+  details   String?
+  authorId  String?
+  author    User?    @relation("LeadActivityAuthor", fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@index([leadId])
+  @@index([createdAt])
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Sales Pipeline: Prospects & Client Lifecycle Management
+// ─────────────────────────────────────────────────────────────────────────
+
+enum ProspectStage {
+  QUALIFIED
+  DEMO_BOOKED
+  PROPOSAL_SENT
+  NEGOTIATION
+  CLOSED_WON
+  CLOSED_LOST
+}
+
+model Prospect {
+  id                 String         @id @default(cuid())
+  name               String
+  company            String?
+  email              String?
+  phone              String?
+  stage              ProspectStage  @default(QUALIFIED)
+  value              Decimal?       @db.Decimal(12, 2)
+  icpScore           Int?           @default(7) // 0 to 10
+  engagement         Int?           @default(25) // 0 to 100 percentage
+  dueDate            DateTime?
+  assignedToId       String?
+  assignedTo         User?          @relation("ProspectAssignedTo", fields: [assignedToId], references: [id])
+  notes              String?
+  source             String?        @default("QUALIFIED_LEAD")
+
+  // Clinical Skin & Hair Fields
+  treatmentCategory  String?        // "HAIR_RESTORATION" | "HAIR_TRANSPLANT" | "SKIN_AESTHETICS" | "ANTI_AGING" | "ACNE_SCARS" | "BRIDAL" | "PMU"
+  treatmentInterest  String?        // e.g. "FUE Hair Transplant (3,000 Grafts)", "GFC Protocol (4 Sessions)"
+  candidateConcern   String?        // e.g. "Norwood Stage 3 Receding Temples", "Deep Atrophic Acne Scars"
+  doctorPreference   String?        // e.g. "Dr. Naziya Baig", "Reehal Baig", "Hair Transplant Team (Satyam Centre)"
+
+  leadId             String?
+  convertedClientId  String?
+  convertedClient    ClientAccount? @relation("ProspectConvertedClient", fields: [convertedClientId], references: [id])
+  convertedPatientId String?
+  convertedPatient   Patient?       @relation(fields: [convertedPatientId], references: [id])
+
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  activities         ProspectActivity[]
+
+  @@index([stage])
+  @@index([assignedToId])
+  @@index([treatmentCategory])
+  @@index([dueDate])
+  @@index([createdAt])
+}
+
+model ProspectActivity {
+  id         String   @id @default(cuid())
+  prospectId String
+  prospect   Prospect @relation(fields: [prospectId], references: [id], onDelete: Cascade)
+  type       String   // "STAGE_CHANGE" | "NOTE" | "CALL" | "DEMO" | "PROPOSAL"
+  title      String
+  details    String?
+  authorId   String?
+  author     User?    @relation("ProspectActivityAuthor", fields: [authorId], references: [id])
+  createdAt  DateTime @default(now())
+
+  @@index([prospectId])
+  @@index([createdAt])
+}
+
+enum ClientStatus {
+  ACTIVE
+  AT_RISK
+  CHURNED
+  PAUSED
+}
+
+enum RenewalStage {
+  NOT_STARTED
+  IN_DISCUSSION
+  PROPOSAL_SENT
+  CONFIRMED
+  COMPLETED
+}
+
+model ClientAccount {
+  id                 String       @id @default(cuid())
+  name               String
+  company            String?      // Organization / Retainer Name e.g. "Celebrity Black VIP Skin Passport"
+  email              String?
+  phone              String?
+  status             ClientStatus @default(ACTIVE)
+  healthScore        Int          @default(50) // e.g. 50, 55, 80
+  accountManagerId   String?
+  accountManager     User?        @relation("ClientAccountManager", fields: [accountManagerId], references: [id])
+  accountManagerName String?      // e.g. "Dr. Naziya Baig", "Reehal Baig", "Bhumika R", "Touhid Ahmed"
+  contractValue      Decimal      @default(0) @db.Decimal(12, 2)
+  renewalDate        DateTime?
+  renewalStage       RenewalStage @default(NOT_STARTED)
+  notes              String?
+
+  // Clinical Aesthetic Retainer Fields
+  membershipTier     String?      // e.g. "Celebrity Black VIP", "Annual Hair Rejuvenation Retainer", "Annual Glow Pass"
+  treatmentFocus     String?      // e.g. "Trichology (Hair Restoration)", "Cosmetology (Advanced Skin & Peels)", "Anti-Aging Aesthetics"
+  boosterFrequency   String?      // e.g. "Monthly", "Quarterly", "Bi-Annual"
+
+  convertedFromProspects  Prospect[] @relation("ProspectConvertedClient")
+
+  patientId          String?
+  patient            Patient?     @relation(fields: [patientId], references: [id])
+
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
+  activities         ClientActivity[]
+
+  @@index([status])
+  @@index([renewalStage])
+  @@index([accountManagerId])
+  @@index([renewalDate])
+}
+
+model ClientActivity {
+  id              String        @id @default(cuid())
+  clientAccountId String
+  clientAccount   ClientAccount @relation(fields: [clientAccountId], references: [id], onDelete: Cascade)
+  type            String        // "STATUS_CHANGE" | "RENEWAL_UPDATE" | "PAYMENT" | "NOTE"
+  title           String
+  details         String?
+  authorId        String?
+  author          User?         @relation("ClientActivityAuthor", fields: [authorId], references: [id])
+  createdAt       DateTime      @default(now())
+
+  @@index([clientAccountId])
+  @@index([createdAt])
 }
 

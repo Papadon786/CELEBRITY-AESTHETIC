@@ -29,9 +29,9 @@ export interface AppointmentNotificationData {
   clinicPhone?: string
 }
 
-const CLINIC_NAME = "Zafoor Clinic"
-const CLINIC_PHONE = "8940399403"
-const CLINIC_ADDRESS = "No 69/70, St. Xavier Street, Broadway, Sevenwells, Chennai - 600001 (Landmark: Opposite Huda Mosque)"
+const CLINIC_NAME = "Crown Celebrity Aesthetic"
+const CLINIC_PHONE = "+91 9591047171"
+const CLINIC_ADDRESS = "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India"
 
 export class NotificationService {
   /**

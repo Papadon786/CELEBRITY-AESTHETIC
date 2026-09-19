@@ -317,3 +317,33 @@ export type AuditLog = Prisma.AuditLogModel
  * 
  */
 export type WhatsAppTemplate = Prisma.WhatsAppTemplateModel
+/**
+ * Model Lead
+ * 
+ */
+export type Lead = Prisma.LeadModel
+/**
+ * Model LeadActivity
+ * 
+ */
+export type LeadActivity = Prisma.LeadActivityModel
+/**
+ * Model Prospect
+ * 
+ */
+export type Prospect = Prisma.ProspectModel
+/**
+ * Model ProspectActivity
+ * 
+ */
+export type ProspectActivity = Prisma.ProspectActivityModel
+/**
+ * Model ClientAccount
+ * 
+ */
+export type ClientAccount = Prisma.ClientAccountModel
+/**
+ * Model ClientActivity
+ * 
+ */
+export type ClientActivity = Prisma.ClientActivityModel

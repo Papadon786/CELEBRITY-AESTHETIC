@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Celebrity Aesthetic CRM",
-  description: "Clinic management system — Celebrity Aesthetic",
+  title: "Crown Celebrity Aesthetic CRM",
+  description: "Hair & Skin Clinic, PMU Services & Academy — Clinic Management System",
 };
 
 export default function RootLayout({

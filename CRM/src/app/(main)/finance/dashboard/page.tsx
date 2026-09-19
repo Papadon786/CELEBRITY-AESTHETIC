@@ -26,7 +26,7 @@ export default async function FinanceDashboardPage() {
         <p className="text-sm text-muted-foreground">Revenue and collections overview.</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
         <StatCard label="Today's Revenue" value={formatCurrency(stats.todayRevenue)} icon={DollarSign} tone="default" />
         <StatCard label="Today's Collections" value={formatCurrency(stats.todayCollected)} icon={Receipt} tone="success" />
         <StatCard label="30-Day Revenue" value={formatCurrency(stats.monthRevenue)} icon={TrendingUp} tone="info" />

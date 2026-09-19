@@ -4,7 +4,7 @@ export type TabItemDefinition = {
   id: string
   href: string
   label: string
-  group: "Care" | "Clinical" | "Billing & Finance" | "Website" | "Calendar"
+  group: "Care" | "Clinical" | "Sales" | "Billing & Finance" | "Website" | "Calendar"
   description: string
 }
 
@@ -26,8 +26,13 @@ export const ALL_AVAILABLE_TABS: TabItemDefinition[] = [
   { id: "digital_signature", href: "/settings/signature", label: "Digital Signature", group: "Clinical", description: "Doctor signature for prescriptions and EMR" },
   { id: "audit_logs", href: "/audit-logs", label: "Audit Logs", group: "Clinical", description: "System security and staff activity logs" },
 
+  // Sales
+  { id: "leads", href: "/sales/leads", label: "Leads & Pipeline", group: "Sales", description: "Inquiry funnel, overdue follow-ups, kanban pipeline, and lead conversions" },
+  { id: "prospects", href: "/sales/prospects", label: "Prospects", group: "Sales", description: "Qualified prospect pipeline, demo bookings, ICP scoring, proposals, and deal negotiation" },
+  { id: "clients", href: "/sales/clients", label: "Clients", group: "Sales", description: "Corporate and client accounts, contract values, account managers, and renewals" },
+  { id: "sales", href: "/sales", label: "Sales & POS", group: "Sales", description: "Point of Sale counter, quick sales, customer orders, and sales receipts" },
+
   // Billing & Finance
-  { id: "sales", href: "/sales", label: "Sales & POS", group: "Billing & Finance", description: "Point of Sale counter, quick sales, customer orders, and sales receipts" },
   { id: "payments", href: "/payments", label: "Payments", group: "Billing & Finance", description: "Patient payment ledger — mark pending payments as paid" },
   { id: "billing", href: "/billing", label: "Billing & Invoices", group: "Billing & Finance", description: "Create invoices, record payments, print receipts" },
   { id: "refunds", href: "/billing/refunds", label: "Refunds", group: "Billing & Finance", description: "Patient refund authorizations and ledger" },
@@ -50,7 +55,7 @@ export const ALL_AVAILABLE_TABS: TabItemDefinition[] = [
 export type ActionScopeDefinition = {
   key: string
   label: string
-  category: "Appointments" | "Medicines & Inventory" | "Billing & Cash" | "Patient Data & Exports"
+  category: "Appointments" | "Medicines & Inventory" | "Sales & Leads" | "Billing & Cash" | "Patient Data & Exports"
   description: string
 }
 
@@ -90,6 +95,18 @@ export const ALL_ACTION_SCOPES: ActionScopeDefinition[] = [
     label: "Add / Edit Medicine Catalog & Pricing",
     category: "Medicines & Inventory",
     description: "Create new medicines, adjust retail prices, archive items",
+  },
+  {
+    key: "canManageLeads",
+    label: "Manage Leads & Pipeline",
+    category: "Sales & Leads",
+    description: "Create, reassign, update stages, and convert leads to patients",
+  },
+  {
+    key: "canExportLeads",
+    label: "Import / Export Leads (CSV)",
+    category: "Sales & Leads",
+    description: "Bulk import new leads via CSV or export lead lists",
   },
   {
     key: "canManageSales",
@@ -156,6 +173,8 @@ export const DEFAULT_DOCTOR_PERMISSIONS: StaffPermissions = {
     canDispenseMedicine: true,
     canReturnMedicine: false,
     canManageMedicineCatalog: false,
+    canManageLeads: false,
+    canExportLeads: false,
     canCollectPayment: false,
     canProcessRefunds: false,
     canViewFinancialReports: false,
@@ -169,6 +188,10 @@ export const DEFAULT_RECEPTIONIST_PERMISSIONS: StaffPermissions = {
     "/patients",
     "/appointments",
     "/queue",
+    "/sales/leads",
+    "/sales/prospects",
+    "/sales/clients",
+    "/sales",
     "/inventory",
     "/prescriptions",
     "/waiting-list",
@@ -183,6 +206,8 @@ export const DEFAULT_RECEPTIONIST_PERMISSIONS: StaffPermissions = {
     canDispenseMedicine: true,
     canReturnMedicine: true,
     canManageMedicineCatalog: false, // Admin only
+    canManageLeads: true,
+    canExportLeads: true,
     canCollectPayment: true,
     canProcessRefunds: false, // Admin only
     canViewFinancialReports: false, // Admin only

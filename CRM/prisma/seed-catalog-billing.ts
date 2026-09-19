@@ -1,8 +1,7 @@
-// Aligns Service pricing and InventoryItem stock with Zafoor Clinic's real
-// service lines (Skin/Hair/Laser, Diabetology, General Medicine — see
-// zafoorclinic.com), then creates a batch of itemized bills (consultation +
-// dispensed medicine) so Billing/Refunds/Finance/Cash-counter have realistic
-// variety. Idempotent: upserts by unique key, safe to re-run.
+// Aligns Service pricing and InventoryItem stock with Crown Celebrity Aesthetic's
+// real treatment lines (Hair Restoration, Hair Transplant, Skin & Laser, PMU, Academy),
+// then creates itemized bills (treatment + consumables) so Billing, POS, and Finance
+// reflect authentic aesthetic clinic operations. Idempotent: upserts by unique key.
 //
 // Run with: npx tsx prisma/seed-catalog-billing.ts
 import "dotenv/config"
@@ -25,68 +24,64 @@ async function withRetry<T>(fn: () => Promise<T>, attempts = 5): Promise<T> {
   throw lastErr
 }
 
-// ── Real clinic services (zafoorclinic.com) with realistic INR pricing ─────
-// seed-services.ts wrote these via the anon/publishable key over PostgREST,
-// which RLS silently rejected (insert "succeeded" per its logs but rows never
-// landed — verified against the DB directly). Upserting via Prisma here
-// bypasses RLS and actually persists them.
+// ── Crown Celebrity Aesthetic treatment catalog with realistic INR pricing ──
 const serviceDefs: Array<{ slug: string; name: string; shortDescription: string; displayOrder: number; price: number }> = [
-  // Skin, Hair & Laser
-  { slug: "prp-therapy", name: "PRP Therapy", shortDescription: "Platelet-Rich Plasma treatment for skin rejuvenation and hair regrowth.", displayOrder: 1, price: 3500 },
-  { slug: "gfc-therapy", name: "GFC Therapy", shortDescription: "Growth Factor Concentrate treatment for advanced hair and skin restoration.", displayOrder: 2, price: 4500 },
-  { slug: "chemical-peels", name: "Chemical Peels", shortDescription: "Resurfacing treatment for tone, texture and pigmentation correction.", displayOrder: 3, price: 2000 },
-  { slug: "skin-boosters", name: "Skin Boosters", shortDescription: "Hydration-based injectables for smoother, plumper skin.", displayOrder: 4, price: 5000 },
-  { slug: "laser-treatments", name: "Laser Treatments", shortDescription: "Scar removal, tattoo removal, hair reduction and pigmentation removal.", displayOrder: 5, price: 3000 },
-  { slug: "facials", name: "Facials", shortDescription: "Includes Hydra Facial and Fire & Ice Facial for glow and rejuvenation.", displayOrder: 6, price: 1800 },
-  { slug: "open-pores-treatment", name: "Open Pores Treatment", shortDescription: "Targeted therapy to minimise enlarged pores.", displayOrder: 7, price: 1500 },
-  { slug: "melasma-pigmentation", name: "Melasma / Pigmentation", shortDescription: "Dedicated treatment for melasma and pigmentation concerns.", displayOrder: 8, price: 2500 },
-  { slug: "tanning-treatment", name: "Tanning Treatment", shortDescription: "De-tan therapy to restore natural skin tone.", displayOrder: 9, price: 1200 },
-  { slug: "acne-pimples-treatment", name: "Acne / Pimples Treatment", shortDescription: "Clinical treatment to control breakouts and reduce scarring.", displayOrder: 10, price: 1500 },
-  { slug: "wart-corn-removal", name: "Wart & Corn Removal", shortDescription: "Safe, minimally invasive removal procedures.", displayOrder: 11, price: 1000 },
-  { slug: "hairfall-dandruff-treatment", name: "Hairfall & Dandruff Treatment", shortDescription: "Scalp therapies to control hair fall and dandruff.", displayOrder: 12, price: 1800 },
-  { slug: "weight-reduction", name: "Weight Reduction", shortDescription: "Structured weight-loss treatment plans.", displayOrder: 13, price: 2500 },
-  // Diabetology
-  { slug: "vitals-monitoring", name: "Vitals Monitoring", shortDescription: "Routine vitals check as part of every diabetes visit.", displayOrder: 14, price: 300 },
-  { slug: "complication-checklist", name: "Complication Checklist", shortDescription: "Systematic screening for diabetes-related complications.", displayOrder: 15, price: 800 },
-  { slug: "diabetic-foot-care", name: "Diabetic Foot Care", shortDescription: "Dedicated assessment and treatment for diabetic foot complications.", displayOrder: 16, price: 1200 },
-  { slug: "neuropathy-screening", name: "Neuropathy Screening", shortDescription: "Monofilament and vibration testing to catch diabetic nerve damage early.", displayOrder: 17, price: 900 },
-  // General Medicine
-  { slug: "thyroid-care", name: "Thyroid Care", shortDescription: "Diagnosis and ongoing management of thyroid conditions.", displayOrder: 18, price: 600 },
-  { slug: "hypertension-management", name: "Hypertension Management", shortDescription: "Ongoing blood pressure monitoring and a tailored treatment plan.", displayOrder: 19, price: 500 },
-  { slug: "cholesterol-management", name: "Cholesterol Management", shortDescription: "Screening and treatment plans for cholesterol control.", displayOrder: 20, price: 600 },
-  { slug: "pediatrics", name: "Pediatrics", shortDescription: "Children's health and general care treatments.", displayOrder: 21, price: 500 },
-  { slug: "gynaecology", name: "Gynaecology", shortDescription: "Women's health care treatments and consultations.", displayOrder: 22, price: 700 },
-  { slug: "ent-care", name: "ENT Care", shortDescription: "Ear, nose and throat treatments for all ages.", displayOrder: 23, price: 500 },
-  { slug: "eye-care", name: "Eye Care", shortDescription: "General eye care consultations and treatment.", displayOrder: 24, price: 500 },
+  // Hair Restoration
+  { slug: "advanced-gfc", name: "GFC — Growth Factor Concentrate Therapy", shortDescription: "Next-generation autologous biological growth factor therapy to activate dormant follicles.", displayOrder: 1, price: 5500 },
+  { slug: "advanced-prp", name: "Advanced PRP — Platelet-Rich Plasma Therapy", shortDescription: "Enriched autologous plasma rich in biological platelets to stimulate micro-vascular circulation.", displayOrder: 2, price: 4000 },
+  { slug: "exosomes", name: "Exosome Hair Restoration Therapy", shortDescription: "Cutting-edge cellular vesicle therapy delivering thousands of bio-active signaling molecules.", displayOrder: 3, price: 12000 },
+  { slug: "stem-cell-therapy", name: "Follicular Stem Cell Therapy", shortDescription: "Micro-graft cellular suspension to regenerate thinning areas with autologous progenitor cells.", displayOrder: 4, price: 15000 },
+  { slug: "anti-dandruff-scalp-detox", name: "Anti-Dandruff Scalp Detox & Trichology", shortDescription: "Clinical scalp peeling, deep follicle clarification, and antifungal infusion therapy.", displayOrder: 5, price: 2500 },
+
+  // Hair Transplant Specialities (Satyam Centre)
+  { slug: "male-hair-transplant", name: "Male Hair Transplant (FUE / Bio-FUE)", shortDescription: "Artisan hairline and crown restoration using high-density micro-FUE tailored to male facial proportions.", displayOrder: 6, price: 45000 },
+  { slug: "female-hair-transplant", name: "Female Hair Transplant (Diffuse / Parting)", shortDescription: "No-shave or discrete donor transplantation designed for female hairline lowering and parting density.", displayOrder: 7, price: 45000 },
+  { slug: "fue-hair-transplant", name: "FUE Hair Transplant", shortDescription: "Advanced Follicular Unit Extraction with micro-punches for zero linear scars and supreme graft survival.", displayOrder: 8, price: 40000 },
+  { slug: "beard-hair-transplant", name: "Beard & Moustache Hair Transplant", shortDescription: "Contoured beard, goatee, and mustache restoration with natural acute-angle follicular implantation.", displayOrder: 9, price: 35000 },
+  { slug: "eyebrow-hair-transplant", name: "Eyebrow Reconstruction Transplant", shortDescription: "Precision single-hair delicate transplantation to restore full, sculpted architectural eyebrows.", displayOrder: 10, price: 30000 },
+  { slug: "dhi-hair-transplant", name: "Direct Hair Implantation (DHI)", shortDescription: "Direct implanter pen technique offering 100% control over depth, angle, and density.", displayOrder: 11, price: 55000 },
+
+  // Acne, Scars & Resurfacing
+  { slug: "mnrf", name: "MNRF — Microneedling Radiofrequency", shortDescription: "Gold-plated insulated micro-needling with fractional RF energy to rebuild deep dermal collagen.", displayOrder: 12, price: 6500 },
+  { slug: "subcision-tca-cross", name: "Subcision & TCA Cross for Deep Scars", shortDescription: "Targeted mechanical scar release combined with focal high-strength trichloroacetic acid.", displayOrder: 13, price: 4500 },
+  { slug: "chemical-peels", name: "Advanced Clinical Chemical Peels", shortDescription: "Dermatological acid resurfacing customized for acne, active congestion, and texture.", displayOrder: 14, price: 2500 },
+
+  // Pigmentation, Medi-Facials & Lasers
+  { slug: "q-switch-laser", name: "Q-Switch Nd:YAG Laser for Pigmentation", shortDescription: "Photoacoustic nanosecond laser shattering melanin deposits for stubborn melasma and hyperpigmentation.", displayOrder: 15, price: 4500 },
+  { slug: "carbon-laser-peel", name: "Carbon Laser Hollywood Glow Peel", shortDescription: "Liquid carbon paste activated by Q-Switch laser for pore tightening, blackhead removal, and instant radiance.", displayOrder: 16, price: 3500 },
+  { slug: "hydrafacial-md", name: "HydraFacial MD Medical Grade", shortDescription: "Patented vortex-fusion cleansing, acid peel exfoliation, painless extraction, and antioxidant hydration.", displayOrder: 17, price: 3500 },
+  { slug: "laser-hair-removal-full-body", name: "US FDA Laser Hair Removal — Full Body", shortDescription: "Triple-wavelength diode, alexandrite & Nd:YAG painless permanent hair reduction.", displayOrder: 18, price: 12000 },
+
+  // Permanent Makeup (PMU) & Aesthetics
+  { slug: "microblading-brows", name: "Eyebrow Microblading Precision PMU", shortDescription: "Ultra-fine manual hair strokes mimicking natural brow hairs with organic Swiss pigments.", displayOrder: 19, price: 8500 },
+  { slug: "ombre-powder-brows", name: "Ombre Powder Brows PMU", shortDescription: "Soft, misty powder makeup gradient brow enhancement providing long-lasting defined elegance.", displayOrder: 20, price: 9500 },
+  { slug: "lip-blush", name: "Lip Blush & Neutralization PMU", shortDescription: "Semi-permanent lip tinting and melanin neutralization for youthful shape, color, and symmetry.", displayOrder: 21, price: 8000 },
+  { slug: "scalp-micropigmentation", name: "Scalp Micropigmentation (SMP)", shortDescription: "Medical hairline tattooing creating the look of a full buzz-cut or high-density hair illusion.", displayOrder: 22, price: 18000 },
+  { slug: "botox-anti-wrinkle", name: "Botox & Anti-Wrinkle Injections", shortDescription: "US FDA approved neuromodulators for crow's feet, forehead lines, frown lines, and jaw slimming.", displayOrder: 23, price: 9000 },
+  { slug: "dermal-fillers", name: "Dermal Fillers (Lips / Cheeks / Jawline)", shortDescription: "Premium cross-linked hyaluronic acid contouring for natural volume restoration.", displayOrder: 24, price: 16000 },
+
+  // Academy
+  { slug: "academy-pmu-certification", name: "PMU Professional Certification Course", shortDescription: "Comprehensive hands-on training covering microblading, ombre brows, lip blush, and pigment science.", displayOrder: 25, price: 45000 },
 ]
 const servicePrices: Record<string, number> = Object.fromEntries(serviceDefs.map((s) => [s.slug, s.price]))
-const legacySlugs = [
-  "hairfall-review", "acne-review", "thyroid-review", "skin-review",
-  "diabetes-review", "general-review", "skin-diabetes-general-review",
-]
 
-// ── Expanded medicine/consumable catalog across all four specialties ───────
+// ── Expanded aesthetic consumable & retail inventory ──────────────────────
 const inventoryDefs = [
-  // Existing 7 (from base seed) are left untouched; these are additions.
-  { sku: "MED-ISO-20", name: "Isotretinoin 20mg Capsules", category: "Capsule", manufacturer: "Cipla", unit: "Strip of 10", currentStock: 18, referenceStock: 30, unitPrice: 320 },
-  { sku: "MED-MIN-5", name: "Minoxidil 5% Topical Solution", category: "Topical / Cream", manufacturer: "Mankind", unit: "Bottle 60ml", currentStock: 25, referenceStock: 40, unitPrice: 450 },
-  { sku: "MED-FIN-1", name: "Finasteride 1mg Tablets", category: "Tablet", manufacturer: "Sun Pharma", unit: "Strip of 10", currentStock: 30, referenceStock: 40, unitPrice: 180 },
-  { sku: "MED-HYA-SB", name: "Hyaluronic Acid Skin Booster Vial", category: "Injectable", manufacturer: "Teoxane", unit: "Vial 2ml", currentStock: 10, referenceStock: 20, unitPrice: 4200 },
-  { sku: "MED-PRP-KIT", name: "PRP Extraction Kit", category: "Consumable", manufacturer: "Regenlab", unit: "Kit", currentStock: 15, referenceStock: 25, unitPrice: 1800 },
-  { sku: "MED-NUM-CR", name: "Lidocaine Numbing Cream 5%", category: "Topical / Cream", manufacturer: "Emla", unit: "Tube 30g", currentStock: 20, referenceStock: 30, unitPrice: 320 },
-  { sku: "MED-HYDR-SR", name: "Hydrafacial Serum Set", category: "Consumable", manufacturer: "Hydrafacial", unit: "Set", currentStock: 8, referenceStock: 15, unitPrice: 2500 },
-  { sku: "MED-SUN-SPF", name: "Sunscreen SPF 50+ (Clinic Use)", category: "Topical / Cream", manufacturer: "La Roche-Posay", unit: "Tube 50ml", currentStock: 24, referenceStock: 30, unitPrice: 650 },
-  { sku: "MED-INS-GLA", name: "Insulin Glargine Injection", category: "Injectable", manufacturer: "Sanofi", unit: "Pen 3ml", currentStock: 12, referenceStock: 20, unitPrice: 550 },
-  { sku: "MED-GLU-STR", name: "Glucometer Test Strips (Box of 25)", category: "Consumable", manufacturer: "Accu-Chek", unit: "Box", currentStock: 20, referenceStock: 30, unitPrice: 480 },
-  { sku: "MED-GLI-1", name: "Glimepiride 1mg Tablets", category: "Tablet", manufacturer: "USV", unit: "Strip of 10", currentStock: 40, referenceStock: 50, unitPrice: 45 },
-  { sku: "MED-VIT-D3", name: "Vitamin D3 60K Sachets", category: "Sachet", manufacturer: "Mankind", unit: "Sachet", currentStock: 50, referenceStock: 60, unitPrice: 30 },
-  { sku: "MED-THY-50", name: "Thyroxine 50mcg Tablets", category: "Tablet", manufacturer: "Abbott", unit: "Strip of 10", currentStock: 35, referenceStock: 45, unitPrice: 90 },
-  { sku: "MED-AML-5", name: "Amlodipine 5mg Tablets", category: "Tablet", manufacturer: "Cipla", unit: "Strip of 10", currentStock: 45, referenceStock: 50, unitPrice: 55 },
-  { sku: "MED-ATO-10", name: "Atorvastatin 10mg Tablets", category: "Tablet", manufacturer: "Zydus", unit: "Strip of 10", currentStock: 38, referenceStock: 45, unitPrice: 70 },
-  { sku: "MED-PAN-40", name: "Pantoprazole 40mg Tablets", category: "Tablet", manufacturer: "Sun Pharma", unit: "Strip of 10", currentStock: 42, referenceStock: 50, unitPrice: 65 },
-  { sku: "MED-ORS-SAC", name: "ORS Rehydration Sachets", category: "Sachet", manufacturer: "FDC", unit: "Sachet", currentStock: 60, referenceStock: 70, unitPrice: 15 },
-  { sku: "MED-GLOVES", name: "Nitrile Examination Gloves (Box of 100)", category: "Consumable", manufacturer: "Ansell", unit: "Box", currentStock: 15, referenceStock: 25, unitPrice: 380 },
-  { sku: "MED-SYR-5", name: "Disposable Syringe 5ml", category: "Consumable", manufacturer: "BD", unit: "Box of 100", currentStock: 10, referenceStock: 20, unitPrice: 420 },
+  { sku: "INV-GFC-KIT", name: "GFC Biological Extraction Kit", category: "Biological / Regenerative", manufacturer: "Wockhardt / Regen", unit: "Kit", currentStock: 18, referenceStock: 25, unitPrice: 2200 },
+  { sku: "INV-PRP-TUBE", name: "PRP Vacuum Separation Tubes", category: "Consumable", manufacturer: "BD Vacutainer", unit: "Box of 20", currentStock: 22, referenceStock: 30, unitPrice: 1800 },
+  { sku: "INV-MNRF-25", name: "MNRF Insulated 25-Pin Cartridges", category: "Equipment Consumable", manufacturer: "Lutronic Medical", unit: "Box of 10", currentStock: 8, referenceStock: 20, unitPrice: 3500 },
+  { sku: "INV-CRB-LOT", name: "Activated Carbon Cream Lotion (50ml)", category: "Topical / Laser", manufacturer: "Spectra Carbon", unit: "Bottle", currentStock: 11, referenceStock: 15, unitPrice: 950 },
+  { sku: "INV-HYD-SET", name: "HydraFacial Active Serums Set", category: "Consumable", manufacturer: "HydraFacial MD", unit: "Set of 3", currentStock: 8, referenceStock: 15, unitPrice: 4200 },
+  { sku: "INV-PMU-BROW", name: "Swiss Color Micro-Pigments for Brows", category: "PMU Supplies", manufacturer: "Swiss Color", unit: "Set", currentStock: 7, referenceStock: 10, unitPrice: 6500 },
+  { sku: "INV-PMU-LIP", name: "PMU Lip Blush Organic Pigment Vials", category: "PMU Supplies", manufacturer: "PhiBrows", unit: "Vial 30ml", currentStock: 9, referenceStock: 12, unitPrice: 2800 },
+  { sku: "INV-MBL-18U", name: "Microblading 18-U Nano Sterile Blades", category: "PMU Supplies", manufacturer: "Sterile Medical", unit: "Box of 50", currentStock: 19, referenceStock: 25, unitPrice: 1500 },
+  { sku: "INV-NUM-5", name: "Topical Numbing Cream (Lidocaine 5%)", category: "Topical / Anesthetic", manufacturer: "Neon Labs", unit: "Tube 30g", currentStock: 32, referenceStock: 40, unitPrice: 380 },
+  { sku: "INV-GEL-5L", name: "Laser Ultrasound Cooling Gel (5-Liter)", category: "Consumable", manufacturer: "Medical Gel Ltd", unit: "Canister", currentStock: 5, referenceStock: 8, unitPrice: 650 },
+  { sku: "INV-MIN-5FIN", name: "Minoxidil 5% + Finasteride 0.1% Scalp Solution", category: "Topical / Medicine", manufacturer: "Dr. Reddy's", unit: "Bottle 60ml", currentStock: 42, referenceStock: 50, unitPrice: 620 },
+  { sku: "INV-BIO-SUP", name: "Trichology Hair Follicle Biotin & Zinc", category: "Supplements", manufacturer: "Cipla Health", unit: "Bottle 60 Tabs", currentStock: 35, referenceStock: 40, unitPrice: 780 },
+  { sku: "INV-SUN-50", name: "Post-Procedure Tinted Mineral Sunscreen SPF 50+", category: "Skincare / Post-Care", manufacturer: "La Roche-Posay", unit: "Tube 50ml", currentStock: 24, referenceStock: 30, unitPrice: 1150 },
+  { sku: "INV-FUE-P08", name: "FUE Micro-Punches 0.8mm for Hair Transplant", category: "Surgical / Transplant", manufacturer: "Cole Instruments", unit: "Box of 20", currentStock: 12, referenceStock: 15, unitPrice: 4800 },
+  { sku: "INV-FIL-HA1", name: "Cross-Linked Hyaluronic Acid Dermal Filler (1ml)", category: "Injectable", manufacturer: "Teoxane / Juvederm", unit: "Syringe", currentStock: 8, referenceStock: 12, unitPrice: 8500 },
 ]
 
 function daysAgo(n: number) {
@@ -96,7 +91,7 @@ function daysAgo(n: number) {
 }
 
 async function main() {
-  console.log("Upserting the 24 real clinic services (Skin/Hair/Laser, Diabetology, General Medicine)…")
+  console.log("Upserting Crown Celebrity Aesthetic treatment catalog…")
   for (const s of serviceDefs) {
     await withRetry(() =>
       prisma.service.upsert({
@@ -106,10 +101,9 @@ async function main() {
       })
     )
   }
-  await withRetry(() => prisma.service.updateMany({ where: { slug: { in: legacySlugs } }, data: { active: false } }))
-  console.log(`  ${serviceDefs.length} real services upserted, ${legacySlugs.length} legacy generic services deactivated`)
+  console.log(`  ${serviceDefs.length} aesthetic services upserted successfully`)
 
-  console.log("Adding expanded medicine/consumable inventory…")
+  console.log("Adding aesthetic consumable & retail inventory…")
   const admin = await withRetry(() => prisma.user.findFirstOrThrow({ where: { role: "ADMIN" } }))
   let created = 0
   const items = []
@@ -141,7 +135,7 @@ async function main() {
           quantity: def.currentStock,
           previousStock: 0,
           newStock: def.currentStock,
-          reason: "Initial stock — catalog seed",
+          reason: "Initial stock — aesthetic catalog seed",
           performedById: admin.id,
         },
       })
@@ -151,35 +145,32 @@ async function main() {
   }
   console.log(`  ${created} new inventory items created (${inventoryDefs.length - created} already existed)`)
 
-  console.log("Creating itemized bills (consultation + dispensed medicine)…")
+  console.log("Creating itemized bills (treatment + dispensed items)…")
   const patients = await withRetry(() => prisma.patient.findMany({ take: 12, orderBy: { createdAt: "asc" } }))
-  const doctor = await withRetry(() => prisma.user.findFirstOrThrow({ where: { role: "DOCTOR" } }))
-  const receptionist = await withRetry(() => prisma.user.findFirstOrThrow({ where: { role: "RECEPTIONIST" } }))
+  const receptionist = await withRetry(() => prisma.user.findFirstOrThrow({ where: { role: "RECEPTIONIST" } }).catch(() => admin))
   const services = await withRetry(() => prisma.service.findMany({ where: { slug: { in: Object.keys(servicePrices) } } }))
   const serviceBySlug = Object.fromEntries(services.map((s) => [s.slug, s]))
   const medBySku = Object.fromEntries(items.map((i) => [i.sku, i]))
 
   const billPlans = [
-    { slug: "hairfall-dandruff-treatment", meds: ["MED-MIN-5", "MED-FIN-1"], status: "PAID" as const },
-    { slug: "prp-therapy", meds: ["MED-PRP-KIT", "MED-NUM-CR"], status: "PAID" as const },
-    { slug: "acne-pimples-treatment", meds: ["MED-ISO-20"], status: "PARTIALLY_PAID" as const },
-    { slug: "melasma-pigmentation", meds: ["MED-SUN-SPF"], status: "PAID" as const },
-    { slug: "facials", meds: ["MED-HYDR-SR"], status: "PAID" as const },
-    { slug: "skin-boosters", meds: ["MED-HYA-SB"], status: "PENDING" as const },
-    { slug: "diabetic-foot-care", meds: ["MED-INS-GLA", "MED-GLU-STR", "MED-GLI-1"], status: "PAID" as const },
-    { slug: "vitals-monitoring", meds: ["MED-GLU-STR"], status: "PAID" as const },
-    { slug: "thyroid-care", meds: ["MED-THY-50"], status: "PAID" as const },
-    { slug: "hypertension-management", meds: ["MED-AML-5"], status: "PAID" as const },
-    { slug: "cholesterol-management", meds: ["MED-ATO-10"], status: "PARTIALLY_PAID" as const },
-    { slug: "ent-care", meds: ["MED-ORS-SAC"], status: "CANCELLED" as const },
+    { slug: "advanced-gfc", meds: ["INV-GFC-KIT", "INV-MIN-5FIN", "INV-BIO-SUP"], status: "PAID" as const },
+    { slug: "advanced-prp", meds: ["INV-PRP-TUBE", "INV-NUM-5"], status: "PAID" as const },
+    { slug: "hydrafacial-md", meds: ["INV-HYD-SET", "INV-SUN-50"], status: "PAID" as const },
+    { slug: "mnrf", meds: ["INV-MNRF-25", "INV-NUM-5"], status: "PARTIALLY_PAID" as const },
+    { slug: "carbon-laser-peel", meds: ["INV-CRB-LOT", "INV-SUN-50"], status: "PAID" as const },
+    { slug: "microblading-brows", meds: ["INV-PMU-BROW", "INV-MBL-18U", "INV-NUM-5"], status: "PAID" as const },
+    { slug: "lip-blush", meds: ["INV-PMU-LIP", "INV-NUM-5"], status: "PAID" as const },
+    { slug: "laser-hair-removal-full-body", meds: ["INV-GEL-5L"], status: "PENDING" as const },
+    { slug: "male-hair-transplant", meds: ["INV-FUE-P08", "INV-MIN-5FIN"], status: "PAID" as const },
+    { slug: "dermal-fillers", meds: ["INV-FIL-HA1", "INV-NUM-5"], status: "PAID" as const },
   ]
 
   const existingBillCount = await withRetry(() =>
-    prisma.bill.count({ where: { billNumber: { startsWith: "INV-CAT-" } } })
+    prisma.bill.count({ where: { billNumber: { startsWith: "INV-AESTH-" } } })
   )
   if (existingBillCount > 0) {
-    console.log(`  Skipping — ${existingBillCount} catalog bills already exist (idempotent).`)
-  } else {
+    console.log(`  Skipping — ${existingBillCount} aesthetic bills already exist (idempotent).`)
+  } else if (patients.length > 0) {
     let billCount = 0
     let paymentCount = 0
     for (const [i, plan] of billPlans.entries()) {
@@ -199,15 +190,15 @@ async function main() {
         }))
       const medTotal = medItems.reduce((sum, m) => sum + m.amount, 0)
       const total = servicePrice + medTotal
-      const discount = i === 5 ? Math.round(total * 0.1) : 0
+      const discount = i === 3 ? Math.round(total * 0.1) : 0
       const net = total - discount
       const paid =
-        plan.status === "PAID" ? net : plan.status === "PARTIALLY_PAID" ? Math.round(net / 2) : plan.status === "CANCELLED" ? 0 : 0
+        plan.status === "PAID" ? net : plan.status === "PARTIALLY_PAID" ? Math.round(net / 2) : 0
 
       const bill = await withRetry(() =>
         prisma.bill.create({
           data: {
-            billNumber: `INV-CAT-${String(i + 1).padStart(4, "0")}`,
+            billNumber: `INV-AESTH-${String(i + 1).padStart(4, "0")}`,
             patientId: patient.id,
             serviceId: service.id,
             totalAmount: total,
@@ -217,11 +208,24 @@ async function main() {
             balanceDue: net - paid,
             status: plan.status,
             issuedAt: daysAgo(billPlans.length - i),
-            cancelledAt: plan.status === "CANCELLED" ? daysAgo(billPlans.length - i) : null,
             items: {
               create: [
-                { description: `${service.name} consultation`, quantity: 1, unitPrice: servicePrice, amount: servicePrice },
-                ...medItems,
+                {
+                  description: `${service.name} (Procedure)`,
+                  quantity: 1,
+                  unitPrice: servicePrice,
+                  taxRatePercent: 0,
+                  taxAmount: 0,
+                  amount: servicePrice,
+                },
+                ...medItems.map((m) => ({
+                  description: m.description,
+                  quantity: m.quantity,
+                  unitPrice: m.unitPrice,
+                  taxRatePercent: 0,
+                  taxAmount: 0,
+                  amount: m.amount,
+                })),
               ],
             },
           },
@@ -233,12 +237,13 @@ async function main() {
         await withRetry(() =>
           prisma.payment.create({
             data: {
-              receiptNumber: `RCPT-CAT-${String(i + 1).padStart(4, "0")}`,
+              receiptNumber: `REC-AESTH-${String(i + 1).padStart(4, "0")}`,
               patientId: patient.id,
               billId: bill.id,
               amount: paid,
-              method: (["CASH", "UPI", "CARD"] as const)[i % 3],
+              method: i % 2 === 0 ? "UPI" : "CARD",
               status: "SUCCESS",
+              referenceNumber: `TXN${Date.now()}${i}`,
               receivedById: receptionist.id,
               paidAt: daysAgo(billPlans.length - i),
             },
@@ -247,10 +252,10 @@ async function main() {
         paymentCount++
       }
     }
-    console.log(`  ${billCount} itemized bills created, ${paymentCount} payments recorded`)
+    console.log(`  ${billCount} itemized aesthetic bills created (${paymentCount} payments recorded)`)
   }
 
-  console.log("\nCatalog + billing seed complete.")
+  console.log("\nCrown Celebrity Aesthetic catalog, inventory & billing alignment complete.")
 }
 
 main()

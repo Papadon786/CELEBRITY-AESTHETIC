@@ -19,6 +19,27 @@ export type PaymentMethod = "CASH" | "UPI" | "CARD" | "NETBANKING" | "ADVANCE" |
 
 export type EncounterStatus = "DRAFT" | "FINALIZED" | "AMENDED"
 
+export type LeadStatus =
+  | "NEW"
+  | "CONTACTED"
+  | "QUALIFIED"
+  | "DEMO"
+  | "PROPOSAL"
+  | "NEGOTIATION"
+  | "WON"
+  | "LOST"
+
+export type LeadSource =
+  | "LINKEDIN"
+  | "WEBSITE"
+  | "INSTAGRAM"
+  | "WHATSAPP"
+  | "GOOGLE"
+  | "REFERRAL"
+  | "WALK_IN"
+  | "PHONE"
+  | "OTHER"
+
 export interface User {
   id: string
   name: string
@@ -166,4 +187,67 @@ export interface AuditLog {
   ipAddress?: string | null
   createdAt: string | Date
   user?: User | null
+}
+
+export type ProspectStage =
+  | "QUALIFIED"
+  | "DEMO_BOOKED"
+  | "PROPOSAL_SENT"
+  | "NEGOTIATION"
+  | "CLOSED_WON"
+  | "CLOSED_LOST"
+
+export interface Prospect {
+  id: string
+  name: string
+  company: string | null
+  email: string | null
+  phone: string | null
+  stage: ProspectStage
+  value: number | string | null
+  icpScore: number | null
+  engagement: number | null
+  dueDate: string | Date | null
+  assignedToId: string | null
+  assignedTo?: User | null
+  notes: string | null
+  source: string | null
+  treatmentCategory?: "HAIR_RESTORATION" | "HAIR_TRANSPLANT" | "SKIN_AESTHETICS" | "ANTI_AGING" | "ACNE_SCARS" | "BRIDAL" | "PMU" | string | null
+  treatmentInterest?: string | null
+  candidateConcern?: string | null
+  doctorPreference?: string | null
+  leadId?: string | null
+  convertedClientId?: string | null
+  convertedPatientId?: string | null
+  createdAt: string | Date
+  updatedAt: string | Date
+  activities?: any[]
+}
+
+export type ClientStatus = "ACTIVE" | "AT_RISK" | "CHURNED" | "PAUSED"
+export type RenewalStage = "NOT_STARTED" | "IN_DISCUSSION" | "PROPOSAL_SENT" | "CONFIRMED" | "COMPLETED"
+
+export interface ClientAccount {
+  id: string
+  name: string
+  company: string | null
+  email: string | null
+  phone: string | null
+  status: ClientStatus
+  healthScore: number
+  accountManagerId: string | null
+  accountManagerName: string | null
+  accountManager?: User | null
+  contractValue: number | string
+  renewalDate: string | Date | null
+  renewalStage: RenewalStage
+  notes: string | null
+  membershipTier?: string | null
+  treatmentFocus?: string | null
+  boosterFrequency?: string | null
+  patientId?: string | null
+  patient?: any | null
+  createdAt: string | Date
+  updatedAt: string | Date
+  activities?: any[]
 }

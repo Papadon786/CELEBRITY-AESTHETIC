@@ -1,6 +1,15 @@
 import { PrismaClient } from "@/generated/prisma/client"
 import { PrismaPg } from "@prisma/adapter-pg"
 
+if (!process.env.DATABASE_URL) {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("dotenv").config()
+  } catch {
+    // ignore in environments without dotenv
+  }
+}
+
 const connectionString =
   process.env.DATABASE_URL ||
   process.env.POSTGRES_PRISMA_URL ||

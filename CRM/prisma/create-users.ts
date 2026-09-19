@@ -25,15 +25,48 @@ async function main() {
   console.log("=========================================================\n")
 
   const accounts = [
-    // Primary / Production Logins
+    // Primary / Crown Celebrity Aesthetic Logins
     {
-      name: "Dr. Mufeeda Roohi",
-      email: "mufeeda@zafoorclinic.com",
-      phone: "8940399403",
-      password: "ZafoorClinic#Mufeeda",
+      name: "Clinic Administrator",
+      email: "admin@celebrityaesthetic.com",
+      phone: "9591047171",
+      password: "Admin@123",
       role: "ADMIN" as const,
-      specialization: "Aesthetic Physician, Diabetologist & Family Physician",
-      consultationFee: 500,
+      specialization: "Aesthetic Clinic Management",
+    },
+    {
+      name: "Naziya Baig",
+      email: "naziya@celebrityaesthetic.com",
+      phone: "9591047171",
+      password: "Doctor@123",
+      role: "DOCTOR" as const,
+      specialization: "Cosmetologist & Trichologist",
+      consultationFee: 800,
+    },
+    {
+      name: "Reehal Baig",
+      email: "reehal@celebrityaesthetic.com",
+      phone: "9591047171",
+      password: "Consult@123",
+      role: "DOCTOR" as const,
+      specialization: "Trichology & Aesthetic Consultant",
+      consultationFee: 600,
+    },
+    {
+      name: "Hair Transplant Team (Satyam Centre)",
+      email: "transplant@celebrityaesthetic.com",
+      phone: "9591047171",
+      password: "Surgeon@123",
+      role: "DOCTOR" as const,
+      specialization: "FUE & Bio-FUE Hair Transplant Surgeons",
+      consultationFee: 1000,
+    },
+    {
+      name: "Front Desk Receptionist",
+      email: "reception@celebrityaesthetic.com",
+      phone: "9591047171",
+      password: "Reception@123",
+      role: "RECEPTIONIST" as const,
     },
     {
       name: "Clinic Administrator",

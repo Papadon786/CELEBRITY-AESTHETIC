@@ -49,7 +49,7 @@ export function Header({ user }: { user: { name: string; role: string; permissio
           }
         />
         <SheetContent side="left" className="p-0 w-72 max-w-[85vw]">
-          <SheetTitle className="sr-only">Celebrity Aesthetic Navigation Menu</SheetTitle>
+          <SheetTitle className="sr-only">Crown Celebrity Aesthetic Navigation Menu</SheetTitle>
           <NavContent role={user.role} permissions={user.permissions} onNavigate={() => setMobileMenuOpen(false)} />
         </SheetContent>
       </Sheet>
