@@ -19,7 +19,7 @@ async function main() {
 
   console.log("[auto-migrate] Detected remote database. Pushing Prisma schema to cloud database...");
   try {
-    execSync("npx prisma db push --accept-data-loss --skip-generate", {
+    execSync("npx prisma db push --accept-data-loss", {
       stdio: "inherit",
       env: process.env,
     });
