@@ -112,7 +112,7 @@ export default function AboutPage() {
               <PhotoPanel
                 src={interiorImage.src}
                 alt={interiorImage.alt}
-                aspect="aspect-[4/5]"
+                aspect="aspect-[4/3] lg:aspect-[16/11]"
                 sizes="(min-width: 1024px) 45vw, 90vw"
               />
               <div className="absolute -bottom-5 left-5 max-w-[220px] rounded-md border border-gold/40 bg-ivory px-4 py-3 shadow-md sm:left-6">

@@ -181,10 +181,16 @@ export function getTreatmentImage(treatment: Treatment): {
 
 export const interiorImage = {
   src: "/clinic/clinic-about-treatment-room.jpg",
-  alt: "A state-of-the-art treatment suite at Crown Celebrity Aesthetic with modern laser equipment",
+  alt: "State-of-the-art clinical treatment suite at Crown Celebrity Aesthetic with advanced laser consoles and treatment bed",
 };
 
 export const clinicSpaceImages = [
+  {
+    src: "/clinic/clinic-about-treatment-room.jpg",
+    alt: "State-of-the-art clinical treatment suite at Crown Celebrity Aesthetic with advanced laser consoles and treatment bed",
+    width: 1024,
+    height: 576,
+  },
   {
     src: "/clinic/clinic-wall-posters.jpg",
     alt: "Wall of clinical specialty posters at Crown Celebrity Aesthetic: Acne, Pigmentation, Medi Facials, Hydroxy, and Laser Hair Removal",

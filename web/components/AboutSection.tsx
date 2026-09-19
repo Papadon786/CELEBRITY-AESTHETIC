@@ -9,12 +9,12 @@ import { interiorImage } from "@/lib/images";
 export default function AboutSection() {
   return (
     <section aria-label="About Crown Celebrity Aesthetic" className="py-12 sm:py-16">
-      <div className="mx-auto grid max-w-8xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-8xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         <DirectionalCard direction="left">
           <ParallaxImage
             src={interiorImage.src}
             alt={interiorImage.alt}
-            aspect="aspect-[5/6]"
+            aspect="aspect-[4/3] lg:aspect-[16/11]"
             sizes="(min-width: 1024px) 45vw, 90vw"
           />
         </DirectionalCard>
