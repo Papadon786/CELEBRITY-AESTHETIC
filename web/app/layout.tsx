@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="en"
       className={`${grotesk.variable} ${displayFont.variable} ${accentFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col overflow-x-hidden bg-ivory font-grotesk text-charcoal">
+      <body className="min-h-full flex flex-col bg-ivory font-grotesk text-charcoal">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-charcoal focus:px-4 focus:py-2 focus:text-ivory"
@@ -41,10 +41,12 @@ export default function RootLayout({
         </a>
         <SmoothScroll />
         <Navbar />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <div className="flex min-h-full flex-1 flex-col overflow-x-hidden">
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

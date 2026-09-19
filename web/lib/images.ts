@@ -221,6 +221,12 @@ export const clinicSpaceImages = [
     width: 900,
     height: 1600,
   },
+  {
+    src: "/clinic/clinic-treatment-room-2.jpg",
+    alt: "Fully equipped treatment room at Crown Celebrity Aesthetic with laser and skin-analysis devices",
+    width: 1600,
+    height: 900,
+  },
 ];
 
 export const teamPhotos = [

@@ -108,6 +108,13 @@ export default function Hero() {
         end: SCROLL_DISTANCE,
         pin: true,
         pinSpacing: true,
+        // Force "fixed" instead of letting ScrollTrigger fall back to
+        // transform-based pinning on touch/mobile viewports — that mode
+        // applies the transform to <body>, which turns it into a
+        // containing block for every position:fixed element on the page
+        // (the navbar, the mobile menu), making them drift with scroll
+        // instead of staying pinned.
+        pinType: "fixed",
         // Reads native scroll position directly (no smooth-scroll layer
         // easing it first) — keeps input-to-frame latency as low as
         // possible everywhere on the site.

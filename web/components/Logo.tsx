@@ -18,25 +18,36 @@ export default function Logo({
   showText = true,
   className = "",
 }: {
-  variant?: "dark" | "light";
+  variant?: "dark" | "light" | "responsive";
   size?: "default" | "large";
   showText?: boolean;
   className?: string;
 }) {
   const [imgFailed, setImgFailed] = useState(false);
-  const textColor = variant === "light" ? "text-ivory" : "text-charcoal";
-  const subColor = variant === "light" ? "text-ivory/70" : "text-charcoal/65";
+  const textColor =
+    variant === "responsive"
+      ? "text-charcoal lg:text-ivory"
+      : variant === "light"
+      ? "text-ivory"
+      : "text-charcoal";
+
+  const subColor =
+    variant === "responsive"
+      ? "text-charcoal/65 lg:text-ivory/70"
+      : variant === "light"
+      ? "text-ivory/70"
+      : "text-charcoal/65";
 
   const imgDimensions =
     size === "large"
       ? "h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28"
-      : "h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20";
+      : "h-11 w-11 sm:h-14 sm:w-14 md:h-16 md:w-16";
 
   return (
     <Link
       href="/"
       aria-label="Crown Celebrity Aesthetic — Home"
-      className={`group inline-flex items-center gap-3.5 transition-transform duration-200 hover:opacity-95 ${className}`}
+      className={`group inline-flex items-center gap-2.5 sm:gap-3.5 transition-transform duration-200 hover:opacity-95 ${className}`}
     >
       {!imgFailed ? (
         <div className="relative shrink-0">
@@ -79,13 +90,13 @@ export default function Logo({
       )}
 
       {showText && (
-        <span className="flex flex-col leading-tight font-grotesk">
+        <span className="flex flex-col leading-tight font-grotesk whitespace-nowrap">
           <span
-            className={`font-display text-base font-bold tracking-wider uppercase sm:text-lg lg:text-xl ${textColor}`}
+            className={`font-display text-sm font-bold tracking-wider uppercase sm:text-base lg:text-lg ${textColor}`}
           >
             Crown Celebrity
           </span>
-          <span className="text-[10px] font-bold tracking-[0.28em] uppercase text-gold-dark sm:text-[11px]">
+          <span className="text-[9px] font-bold tracking-[0.24em] uppercase text-gold-dark sm:text-[10px]">
             Aesthetic
           </span>
           <span
