@@ -166,21 +166,9 @@ const treatmentImages: Partial<Record<string, { src: string; alt: string }>> = {
     src: "/treatments/skin-rejuvenation.jpg",
     alt: "Laser skin rejuvenation treatment in progress",
   },
-  "eyebrow-microblading": {
-    src: "/treatments/smp-hair.jpg",
-    alt: "Microblading tool depositing fine hair-stroke pigment for eyebrow microblading",
-  },
   "lip-tinting": {
     src: "/treatments/lip-tinting.jpg",
     alt: "Lip tinting pigment being applied",
-  },
-  micropigmentation: {
-    src: "/treatments/lip-tinting.jpg",
-    alt: "Permanent makeup pigment and tattoo needle used for aesthetic micropigmentation",
-  },
-  "smp-pmu": {
-    src: "/treatments/smp-hair.jpg",
-    alt: "Fine micropigmentation needle used for scalp micropigmentation PMU aesthetics",
   },
 };
 

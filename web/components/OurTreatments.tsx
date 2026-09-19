@@ -12,7 +12,7 @@ const featuredSlugs = [
   "advanced-gfc",
   "male-hair-transplant",
   "acne-scar-treatment",
-  "eyebrow-microblading",
+  "lip-tinting",
 ];
 
 const featuredTreatments = featuredSlugs

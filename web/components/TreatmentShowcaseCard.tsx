@@ -40,6 +40,9 @@ export default function TreatmentShowcaseCard({ treatment }: { treatment: Treatm
         <p className="mt-2 line-clamp-2 flex-1 font-grotesk text-[13px] leading-relaxed text-charcoal/65">
           {treatment.description}
         </p>
+        <p className="mt-2 font-grotesk text-[11px] font-semibold uppercase tracking-wide text-gold-dark">
+          No Cost EMI available on all services
+        </p>
         <div className="mt-4 flex flex-col gap-2">
           <ButtonLink
             href={`/contact?treatment=${encodeURIComponent(treatment.name)}`}

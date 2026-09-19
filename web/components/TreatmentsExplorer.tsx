@@ -15,7 +15,7 @@ import DirectionalCard from "./ui/DirectionalCard";
 type FilterType = "all" | TreatmentCategory | TreatmentSubCategory;
 
 const mainFilters: { value: "all" | TreatmentCategory; label: string }[] = [
-  { value: "all", label: "All Treatments (57)" },
+  { value: "all", label: `All Treatments (${treatments.length})` },
   { value: "skin", label: categoryLabels.skin },
   { value: "hair", label: categoryLabels.hair },
   { value: "pmu", label: categoryLabels.pmu },
@@ -23,7 +23,7 @@ const mainFilters: { value: "all" | TreatmentCategory; label: string }[] = [
 
 const subPillFilters: { value: TreatmentSubCategory; label: string; category: TreatmentCategory }[] = [
   { value: "hair-restoration", label: "Hair Restoration (GFC, PRP...)", category: "hair" },
-  { value: "hair-transplant", label: "Hair Transplant (22 Specialities)", category: "hair" },
+  { value: "hair-transplant", label: "Hair Transplant", category: "hair" },
   { value: "acne-scars", label: "Acne & Scars (MNRF, CO2...)", category: "skin" },
   { value: "pigmentation", label: "Pigmentation & Brightening", category: "skin" },
   { value: "medi-facials", label: "Advanced Medi Facials", category: "skin" },

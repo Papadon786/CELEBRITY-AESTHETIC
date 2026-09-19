@@ -75,64 +75,28 @@ export default function MobileMenu({
                     </div>
 
                     {treatmentsExpanded && (
-                      <div className="mb-2 space-y-3 rounded-lg border border-gold/30 bg-sage/30 p-4 font-grotesk text-sm">
-                        <div>
-                          <Link
-                            href="/treatments?subCategory=hair-restoration"
-                            onClick={onClose}
-                            className="block font-bold uppercase tracking-wider text-charcoal hover:text-gold-dark"
-                          >
-                            Hair Restoration
-                          </Link>
-                          <p className="text-[12px] text-charcoal/70">
-                            GFC · PRP · BIOCELL · HF · Exosomes · CBL
-                          </p>
-                        </div>
-                        <div>
-                          <Link
-                            href="/treatments?subCategory=hair-transplant"
-                            onClick={onClose}
-                            className="block font-bold uppercase tracking-wider text-charcoal hover:text-gold-dark"
-                          >
-                            Hair Transplant (22 Specialities)
-                          </Link>
-                          <p className="text-[12px] text-charcoal/70">
-                            Celebrity, FUE, Crown, Hairline, Beard, etc.
-                          </p>
-                        </div>
-                        <div>
-                          <Link
-                            href="/treatments?category=skin"
-                            onClick={onClose}
-                            className="block font-bold uppercase tracking-wider text-charcoal hover:text-gold-dark"
-                          >
-                            Skin Care &amp; Aesthetics
-                          </Link>
-                          <p className="text-[12px] text-charcoal/70">
-                            Acne, Pigmentation, Medi Facials, Botox, Fillers, HIFU
-                          </p>
-                        </div>
-                        <div>
-                          <Link
-                            href="/pmu-services"
-                            onClick={onClose}
-                            className="block font-bold uppercase tracking-wider text-charcoal hover:text-gold-dark"
-                          >
-                            PMU
-                          </Link>
-                          <p className="text-[12px] text-charcoal/70">
-                            Microblading, Lip Blush, SMP &amp; Certified Academy
-                          </p>
-                        </div>
-                        <div className="pt-2">
-                          <Link
-                            href="/treatments"
-                            onClick={onClose}
-                            className="inline-block font-semibold uppercase tracking-wider text-gold-dark"
-                          >
-                            View All 57 Treatments Catalog →
-                          </Link>
-                        </div>
+                      <div className="mb-2 flex flex-col divide-y divide-gold/30 rounded-lg border border-gold/30 bg-sage/30 font-grotesk text-sm">
+                        <Link
+                          href="/treatments?category=hair"
+                          onClick={onClose}
+                          className="block px-4 py-3 font-bold uppercase tracking-wider text-charcoal hover:text-gold-dark"
+                        >
+                          Hair Care
+                        </Link>
+                        <Link
+                          href="/treatments?category=skin"
+                          onClick={onClose}
+                          className="block px-4 py-3 font-bold uppercase tracking-wider text-charcoal hover:text-gold-dark"
+                        >
+                          Skin Care
+                        </Link>
+                        <Link
+                          href="/pmu-services"
+                          onClick={onClose}
+                          className="block px-4 py-3 font-bold uppercase tracking-wider text-charcoal hover:text-gold-dark"
+                        >
+                          PMU
+                        </Link>
                       </div>
                     )}
                   </li>

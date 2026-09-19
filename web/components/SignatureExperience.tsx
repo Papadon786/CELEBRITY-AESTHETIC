@@ -15,7 +15,7 @@ const SIGNATURE_SLUGS = [
   "hydra-facial",
   "advanced-prp",
   "botox",
-  "eyebrow-microblading",
+  "lip-tinting",
 ] as const;
 
 const signatureTreatments = SIGNATURE_SLUGS.map((slug) => {
@@ -68,6 +68,9 @@ export default function SignatureExperience() {
                     <h3 className="mt-1 font-display text-xl font-bold uppercase leading-snug text-ivory drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
                       {treatment.name}
                     </h3>
+                    <p className="mt-2 font-grotesk text-[11px] font-semibold uppercase tracking-wide text-gold-light">
+                      No Cost EMI available on all services
+                    </p>
                     <span className="mt-3 inline-block font-grotesk text-[13px] uppercase tracking-widest2 text-ivory/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       View →
                     </span>

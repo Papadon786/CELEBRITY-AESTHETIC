@@ -49,7 +49,7 @@ export default function ServicePillars() {
         />
         <Reveal className="mt-6 text-center">
           <ButtonLink href="/treatments" variant="primary">
-            Explore All 57 Treatments →
+            Explore All 33 Treatments →
           </ButtonLink>
         </Reveal>
       </div>

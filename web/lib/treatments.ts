@@ -27,20 +27,24 @@ export interface Treatment {
     whatToExpect: string;
     journey: string;
     aftercare: string;
+    /** Optional plain-text callout for related sub-specialities offered alongside this treatment. */
+    additionalServices?: string;
+    /** Optional plain-text pricing breakdown, shown as its own detail box. */
+    pricing?: string;
     faq: { question: string; answer: string }[];
   };
 }
 
 export const categoryLabels: Record<TreatmentCategory, string> = {
   hair: "Hair Treatments",
-  skin: "Skin Care & Aesthetics",
+  skin: "Skin Care",
   aesthetics: "Aesthetics",
   pmu: "PMU",
 };
 
 export const subCategoryLabels: Record<TreatmentSubCategory, string> = {
   "hair-restoration": "Hair Restoration (GFC, PRP, EXOSOME)",
-  "hair-transplant": "Hair Transplant Specialities (22 Sub-Treatments)",
+  "hair-transplant": "Hair Transplant",
   "hair-care": "Scalp & General Hair Care",
   "acne-scars": "Acne & Scar Treatments",
   "pigmentation": "Pigmentation & Skin Brightening",
@@ -149,6 +153,7 @@ export const treatments: Treatment[] = [
       "whatToExpect": "Conducted under local anesthesia in a single-day procedure. Follicles are harvested with micro-punches and implanted with precision direction and angle to mimic natural male growth.",
       "journey": "Consultation and hairline mapping precede surgery. Transplanted hairs shed within 3-6 weeks (shock loss), followed by permanent new growth starting from month 3 and achieving full density at 9-12 months.",
       "aftercare": "Specialized sleeping posture, saline sprays, and prescribed gentle washing protocols are followed for the first 10 days.",
+      "additionalServices": "Also available as part of our hair transplant program: Beard Hair Transplant, Moustache Hair Transplant, Temple Hair Transplant, Natural Hairline Transplant, Cricketer Hair Transplant, and Celebrity Hair Transplant.",
       "faq": [
         {
           "question": "Will the transplanted hair fall out again?",
@@ -157,32 +162,6 @@ export const treatments: Treatment[] = [
         {
           "question": "When can I return to work?",
           "answer": "Most patients return to desk jobs within 3 to 5 days, and resume light exercise after 14 days."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Female Hair Transplant",
-    "slug": "female-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "description": "Specialized, no-shave or discrete donor transplantation designed for female hairline lowering and diffuse parting restoration.",
-    "detail": {
-      "whatIsIt": "Female Hair Transplant addresses Ludwig pattern thinning, wide partings, high foreheads, or traction alopecia. The technique preserves existing long hair through selective micro-harvesting without requiring a full head shave.",
-      "whoMayConsider": "Women with widening part lines, thinning temple points, high foreheads, or scarring from trauma or cosmetic surgeries.",
-      "whatToExpect": "Gentle micro-FUE or non-shaven extraction done under local anesthesia. Grafts are placed delicately around existing native hairs to create soft, feminine density.",
-      "journey": "Full diagnostic trichoscopy evaluates donor stability. Growth begins progressively around 3-4 months, maturing into luscious, natural density by 12 months.",
-      "aftercare": "Detailed wash techniques and delicate care guidelines are provided, with no visible external scarring.",
-      "faq": [
-        {
-          "question": "Do I have to shave my head for female hair transplant?",
-          "answer": "No. In most female procedures, only a discreet window in the donor zone is trimmed, easily hidden under your existing hair."
-        },
-        {
-          "question": "Will it look natural?",
-          "answer": "Our surgeons carefully select single-hair grafts for the leading edge to produce soft, feather-like, natural feminine hairlines."
         }
       ]
     }
@@ -201,6 +180,7 @@ export const treatments: Treatment[] = [
       "whatToExpect": "Performed under comfortable local anesthesia. Extracted grafts are preserved in chilled holding solutions and implanted at natural follicular angles and orientations.",
       "journey": "Day 1 procedure followed by post-op wash on Day 3. Tiny micro-dots in the donor area heal completely within 5-7 days. New hair matures over 8 to 12 months.",
       "aftercare": "Avoid direct sun, strenuous exercise, and scratching for 10-14 days. Full aftercare kit and guidance provided.",
+      "pricing": "FUE — ₹25 / Graft. Advanced Sapphire Micro FUE — ₹30 / Graft. Premium Advanced DHI (Choi Pen) — ₹25 per follicle.",
       "faq": [
         {
           "question": "Does FUE leave scars?",
@@ -209,423 +189,6 @@ export const treatments: Treatment[] = [
         {
           "question": "What is the graft survival rate?",
           "answer": "At Crown Celebrity Aesthetic, our gentle graft handling protocols achieve survival rates exceeding 90-95%."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Hairline Reconstruction",
-    "slug": "hairline-reconstruction",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "description": "Architectural artistic redesign of the frontal hairline, recreating age-appropriate transitions, micro-irregularities, and natural temporal peaks.",
-    "detail": {
-      "whatIsIt": "Hairline Reconstruction is an ultra-artistic transplant procedure focused purely on designing and rebuilding the frontal hairline that frames the face. It requires precise single-hair graft feathering, macro and micro-irregularity design, and natural forward angulation.",
-      "whoMayConsider": "Individuals whose hairlines have receded, matured unevenly, or who feel their natural hairline is disproportionately high.",
-      "whatToExpect": "In-depth artistic consultation where facial symmetry, Golden Ratio proportions, and patient age are analyzed to map the new hairline before surgical execution.",
-      "journey": "Once implanted, new hairs begin showing definition around month 4, creating an undetectable, youthful frame by month 9.",
-      "aftercare": "Gentle front-edge cleansing and protection from compression or friction during the initial 10 days.",
-      "faq": [
-        {
-          "question": "How do you prevent a 'pluggy' or doll-like hairline?",
-          "answer": "We exclusively place fine single-hair follicular units along the transition zone with varied micro-angles, completely eliminating straight or abrupt lines."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Beard Hair Transplant",
-    "slug": "beard-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Creation of sharp, dense, and full beards, goaties, or cheek coverage using scalp or beard donor follicles.",
-    "detail": {
-      "whatIsIt": "Beard Hair Transplant uses FUE extraction from the back of the scalp or under the jawline to implant follicles into sparse cheek areas, patchy jawlines, or scars, creating a masculine, contoured beard.",
-      "whoMayConsider": "Men with patchy, thin, or absent facial hair due to genetics, burns, trauma, or surgical scarring.",
-      "whatToExpect": "Outpatient procedure under local anesthesia. Grafts are implanted at an acute flat angle (15-20 degrees) parallel to the facial skin to ensure the beard lies flat.",
-      "journey": "Tiny crusts shed within 7-10 days. The new beard begins growing around 3 months, and can be shaved, groomed, and trimmed like natural beard hair from month 6.",
-      "aftercare": "Keep the facial skin clean and dry for the first 5 days. Avoid shaving for 3-4 weeks as instructed by your surgeon.",
-      "faq": [
-        {
-          "question": "Can I shave normally after a beard transplant?",
-          "answer": "Yes! Once fully healed (after 4-6 weeks), the transplanted hairs behave just like natural facial hair and can be shaved with a razor or trimmed."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Moustache Hair Transplant",
-    "slug": "moustache-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Precise density enhancement and scar camouflage for the upper lip, sculpting full, symmetric moustaches.",
-    "detail": {
-      "whatIsIt": "A dedicated micro-transplant technique focused on the philtrum and upper lip region, restoring density, correcting asymmetry, or concealing cleft lip scars.",
-      "whoMayConsider": "Men seeking greater thickness, defined shape, or scar concealment across the upper lip.",
-      "whatToExpect": "Careful extraction of single and double hair grafts implanted at precise downward angles to match natural moustache flow.",
-      "journey": "Rapid recovery in 7 days; permanent natural hair growth flourishes over 6-9 months.",
-      "aftercare": "Soft diet for the first 48 hours to minimize excessive upper lip movement; daily gentle saline misting.",
-      "faq": [
-        {
-          "question": "Can cleft lip scars be covered?",
-          "answer": "Yes, hair transplantation into mature cleft or trauma scars has an excellent track record of disguising tissue irregularities."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Eyebrow Reconstruction",
-    "slug": "eyebrow-reconstruction",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Delicate micro-hair transplant creating full, defined, and architecturally shaped eyebrows for men and women.",
-    "detail": {
-      "whatIsIt": "Eyebrow Reconstruction involves transplanting ultra-fine single hair follicles (from behind the ear or nape) into the eyebrow contour at near-zero degree angles to recreate natural eyebrow arches.",
-      "whoMayConsider": "Those with over-plucked brows, genetic thinning, alopecia, or scars through the eyebrow.",
-      "whatToExpect": "Detailed artistic stencil design precedes delicate implantation of 150 to 350 micro-grafts per brow under local anesthesia.",
-      "journey": "Redness subsides in 4-5 days. Transplanted hair retains scalp growth characteristics initially, so occasional trimming is recommended.",
-      "aftercare": "Gentle cleansing, avoid rubbing or applying makeup on the brows for 10 days.",
-      "faq": [
-        {
-          "question": "Do transplanted eyebrow hairs keep growing?",
-          "answer": "Yes, because they are sourced from donor scalp hair, they will need occasional trimming every couple of weeks."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Afro Hair Transplant",
-    "slug": "afro-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Specialized extraction protocol accommodating tight curl patterns and curved sub-dermal root trajectories in Afro-textured hair.",
-    "detail": {
-      "whatIsIt": "Afro Hair Transplant requires specialized curved punches and bespoke extraction protocols because Afro-textured follicles curl both above and beneath the skin surface, requiring expert skill to avoid transection.",
-      "whoMayConsider": "Individuals of African descent experiencing traction alopecia, male pattern baldness, or female diffuse thinning.",
-      "whatToExpect": "Conducted with specialized hybrid/curved punch instruments under local anesthesia, ensuring maximum graft integrity.",
-      "journey": "Heals exceptionally well with minimal pigmentation changes when handled by our experienced team.",
-      "aftercare": "Specialized moisturizing aftercare protects tight curl retention and prevents keloid formation.",
-      "faq": [
-        {
-          "question": "Why is Afro hair transplant more complex?",
-          "answer": "The curl continues below the epidermis into the subcutaneous layer. Specialized punch geometry and gentler handling prevent follicle severance."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Body Hair Transplant",
-    "slug": "body-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Harvesting robust donor grafts from beard or chest areas to augment scalp density in patients with depleted scalp donor zones.",
-    "detail": {
-      "whatIsIt": "Body Hair Transplant (BHT) is an advanced technique where follicles from the beard (under-chin area) or chest are harvested to supply supplemental grafts when traditional occipital scalp donor areas are depleted.",
-      "whoMayConsider": "Patients with high grade baldness (Norwood 6/7) or previous over-harvested procedures requiring extra graft volume.",
-      "whatToExpect": "Beard follicles are extracted via micro-FUE. They are thicker and offer superb volume when placed into the mid-scalp and crown.",
-      "journey": "Integrates seamlessly into native scalp hair, adapting its growth cycle over time.",
-      "aftercare": "Minimal donor healing time (3-5 days on the beard area with zero visible marks).",
-      "faq": [
-        {
-          "question": "Where does body donor hair come from?",
-          "answer": "The sub-mandibular beard region is the preferred source because beard hair is robust, thick, and has high survival rates."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Hair Transplant Repair",
-    "slug": "hair-transplant-repair",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "badge": "Corrective Expertise",
-    "description": "Corrective restoration resolving unnatural hairlines, poor density, wrong angles, or donor scarring from previous suboptimal procedures.",
-    "detail": {
-      "whatIsIt": "Corrective Hair Transplant is a specialized surgery aimed at fixing poorly executed prior transplants: extracting poorly angled or pluggy grafts, repairing scarring, and rebuilding a natural, refined hairline.",
-      "whoMayConsider": "Anyone dissatisfied with a previous hair transplant performed elsewhere due to artificial hairline appearance, poor yield, or donor over-harvesting.",
-      "whatToExpect": "A tailored strategy combining punch graft excision of misdirected hairs, recycling of extracted grafts, and artistic re-implantation.",
-      "journey": "Emotional and physical transformation over 9-12 months as the unnatural look is replaced with aesthetic harmony.",
-      "aftercare": "Close monitoring and supportive regenerative therapies (GFC/CBL) are usually incorporated to optimize compromised tissue.",
-      "faq": [
-        {
-          "question": "Can a bad transplant truly be corrected?",
-          "answer": "Yes. Through modern corrective techniques, misplaced grafts can be gently excised, redistributed, and camouflaged with natural single-hair graft feathering."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Unshaven Hair Transplant",
-    "slug": "unshaven-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "badge": "Zero Downtime Look",
-    "description": "Discreet transplantation allowing patients to undergo procedure without shaving recipient or visible donor areas.",
-    "detail": {
-      "whatIsIt": "Unshaven FUE (U-FUE) is a luxury, discrete procedure where hair is preserved at full length in the recipient area and extracted from small concealable micro-bands in the donor zone.",
-      "whoMayConsider": "Executives, public figures, celebrities, and professionals who require absolute privacy and cannot shave their heads for professional reasons.",
-      "whatToExpect": "Meticulous single-graft extraction and precision implantation between existing long hairs.",
-      "journey": "Zero telltale signs of surgery. You can return to public appearances and social commitments immediately.",
-      "aftercare": "Specialized wash protocols keep existing hair tangle-free while protecting newly planted grafts.",
-      "faq": [
-        {
-          "question": "Will anyone know I had a transplant?",
-          "answer": "No. Your existing hair covers the treated zones from day one, offering complete discretion."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Crown Hair Transplant (Vertex Restoration)",
-    "slug": "crown-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "description": "Restoration of the complex circular whorl pattern on the vertex/crown to achieve natural 360-degree coverage.",
-    "detail": {
-      "whatIsIt": "The crown (or vertex) has a unique spiral 'whorl' pattern where hair radiates outward in multiple directions. Crown Hair Transplant requires expert mathematical and aesthetic execution to recreate this natural vortex.",
-      "whoMayConsider": "Individuals with thinning, bald spots, or expanding loss on the top/back of their head.",
-      "whatToExpect": "Careful design of the center whorl pivot point, placing dense multi-hair units that expand outwards matching native angles.",
-      "journey": "Crown areas have slightly thicker skin and slower vascular turnaround; full maturation takes between 10 to 14 months.",
-      "aftercare": "Complementary GFC or medical therapy is recommended to preserve native hairs surrounding the crown.",
-      "faq": [
-        {
-          "question": "Why does crown hair transplant take longer to mature?",
-          "answer": "Blood circulation at the highest vertex point of the scalp is naturally slightly slower than the frontal hairline, meaning full density reveals around 12 months."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Temple Hair Transplant",
-    "slug": "temple-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Restoration of youthful temporal points and side angles that frame the eyes and facial profile.",
-    "detail": {
-      "whatIsIt": "Temporal peaks are the triangular projections of hair on either side of the forehead that frame the profile. Reconstructing temples restores youthful facial width and balance.",
-      "whoMayConsider": "Clients whose temples have retreated backward, creating an excessively broad forehead appearance.",
-      "whatToExpect": "Ultra-fine single hair grafts placed at razor-thin, flat angles pointing backward and downward.",
-      "journey": "Rapid recovery in 5-7 days; sharp profile definition is restored as grafts mature.",
-      "aftercare": "Delicate washing without side friction; avoid tight glasses or headbands for two weeks.",
-      "faq": [
-        {
-          "question": "Why are temples important?",
-          "answer": "Without temporal peaks, even a low hairline looks artificial. Restoring temples dramatically enhances youthful facial geometry."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Burn Scar Hair Transplant",
-    "slug": "burn-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Reconstructive transplantation into fibrotic scar tissue from burns or trauma, restoring confidence and coverage.",
-    "detail": {
-      "whatIsIt": "Reconstructive transplantation into cicatricial (scarred) scalp tissue resulting from thermal burns, radiation, or mechanical trauma.",
-      "whoMayConsider": "Patients with localized or widespread bald patches caused by past burns, childhood accidents, or surgical scars.",
-      "whatToExpect": "Often pre-conditioned with PRP/GFC to soften fibrous tissue and promote angiogenesis before grafting.",
-      "journey": "Gradual density buildup; often performed in 1-2 conservative sessions to respect scar vascularity.",
-      "aftercare": "Specialized antiseptic and moisturizing aftercare.",
-      "faq": [
-        {
-          "question": "Can hair actually grow in burn scar tissue?",
-          "answer": "Yes. With proper vascular evaluation and gentle micro-instrumentation, transplanted hairs can successfully take root and grow in scar tissue."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Transgender Hair Transplant",
-    "slug": "transgender-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "description": "Gender-affirming hairline reshaping—feminizing high, M-shaped hairlines into soft rounded contours, or masculinizing temple angles.",
-    "detail": {
-      "whatIsIt": "Gender-affirmative hair restoration specializes in transforming the hairline silhouette. For MTF transitions, it rounds out square temple recessions into a soft, arched feminine hairline. For FTM transitions, it establishes square, masculine temporal angles.",
-      "whoMayConsider": "Transgender and non-binary individuals seeking facial gender confirmation and harmonious aesthetic alignment.",
-      "whatToExpect": "Detailed aesthetic consultation aligning with hormone replacement therapy timelines and facial feminization/masculinization goals.",
-      "journey": "Life-affirming transformation providing natural, permanent hair framing that complements your true identity.",
-      "aftercare": "Standard gentle FUE aftercare with ongoing clinical support.",
-      "faq": [
-        {
-          "question": "Does hormone therapy affect the transplant?",
-          "answer": "HRT often helps stabilize native hair, creating an ideal foundation for enduring transplant density."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Maximum Density Hair Transplant",
-    "slug": "maximum-density-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "description": "High-density dense-packing technique yielding 50–65+ follicular units per square centimeter for unmatched fullness.",
-    "detail": {
-      "whatIsIt": "Maximum Density Hair Transplant utilizes high-magnification stereomicroscopic graft dissection and dense-packing implantation techniques to achieve superior follicular counts per square centimeter.",
-      "whoMayConsider": "Patients with localized thinning, high donor availability, or those who demand the thickest possible visual result in a single pass.",
-      "whatToExpect": "High-precision sapphire or implanter blade incisions spaced meticulously without compromising local scalp perfusion.",
-      "journey": "Rich, lush density begins emerging at 6 months, reaching maximum fullness at 12 months.",
-      "aftercare": "Nutritional and biological support protocols maximize 100% graft yield.",
-      "faq": [
-        {
-          "question": "What is dense packing?",
-          "answer": "Dense packing is the art of placing 50-65+ follicular grafts per sq cm in suitable candidates, delivering maximum natural visual density."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Natural Looking Hair Transplant",
-    "slug": "natural-looking-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Master-level graft sorting, microscopic angulation, and organic distribution for completely undetectable hair restoration.",
-    "detail": {
-      "whatIsIt": "A philosophy and clinical protocol dedicated to ensuring that no one—even hair stylists up close—can detect that a hair transplant was performed.",
-      "whoMayConsider": "Anyone who fears an artificial, tell-tale surgical look and prioritizes organic aesthetic perfection above all else.",
-      "whatToExpect": "Every graft is sorted under high magnification into single, double, and triple hair units and placed according to nature's blueprint.",
-      "journey": "Seamless integration with existing hair, natural growth direction, and invisible donor healing.",
-      "aftercare": "Full standard aftercare guidance.",
-      "faq": [
-        {
-          "question": "What makes a hair transplant look completely natural?",
-          "answer": "Correct angulation (acute forward direction), single-hair soft transitions, subtle micro-irregularities, and age-appropriate design."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Natural Hairline Transplant",
-    "slug": "natural-hairline-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Customized facial contour framing with soft transitions and organic follicular irregularity.",
-    "detail": {
-      "whatIsIt": "Dedicated focus on the 1.5 cm frontal transition zone, recreating soft, feathered borders that match individual ethnicity, bone structure, and age.",
-      "whoMayConsider": "Individuals seeking to reverse forehead recession without looking like they underwent cosmetic surgery.",
-      "whatToExpect": "Handcrafted recipient sites created with ultra-thin blades followed by gentle micro-graft placement.",
-      "journey": "Soft, natural framing is restored within 6 to 9 months.",
-      "aftercare": "Gentle front-edge hygiene and sun protection.",
-      "faq": [
-        {
-          "question": "Can I choose my own hairline height?",
-          "answer": "We design the hairline collaboratively, balancing your personal preferences with anatomical aesthetic proportions."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Minimal Pain Hair Transplant",
-    "slug": "minimal-pain-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "badge": "Comfort First",
-    "description": "Painless local anesthesia protocols, vibration anesthesia, and ultra-gentle micro-punches for a relaxing treatment experience.",
-    "detail": {
-      "whatIsIt": "Our Comfort-First protocol combines needleless jet-injection technology, buffered anesthetics, and acoustic vibration devices to virtually eliminate injection discomfort.",
-      "whoMayConsider": "Patients with low pain tolerance or needle apprehension who have postponed hair restoration out of fear.",
-      "whatToExpect": "You relax in our ergonomic surgical suite, listen to music or watch your favorite shows while our team cares for you comfortably.",
-      "journey": "A calm, comfortable procedure day with zero trauma or anxiety.",
-      "aftercare": "Comprehensive post-op analgesic guidance ensures you sleep soundly from night one.",
-      "faq": [
-        {
-          "question": "Is the procedure really painless?",
-          "answer": "Yes! Once local anesthesia is applied, patients feel zero pain and frequently doze off during the session."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Minimal Scar Hair Transplant",
-    "slug": "minimal-scar-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "description": "Sub-millimeter micro-FUE extraction that leaves virtually invisible micro-dots, allowing short fades and buzz cuts.",
-    "detail": {
-      "whatIsIt": "By using customized serrated trumpet punches measuring just 0.75mm to 0.85mm, extraction wounds close naturally within 48-72 hours with imperceptible micro-specks.",
-      "whoMayConsider": "Men and women who love short fades, military cuts, or athletic lifestyles where scalp visibility is high.",
-      "whatToExpect": "Rapid donor recovery with minimal crusting and zero stitch marks.",
-      "journey": "Donor area looks pristine and unscarred within 7-10 days.",
-      "aftercare": "Regenerative post-op healing ointments supplied by the clinic.",
-      "faq": [
-        {
-          "question": "Can I wear a skin fade after this?",
-          "answer": "Yes! The micro-extraction points heal so finely that short fade cuts remain crisp and clean."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Cricketer Hair Transplant",
-    "slug": "cricketer-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "badge": "Active Lifestyle Protocol",
-    "description": "High-endurance hair restoration engineered for athletes, cricketers, and sports professionals exposed to helmets, sweat, and sunlight.",
-    "detail": {
-      "whatIsIt": "Designed specifically for sportsmen and active professionals. Addresses traction and friction from helmets, perspiration, and outdoor UV exposure while optimizing root anchor strength.",
-      "whoMayConsider": "Cricketers, athletes, gym enthusiasts, and individuals with demanding outdoor physical lifestyles.",
-      "whatToExpect": "Sturdy follicular units harvested from dense donor banks, implanted with reinforced root depth for durable longevity.",
-      "journey": "Rapid recovery timeline allowing return to light conditioning in 7 days and full athletic competition in 3-4 weeks.",
-      "aftercare": "Sports-specific sweat management and anti-friction scalp regimens.",
-      "faq": [
-        {
-          "question": "When can I wear a cricket helmet or cap?",
-          "answer": "Loose caps can be worn after 7-10 days; tight helmets are safely resumed after 3-4 weeks."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Celebrity Hair Transplant",
-    "slug": "celebrity-hair-transplant",
-    "category": "hair",
-    "subCategory": "hair-transplant",
-    "subCategoryLabel": "Hair Transplant",
-    "featured": true,
-    "badge": "Signature VIP Service",
-    "description": "Our signature red-carpet hair transplant protocol offering complete VIP privacy, high-definition camera-ready density, and rapid healing.",
-    "detail": {
-      "whatIsIt": "The flagship hair restoration protocol at Crown Celebrity Aesthetic. Combines luxury suite privacy, master surgeon execution, high-definition dense-packing, and optional non-shaven FUE for high-profile clients.",
-      "whoMayConsider": "Actors, models, corporate leaders, and discerning clients who require absolute perfection, complete confidentiality, and camera-ready results.",
-      "whatToExpect": "White-glove one-on-one attention throughout the day, customized gourmet catering, and state-of-the-art procedure suites.",
-      "journey": "Seamless progression from confidential consultation to lush, photo-ready hair fullness that stands up to 4K studio cameras.",
-      "aftercare": "VIP post-operative care package including hyperbaric/laser healing protocols and 24/7 direct doctor access.",
-      "faq": [
-        {
-          "question": "Is confidentiality guaranteed?",
-          "answer": "Yes, we maintain strict non-disclosure and private VIP entry/exit protocols for all high-profile clients."
-        },
-        {
-          "question": "How soon will I look camera-ready?",
-          "answer": "With our non-shaven and micro-implanter protocols, visible signs of surgery resolve in just days."
         }
       ]
     }
@@ -1154,28 +717,6 @@ export const treatments: Treatment[] = [
     }
   },
   {
-    "name": "Eyebrow Microblading & Microshading",
-    "slug": "eyebrow-microblading",
-    "category": "pmu",
-    "subCategory": "pmu-beauty",
-    "subCategoryLabel": "Permanent Makeup (PMU)",
-    "featured": true,
-    "description": "Artisan hand-drawn hair strokes combined with soft powder shading to create hyper-realistic, natural eyebrows.",
-    "detail": {
-      "whatIsIt": "Eyebrow Microblading is a semi-permanent cosmetic tattooing technique where medical-grade pigments are deposited into the superficial dermis using fine micro-blades, creating realistic, individual brow hairs.",
-      "whoMayConsider": "Those with sparse, over-plucked, asymmetric, or light eyebrows wanting effortless, daily brow perfection.",
-      "whatToExpect": "Precise facial mapping and symmetry outline are agreed upon before numbing and pigment application.",
-      "journey": "Initial 2-hour session followed by a perfecting touch-up appointment at 4 to 6 weeks. Results last 12 to 24 months.",
-      "aftercare": "Keep brows dry for 7 days; apply prescribed healing balm.",
-      "faq": [
-        {
-          "question": "Does microblading look natural?",
-          "answer": "Yes! We match pigment shades to your natural hair and complexion, drawing individual hair strokes that blend imperceptibly."
-        }
-      ]
-    }
-  },
-  {
     "name": "Semi-Permanent Lip Tinting (Lip Blush)",
     "slug": "lip-tinting",
     "category": "pmu",
@@ -1193,27 +734,6 @@ export const treatments: Treatment[] = [
         {
           "question": "Can dark or hyperpigmented lips be treated?",
           "answer": "Yes! We specialize in dark lip neutralization, using warm balancing pigments to neutralize cool tones before adding your desired shade."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Clinical Aesthetic Micropigmentation",
-    "slug": "micropigmentation",
-    "category": "pmu",
-    "subCategory": "pmu-beauty",
-    "subCategoryLabel": "Permanent Makeup (PMU)",
-    "description": "Medical-grade cosmetic micropigmentation for eyeliner, beauty marks, and corrective camouflage.",
-    "detail": {
-      "whatIsIt": "High-precision digital machine micropigmentation for permanent eyeliner, lash enhancement, and aesthetic camouflage.",
-      "whoMayConsider": "Clients wanting smudge-proof lash line enhancement or aesthetic feature definition.",
-      "whatToExpect": "Sterile, comfortable procedure using single-use cartridge needles.",
-      "journey": "Long-lasting results for 2-3 years.",
-      "aftercare": "Dry healing for 5 days; gentle cleansing.",
-      "faq": [
-        {
-          "question": "Is it safe around the eyes?",
-          "answer": "Our PMU master artists are certified with extensive training in peri-ocular safety and hygiene."
         }
       ]
     }
@@ -1237,27 +757,6 @@ export const treatments: Treatment[] = [
         {
           "question": "Will the pigment turn blue or green over time?",
           "answer": "No. We exclusively use specialized carbon-black SMP pigments that do not contain heavy metals or blue-green undertones, fading true to tone."
-        }
-      ]
-    }
-  },
-  {
-    "name": "Scalp Micropigmentation (PMU Aesthetics)",
-    "slug": "smp-pmu",
-    "category": "pmu",
-    "subCategory": "pmu-beauty",
-    "subCategoryLabel": "Permanent Makeup (PMU)",
-    "description": "Aesthetic SMP services offered through our PMU academy wing for scalp hairline shading and scar camouflage.",
-    "detail": {
-      "whatIsIt": "Scalp Micropigmentation provided under our PMU Services & Academy division, providing artistic scalp density enhancement and corrective work.",
-      "whoMayConsider": "Those exploring beauty-adjacent scalp shading, parting camouflage, or hairline micro-dots.",
-      "whatToExpect": "Detailed mapping, color matching, and delicate multi-session micro-pigmentation.",
-      "journey": "Structured across 2-3 visits.",
-      "aftercare": "Gentle scalp hygiene and UV care.",
-      "faq": [
-        {
-          "question": "How long does SMP last?",
-          "answer": "Typically 3 to 5 years, with occasional touch-ups to refresh tone and sharpness."
         }
       ]
     }
@@ -1317,6 +816,7 @@ export const treatments: Treatment[] = [
       "whatToExpect": "High-magnification camera inspection of hair follicle density, shaft caliber, and scalp health followed by a tailored prescription.",
       "journey": "Structured medical protocol reviewed quarterly.",
       "aftercare": "Daily adherence to customized hair care.",
+      "additionalServices": "Also available as part of our hair transplant program: Female Hair Transplant, FUE Hair Transplant, Hairline Reconstruction, Eyebrow Reconstruction, Afro Hair Transplant, Body Hair Transplant, Hair Transplant Repair, Unshaven Hair Transplant, Crown Hair Transplant, Burn Hair Transplant, Transgender Hair Transplant, Maximum Density Hair Transplant, Natural Looking Hair Transplant, Minimal Pain Hair Transplant, and Minimal Scar Hair Transplant.",
       "faq": [
         {
           "question": "What happens during a hairfall consultation?",

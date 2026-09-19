@@ -201,7 +201,7 @@ export default function Hero() {
                 <motion.p
                   custom={direction}
                   variants={lineVariants}
-                  className="mb-6 font-grotesk text-xs font-semibold uppercase tracking-widest2 text-[#C9A227] drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
+                  className="mb-6 font-grotesk text-xs font-semibold uppercase tracking-widest2 text-ivory drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
                 >
                   {beat.eyebrow}
                 </motion.p>
@@ -209,7 +209,7 @@ export default function Hero() {
               <motion.h1
                 custom={direction}
                 variants={lineVariants}
-                className="font-display text-[32px] font-bold uppercase leading-[1.05] tracking-tight text-[#C9A227] drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] sm:text-[42px] lg:text-[52px]"
+                className="font-display text-[32px] font-bold uppercase leading-[1.05] tracking-tight text-ivory drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] sm:text-[42px] lg:text-[52px]"
               >
                 {/* Beat swap (above) still gets its own fade/rise/blur-in;
                     within that, each word additionally sharpens from a dim
@@ -224,7 +224,7 @@ export default function Hero() {
                           {
                             text: beat.script,
                             className:
-                              "text-[#C9A227] drop-shadow-[0_0_10px_rgba(255,248,241,0.45)]",
+                              "text-ivory drop-shadow-[0_0_10px_rgba(255,248,241,0.45)]",
                           },
                         ]
                       : []),

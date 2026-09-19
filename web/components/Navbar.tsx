@@ -132,101 +132,38 @@ export default function Navbar() {
                     </svg>
                   </Link>
 
-                  {/* Hover (and keyboard-focus) Mega Menu for Treatments */}
+                  {/* Hover (and keyboard-focus) dropdown for Treatments —
+                      a simple stacked list of the 3 top-level categories. */}
                   <div
-                    className="invisible absolute left-1/2 top-full z-50 w-[1000px] max-w-[95vw] -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+                    className="invisible absolute left-0 top-full z-50 w-56 translate-y-2 pt-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
                   >
                     <div className="overflow-hidden rounded-xl border border-gold/40 bg-ivory shadow-[0_20px_50px_rgba(23,23,23,0.18)] backdrop-blur-md">
-                      <div className="grid grid-cols-4 gap-6 p-7">
-                        {/* Column 1: Hair Restoration */}
-                        <div>
-                          <Link
-                            href="/treatments?subCategory=hair-restoration"
-                            className="group/col block border-b border-gold/30 pb-2 font-display text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:text-gold-dark"
-                          >
-                            Hair Restoration
-                            <span className="block text-[11px] font-normal font-grotesk tracking-normal text-gold-dark">
-                              GFC · PRP · Exosome
-                            </span>
-                          </Link>
+                      <ul className="flex flex-col divide-y divide-gold/20">
+                        <li>
                           <Link
                             href="/treatments?category=hair"
-                            className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
+                            className="block px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:text-gold-dark"
                           >
-                            All Hair Services →
+                            Hair Care
                           </Link>
-                        </div>
-
-                        {/* Column 2: Hair Transplant */}
-                        <div>
-                          <Link
-                            href="/treatments?subCategory=hair-transplant"
-                            className="group/col block border-b border-gold/30 pb-2 font-display text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:text-gold-dark"
-                          >
-                            Hair Transplant
-                            <span className="block text-[11px] font-normal font-grotesk tracking-normal text-gold-dark">
-                              22 Specialized Clinical Techniques
-                            </span>
-                          </Link>
-                          <Link
-                            href="/treatments?subCategory=hair-transplant"
-                            className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
-                          >
-                            View All 22 Transplant Options →
-                          </Link>
-                        </div>
-
-                        {/* Column 3: Skin Care & Clinical Aesthetics (Aesthetics migrated here!) */}
-                        <div>
+                        </li>
+                        <li>
                           <Link
                             href="/treatments?category=skin"
-                            className="group/col block border-b border-gold/30 pb-2 font-display text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:text-gold-dark"
+                            className="block px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:text-gold-dark"
                           >
-                            Skin Care &amp; Aesthetics
-                            <span className="block text-[11px] font-normal font-grotesk tracking-normal text-gold-dark">
-                              Acne · Pigment · Medi Facials · Botox · Fillers
-                            </span>
+                            Skin Care
                           </Link>
-                          <Link
-                            href="/treatments?category=skin"
-                            className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
-                          >
-                            Explore All Skin &amp; Aesthetics →
-                          </Link>
-                        </div>
-
-                        {/* Column 4: PMU */}
-                        <div>
+                        </li>
+                        <li>
                           <Link
                             href="/pmu-services"
-                            className="group/col block border-b border-gold/30 pb-2 font-display text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:text-gold-dark"
+                            className="block px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:text-gold-dark"
                           >
                             PMU
-                            <span className="block text-[11px] font-normal font-grotesk tracking-normal text-gold-dark">
-                              Permanent Makeup &amp; Academy
-                            </span>
                           </Link>
-                          <Link
-                            href="/pmu-services"
-                            className="mt-4 inline-flex items-center gap-1 font-grotesk text-[11px] font-semibold uppercase tracking-wider text-gold-dark hover:underline"
-                          >
-                            PMU Services &amp; Academy →
-                          </Link>
-                        </div>
-                      </div>
-
-                      {/* Bottom banner */}
-                      <div className="flex items-center justify-between border-t border-gold/20 bg-charcoal/5 px-7 py-3 text-xs text-charcoal/70">
-                        <span className="font-grotesk">
-                          👑 Personalized diagnostic consultation with senior clinical specialists.
-                        </span>
-                        <Link
-                          href="/contact"
-                          className="font-grotesk font-semibold text-gold-dark transition-colors hover:text-charcoal"
-                        >
-                          Book Consultation Today →
-                        </Link>
-                      </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </li>

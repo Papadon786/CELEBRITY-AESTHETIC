@@ -92,6 +92,9 @@ export default async function TreatmentDetailPage({
               </ButtonLink>
               <WhatsAppButton message={whatsappMessage} />
             </div>
+            <p className="mt-4 font-grotesk text-[13px] font-semibold uppercase tracking-wide text-gold-dark">
+              No Cost EMI available on all services
+            </p>
           </DirectionalCard>
         </div>
 
@@ -120,6 +123,19 @@ export default async function TreatmentDetailPage({
           <RevealItem>
             <DetailBlock title="Aftercare" text={treatment.detail.aftercare} />
           </RevealItem>
+          {treatment.detail.additionalServices && (
+            <RevealItem>
+              <DetailBlock
+                title="Additional Services"
+                text={treatment.detail.additionalServices}
+              />
+            </RevealItem>
+          )}
+          {treatment.detail.pricing && (
+            <RevealItem>
+              <DetailBlock title="Pricing" text={treatment.detail.pricing} />
+            </RevealItem>
+          )}
         </RevealStagger>
       </div>
 

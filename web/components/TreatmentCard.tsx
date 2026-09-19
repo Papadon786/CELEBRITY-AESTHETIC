@@ -36,6 +36,9 @@ export default function TreatmentCard({
             {treatment.description}
           </p>
         )}
+        <p className="mt-2 font-grotesk text-[11px] font-semibold uppercase tracking-wide text-gold-dark">
+          No Cost EMI available on all services
+        </p>
         <Link
           href={`/treatments/${treatment.slug}`}
           className="mt-4 inline-flex items-center gap-1.5 font-grotesk text-[13px] font-semibold uppercase tracking-widest2 text-charcoal transition-[gap,color] group-hover:gap-2.5 group-hover:text-gold-dark"
