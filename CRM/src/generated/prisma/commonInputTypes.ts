@@ -511,6 +511,23 @@ export type EnumPatientPackageStatusWithAggregatesFilter<$PrismaModel = never> =
   _max?: Prisma.NestedEnumPatientPackageStatusFilter<$PrismaModel>
 }
 
+export type EnumResourceTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResourceType | Prisma.EnumResourceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResourceTypeFilter<$PrismaModel> | $Enums.ResourceType
+}
+
+export type EnumResourceTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResourceType | Prisma.EnumResourceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResourceTypeWithAggregatesFilter<$PrismaModel> | $Enums.ResourceType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumResourceTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumResourceTypeFilter<$PrismaModel>
+}
+
 export type EnumAppointmentTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.AppointmentType | Prisma.EnumAppointmentTypeFieldRefInput<$PrismaModel>
   in?: $Enums.AppointmentType[] | Prisma.ListEnumAppointmentTypeFieldRefInput<$PrismaModel>
@@ -1638,6 +1655,23 @@ export type NestedEnumPatientPackageStatusWithAggregatesFilter<$PrismaModel = ne
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumPatientPackageStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumPatientPackageStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumResourceTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResourceType | Prisma.EnumResourceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResourceTypeFilter<$PrismaModel> | $Enums.ResourceType
+}
+
+export type NestedEnumResourceTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResourceType | Prisma.EnumResourceTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResourceType[] | Prisma.ListEnumResourceTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResourceTypeWithAggregatesFilter<$PrismaModel> | $Enums.ResourceType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumResourceTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumResourceTypeFilter<$PrismaModel>
 }
 
 export type NestedEnumAppointmentTypeFilter<$PrismaModel = never> = {

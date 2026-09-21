@@ -6,6 +6,7 @@ export const bookAppointmentSchema = z.object({
   patientId: z.string().min(1, "Select a patient"),
   doctorId: z.string().min(1, "Select a doctor"),
   serviceId: z.string().optional(),
+  resourceId: z.string().optional(),
   scheduledAt: z.coerce.date(),
   durationMinutes: z.coerce.number().int().positive().default(30),
   type: appointmentTypeEnum.default("IN_PERSON"),

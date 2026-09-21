@@ -128,6 +128,14 @@ export const PatientPackageStatus = {
 export type PatientPackageStatus = (typeof PatientPackageStatus)[keyof typeof PatientPackageStatus]
 
 
+export const ResourceType = {
+  ROOM: 'ROOM',
+  EQUIPMENT: 'EQUIPMENT'
+} as const
+
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType]
+
+
 export const AppointmentType = {
   IN_PERSON: 'IN_PERSON',
   WALK_IN: 'WALK_IN'

@@ -531,6 +531,26 @@ model DoctorLeave {
   @@index([doctorId, date])
 }
 
+// Treatment rooms and equipment (laser machines, FUE/DHI stations) that can
+// be double-booked if nothing tracks which appointment is using which one.
+enum ResourceType {
+  ROOM
+  EQUIPMENT
+}
+
+model Resource {
+  id          String       @id @default(cuid())
+  name        String
+  type        ResourceType
+  description String?
+  active      Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+
+  appointments Appointment[]
+
+  @@index([active])
+}
+
 enum AppointmentType {
   IN_PERSON
   WALK_IN
@@ -562,6 +582,8 @@ model Appointment {
   doctor          User              @relation("AppointmentDoctor", fields: [doctorId], references: [id])
   serviceId       String?
   service         Service?          @relation(fields: [serviceId], references: [id])
+  resourceId      String?
+  resource        Resource?         @relation(fields: [resourceId], references: [id])
   scheduledAt     DateTime
   durationMinutes Int               @default(30)
   type            AppointmentType   @default(IN_PERSON)

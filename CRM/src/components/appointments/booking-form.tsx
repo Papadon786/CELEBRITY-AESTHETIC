@@ -20,14 +20,24 @@ import { PatientPicker } from "@/components/appointments/patient-picker"
 import { getAvailableSlots, bookAppointment } from "@/actions/appointments"
 
 type Doctor = { id: string; name: string; specialization: string | null }
+type ResourceOption = { id: string; name: string; type: "ROOM" | "EQUIPMENT" }
 type InitialPatient = { id: string; name: string; uhid: string; phone: string } | null
 
-export function BookingForm({ doctors, initialPatient }: { doctors: Doctor[]; initialPatient: InitialPatient }) {
+export function BookingForm({
+  doctors,
+  resources = [],
+  initialPatient,
+}: {
+  doctors: Doctor[]
+  resources?: ResourceOption[]
+  initialPatient: InitialPatient
+}) {
   const router = useRouter()
   const [pending, startTransition] = useTransition()
 
   const [patientId, setPatientId] = useState(initialPatient?.id ?? "")
   const [doctorId, setDoctorId] = useState(doctors[0]?.id ?? "")
+  const [resourceId, setResourceId] = useState<string>("")
   const [date, setDate] = useState(format(new Date(), "yyyy-MM-dd"))
   const type = "IN_PERSON" as const
   const [reason, setReason] = useState("")
@@ -64,6 +74,7 @@ export function BookingForm({ doctors, initialPatient }: { doctors: Doctor[]; in
         await bookAppointment({
           patientId,
           doctorId,
+          resourceId: resourceId || undefined,
           scheduledAt: new Date(selectedSlot),
           durationMinutes: 15,
           type,
@@ -106,6 +117,21 @@ export function BookingForm({ doctors, initialPatient }: { doctors: Doctor[]; in
               </SelectContent>
             </Select>
           </div>
+          {resources.length > 0 && (
+            <div className="space-y-1.5">
+              <Label>Room / Equipment (optional)</Label>
+              <Select value={resourceId} onValueChange={(v) => setResourceId(v ?? "")}>
+                <SelectTrigger className="w-full"><SelectValue placeholder="Not assigned" /></SelectTrigger>
+                <SelectContent>
+                  {resources.map((r) => (
+                    <SelectItem key={r.id} value={r.id}>
+                      {r.name} ({r.type === "ROOM" ? "Room" : "Equipment"})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          )}
         </CardContent>
       </Card>
 

@@ -142,6 +142,11 @@ export type DoctorAvailability = Prisma.DoctorAvailabilityModel
  */
 export type DoctorLeave = Prisma.DoctorLeaveModel
 /**
+ * Model Resource
+ * 
+ */
+export type Resource = Prisma.ResourceModel
+/**
  * Model Appointment
  * 
  */

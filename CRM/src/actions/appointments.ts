@@ -21,6 +21,31 @@ import {
 
 const ACTIVE_STATUSES = ["PENDING", "CONFIRMED", "ARRIVED", "IN_CONSULTATION"] as const
 
+/** True if `resourceId` (a room/equipment) has an overlapping active appointment. */
+async function hasResourceConflict(
+  tx: any,
+  resourceId: string,
+  scheduledAt: Date,
+  durationMinutes: number,
+  excludeAppointmentId?: string
+) {
+  const newStart = scheduledAt
+  const newEnd = addMinutes(scheduledAt, durationMinutes)
+  const candidates = await tx.appointment.findMany({
+    where: {
+      resourceId,
+      status: { in: [...ACTIVE_STATUSES] },
+      id: excludeAppointmentId ? { not: excludeAppointmentId } : undefined,
+    },
+    select: { scheduledAt: true, durationMinutes: true },
+  })
+  return candidates.some((a) => {
+    const existingStart = a.scheduledAt
+    const existingEnd = addMinutes(a.scheduledAt, a.durationMinutes)
+    return newStart < existingEnd && existingStart < newEnd
+  })
+}
+
 // ── Slot computation ───────────────────────────────────────────────────
 
 export async function getAvailableSlots(doctorId: string, date: Date) {
@@ -87,6 +112,13 @@ export async function bookAppointment(input: BookAppointmentInput) {
       throw new Error("This slot was just booked. Please choose another slot.")
     }
 
+    if (data.resourceId) {
+      const resourceConflict = await hasResourceConflict(tx, data.resourceId, data.scheduledAt, data.durationMinutes)
+      if (resourceConflict) {
+        throw new Error("That room/equipment is already booked for an overlapping time. Choose another slot or resource.")
+      }
+    }
+
     const appointmentCode = await generateAppointmentCode(tx)
     const created = await tx.appointment.create({
       data: {
@@ -94,6 +126,7 @@ export async function bookAppointment(input: BookAppointmentInput) {
         patientId: data.patientId,
         doctorId: data.doctorId,
         serviceId: data.serviceId || null,
+        resourceId: data.resourceId || null,
         scheduledAt: data.scheduledAt,
         durationMinutes: data.durationMinutes,
         type: data.type,
@@ -256,6 +289,13 @@ export async function rescheduleAppointment(id: string, newScheduledAt: Date) {
     })
     if (conflict) throw new Error("This slot is already booked. Please choose another slot.")
 
+    if (original.resourceId) {
+      const resourceConflict = await hasResourceConflict(tx, original.resourceId, newScheduledAt, original.durationMinutes, id)
+      if (resourceConflict) {
+        throw new Error("That room/equipment is already booked for an overlapping time at the new slot.")
+      }
+    }
+
     const updated = await tx.appointment.update({
       where: { id },
       data: { status: "RESCHEDULED" },
@@ -267,6 +307,7 @@ export async function rescheduleAppointment(id: string, newScheduledAt: Date) {
         patientId: original.patientId,
         doctorId: original.doctorId,
         serviceId: original.serviceId,
+        resourceId: original.resourceId,
         scheduledAt: newScheduledAt,
         durationMinutes: original.durationMinutes,
         type: original.type,
@@ -357,6 +398,31 @@ export async function updateAppointmentStatus(id: string, status: (typeof ACTIVE
   revalidatePath(`/patients/${appointment.patientId}`)
   revalidatePath("/dashboard")
   return appointment
+}
+
+export async function assignResourceToAppointment(appointmentId: string, resourceId: string | null) {
+  const user = await requireRole("ADMIN", "RECEPTIONIST", "DOCTOR")
+  const appointment = await prisma.appointment.findUniqueOrThrow({ where: { id: appointmentId } })
+
+  if (resourceId) {
+    const conflict = await hasResourceConflict(prisma, resourceId, appointment.scheduledAt, appointment.durationMinutes, appointmentId)
+    if (conflict) {
+      throw new Error("That room/equipment is already booked for an overlapping time.")
+    }
+  }
+
+  const updated = await prisma.appointment.update({ where: { id: appointmentId }, data: { resourceId } })
+  await logAudit({
+    action: "APPOINTMENT_STATUS_CHANGED",
+    entityType: "Appointment",
+    entityId: appointmentId,
+    metadata: { resourceId },
+    userId: user.id,
+    userName: user.name,
+    userRole: user.role,
+  })
+  revalidatePath("/appointments")
+  return updated
 }
 
 export async function getAppointments(params: {

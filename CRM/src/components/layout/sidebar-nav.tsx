@@ -102,6 +102,7 @@ const navGroups: NavGroup[] = [
     items: [
       { href: "/settings/staff", label: "Staff & Logins", icon: Users, adminOnly: true },
       { href: "/appointments/availability", label: "Doctor Availability", icon: CalendarClock },
+      { href: "/resources", label: "Rooms & Equipment", icon: Boxes },
       { href: "/templates", label: "Doctor Templates", icon: FileEdit },
       { href: "/settings/signature", label: "Digital Signature", icon: PenTool },
       { href: "/audit-logs", label: "Audit Logs", icon: ShieldAlert, adminOnly: true },

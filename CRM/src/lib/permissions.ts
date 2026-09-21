@@ -22,6 +22,7 @@ export const ALL_AVAILABLE_TABS: TabItemDefinition[] = [
 
   // Clinical
   { id: "doctor_availability", href: "/appointments/availability", label: "Doctor Availability", group: "Clinical", description: "Doctor shift timings and off-duty calendar" },
+  { id: "resources", href: "/resources", label: "Rooms & Equipment", group: "Clinical", description: "Treatment room and device catalog, used to prevent double-booking" },
   { id: "doctor_templates", href: "/templates", label: "Doctor Templates", group: "Clinical", description: "SOAP note presets, Rx prescription templates" },
   { id: "digital_signature", href: "/settings/signature", label: "Digital Signature", group: "Clinical", description: "Doctor signature for prescriptions and EMR" },
   { id: "audit_logs", href: "/audit-logs", label: "Audit Logs", group: "Clinical", description: "System security and staff activity logs" },
