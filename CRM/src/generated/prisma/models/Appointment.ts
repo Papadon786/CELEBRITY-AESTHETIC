@@ -347,6 +347,7 @@ export type AppointmentWhereInput = {
   feedback?: Prisma.FeedbackListRelationFilter
   followUps?: Prisma.FollowUpListRelationFilter
   encounters?: Prisma.EncounterListRelationFilter
+  packageSessionLogs?: Prisma.PackageSessionLogListRelationFilter
 }
 
 export type AppointmentOrderByWithRelationInput = {
@@ -381,6 +382,7 @@ export type AppointmentOrderByWithRelationInput = {
   feedback?: Prisma.FeedbackOrderByRelationAggregateInput
   followUps?: Prisma.FollowUpOrderByRelationAggregateInput
   encounters?: Prisma.EncounterOrderByRelationAggregateInput
+  packageSessionLogs?: Prisma.PackageSessionLogOrderByRelationAggregateInput
 }
 
 export type AppointmentWhereUniqueInput = Prisma.AtLeast<{
@@ -418,6 +420,7 @@ export type AppointmentWhereUniqueInput = Prisma.AtLeast<{
   feedback?: Prisma.FeedbackListRelationFilter
   followUps?: Prisma.FollowUpListRelationFilter
   encounters?: Prisma.EncounterListRelationFilter
+  packageSessionLogs?: Prisma.PackageSessionLogListRelationFilter
 }, "id" | "appointmentCode">
 
 export type AppointmentOrderByWithAggregationInput = {
@@ -501,6 +504,7 @@ export type AppointmentCreateInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateInput = {
@@ -530,6 +534,7 @@ export type AppointmentUncheckedCreateInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUpdateInput = {
@@ -559,6 +564,7 @@ export type AppointmentUpdateInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateInput = {
@@ -588,6 +594,7 @@ export type AppointmentUncheckedUpdateInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentCreateManyInput = {
@@ -914,6 +921,22 @@ export type AppointmentUncheckedUpdateManyWithoutServiceNestedInput = {
   deleteMany?: Prisma.AppointmentScalarWhereInput | Prisma.AppointmentScalarWhereInput[]
 }
 
+export type AppointmentCreateNestedOneWithoutPackageSessionLogsInput = {
+  create?: Prisma.XOR<Prisma.AppointmentCreateWithoutPackageSessionLogsInput, Prisma.AppointmentUncheckedCreateWithoutPackageSessionLogsInput>
+  connectOrCreate?: Prisma.AppointmentCreateOrConnectWithoutPackageSessionLogsInput
+  connect?: Prisma.AppointmentWhereUniqueInput
+}
+
+export type AppointmentUpdateOneWithoutPackageSessionLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.AppointmentCreateWithoutPackageSessionLogsInput, Prisma.AppointmentUncheckedCreateWithoutPackageSessionLogsInput>
+  connectOrCreate?: Prisma.AppointmentCreateOrConnectWithoutPackageSessionLogsInput
+  upsert?: Prisma.AppointmentUpsertWithoutPackageSessionLogsInput
+  disconnect?: Prisma.AppointmentWhereInput | boolean
+  delete?: Prisma.AppointmentWhereInput | boolean
+  connect?: Prisma.AppointmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AppointmentUpdateToOneWithWhereWithoutPackageSessionLogsInput, Prisma.AppointmentUpdateWithoutPackageSessionLogsInput>, Prisma.AppointmentUncheckedUpdateWithoutPackageSessionLogsInput>
+}
+
 export type AppointmentCreateNestedOneWithoutRescheduledToInput = {
   create?: Prisma.XOR<Prisma.AppointmentCreateWithoutRescheduledToInput, Prisma.AppointmentUncheckedCreateWithoutRescheduledToInput>
   connectOrCreate?: Prisma.AppointmentCreateOrConnectWithoutRescheduledToInput
@@ -1090,6 +1113,7 @@ export type AppointmentCreateWithoutDoctorInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutDoctorInput = {
@@ -1118,6 +1142,7 @@ export type AppointmentUncheckedCreateWithoutDoctorInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutDoctorInput = {
@@ -1156,6 +1181,7 @@ export type AppointmentCreateWithoutCreatedByInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutCreatedByInput = {
@@ -1184,6 +1210,7 @@ export type AppointmentUncheckedCreateWithoutCreatedByInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutCreatedByInput = {
@@ -1280,6 +1307,7 @@ export type AppointmentCreateWithoutPatientInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutPatientInput = {
@@ -1308,6 +1336,7 @@ export type AppointmentUncheckedCreateWithoutPatientInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutPatientInput = {
@@ -1362,6 +1391,7 @@ export type AppointmentCreateWithoutServiceInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutServiceInput = {
@@ -1390,6 +1420,7 @@ export type AppointmentUncheckedCreateWithoutServiceInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutServiceInput = {
@@ -1418,6 +1449,138 @@ export type AppointmentUpdateManyWithWhereWithoutServiceInput = {
   data: Prisma.XOR<Prisma.AppointmentUpdateManyMutationInput, Prisma.AppointmentUncheckedUpdateManyWithoutServiceInput>
 }
 
+export type AppointmentCreateWithoutPackageSessionLogsInput = {
+  id?: string
+  appointmentCode: string
+  scheduledAt: Date | string
+  durationMinutes?: number
+  type?: $Enums.AppointmentType
+  status?: $Enums.AppointmentStatus
+  source?: $Enums.AppointmentSource
+  reason?: string | null
+  notes?: string | null
+  cancelReason?: string | null
+  cancelledAt?: Date | string | null
+  checkedInAt?: Date | string | null
+  startedAt?: Date | string | null
+  completedAt?: Date | string | null
+  createdAt?: Date | string
+  patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
+  doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
+  service?: Prisma.ServiceCreateNestedOneWithoutAppointmentsInput
+  rescheduledFrom?: Prisma.AppointmentCreateNestedOneWithoutRescheduledToInput
+  rescheduledTo?: Prisma.AppointmentCreateNestedManyWithoutRescheduledFromInput
+  createdBy?: Prisma.UserCreateNestedOneWithoutAppointmentsCreatedInput
+  bills?: Prisma.BillCreateNestedManyWithoutAppointmentInput
+  prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutAppointmentInput
+  feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
+  followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
+  encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+}
+
+export type AppointmentUncheckedCreateWithoutPackageSessionLogsInput = {
+  id?: string
+  appointmentCode: string
+  patientId: string
+  doctorId: string
+  serviceId?: string | null
+  scheduledAt: Date | string
+  durationMinutes?: number
+  type?: $Enums.AppointmentType
+  status?: $Enums.AppointmentStatus
+  source?: $Enums.AppointmentSource
+  reason?: string | null
+  notes?: string | null
+  cancelReason?: string | null
+  cancelledAt?: Date | string | null
+  checkedInAt?: Date | string | null
+  startedAt?: Date | string | null
+  completedAt?: Date | string | null
+  rescheduledFromId?: string | null
+  createdById?: string | null
+  createdAt?: Date | string
+  rescheduledTo?: Prisma.AppointmentUncheckedCreateNestedManyWithoutRescheduledFromInput
+  bills?: Prisma.BillUncheckedCreateNestedManyWithoutAppointmentInput
+  prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutAppointmentInput
+  feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
+  followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
+  encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+}
+
+export type AppointmentCreateOrConnectWithoutPackageSessionLogsInput = {
+  where: Prisma.AppointmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.AppointmentCreateWithoutPackageSessionLogsInput, Prisma.AppointmentUncheckedCreateWithoutPackageSessionLogsInput>
+}
+
+export type AppointmentUpsertWithoutPackageSessionLogsInput = {
+  update: Prisma.XOR<Prisma.AppointmentUpdateWithoutPackageSessionLogsInput, Prisma.AppointmentUncheckedUpdateWithoutPackageSessionLogsInput>
+  create: Prisma.XOR<Prisma.AppointmentCreateWithoutPackageSessionLogsInput, Prisma.AppointmentUncheckedCreateWithoutPackageSessionLogsInput>
+  where?: Prisma.AppointmentWhereInput
+}
+
+export type AppointmentUpdateToOneWithWhereWithoutPackageSessionLogsInput = {
+  where?: Prisma.AppointmentWhereInput
+  data: Prisma.XOR<Prisma.AppointmentUpdateWithoutPackageSessionLogsInput, Prisma.AppointmentUncheckedUpdateWithoutPackageSessionLogsInput>
+}
+
+export type AppointmentUpdateWithoutPackageSessionLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  appointmentCode?: Prisma.StringFieldUpdateOperationsInput | string
+  scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  durationMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumAppointmentTypeFieldUpdateOperationsInput | $Enums.AppointmentType
+  status?: Prisma.EnumAppointmentStatusFieldUpdateOperationsInput | $Enums.AppointmentStatus
+  source?: Prisma.EnumAppointmentSourceFieldUpdateOperationsInput | $Enums.AppointmentSource
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cancelReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  checkedInAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
+  doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
+  service?: Prisma.ServiceUpdateOneWithoutAppointmentsNestedInput
+  rescheduledFrom?: Prisma.AppointmentUpdateOneWithoutRescheduledToNestedInput
+  rescheduledTo?: Prisma.AppointmentUpdateManyWithoutRescheduledFromNestedInput
+  createdBy?: Prisma.UserUpdateOneWithoutAppointmentsCreatedNestedInput
+  bills?: Prisma.BillUpdateManyWithoutAppointmentNestedInput
+  prescriptions?: Prisma.PrescriptionUpdateManyWithoutAppointmentNestedInput
+  feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
+  followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
+  encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+}
+
+export type AppointmentUncheckedUpdateWithoutPackageSessionLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  appointmentCode?: Prisma.StringFieldUpdateOperationsInput | string
+  patientId?: Prisma.StringFieldUpdateOperationsInput | string
+  doctorId?: Prisma.StringFieldUpdateOperationsInput | string
+  serviceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  durationMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumAppointmentTypeFieldUpdateOperationsInput | $Enums.AppointmentType
+  status?: Prisma.EnumAppointmentStatusFieldUpdateOperationsInput | $Enums.AppointmentStatus
+  source?: Prisma.EnumAppointmentSourceFieldUpdateOperationsInput | $Enums.AppointmentSource
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cancelReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  checkedInAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rescheduledTo?: Prisma.AppointmentUncheckedUpdateManyWithoutRescheduledFromNestedInput
+  bills?: Prisma.BillUncheckedUpdateManyWithoutAppointmentNestedInput
+  prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutAppointmentNestedInput
+  feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
+  followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
+  encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+}
+
 export type AppointmentCreateWithoutRescheduledToInput = {
   id?: string
   appointmentCode: string
@@ -1444,6 +1607,7 @@ export type AppointmentCreateWithoutRescheduledToInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutRescheduledToInput = {
@@ -1472,6 +1636,7 @@ export type AppointmentUncheckedCreateWithoutRescheduledToInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutRescheduledToInput = {
@@ -1505,6 +1670,7 @@ export type AppointmentCreateWithoutRescheduledFromInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutRescheduledFromInput = {
@@ -1533,6 +1699,7 @@ export type AppointmentUncheckedCreateWithoutRescheduledFromInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutRescheduledFromInput = {
@@ -1582,6 +1749,7 @@ export type AppointmentUpdateWithoutRescheduledToInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutRescheduledToInput = {
@@ -1610,6 +1778,7 @@ export type AppointmentUncheckedUpdateWithoutRescheduledToInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUpsertWithWhereUniqueWithoutRescheduledFromInput = {
@@ -1654,6 +1823,7 @@ export type AppointmentCreateWithoutPrescriptionsInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutPrescriptionsInput = {
@@ -1682,6 +1852,7 @@ export type AppointmentUncheckedCreateWithoutPrescriptionsInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutPrescriptionsInput = {
@@ -1726,6 +1897,7 @@ export type AppointmentUpdateWithoutPrescriptionsInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutPrescriptionsInput = {
@@ -1754,6 +1926,7 @@ export type AppointmentUncheckedUpdateWithoutPrescriptionsInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentCreateWithoutBillsInput = {
@@ -1782,6 +1955,7 @@ export type AppointmentCreateWithoutBillsInput = {
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutBillsInput = {
@@ -1810,6 +1984,7 @@ export type AppointmentUncheckedCreateWithoutBillsInput = {
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutBillsInput = {
@@ -1854,6 +2029,7 @@ export type AppointmentUpdateWithoutBillsInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutBillsInput = {
@@ -1882,6 +2058,7 @@ export type AppointmentUncheckedUpdateWithoutBillsInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentCreateWithoutFollowUpsInput = {
@@ -1910,6 +2087,7 @@ export type AppointmentCreateWithoutFollowUpsInput = {
   prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutAppointmentInput
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutFollowUpsInput = {
@@ -1938,6 +2116,7 @@ export type AppointmentUncheckedCreateWithoutFollowUpsInput = {
   prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutAppointmentInput
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutFollowUpsInput = {
@@ -1982,6 +2161,7 @@ export type AppointmentUpdateWithoutFollowUpsInput = {
   prescriptions?: Prisma.PrescriptionUpdateManyWithoutAppointmentNestedInput
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutFollowUpsInput = {
@@ -2010,6 +2190,7 @@ export type AppointmentUncheckedUpdateWithoutFollowUpsInput = {
   prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutAppointmentNestedInput
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentCreateWithoutFeedbackInput = {
@@ -2038,6 +2219,7 @@ export type AppointmentCreateWithoutFeedbackInput = {
   prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutFeedbackInput = {
@@ -2066,6 +2248,7 @@ export type AppointmentUncheckedCreateWithoutFeedbackInput = {
   prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
   encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutFeedbackInput = {
@@ -2110,6 +2293,7 @@ export type AppointmentUpdateWithoutFeedbackInput = {
   prescriptions?: Prisma.PrescriptionUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutFeedbackInput = {
@@ -2138,6 +2322,7 @@ export type AppointmentUncheckedUpdateWithoutFeedbackInput = {
   prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentCreateWithoutEncountersInput = {
@@ -2166,6 +2351,7 @@ export type AppointmentCreateWithoutEncountersInput = {
   prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutAppointmentInput
   feedback?: Prisma.FeedbackCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentUncheckedCreateWithoutEncountersInput = {
@@ -2194,6 +2380,7 @@ export type AppointmentUncheckedCreateWithoutEncountersInput = {
   prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutAppointmentInput
   feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutAppointmentInput
   followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAppointmentInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutAppointmentInput
 }
 
 export type AppointmentCreateOrConnectWithoutEncountersInput = {
@@ -2238,6 +2425,7 @@ export type AppointmentUpdateWithoutEncountersInput = {
   prescriptions?: Prisma.PrescriptionUpdateManyWithoutAppointmentNestedInput
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutEncountersInput = {
@@ -2266,6 +2454,7 @@ export type AppointmentUncheckedUpdateWithoutEncountersInput = {
   prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutAppointmentNestedInput
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentCreateManyDoctorInput = {
@@ -2338,6 +2527,7 @@ export type AppointmentUpdateWithoutDoctorInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutDoctorInput = {
@@ -2366,6 +2556,7 @@ export type AppointmentUncheckedUpdateWithoutDoctorInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateManyWithoutDoctorInput = {
@@ -2416,6 +2607,7 @@ export type AppointmentUpdateWithoutCreatedByInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutCreatedByInput = {
@@ -2444,6 +2636,7 @@ export type AppointmentUncheckedUpdateWithoutCreatedByInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateManyWithoutCreatedByInput = {
@@ -2516,6 +2709,7 @@ export type AppointmentUpdateWithoutPatientInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutPatientInput = {
@@ -2544,6 +2738,7 @@ export type AppointmentUncheckedUpdateWithoutPatientInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateManyWithoutPatientInput = {
@@ -2616,6 +2811,7 @@ export type AppointmentUpdateWithoutServiceInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutServiceInput = {
@@ -2644,6 +2840,7 @@ export type AppointmentUncheckedUpdateWithoutServiceInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateManyWithoutServiceInput = {
@@ -2716,6 +2913,7 @@ export type AppointmentUpdateWithoutRescheduledFromInput = {
   feedback?: Prisma.FeedbackUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateWithoutRescheduledFromInput = {
@@ -2744,6 +2942,7 @@ export type AppointmentUncheckedUpdateWithoutRescheduledFromInput = {
   feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutAppointmentNestedInput
   followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutAppointmentNestedInput
   encounters?: Prisma.EncounterUncheckedUpdateManyWithoutAppointmentNestedInput
+  packageSessionLogs?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutAppointmentNestedInput
 }
 
 export type AppointmentUncheckedUpdateManyWithoutRescheduledFromInput = {
@@ -2780,6 +2979,7 @@ export type AppointmentCountOutputType = {
   feedback: number
   followUps: number
   encounters: number
+  packageSessionLogs: number
 }
 
 export type AppointmentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2789,6 +2989,7 @@ export type AppointmentCountOutputTypeSelect<ExtArgs extends runtime.Types.Exten
   feedback?: boolean | AppointmentCountOutputTypeCountFeedbackArgs
   followUps?: boolean | AppointmentCountOutputTypeCountFollowUpsArgs
   encounters?: boolean | AppointmentCountOutputTypeCountEncountersArgs
+  packageSessionLogs?: boolean | AppointmentCountOutputTypeCountPackageSessionLogsArgs
 }
 
 /**
@@ -2843,6 +3044,13 @@ export type AppointmentCountOutputTypeCountEncountersArgs<ExtArgs extends runtim
   where?: Prisma.EncounterWhereInput
 }
 
+/**
+ * AppointmentCountOutputType without action
+ */
+export type AppointmentCountOutputTypeCountPackageSessionLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PackageSessionLogWhereInput
+}
+
 
 export type AppointmentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2876,6 +3084,7 @@ export type AppointmentSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   feedback?: boolean | Prisma.Appointment$feedbackArgs<ExtArgs>
   followUps?: boolean | Prisma.Appointment$followUpsArgs<ExtArgs>
   encounters?: boolean | Prisma.Appointment$encountersArgs<ExtArgs>
+  packageSessionLogs?: boolean | Prisma.Appointment$packageSessionLogsArgs<ExtArgs>
   _count?: boolean | Prisma.AppointmentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["appointment"]>
 
@@ -2971,6 +3180,7 @@ export type AppointmentInclude<ExtArgs extends runtime.Types.Extensions.Internal
   feedback?: boolean | Prisma.Appointment$feedbackArgs<ExtArgs>
   followUps?: boolean | Prisma.Appointment$followUpsArgs<ExtArgs>
   encounters?: boolean | Prisma.Appointment$encountersArgs<ExtArgs>
+  packageSessionLogs?: boolean | Prisma.Appointment$packageSessionLogsArgs<ExtArgs>
   _count?: boolean | Prisma.AppointmentCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AppointmentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3002,6 +3212,7 @@ export type $AppointmentPayload<ExtArgs extends runtime.Types.Extensions.Interna
     feedback: Prisma.$FeedbackPayload<ExtArgs>[]
     followUps: Prisma.$FollowUpPayload<ExtArgs>[]
     encounters: Prisma.$EncounterPayload<ExtArgs>[]
+    packageSessionLogs: Prisma.$PackageSessionLogPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3429,6 +3640,7 @@ export interface Prisma__AppointmentClient<T, Null = never, ExtArgs extends runt
   feedback<T extends Prisma.Appointment$feedbackArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Appointment$feedbackArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   followUps<T extends Prisma.Appointment$followUpsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Appointment$followUpsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FollowUpPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   encounters<T extends Prisma.Appointment$encountersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Appointment$encountersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EncounterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  packageSessionLogs<T extends Prisma.Appointment$packageSessionLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Appointment$packageSessionLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PackageSessionLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4077,6 +4289,30 @@ export type Appointment$encountersArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   distinct?: Prisma.EncounterScalarFieldEnum | Prisma.EncounterScalarFieldEnum[]
+}
+
+/**
+ * Appointment.packageSessionLogs
+ */
+export type Appointment$packageSessionLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PackageSessionLog
+   */
+  select?: Prisma.PackageSessionLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PackageSessionLog
+   */
+  omit?: Prisma.PackageSessionLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PackageSessionLogInclude<ExtArgs> | null
+  where?: Prisma.PackageSessionLogWhereInput
+  orderBy?: Prisma.PackageSessionLogOrderByWithRelationInput | Prisma.PackageSessionLogOrderByWithRelationInput[]
+  cursor?: Prisma.PackageSessionLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PackageSessionLogScalarFieldEnum | Prisma.PackageSessionLogScalarFieldEnum[]
 }
 
 /**

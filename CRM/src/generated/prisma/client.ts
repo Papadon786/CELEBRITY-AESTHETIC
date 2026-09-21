@@ -117,6 +117,21 @@ export type CommunicationPreference = Prisma.CommunicationPreferenceModel
  */
 export type Service = Prisma.ServiceModel
 /**
+ * Model TreatmentPackage
+ * 
+ */
+export type TreatmentPackage = Prisma.TreatmentPackageModel
+/**
+ * Model PatientPackage
+ * 
+ */
+export type PatientPackage = Prisma.PatientPackageModel
+/**
+ * Model PackageSessionLog
+ * 
+ */
+export type PackageSessionLog = Prisma.PackageSessionLogModel
+/**
  * Model DoctorAvailability
  * 
  */

@@ -118,6 +118,16 @@ export const CommChannel = {
 export type CommChannel = (typeof CommChannel)[keyof typeof CommChannel]
 
 
+export const PatientPackageStatus = {
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED',
+  EXPIRED: 'EXPIRED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PatientPackageStatus = (typeof PatientPackageStatus)[keyof typeof PatientPackageStatus]
+
+
 export const AppointmentType = {
   IN_PERSON: 'IN_PERSON',
   WALK_IN: 'WALK_IN'

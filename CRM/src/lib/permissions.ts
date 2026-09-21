@@ -4,7 +4,7 @@ export type TabItemDefinition = {
   id: string
   href: string
   label: string
-  group: "Care" | "Clinical" | "Sales" | "Billing & Finance" | "Website" | "Calendar"
+  group: "Care" | "Clinical" | "Sales" | "Website" | "Calendar"
   description: string
 }
 
@@ -33,15 +33,16 @@ export const ALL_AVAILABLE_TABS: TabItemDefinition[] = [
   { id: "sales", href: "/sales", label: "Sales & POS", group: "Sales", description: "Point of Sale counter, quick sales, customer orders, and sales receipts" },
 
   // Billing & Finance
-  { id: "payments", href: "/payments", label: "Payments", group: "Billing & Finance", description: "Patient payment ledger — mark pending payments as paid" },
-  { id: "billing", href: "/billing", label: "Billing & Invoices", group: "Billing & Finance", description: "Create invoices, record payments, print receipts" },
-  { id: "refunds", href: "/billing/refunds", label: "Refunds", group: "Billing & Finance", description: "Patient refund authorizations and ledger" },
-  { id: "finance_dashboard", href: "/finance/dashboard", label: "Finance Dashboard", group: "Billing & Finance", description: "Revenue KPIs, payment method splits, P&L" },
-  { id: "outstanding_dues", href: "/finance/outstanding", label: "Outstanding Dues", group: "Billing & Finance", description: "Unpaid bills and credit patient balances" },
-  { id: "cash_counter", href: "/finance/cash-counter", label: "Cash Counter", group: "Billing & Finance", description: "Physical cash drawer opening/closing sessions" },
-  { id: "expenses", href: "/finance/expenses", label: "Expenses", group: "Billing & Finance", description: "Clinic petty cash and vendor expense logging" },
-  { id: "reports", href: "/finance/reports", label: "Financial Reports", group: "Billing & Finance", description: "Audited revenue statements and tax breakdowns" },
-  { id: "services", href: "/services", label: "Services Catalog", group: "Billing & Finance", description: "Consultation and procedure tariff master" },
+  { id: "payments", href: "/payments", label: "Payments", group: "Sales", description: "Patient payment ledger — mark pending payments as paid" },
+  { id: "billing", href: "/billing", label: "Billing & Invoices", group: "Sales", description: "Create invoices, record payments, print receipts" },
+  { id: "refunds", href: "/billing/refunds", label: "Refunds", group: "Sales", description: "Patient refund authorizations and ledger" },
+  { id: "finance_dashboard", href: "/finance/dashboard", label: "Finance Dashboard", group: "Sales", description: "Revenue KPIs, payment method splits, P&L" },
+  { id: "outstanding_dues", href: "/finance/outstanding", label: "Outstanding Dues", group: "Sales", description: "Unpaid bills and credit patient balances" },
+  { id: "cash_counter", href: "/finance/cash-counter", label: "Cash Counter", group: "Sales", description: "Physical cash drawer opening/closing sessions" },
+  { id: "expenses", href: "/finance/expenses", label: "Expenses", group: "Sales", description: "Clinic petty cash and vendor expense logging" },
+  { id: "reports", href: "/finance/reports", label: "Financial Reports", group: "Sales", description: "Audited revenue statements and tax breakdowns" },
+  { id: "services", href: "/services", label: "Services Catalog", group: "Sales", description: "Consultation and procedure tariff master" },
+  { id: "packages", href: "/services/packages", label: "Treatment Packages", group: "Sales", description: "Session-based package catalog and per-patient session tracking" },
 
   // Website
   { id: "website_content", href: "/website/content", label: "Website Content", group: "Website", description: "Homepage banners, clinic timing, doctors list" },

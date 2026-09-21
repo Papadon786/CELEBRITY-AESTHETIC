@@ -599,14 +599,6 @@ export type VitalsUncheckedUpdateManyWithoutEncounterNestedInput = {
   deleteMany?: Prisma.VitalsScalarWhereInput | Prisma.VitalsScalarWhereInput[]
 }
 
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type VitalsCreateWithoutEncounterInput = {
   id?: string
   patientId: string

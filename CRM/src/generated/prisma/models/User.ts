@@ -287,6 +287,7 @@ export type UserWhereInput = {
   expensesRecorded?: Prisma.ExpenseListRelationFilter
   inventoryTransactions?: Prisma.InventoryTransactionListRelationFilter
   auditLogs?: Prisma.AuditLogListRelationFilter
+  packageSessionsPerformed?: Prisma.PackageSessionLogListRelationFilter
   campaignsCreated?: Prisma.CampaignListRelationFilter
   leadsAssigned?: Prisma.LeadListRelationFilter
   leadActivitiesWritten?: Prisma.LeadActivityListRelationFilter
@@ -335,6 +336,7 @@ export type UserOrderByWithRelationInput = {
   expensesRecorded?: Prisma.ExpenseOrderByRelationAggregateInput
   inventoryTransactions?: Prisma.InventoryTransactionOrderByRelationAggregateInput
   auditLogs?: Prisma.AuditLogOrderByRelationAggregateInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogOrderByRelationAggregateInput
   campaignsCreated?: Prisma.CampaignOrderByRelationAggregateInput
   leadsAssigned?: Prisma.LeadOrderByRelationAggregateInput
   leadActivitiesWritten?: Prisma.LeadActivityOrderByRelationAggregateInput
@@ -386,6 +388,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   expensesRecorded?: Prisma.ExpenseListRelationFilter
   inventoryTransactions?: Prisma.InventoryTransactionListRelationFilter
   auditLogs?: Prisma.AuditLogListRelationFilter
+  packageSessionsPerformed?: Prisma.PackageSessionLogListRelationFilter
   campaignsCreated?: Prisma.CampaignListRelationFilter
   leadsAssigned?: Prisma.LeadListRelationFilter
   leadActivitiesWritten?: Prisma.LeadActivityListRelationFilter
@@ -470,6 +473,7 @@ export type UserCreateInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -518,6 +522,7 @@ export type UserUncheckedCreateInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -566,6 +571,7 @@ export type UserUpdateInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -614,6 +620,7 @@ export type UserUncheckedUpdateInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -795,6 +802,22 @@ export type UserUpdateOneWithoutDocumentsUploadedNestedInput = {
   delete?: Prisma.UserWhereInput | boolean
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutDocumentsUploadedInput, Prisma.UserUpdateWithoutDocumentsUploadedInput>, Prisma.UserUncheckedUpdateWithoutDocumentsUploadedInput>
+}
+
+export type UserCreateNestedOneWithoutPackageSessionsPerformedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPackageSessionsPerformedInput, Prisma.UserUncheckedCreateWithoutPackageSessionsPerformedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPackageSessionsPerformedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutPackageSessionsPerformedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPackageSessionsPerformedInput, Prisma.UserUncheckedCreateWithoutPackageSessionsPerformedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPackageSessionsPerformedInput
+  upsert?: Prisma.UserUpsertWithoutPackageSessionsPerformedInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPackageSessionsPerformedInput, Prisma.UserUpdateWithoutPackageSessionsPerformedInput>, Prisma.UserUncheckedUpdateWithoutPackageSessionsPerformedInput>
 }
 
 export type UserCreateNestedOneWithoutDoctorAvailabilitiesInput = {
@@ -1307,6 +1330,7 @@ export type UserCreateWithoutSessionsInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -1354,6 +1378,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -1417,6 +1442,7 @@ export type UserUpdateWithoutSessionsInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -1464,6 +1490,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -1511,6 +1538,7 @@ export type UserCreateWithoutRegisteredPatientsInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -1558,6 +1586,7 @@ export type UserUncheckedCreateWithoutRegisteredPatientsInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -1621,6 +1650,7 @@ export type UserUpdateWithoutRegisteredPatientsInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -1668,6 +1698,7 @@ export type UserUncheckedUpdateWithoutRegisteredPatientsInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -1715,6 +1746,7 @@ export type UserCreateWithoutDocumentsUploadedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -1762,6 +1794,7 @@ export type UserUncheckedCreateWithoutDocumentsUploadedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -1825,6 +1858,7 @@ export type UserUpdateWithoutDocumentsUploadedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -1853,6 +1887,215 @@ export type UserUncheckedUpdateWithoutDocumentsUploadedInput = {
   appointmentsAsDoctor?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
   appointmentsCreated?: Prisma.AppointmentUncheckedUpdateManyWithoutCreatedByNestedInput
   prescriptionsWritten?: Prisma.PrescriptionUncheckedUpdateManyWithoutDoctorNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUncheckedUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUncheckedUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
+  campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUncheckedUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedUpdateManyWithoutAuthorNestedInput
+}
+
+export type UserCreateWithoutPackageSessionsPerformedInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityCreateNestedManyWithoutAuthorInput
+}
+
+export type UserUncheckedCreateWithoutPackageSessionsPerformedInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientUncheckedCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentUncheckedCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateUncheckedCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentUncheckedCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundUncheckedCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedCreateNestedManyWithoutAuthorInput
+}
+
+export type UserCreateOrConnectWithoutPackageSessionsPerformedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPackageSessionsPerformedInput, Prisma.UserUncheckedCreateWithoutPackageSessionsPerformedInput>
+}
+
+export type UserUpsertWithoutPackageSessionsPerformedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPackageSessionsPerformedInput, Prisma.UserUncheckedUpdateWithoutPackageSessionsPerformedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPackageSessionsPerformedInput, Prisma.UserUncheckedCreateWithoutPackageSessionsPerformedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPackageSessionsPerformedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPackageSessionsPerformedInput, Prisma.UserUncheckedUpdateWithoutPackageSessionsPerformedInput>
+}
+
+export type UserUpdateWithoutPackageSessionsPerformedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUpdateManyWithoutAuthorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPackageSessionsPerformedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUncheckedUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUncheckedUpdateManyWithoutUploadedByNestedInput
   messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSentByNestedInput
   notesWritten?: Prisma.PatientNoteUncheckedUpdateManyWithoutAuthorNestedInput
   followUpsAssigned?: Prisma.FollowUpUncheckedUpdateManyWithoutAssignedToNestedInput
@@ -1919,6 +2162,7 @@ export type UserCreateWithoutDoctorAvailabilitiesInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -1966,6 +2210,7 @@ export type UserUncheckedCreateWithoutDoctorAvailabilitiesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -2029,6 +2274,7 @@ export type UserUpdateWithoutDoctorAvailabilitiesInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -2076,6 +2322,7 @@ export type UserUncheckedUpdateWithoutDoctorAvailabilitiesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -2123,6 +2370,7 @@ export type UserCreateWithoutDoctorLeavesInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -2170,6 +2418,7 @@ export type UserUncheckedCreateWithoutDoctorLeavesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -2233,6 +2482,7 @@ export type UserUpdateWithoutDoctorLeavesInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -2280,6 +2530,7 @@ export type UserUncheckedUpdateWithoutDoctorLeavesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -2327,6 +2578,7 @@ export type UserCreateWithoutAppointmentsAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -2374,6 +2626,7 @@ export type UserUncheckedCreateWithoutAppointmentsAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -2426,6 +2679,7 @@ export type UserCreateWithoutAppointmentsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -2473,6 +2727,7 @@ export type UserUncheckedCreateWithoutAppointmentsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -2536,6 +2791,7 @@ export type UserUpdateWithoutAppointmentsAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -2583,6 +2839,7 @@ export type UserUncheckedUpdateWithoutAppointmentsAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -2641,6 +2898,7 @@ export type UserUpdateWithoutAppointmentsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -2688,6 +2946,7 @@ export type UserUncheckedUpdateWithoutAppointmentsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -2735,6 +2994,7 @@ export type UserCreateWithoutWaitingListEntriesInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -2782,6 +3042,7 @@ export type UserUncheckedCreateWithoutWaitingListEntriesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -2845,6 +3106,7 @@ export type UserUpdateWithoutWaitingListEntriesInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -2892,6 +3154,7 @@ export type UserUncheckedUpdateWithoutWaitingListEntriesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -2939,6 +3202,7 @@ export type UserCreateWithoutPrescriptionsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -2986,6 +3250,7 @@ export type UserUncheckedCreateWithoutPrescriptionsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -3049,6 +3314,7 @@ export type UserUpdateWithoutPrescriptionsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -3096,6 +3362,7 @@ export type UserUncheckedUpdateWithoutPrescriptionsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -3143,6 +3410,7 @@ export type UserCreateWithoutPaymentsReceivedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -3190,6 +3458,7 @@ export type UserUncheckedCreateWithoutPaymentsReceivedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -3253,6 +3522,7 @@ export type UserUpdateWithoutPaymentsReceivedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -3300,6 +3570,7 @@ export type UserUncheckedUpdateWithoutPaymentsReceivedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -3347,6 +3618,7 @@ export type UserCreateWithoutRefundsProcessedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -3394,6 +3666,7 @@ export type UserUncheckedCreateWithoutRefundsProcessedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -3457,6 +3730,7 @@ export type UserUpdateWithoutRefundsProcessedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -3504,6 +3778,7 @@ export type UserUncheckedUpdateWithoutRefundsProcessedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -3551,6 +3826,7 @@ export type UserCreateWithoutAdvancesReceivedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -3598,6 +3874,7 @@ export type UserUncheckedCreateWithoutAdvancesReceivedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -3661,6 +3938,7 @@ export type UserUpdateWithoutAdvancesReceivedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -3708,6 +3986,7 @@ export type UserUncheckedUpdateWithoutAdvancesReceivedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -3755,6 +4034,7 @@ export type UserCreateWithoutCashSessionsOpenedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -3802,6 +4082,7 @@ export type UserUncheckedCreateWithoutCashSessionsOpenedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -3854,6 +4135,7 @@ export type UserCreateWithoutCashSessionsClosedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -3901,6 +4183,7 @@ export type UserUncheckedCreateWithoutCashSessionsClosedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -3964,6 +4247,7 @@ export type UserUpdateWithoutCashSessionsOpenedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -4011,6 +4295,7 @@ export type UserUncheckedUpdateWithoutCashSessionsOpenedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -4069,6 +4354,7 @@ export type UserUpdateWithoutCashSessionsClosedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -4116,6 +4402,7 @@ export type UserUncheckedUpdateWithoutCashSessionsClosedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -4163,6 +4450,7 @@ export type UserCreateWithoutExpensesRecordedInput = {
   cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -4210,6 +4498,7 @@ export type UserUncheckedCreateWithoutExpensesRecordedInput = {
   cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -4273,6 +4562,7 @@ export type UserUpdateWithoutExpensesRecordedInput = {
   cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -4320,6 +4610,7 @@ export type UserUncheckedUpdateWithoutExpensesRecordedInput = {
   cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -4367,6 +4658,7 @@ export type UserCreateWithoutMessagesSentInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -4414,6 +4706,7 @@ export type UserUncheckedCreateWithoutMessagesSentInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -4477,6 +4770,7 @@ export type UserUpdateWithoutMessagesSentInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -4524,6 +4818,7 @@ export type UserUncheckedUpdateWithoutMessagesSentInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -4572,6 +4867,7 @@ export type UserCreateWithoutCampaignsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
   prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
@@ -4619,6 +4915,7 @@ export type UserUncheckedCreateWithoutCampaignsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
   prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
@@ -4682,6 +4979,7 @@ export type UserUpdateWithoutCampaignsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
   prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
@@ -4729,6 +5027,7 @@ export type UserUncheckedUpdateWithoutCampaignsCreatedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
   prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
@@ -4775,6 +5074,7 @@ export type UserCreateWithoutNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -4822,6 +5122,7 @@ export type UserUncheckedCreateWithoutNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -4885,6 +5186,7 @@ export type UserUpdateWithoutNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -4932,6 +5234,7 @@ export type UserUncheckedUpdateWithoutNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -4979,6 +5282,7 @@ export type UserCreateWithoutFollowUpsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -5026,6 +5330,7 @@ export type UserUncheckedCreateWithoutFollowUpsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -5089,6 +5394,7 @@ export type UserUpdateWithoutFollowUpsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -5136,6 +5442,7 @@ export type UserUncheckedUpdateWithoutFollowUpsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -5183,6 +5490,7 @@ export type UserCreateWithoutEncountersAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -5230,6 +5538,7 @@ export type UserUncheckedCreateWithoutEncountersAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -5293,6 +5602,7 @@ export type UserUpdateWithoutEncountersAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -5340,6 +5650,7 @@ export type UserUncheckedUpdateWithoutEncountersAsDoctorInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -5387,6 +5698,7 @@ export type UserCreateWithoutClinicalNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -5434,6 +5746,7 @@ export type UserUncheckedCreateWithoutClinicalNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -5497,6 +5810,7 @@ export type UserUpdateWithoutClinicalNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -5544,6 +5858,7 @@ export type UserUncheckedUpdateWithoutClinicalNotesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -5591,6 +5906,7 @@ export type UserCreateWithoutDoctorTemplatesInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -5638,6 +5954,7 @@ export type UserUncheckedCreateWithoutDoctorTemplatesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -5701,6 +6018,7 @@ export type UserUpdateWithoutDoctorTemplatesInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -5748,6 +6066,7 @@ export type UserUncheckedUpdateWithoutDoctorTemplatesInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -5795,6 +6114,7 @@ export type UserCreateWithoutDigitalSignatureInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -5842,6 +6162,7 @@ export type UserUncheckedCreateWithoutDigitalSignatureInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -5905,6 +6226,7 @@ export type UserUpdateWithoutDigitalSignatureInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -5952,6 +6274,7 @@ export type UserUncheckedUpdateWithoutDigitalSignatureInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -5999,6 +6322,7 @@ export type UserCreateWithoutClinicalReportsOrderedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -6046,6 +6370,7 @@ export type UserUncheckedCreateWithoutClinicalReportsOrderedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -6109,6 +6434,7 @@ export type UserUpdateWithoutClinicalReportsOrderedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -6156,6 +6482,7 @@ export type UserUncheckedUpdateWithoutClinicalReportsOrderedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -6203,6 +6530,7 @@ export type UserCreateWithoutReferralsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -6250,6 +6578,7 @@ export type UserUncheckedCreateWithoutReferralsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -6313,6 +6642,7 @@ export type UserUpdateWithoutReferralsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -6360,6 +6690,7 @@ export type UserUncheckedUpdateWithoutReferralsWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -6407,6 +6738,7 @@ export type UserCreateWithoutCertificatesIssuedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -6454,6 +6786,7 @@ export type UserUncheckedCreateWithoutCertificatesIssuedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -6517,6 +6850,7 @@ export type UserUpdateWithoutCertificatesIssuedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -6564,6 +6898,7 @@ export type UserUncheckedUpdateWithoutCertificatesIssuedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -6611,6 +6946,7 @@ export type UserCreateWithoutInventoryTransactionsInput = {
   cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -6658,6 +6994,7 @@ export type UserUncheckedCreateWithoutInventoryTransactionsInput = {
   cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -6721,6 +7058,7 @@ export type UserUpdateWithoutInventoryTransactionsInput = {
   cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -6768,6 +7106,7 @@ export type UserUncheckedUpdateWithoutInventoryTransactionsInput = {
   cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -6815,6 +7154,7 @@ export type UserCreateWithoutAuditLogsInput = {
   cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -6862,6 +7202,7 @@ export type UserUncheckedCreateWithoutAuditLogsInput = {
   cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -6925,6 +7266,7 @@ export type UserUpdateWithoutAuditLogsInput = {
   cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -6972,6 +7314,7 @@ export type UserUncheckedUpdateWithoutAuditLogsInput = {
   cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -7020,6 +7363,7 @@ export type UserCreateWithoutLeadsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
   prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
@@ -7067,6 +7411,7 @@ export type UserUncheckedCreateWithoutLeadsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
   prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
@@ -7130,6 +7475,7 @@ export type UserUpdateWithoutLeadsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
   prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
@@ -7177,6 +7523,7 @@ export type UserUncheckedUpdateWithoutLeadsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
   prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
@@ -7224,6 +7571,7 @@ export type UserCreateWithoutLeadActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
@@ -7271,6 +7619,7 @@ export type UserUncheckedCreateWithoutLeadActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
@@ -7334,6 +7683,7 @@ export type UserUpdateWithoutLeadActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
@@ -7381,6 +7731,7 @@ export type UserUncheckedUpdateWithoutLeadActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
@@ -7428,6 +7779,7 @@ export type UserCreateWithoutProspectsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -7475,6 +7827,7 @@ export type UserUncheckedCreateWithoutProspectsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -7538,6 +7891,7 @@ export type UserUpdateWithoutProspectsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -7585,6 +7939,7 @@ export type UserUncheckedUpdateWithoutProspectsAssignedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -7632,6 +7987,7 @@ export type UserCreateWithoutProspectActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -7679,6 +8035,7 @@ export type UserUncheckedCreateWithoutProspectActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -7742,6 +8099,7 @@ export type UserUpdateWithoutProspectActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -7789,6 +8147,7 @@ export type UserUncheckedUpdateWithoutProspectActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -7836,6 +8195,7 @@ export type UserCreateWithoutClientsManagedInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -7883,6 +8243,7 @@ export type UserUncheckedCreateWithoutClientsManagedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -7946,6 +8307,7 @@ export type UserUpdateWithoutClientsManagedInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -7993,6 +8355,7 @@ export type UserUncheckedUpdateWithoutClientsManagedInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -8040,6 +8403,7 @@ export type UserCreateWithoutClientActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
@@ -8087,6 +8451,7 @@ export type UserUncheckedCreateWithoutClientActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
   campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
   leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
@@ -8150,6 +8515,7 @@ export type UserUpdateWithoutClientActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
@@ -8197,6 +8563,7 @@ export type UserUncheckedUpdateWithoutClientActivitiesWrittenInput = {
   expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
   inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
   campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
   leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
   leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
@@ -8237,6 +8604,7 @@ export type UserCountOutputType = {
   expensesRecorded: number
   inventoryTransactions: number
   auditLogs: number
+  packageSessionsPerformed: number
   campaignsCreated: number
   leadsAssigned: number
   leadActivitiesWritten: number
@@ -8273,6 +8641,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   expensesRecorded?: boolean | UserCountOutputTypeCountExpensesRecordedArgs
   inventoryTransactions?: boolean | UserCountOutputTypeCountInventoryTransactionsArgs
   auditLogs?: boolean | UserCountOutputTypeCountAuditLogsArgs
+  packageSessionsPerformed?: boolean | UserCountOutputTypeCountPackageSessionsPerformedArgs
   campaignsCreated?: boolean | UserCountOutputTypeCountCampaignsCreatedArgs
   leadsAssigned?: boolean | UserCountOutputTypeCountLeadsAssignedArgs
   leadActivitiesWritten?: boolean | UserCountOutputTypeCountLeadActivitiesWrittenArgs
@@ -8477,6 +8846,13 @@ export type UserCountOutputTypeCountAuditLogsArgs<ExtArgs extends runtime.Types.
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountPackageSessionsPerformedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PackageSessionLogWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountCampaignsCreatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.CampaignWhereInput
 }
@@ -8563,6 +8939,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   expensesRecorded?: boolean | Prisma.User$expensesRecordedArgs<ExtArgs>
   inventoryTransactions?: boolean | Prisma.User$inventoryTransactionsArgs<ExtArgs>
   auditLogs?: boolean | Prisma.User$auditLogsArgs<ExtArgs>
+  packageSessionsPerformed?: boolean | Prisma.User$packageSessionsPerformedArgs<ExtArgs>
   campaignsCreated?: boolean | Prisma.User$campaignsCreatedArgs<ExtArgs>
   leadsAssigned?: boolean | Prisma.User$leadsAssignedArgs<ExtArgs>
   leadActivitiesWritten?: boolean | Prisma.User$leadActivitiesWrittenArgs<ExtArgs>
@@ -8644,6 +9021,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   expensesRecorded?: boolean | Prisma.User$expensesRecordedArgs<ExtArgs>
   inventoryTransactions?: boolean | Prisma.User$inventoryTransactionsArgs<ExtArgs>
   auditLogs?: boolean | Prisma.User$auditLogsArgs<ExtArgs>
+  packageSessionsPerformed?: boolean | Prisma.User$packageSessionsPerformedArgs<ExtArgs>
   campaignsCreated?: boolean | Prisma.User$campaignsCreatedArgs<ExtArgs>
   leadsAssigned?: boolean | Prisma.User$leadsAssignedArgs<ExtArgs>
   leadActivitiesWritten?: boolean | Prisma.User$leadActivitiesWrittenArgs<ExtArgs>
@@ -8686,6 +9064,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     expensesRecorded: Prisma.$ExpensePayload<ExtArgs>[]
     inventoryTransactions: Prisma.$InventoryTransactionPayload<ExtArgs>[]
     auditLogs: Prisma.$AuditLogPayload<ExtArgs>[]
+    packageSessionsPerformed: Prisma.$PackageSessionLogPayload<ExtArgs>[]
     campaignsCreated: Prisma.$CampaignPayload<ExtArgs>[]
     leadsAssigned: Prisma.$LeadPayload<ExtArgs>[]
     leadActivitiesWritten: Prisma.$LeadActivityPayload<ExtArgs>[]
@@ -9127,6 +9506,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   expensesRecorded<T extends Prisma.User$expensesRecordedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$expensesRecordedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   inventoryTransactions<T extends Prisma.User$inventoryTransactionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$inventoryTransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   auditLogs<T extends Prisma.User$auditLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$auditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  packageSessionsPerformed<T extends Prisma.User$packageSessionsPerformedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$packageSessionsPerformedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PackageSessionLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   campaignsCreated<T extends Prisma.User$campaignsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$campaignsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CampaignPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   leadsAssigned<T extends Prisma.User$leadsAssignedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$leadsAssignedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   leadActivitiesWritten<T extends Prisma.User$leadActivitiesWrittenArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$leadActivitiesWrittenArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeadActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -10207,6 +10587,30 @@ export type User$auditLogsArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.AuditLogScalarFieldEnum | Prisma.AuditLogScalarFieldEnum[]
+}
+
+/**
+ * User.packageSessionsPerformed
+ */
+export type User$packageSessionsPerformedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PackageSessionLog
+   */
+  select?: Prisma.PackageSessionLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PackageSessionLog
+   */
+  omit?: Prisma.PackageSessionLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PackageSessionLogInclude<ExtArgs> | null
+  where?: Prisma.PackageSessionLogWhereInput
+  orderBy?: Prisma.PackageSessionLogOrderByWithRelationInput | Prisma.PackageSessionLogOrderByWithRelationInput[]
+  cursor?: Prisma.PackageSessionLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PackageSessionLogScalarFieldEnum | Prisma.PackageSessionLogScalarFieldEnum[]
 }
 
 /**

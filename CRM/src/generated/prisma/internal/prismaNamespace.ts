@@ -412,6 +412,9 @@ export const ModelName = {
   Document: 'Document',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
+  TreatmentPackage: 'TreatmentPackage',
+  PatientPackage: 'PatientPackage',
+  PackageSessionLog: 'PackageSessionLog',
   DoctorAvailability: 'DoctorAvailability',
   DoctorLeave: 'DoctorLeave',
   Appointment: 'Appointment',
@@ -478,7 +481,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "doctorAvailability" | "doctorLeave" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1589,6 +1592,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ServiceCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ServiceCountAggregateOutputType> | number
+        }
+      }
+    }
+    TreatmentPackage: {
+      payload: Prisma.$TreatmentPackagePayload<ExtArgs>
+      fields: Prisma.TreatmentPackageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TreatmentPackageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TreatmentPackageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>
+        }
+        findFirst: {
+          args: Prisma.TreatmentPackageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TreatmentPackageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>
+        }
+        findMany: {
+          args: Prisma.TreatmentPackageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>[]
+        }
+        create: {
+          args: Prisma.TreatmentPackageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>
+        }
+        createMany: {
+          args: Prisma.TreatmentPackageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TreatmentPackageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>[]
+        }
+        delete: {
+          args: Prisma.TreatmentPackageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>
+        }
+        update: {
+          args: Prisma.TreatmentPackageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>
+        }
+        deleteMany: {
+          args: Prisma.TreatmentPackageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TreatmentPackageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TreatmentPackageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>[]
+        }
+        upsert: {
+          args: Prisma.TreatmentPackageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPackagePayload>
+        }
+        aggregate: {
+          args: Prisma.TreatmentPackageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTreatmentPackage>
+        }
+        groupBy: {
+          args: Prisma.TreatmentPackageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TreatmentPackageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TreatmentPackageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TreatmentPackageCountAggregateOutputType> | number
+        }
+      }
+    }
+    PatientPackage: {
+      payload: Prisma.$PatientPackagePayload<ExtArgs>
+      fields: Prisma.PatientPackageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PatientPackageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PatientPackageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>
+        }
+        findFirst: {
+          args: Prisma.PatientPackageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PatientPackageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>
+        }
+        findMany: {
+          args: Prisma.PatientPackageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>[]
+        }
+        create: {
+          args: Prisma.PatientPackageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>
+        }
+        createMany: {
+          args: Prisma.PatientPackageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PatientPackageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>[]
+        }
+        delete: {
+          args: Prisma.PatientPackageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>
+        }
+        update: {
+          args: Prisma.PatientPackageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>
+        }
+        deleteMany: {
+          args: Prisma.PatientPackageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PatientPackageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PatientPackageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>[]
+        }
+        upsert: {
+          args: Prisma.PatientPackageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientPackagePayload>
+        }
+        aggregate: {
+          args: Prisma.PatientPackageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePatientPackage>
+        }
+        groupBy: {
+          args: Prisma.PatientPackageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PatientPackageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PatientPackageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PatientPackageCountAggregateOutputType> | number
+        }
+      }
+    }
+    PackageSessionLog: {
+      payload: Prisma.$PackageSessionLogPayload<ExtArgs>
+      fields: Prisma.PackageSessionLogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PackageSessionLogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PackageSessionLogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>
+        }
+        findFirst: {
+          args: Prisma.PackageSessionLogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PackageSessionLogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>
+        }
+        findMany: {
+          args: Prisma.PackageSessionLogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>[]
+        }
+        create: {
+          args: Prisma.PackageSessionLogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>
+        }
+        createMany: {
+          args: Prisma.PackageSessionLogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PackageSessionLogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>[]
+        }
+        delete: {
+          args: Prisma.PackageSessionLogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>
+        }
+        update: {
+          args: Prisma.PackageSessionLogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>
+        }
+        deleteMany: {
+          args: Prisma.PackageSessionLogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PackageSessionLogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PackageSessionLogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>[]
+        }
+        upsert: {
+          args: Prisma.PackageSessionLogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PackageSessionLogPayload>
+        }
+        aggregate: {
+          args: Prisma.PackageSessionLogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePackageSessionLog>
+        }
+        groupBy: {
+          args: Prisma.PackageSessionLogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PackageSessionLogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PackageSessionLogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PackageSessionLogCountAggregateOutputType> | number
         }
       }
     }
@@ -5625,6 +5850,50 @@ export const ServiceScalarFieldEnum = {
 export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
 
 
+export const TreatmentPackageScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  serviceId: 'serviceId',
+  totalSessions: 'totalSessions',
+  price: 'price',
+  validityDays: 'validityDays',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TreatmentPackageScalarFieldEnum = (typeof TreatmentPackageScalarFieldEnum)[keyof typeof TreatmentPackageScalarFieldEnum]
+
+
+export const PatientPackageScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  packageId: 'packageId',
+  billId: 'billId',
+  sessionsTotal: 'sessionsTotal',
+  sessionsUsed: 'sessionsUsed',
+  purchasedAt: 'purchasedAt',
+  expiresAt: 'expiresAt',
+  status: 'status',
+  notes: 'notes'
+} as const
+
+export type PatientPackageScalarFieldEnum = (typeof PatientPackageScalarFieldEnum)[keyof typeof PatientPackageScalarFieldEnum]
+
+
+export const PackageSessionLogScalarFieldEnum = {
+  id: 'id',
+  patientPackageId: 'patientPackageId',
+  appointmentId: 'appointmentId',
+  performedById: 'performedById',
+  usedAt: 'usedAt',
+  notes: 'notes'
+} as const
+
+export type PackageSessionLogScalarFieldEnum = (typeof PackageSessionLogScalarFieldEnum)[keyof typeof PackageSessionLogScalarFieldEnum]
+
+
 export const DoctorAvailabilityScalarFieldEnum = {
   id: 'id',
   doctorId: 'doctorId',
@@ -6712,6 +6981,20 @@ export type ListEnumCommChannelFieldRefInput<$PrismaModel> = FieldRefInputType<$
 
 
 /**
+ * Reference to a field of type 'PatientPackageStatus'
+ */
+export type EnumPatientPackageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PatientPackageStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PatientPackageStatus[]'
+ */
+export type ListEnumPatientPackageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PatientPackageStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'AppointmentType'
  */
 export type EnumAppointmentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AppointmentType'>
@@ -7394,6 +7677,9 @@ export type GlobalOmitConfig = {
   document?: Prisma.DocumentOmit
   communicationPreference?: Prisma.CommunicationPreferenceOmit
   service?: Prisma.ServiceOmit
+  treatmentPackage?: Prisma.TreatmentPackageOmit
+  patientPackage?: Prisma.PatientPackageOmit
+  packageSessionLog?: Prisma.PackageSessionLogOmit
   doctorAvailability?: Prisma.DoctorAvailabilityOmit
   doctorLeave?: Prisma.DoctorLeaveOmit
   appointment?: Prisma.AppointmentOmit

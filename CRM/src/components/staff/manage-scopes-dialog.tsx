@@ -107,11 +107,10 @@ export function ManageScopesDialog({
     })
   }
 
-  const groups: ("Care" | "Clinical" | "Sales" | "Billing & Finance" | "Website" | "Calendar")[] = [
+  const groups: ("Care" | "Clinical" | "Sales" | "Website" | "Calendar")[] = [
     "Care",
     "Clinical",
     "Sales",
-    "Billing & Finance",
     "Website",
     "Calendar",
   ]

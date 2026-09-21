@@ -34,6 +34,7 @@ import {
   Target,
   Star,
   Briefcase,
+  Layers,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { hasTabAccess } from "@/lib/permissions"
@@ -81,6 +82,16 @@ const navGroups: NavGroup[] = [
       { href: "/sales/prospects", label: "Prospects", icon: Star },
       { href: "/sales/clients", label: "Clients", icon: Briefcase },
       { href: "/sales", label: "Sales & POS", icon: ShoppingCart },
+      { href: "/payments", label: "Payments", icon: IndianRupee },
+      { href: "/billing", label: "Billing", icon: Receipt },
+      { href: "/billing/refunds", label: "Refunds", icon: Undo2 },
+      { href: "/finance/dashboard", label: "Finance Dashboard", icon: TrendingUp },
+      { href: "/finance/outstanding", label: "Outstanding Dues", icon: AlertCircle },
+      { href: "/finance/cash-counter", label: "Cash Counter", icon: Wallet },
+      { href: "/finance/expenses", label: "Expenses", icon: Receipt },
+      { href: "/finance/reports", label: "Reports", icon: BarChart3 },
+      { href: "/services", label: "Services", icon: Package },
+      { href: "/services/packages", label: "Treatment Packages", icon: Layers },
     ],
   },
   {
@@ -93,22 +104,6 @@ const navGroups: NavGroup[] = [
       { href: "/templates", label: "Doctor Templates", icon: FileEdit },
       { href: "/settings/signature", label: "Digital Signature", icon: PenTool },
       { href: "/audit-logs", label: "Audit Logs", icon: ShieldAlert, adminOnly: true },
-    ],
-  },
-  {
-    label: "Billing & Finance",
-    dot: "bg-emerald-500",
-    text: "text-emerald-600 dark:text-emerald-400",
-    items: [
-      { href: "/payments", label: "Payments", icon: IndianRupee },
-      { href: "/billing", label: "Billing", icon: Receipt },
-      { href: "/billing/refunds", label: "Refunds", icon: Undo2 },
-      { href: "/finance/dashboard", label: "Finance Dashboard", icon: TrendingUp },
-      { href: "/finance/outstanding", label: "Outstanding Dues", icon: AlertCircle },
-      { href: "/finance/cash-counter", label: "Cash Counter", icon: Wallet },
-      { href: "/finance/expenses", label: "Expenses", icon: Receipt },
-      { href: "/finance/reports", label: "Reports", icon: BarChart3 },
-      { href: "/services", label: "Services", icon: Package },
     ],
   },
   {

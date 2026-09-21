@@ -24,6 +24,8 @@ import { PrescriptionsTab } from "@/components/patients/profile/prescriptions-ta
 import { ClinicalHistoryTab } from "@/components/emr/clinical-history-tab"
 import { RecordsTab } from "@/components/emr/records-tab"
 import { PatientBillingTab } from "@/components/billing/patient-billing-tab"
+import { PatientPackagesTab } from "@/components/packages/patient-packages-tab"
+import { getPatientPackages, listTreatmentPackages } from "@/actions/packages"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default async function PatientProfilePage({
@@ -47,6 +49,8 @@ export default async function PatientProfilePage({
     records,
     billingSummary,
     appointments,
+    patientPackages,
+    packageCatalog,
   ] = await Promise.all([
     getPatientTimeline(id),
     getPatientCrmData(id),
@@ -59,6 +63,8 @@ export default async function PatientProfilePage({
     getPatientRecords(id),
     getPatientBillingSummary(id),
     getAppointmentsForPatient(id),
+    getPatientPackages(id),
+    listTreatmentPackages(true),
   ])
 
   const fullName = patientDisplayName(patient)
@@ -76,6 +82,7 @@ export default async function PatientProfilePage({
           <TabsTrigger value="documents">Documents ({patient.documents.length})</TabsTrigger>
           <TabsTrigger value="records">Reports & Records ({reports.length + records.referralNotes.length + records.certificates.length})</TabsTrigger>
           <TabsTrigger value="billing">Billing</TabsTrigger>
+          <TabsTrigger value="packages">Packages ({patientPackages.length})</TabsTrigger>
           <TabsTrigger value="family">Family & Insurance</TabsTrigger>
           <TabsTrigger value="medical">Medical History</TabsTrigger>
           <TabsTrigger value="history">Clinical Details</TabsTrigger>
@@ -123,6 +130,9 @@ export default async function PatientProfilePage({
         </TabsContent>
         <TabsContent value="billing" className="mt-4">
           <PatientBillingTab patientId={id} summary={billingSummary} />
+        </TabsContent>
+        <TabsContent value="packages" className="mt-4">
+          <PatientPackagesTab patientId={id} packages={patientPackages} catalog={packageCatalog} />
         </TabsContent>
         <TabsContent value="family" className="mt-4">
           <FamilyInsuranceTab patient={patient} />

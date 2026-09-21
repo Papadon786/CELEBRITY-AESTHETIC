@@ -35,10 +35,14 @@ export type AuditAction =
   | "PRESCRIPTION_CREATED"
   | "CAMPAIGN_CREATED"
   | "CAMPAIGN_PUBLISHED"
+  | "PACKAGE_CREATED"
+  | "PACKAGE_ASSIGNED"
+  | "PACKAGE_SESSION_USED"
+  | "PACKAGE_CANCELLED"
 
 interface LogAuditParams {
   action: AuditAction
-  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign"
+  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage"
   entityId?: string
   metadata?: Record<string, unknown> | null
   userId?: string
