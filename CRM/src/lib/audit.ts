@@ -62,10 +62,11 @@ export type AuditAction =
   | "STAFF_CHECKED_OUT"
   | "STAFF_LEAVE_REQUESTED"
   | "STAFF_LEAVE_DECIDED"
+  | "LEAD_SOURCE_SPEND_UPDATED"
 
 interface LogAuditParams {
   action: AuditAction
-  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto" | "LoyaltyTransaction" | "StaffAttendance" | "StaffLeaveRequest"
+  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto" | "LoyaltyTransaction" | "StaffAttendance" | "StaffLeaveRequest" | "LeadSourceSpend"
   entityId?: string
   metadata?: Record<string, unknown> | null
   userId?: string

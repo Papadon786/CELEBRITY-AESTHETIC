@@ -1977,6 +1977,16 @@ model Lead {
   @@index([createdAt])
 }
 
+/**
+ * Marketing spend per lead source, entered manually by staff, used to compute ROI.
+ */
+model LeadSourceSpend {
+  id        String     @id @default(cuid())
+  source    LeadSource @unique
+  amount    Decimal    @default(0) @db.Decimal(12, 2)
+  updatedAt DateTime   @updatedAt
+}
+
 model LeadActivity {
   id        String   @id @default(cuid())
   leadId    String

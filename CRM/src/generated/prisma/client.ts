@@ -437,6 +437,12 @@ export type WhatsAppTemplate = Prisma.WhatsAppTemplateModel
  */
 export type Lead = Prisma.LeadModel
 /**
+ * Model LeadSourceSpend
+ * *
+ *  * Marketing spend per lead source, entered manually by staff, used to compute ROI.
+ */
+export type LeadSourceSpend = Prisma.LeadSourceSpendModel
+/**
  * Model LeadActivity
  * 
  */

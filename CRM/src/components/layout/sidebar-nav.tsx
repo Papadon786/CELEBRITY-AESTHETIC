@@ -81,6 +81,7 @@ const navGroups: NavGroup[] = [
     text: "text-amber-600 dark:text-amber-400",
     items: [
       { href: "/sales/leads", label: "Leads & Pipeline", icon: Target },
+      { href: "/leads/attribution", label: "Lead Source ROI", icon: BarChart3, adminOnly: true },
       { href: "/sales/prospects", label: "Prospects", icon: Star },
       { href: "/sales/clients", label: "Clients", icon: Briefcase },
       { href: "/sales", label: "Sales & POS", icon: ShoppingCart },

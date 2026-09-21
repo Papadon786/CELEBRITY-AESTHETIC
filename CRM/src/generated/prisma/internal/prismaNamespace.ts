@@ -476,6 +476,7 @@ export const ModelName = {
   AuditLog: 'AuditLog',
   WhatsAppTemplate: 'WhatsAppTemplate',
   Lead: 'Lead',
+  LeadSourceSpend: 'LeadSourceSpend',
   LeadActivity: 'LeadActivity',
   Prospect: 'Prospect',
   ProspectActivity: 'ProspectActivity',
@@ -496,7 +497,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "treatmentPhoto" | "loyaltyTransaction" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "staffAttendance" | "staffLeaveRequest" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "treatmentPhoto" | "loyaltyTransaction" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "staffAttendance" | "staffLeaveRequest" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadSourceSpend" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -6346,6 +6347,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    LeadSourceSpend: {
+      payload: Prisma.$LeadSourceSpendPayload<ExtArgs>
+      fields: Prisma.LeadSourceSpendFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LeadSourceSpendFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LeadSourceSpendFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>
+        }
+        findFirst: {
+          args: Prisma.LeadSourceSpendFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LeadSourceSpendFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>
+        }
+        findMany: {
+          args: Prisma.LeadSourceSpendFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>[]
+        }
+        create: {
+          args: Prisma.LeadSourceSpendCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>
+        }
+        createMany: {
+          args: Prisma.LeadSourceSpendCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LeadSourceSpendCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>[]
+        }
+        delete: {
+          args: Prisma.LeadSourceSpendDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>
+        }
+        update: {
+          args: Prisma.LeadSourceSpendUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>
+        }
+        deleteMany: {
+          args: Prisma.LeadSourceSpendDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LeadSourceSpendUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LeadSourceSpendUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>[]
+        }
+        upsert: {
+          args: Prisma.LeadSourceSpendUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LeadSourceSpendPayload>
+        }
+        aggregate: {
+          args: Prisma.LeadSourceSpendAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLeadSourceSpend>
+        }
+        groupBy: {
+          args: Prisma.LeadSourceSpendGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LeadSourceSpendGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LeadSourceSpendCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LeadSourceSpendCountAggregateOutputType> | number
+        }
+      }
+    }
     LeadActivity: {
       payload: Prisma.$LeadActivityPayload<ExtArgs>
       fields: Prisma.LeadActivityFieldRefs
@@ -7953,6 +8028,16 @@ export const LeadScalarFieldEnum = {
 export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
 
 
+export const LeadSourceSpendScalarFieldEnum = {
+  id: 'id',
+  source: 'source',
+  amount: 'amount',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LeadSourceSpendScalarFieldEnum = (typeof LeadSourceSpendScalarFieldEnum)[keyof typeof LeadSourceSpendScalarFieldEnum]
+
+
 export const LeadActivityScalarFieldEnum = {
   id: 'id',
   leadId: 'leadId',
@@ -9224,6 +9309,7 @@ export type GlobalOmitConfig = {
   auditLog?: Prisma.AuditLogOmit
   whatsAppTemplate?: Prisma.WhatsAppTemplateOmit
   lead?: Prisma.LeadOmit
+  leadSourceSpend?: Prisma.LeadSourceSpendOmit
   leadActivity?: Prisma.LeadActivityOmit
   prospect?: Prisma.ProspectOmit
   prospectActivity?: Prisma.ProspectActivityOmit

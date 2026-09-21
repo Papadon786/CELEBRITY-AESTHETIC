@@ -130,6 +130,7 @@ export const ModelName = {
   AuditLog: 'AuditLog',
   WhatsAppTemplate: 'WhatsAppTemplate',
   Lead: 'Lead',
+  LeadSourceSpend: 'LeadSourceSpend',
   LeadActivity: 'LeadActivity',
   Prospect: 'Prospect',
   ProspectActivity: 'ProspectActivity',
@@ -1349,6 +1350,16 @@ export const LeadScalarFieldEnum = {
 } as const
 
 export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
+
+
+export const LeadSourceSpendScalarFieldEnum = {
+  id: 'id',
+  source: 'source',
+  amount: 'amount',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LeadSourceSpendScalarFieldEnum = (typeof LeadSourceSpendScalarFieldEnum)[keyof typeof LeadSourceSpendScalarFieldEnum]
 
 
 export const LeadActivityScalarFieldEnum = {
