@@ -52,7 +52,7 @@ const teamMembers = [
   },
   {
     name: "Reehal Baig",
-    role: "Consultant",
+    role: "Managing Director",
   },
 ];
 
@@ -120,7 +120,7 @@ export default function AboutPage() {
                   Personalized Care
                 </p>
                 <p className="mt-1 font-grotesk text-[13px] text-charcoal/70">
-                  Skin · Hair · Aesthetics · PMU
+                  Skin · Hair · PMU
                 </p>
               </div>
             </div>
