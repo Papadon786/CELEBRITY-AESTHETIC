@@ -410,6 +410,7 @@ export const ModelName = {
   Allergy: 'Allergy',
   ChronicDisease: 'ChronicDisease',
   Document: 'Document',
+  ConsentForm: 'ConsentForm',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
   ServiceConsumable: 'ServiceConsumable',
@@ -491,7 +492,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1454,6 +1455,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.DocumentCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.DocumentCountAggregateOutputType> | number
+        }
+      }
+    }
+    ConsentForm: {
+      payload: Prisma.$ConsentFormPayload<ExtArgs>
+      fields: Prisma.ConsentFormFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ConsentFormFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ConsentFormFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>
+        }
+        findFirst: {
+          args: Prisma.ConsentFormFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ConsentFormFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>
+        }
+        findMany: {
+          args: Prisma.ConsentFormFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>[]
+        }
+        create: {
+          args: Prisma.ConsentFormCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>
+        }
+        createMany: {
+          args: Prisma.ConsentFormCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ConsentFormCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>[]
+        }
+        delete: {
+          args: Prisma.ConsentFormDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>
+        }
+        update: {
+          args: Prisma.ConsentFormUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>
+        }
+        deleteMany: {
+          args: Prisma.ConsentFormDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ConsentFormUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ConsentFormUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>[]
+        }
+        upsert: {
+          args: Prisma.ConsentFormUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConsentFormPayload>
+        }
+        aggregate: {
+          args: Prisma.ConsentFormAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateConsentForm>
+        }
+        groupBy: {
+          args: Prisma.ConsentFormGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConsentFormGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ConsentFormCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConsentFormCountAggregateOutputType> | number
         }
       }
     }
@@ -6567,6 +6642,23 @@ export const DocumentScalarFieldEnum = {
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
 
 
+export const ConsentFormScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  appointmentId: 'appointmentId',
+  title: 'title',
+  content: 'content',
+  signatureUrl: 'signatureUrl',
+  signedAt: 'signedAt',
+  witnessedById: 'witnessedById',
+  status: 'status',
+  createdById: 'createdById',
+  createdAt: 'createdAt'
+} as const
+
+export type ConsentFormScalarFieldEnum = (typeof ConsentFormScalarFieldEnum)[keyof typeof ConsentFormScalarFieldEnum]
+
+
 export const CommunicationPreferenceScalarFieldEnum = {
   id: 'id',
   patientId: 'patientId',
@@ -7857,6 +7949,20 @@ export type ListEnumDocumentCategoryFieldRefInput<$PrismaModel> = FieldRefInputT
 
 
 /**
+ * Reference to a field of type 'ConsentStatus'
+ */
+export type EnumConsentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ConsentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ConsentStatus[]'
+ */
+export type ListEnumConsentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ConsentStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'CommChannel'
  */
 export type EnumCommChannelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CommChannel'>
@@ -8635,6 +8741,7 @@ export type GlobalOmitConfig = {
   allergy?: Prisma.AllergyOmit
   chronicDisease?: Prisma.ChronicDiseaseOmit
   document?: Prisma.DocumentOmit
+  consentForm?: Prisma.ConsentFormOmit
   communicationPreference?: Prisma.CommunicationPreferenceOmit
   service?: Prisma.ServiceOmit
   serviceConsumable?: Prisma.ServiceConsumableOmit

@@ -107,6 +107,11 @@ export type ChronicDisease = Prisma.ChronicDiseaseModel
  */
 export type Document = Prisma.DocumentModel
 /**
+ * Model ConsentForm
+ * 
+ */
+export type ConsentForm = Prisma.ConsentFormModel
+/**
  * Model CommunicationPreference
  * 
  */

@@ -91,6 +91,8 @@ model User {
   commissionsEarned         Commission[]       @relation("CommissionEarnedBy")
   commissionsCreated        Commission[]       @relation("CommissionCreatedBy")
   salesTargets              SalesTarget[]      @relation("SalesTargetOwner")
+  consentFormsWitnessed     ConsentForm[]      @relation("ConsentWitnessedBy")
+  consentFormsCreated       ConsentForm[]      @relation("ConsentCreatedBy")
 
   @@index([role])
 }
@@ -201,6 +203,7 @@ model Patient {
   allergies               Allergy[]
   chronicDiseases         ChronicDisease[]
   documents               Document[]
+  consentForms            ConsentForm[]
   communicationPreference CommunicationPreference?
   appointments            Appointment[]
   waitingListEntries      WaitingListEntry[]
@@ -392,6 +395,36 @@ model Document {
 
   @@index([patientId])
   @@index([category])
+}
+
+// Procedure-specific consent — a Document can hold a scanned PDF, but
+// nothing previously captured a structured, e-signed, procedure-specific
+// consent record.
+enum ConsentStatus {
+  PENDING
+  SIGNED
+  DECLINED
+}
+
+model ConsentForm {
+  id            String        @id @default(cuid())
+  patientId     String
+  patient       Patient       @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  appointmentId String?
+  appointment   Appointment?  @relation(fields: [appointmentId], references: [id])
+  title         String
+  content       String
+  signatureUrl  String?
+  signedAt      DateTime?
+  witnessedById String?
+  witnessedBy   User?         @relation("ConsentWitnessedBy", fields: [witnessedById], references: [id])
+  status        ConsentStatus @default(PENDING)
+  createdById   String?
+  createdBy     User?         @relation("ConsentCreatedBy", fields: [createdById], references: [id])
+  createdAt     DateTime      @default(now())
+
+  @@index([patientId])
+  @@index([status])
 }
 
 enum CommChannel {
@@ -634,6 +667,7 @@ model Appointment {
   followUps          FollowUp[]
   encounters         Encounter[]
   packageSessionLogs PackageSessionLog[]
+  consentForms       ConsentForm[]
 
   @@index([patientId])
   @@index([doctorId, scheduledAt])

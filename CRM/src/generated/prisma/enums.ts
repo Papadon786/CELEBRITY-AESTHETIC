@@ -110,6 +110,15 @@ export const DocumentCategory = {
 export type DocumentCategory = (typeof DocumentCategory)[keyof typeof DocumentCategory]
 
 
+export const ConsentStatus = {
+  PENDING: 'PENDING',
+  SIGNED: 'SIGNED',
+  DECLINED: 'DECLINED'
+} as const
+
+export type ConsentStatus = (typeof ConsentStatus)[keyof typeof ConsentStatus]
+
+
 export const CommChannel = {
   SMS: 'SMS',
   EMAIL: 'EMAIL',

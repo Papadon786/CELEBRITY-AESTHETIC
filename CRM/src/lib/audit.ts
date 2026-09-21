@@ -50,10 +50,13 @@ export type AuditAction =
   | "COMMISSION_APPROVED"
   | "COMMISSION_PAID"
   | "SALES_TARGET_CREATED"
+  | "CONSENT_FORM_CREATED"
+  | "CONSENT_FORM_SIGNED"
+  | "CONSENT_FORM_DECLINED"
 
 interface LogAuditParams {
   action: AuditAction
-  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget"
+  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm"
   entityId?: string
   metadata?: Record<string, unknown> | null
   userId?: string

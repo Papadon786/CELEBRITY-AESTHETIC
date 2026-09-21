@@ -423,6 +423,23 @@ export type EnumDocumentCategoryWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumDocumentCategoryFilter<$PrismaModel>
 }
 
+export type EnumConsentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ConsentStatus | Prisma.EnumConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumConsentStatusFilter<$PrismaModel> | $Enums.ConsentStatus
+}
+
+export type EnumConsentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ConsentStatus | Prisma.EnumConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumConsentStatusWithAggregatesFilter<$PrismaModel> | $Enums.ConsentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumConsentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumConsentStatusFilter<$PrismaModel>
+}
+
 export type EnumCommChannelFilter<$PrismaModel = never> = {
   equals?: $Enums.CommChannel | Prisma.EnumCommChannelFieldRefInput<$PrismaModel>
   in?: $Enums.CommChannel[] | Prisma.ListEnumCommChannelFieldRefInput<$PrismaModel>
@@ -1601,6 +1618,23 @@ export type NestedEnumDocumentCategoryWithAggregatesFilter<$PrismaModel = never>
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumDocumentCategoryFilter<$PrismaModel>
   _max?: Prisma.NestedEnumDocumentCategoryFilter<$PrismaModel>
+}
+
+export type NestedEnumConsentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ConsentStatus | Prisma.EnumConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumConsentStatusFilter<$PrismaModel> | $Enums.ConsentStatus
+}
+
+export type NestedEnumConsentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ConsentStatus | Prisma.EnumConsentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumConsentStatusWithAggregatesFilter<$PrismaModel> | $Enums.ConsentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumConsentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumConsentStatusFilter<$PrismaModel>
 }
 
 export type NestedEnumCommChannelFilter<$PrismaModel = never> = {

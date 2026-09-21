@@ -64,6 +64,7 @@ export const ModelName = {
   Allergy: 'Allergy',
   ChronicDisease: 'ChronicDisease',
   Document: 'Document',
+  ConsentForm: 'ConsentForm',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
   ServiceConsumable: 'ServiceConsumable',
@@ -333,6 +334,23 @@ export const DocumentScalarFieldEnum = {
 } as const
 
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
+
+
+export const ConsentFormScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  appointmentId: 'appointmentId',
+  title: 'title',
+  content: 'content',
+  signatureUrl: 'signatureUrl',
+  signedAt: 'signedAt',
+  witnessedById: 'witnessedById',
+  status: 'status',
+  createdById: 'createdById',
+  createdAt: 'createdAt'
+} as const
+
+export type ConsentFormScalarFieldEnum = (typeof ConsentFormScalarFieldEnum)[keyof typeof ConsentFormScalarFieldEnum]
 
 
 export const CommunicationPreferenceScalarFieldEnum = {
