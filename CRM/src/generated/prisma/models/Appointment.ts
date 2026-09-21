@@ -56,6 +56,7 @@ export type AppointmentMinAggregateOutputType = {
   consumablesDeducted: boolean | null
   reminderSentAt: Date | null
   aftercareSentAt: Date | null
+  reviewRequestSentAt: Date | null
   rescheduledFromId: string | null
   createdById: string | null
   createdAt: Date | null
@@ -83,6 +84,7 @@ export type AppointmentMaxAggregateOutputType = {
   consumablesDeducted: boolean | null
   reminderSentAt: Date | null
   aftercareSentAt: Date | null
+  reviewRequestSentAt: Date | null
   rescheduledFromId: string | null
   createdById: string | null
   createdAt: Date | null
@@ -110,6 +112,7 @@ export type AppointmentCountAggregateOutputType = {
   consumablesDeducted: number
   reminderSentAt: number
   aftercareSentAt: number
+  reviewRequestSentAt: number
   rescheduledFromId: number
   createdById: number
   createdAt: number
@@ -147,6 +150,7 @@ export type AppointmentMinAggregateInputType = {
   consumablesDeducted?: true
   reminderSentAt?: true
   aftercareSentAt?: true
+  reviewRequestSentAt?: true
   rescheduledFromId?: true
   createdById?: true
   createdAt?: true
@@ -174,6 +178,7 @@ export type AppointmentMaxAggregateInputType = {
   consumablesDeducted?: true
   reminderSentAt?: true
   aftercareSentAt?: true
+  reviewRequestSentAt?: true
   rescheduledFromId?: true
   createdById?: true
   createdAt?: true
@@ -201,6 +206,7 @@ export type AppointmentCountAggregateInputType = {
   consumablesDeducted?: true
   reminderSentAt?: true
   aftercareSentAt?: true
+  reviewRequestSentAt?: true
   rescheduledFromId?: true
   createdById?: true
   createdAt?: true
@@ -315,6 +321,7 @@ export type AppointmentGroupByOutputType = {
   consumablesDeducted: boolean
   reminderSentAt: Date | null
   aftercareSentAt: Date | null
+  reviewRequestSentAt: Date | null
   rescheduledFromId: string | null
   createdById: string | null
   createdAt: Date
@@ -365,6 +372,7 @@ export type AppointmentWhereInput = {
   consumablesDeducted?: Prisma.BoolFilter<"Appointment"> | boolean
   reminderSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
   aftercareSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
+  reviewRequestSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
   rescheduledFromId?: Prisma.StringNullableFilter<"Appointment"> | string | null
   createdById?: Prisma.StringNullableFilter<"Appointment"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Appointment"> | Date | string
@@ -407,6 +415,7 @@ export type AppointmentOrderByWithRelationInput = {
   consumablesDeducted?: Prisma.SortOrder
   reminderSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   aftercareSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  reviewRequestSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   rescheduledFromId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdById?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -452,6 +461,7 @@ export type AppointmentWhereUniqueInput = Prisma.AtLeast<{
   consumablesDeducted?: Prisma.BoolFilter<"Appointment"> | boolean
   reminderSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
   aftercareSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
+  reviewRequestSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
   rescheduledFromId?: Prisma.StringNullableFilter<"Appointment"> | string | null
   createdById?: Prisma.StringNullableFilter<"Appointment"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Appointment"> | Date | string
@@ -494,6 +504,7 @@ export type AppointmentOrderByWithAggregationInput = {
   consumablesDeducted?: Prisma.SortOrder
   reminderSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   aftercareSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  reviewRequestSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   rescheduledFromId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdById?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -529,6 +540,7 @@ export type AppointmentScalarWhereWithAggregatesInput = {
   consumablesDeducted?: Prisma.BoolWithAggregatesFilter<"Appointment"> | boolean
   reminderSentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Appointment"> | Date | string | null
   aftercareSentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Appointment"> | Date | string | null
+  reviewRequestSentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Appointment"> | Date | string | null
   rescheduledFromId?: Prisma.StringNullableWithAggregatesFilter<"Appointment"> | string | null
   createdById?: Prisma.StringNullableWithAggregatesFilter<"Appointment"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Appointment"> | Date | string
@@ -552,6 +564,7 @@ export type AppointmentCreateInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -592,6 +605,7 @@ export type AppointmentUncheckedCreateInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -624,6 +638,7 @@ export type AppointmentUpdateInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -664,6 +679,7 @@ export type AppointmentUncheckedUpdateInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -700,6 +716,7 @@ export type AppointmentCreateManyInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -723,6 +740,7 @@ export type AppointmentUpdateManyMutationInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -748,6 +766,7 @@ export type AppointmentUncheckedUpdateManyInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -790,6 +809,7 @@ export type AppointmentCountOrderByAggregateInput = {
   consumablesDeducted?: Prisma.SortOrder
   reminderSentAt?: Prisma.SortOrder
   aftercareSentAt?: Prisma.SortOrder
+  reviewRequestSentAt?: Prisma.SortOrder
   rescheduledFromId?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -821,6 +841,7 @@ export type AppointmentMaxOrderByAggregateInput = {
   consumablesDeducted?: Prisma.SortOrder
   reminderSentAt?: Prisma.SortOrder
   aftercareSentAt?: Prisma.SortOrder
+  reviewRequestSentAt?: Prisma.SortOrder
   rescheduledFromId?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -848,6 +869,7 @@ export type AppointmentMinOrderByAggregateInput = {
   consumablesDeducted?: Prisma.SortOrder
   reminderSentAt?: Prisma.SortOrder
   aftercareSentAt?: Prisma.SortOrder
+  reviewRequestSentAt?: Prisma.SortOrder
   rescheduledFromId?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -1283,6 +1305,7 @@ export type AppointmentCreateWithoutDoctorInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   service?: Prisma.ServiceCreateNestedOneWithoutAppointmentsInput
@@ -1321,6 +1344,7 @@ export type AppointmentUncheckedCreateWithoutDoctorInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -1363,6 +1387,7 @@ export type AppointmentCreateWithoutCreatedByInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -1402,6 +1427,7 @@ export type AppointmentUncheckedCreateWithoutCreatedByInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdAt?: Date | string
   rescheduledTo?: Prisma.AppointmentUncheckedCreateNestedManyWithoutRescheduledFromInput
@@ -1466,6 +1492,7 @@ export type AppointmentScalarWhereInput = {
   consumablesDeducted?: Prisma.BoolFilter<"Appointment"> | boolean
   reminderSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
   aftercareSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
+  reviewRequestSentAt?: Prisma.DateTimeNullableFilter<"Appointment"> | Date | string | null
   rescheduledFromId?: Prisma.StringNullableFilter<"Appointment"> | string | null
   createdById?: Prisma.StringNullableFilter<"Appointment"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Appointment"> | Date | string
@@ -1505,6 +1532,7 @@ export type AppointmentCreateWithoutPatientInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
   service?: Prisma.ServiceCreateNestedOneWithoutAppointmentsInput
@@ -1543,6 +1571,7 @@ export type AppointmentUncheckedCreateWithoutPatientInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -1601,6 +1630,7 @@ export type AppointmentCreateWithoutTreatmentPhotosInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -1640,6 +1670,7 @@ export type AppointmentUncheckedCreateWithoutTreatmentPhotosInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -1687,6 +1718,7 @@ export type AppointmentUpdateWithoutTreatmentPhotosInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -1726,6 +1758,7 @@ export type AppointmentUncheckedUpdateWithoutTreatmentPhotosInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1757,6 +1790,7 @@ export type AppointmentCreateWithoutConsentFormsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -1796,6 +1830,7 @@ export type AppointmentUncheckedCreateWithoutConsentFormsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -1843,6 +1878,7 @@ export type AppointmentUpdateWithoutConsentFormsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -1882,6 +1918,7 @@ export type AppointmentUncheckedUpdateWithoutConsentFormsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1913,6 +1950,7 @@ export type AppointmentCreateWithoutServiceInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -1951,6 +1989,7 @@ export type AppointmentUncheckedCreateWithoutServiceInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -2009,6 +2048,7 @@ export type AppointmentCreateWithoutPackageSessionLogsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -2048,6 +2088,7 @@ export type AppointmentUncheckedCreateWithoutPackageSessionLogsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -2095,6 +2136,7 @@ export type AppointmentUpdateWithoutPackageSessionLogsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -2134,6 +2176,7 @@ export type AppointmentUncheckedUpdateWithoutPackageSessionLogsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2165,6 +2208,7 @@ export type AppointmentCreateWithoutResourceInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -2203,6 +2247,7 @@ export type AppointmentUncheckedCreateWithoutResourceInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -2261,6 +2306,7 @@ export type AppointmentCreateWithoutRescheduledToInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -2300,6 +2346,7 @@ export type AppointmentUncheckedCreateWithoutRescheduledToInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -2336,6 +2383,7 @@ export type AppointmentCreateWithoutRescheduledFromInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -2375,6 +2423,7 @@ export type AppointmentUncheckedCreateWithoutRescheduledFromInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdById?: string | null
   createdAt?: Date | string
   rescheduledTo?: Prisma.AppointmentUncheckedCreateNestedManyWithoutRescheduledFromInput
@@ -2427,6 +2476,7 @@ export type AppointmentUpdateWithoutRescheduledToInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -2466,6 +2516,7 @@ export type AppointmentUncheckedUpdateWithoutRescheduledToInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2513,6 +2564,7 @@ export type AppointmentCreateWithoutPrescriptionsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -2552,6 +2604,7 @@ export type AppointmentUncheckedCreateWithoutPrescriptionsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -2599,6 +2652,7 @@ export type AppointmentUpdateWithoutPrescriptionsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -2638,6 +2692,7 @@ export type AppointmentUncheckedUpdateWithoutPrescriptionsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2669,6 +2724,7 @@ export type AppointmentCreateWithoutBillsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -2708,6 +2764,7 @@ export type AppointmentUncheckedCreateWithoutBillsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -2755,6 +2812,7 @@ export type AppointmentUpdateWithoutBillsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -2794,6 +2852,7 @@ export type AppointmentUncheckedUpdateWithoutBillsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2825,6 +2884,7 @@ export type AppointmentCreateWithoutFollowUpsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -2864,6 +2924,7 @@ export type AppointmentUncheckedCreateWithoutFollowUpsInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -2911,6 +2972,7 @@ export type AppointmentUpdateWithoutFollowUpsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -2950,6 +3012,7 @@ export type AppointmentUncheckedUpdateWithoutFollowUpsInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2981,6 +3044,7 @@ export type AppointmentCreateWithoutFeedbackInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -3020,6 +3084,7 @@ export type AppointmentUncheckedCreateWithoutFeedbackInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -3067,6 +3132,7 @@ export type AppointmentUpdateWithoutFeedbackInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -3106,6 +3172,7 @@ export type AppointmentUncheckedUpdateWithoutFeedbackInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3137,6 +3204,7 @@ export type AppointmentCreateWithoutEncountersInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdAt?: Date | string
   patient: Prisma.PatientCreateNestedOneWithoutAppointmentsInput
   doctor: Prisma.UserCreateNestedOneWithoutAppointmentsAsDoctorInput
@@ -3176,6 +3244,7 @@ export type AppointmentUncheckedCreateWithoutEncountersInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -3223,6 +3292,7 @@ export type AppointmentUpdateWithoutEncountersInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -3262,6 +3332,7 @@ export type AppointmentUncheckedUpdateWithoutEncountersInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3296,6 +3367,7 @@ export type AppointmentCreateManyDoctorInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -3323,6 +3395,7 @@ export type AppointmentCreateManyCreatedByInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdAt?: Date | string
 }
@@ -3345,6 +3418,7 @@ export type AppointmentUpdateWithoutDoctorInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   service?: Prisma.ServiceUpdateOneWithoutAppointmentsNestedInput
@@ -3383,6 +3457,7 @@ export type AppointmentUncheckedUpdateWithoutDoctorInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3418,6 +3493,7 @@ export type AppointmentUncheckedUpdateManyWithoutDoctorInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3441,6 +3517,7 @@ export type AppointmentUpdateWithoutCreatedByInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -3480,6 +3557,7 @@ export type AppointmentUncheckedUpdateWithoutCreatedByInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rescheduledTo?: Prisma.AppointmentUncheckedUpdateManyWithoutRescheduledFromNestedInput
@@ -3515,6 +3593,7 @@ export type AppointmentUncheckedUpdateManyWithoutCreatedByInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -3540,6 +3619,7 @@ export type AppointmentCreateManyPatientInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -3563,6 +3643,7 @@ export type AppointmentUpdateWithoutPatientInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
   service?: Prisma.ServiceUpdateOneWithoutAppointmentsNestedInput
@@ -3601,6 +3682,7 @@ export type AppointmentUncheckedUpdateWithoutPatientInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3636,6 +3718,7 @@ export type AppointmentUncheckedUpdateManyWithoutPatientInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3662,6 +3745,7 @@ export type AppointmentCreateManyServiceInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -3685,6 +3769,7 @@ export type AppointmentUpdateWithoutServiceInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -3723,6 +3808,7 @@ export type AppointmentUncheckedUpdateWithoutServiceInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3758,6 +3844,7 @@ export type AppointmentUncheckedUpdateManyWithoutServiceInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3784,6 +3871,7 @@ export type AppointmentCreateManyResourceInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   rescheduledFromId?: string | null
   createdById?: string | null
   createdAt?: Date | string
@@ -3807,6 +3895,7 @@ export type AppointmentUpdateWithoutResourceInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -3845,6 +3934,7 @@ export type AppointmentUncheckedUpdateWithoutResourceInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3880,6 +3970,7 @@ export type AppointmentUncheckedUpdateManyWithoutResourceInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rescheduledFromId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3907,6 +3998,7 @@ export type AppointmentCreateManyRescheduledFromInput = {
   consumablesDeducted?: boolean
   reminderSentAt?: Date | string | null
   aftercareSentAt?: Date | string | null
+  reviewRequestSentAt?: Date | string | null
   createdById?: string | null
   createdAt?: Date | string
 }
@@ -3929,6 +4021,7 @@ export type AppointmentUpdateWithoutRescheduledFromInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patient?: Prisma.PatientUpdateOneRequiredWithoutAppointmentsNestedInput
   doctor?: Prisma.UserUpdateOneRequiredWithoutAppointmentsAsDoctorNestedInput
@@ -3968,6 +4061,7 @@ export type AppointmentUncheckedUpdateWithoutRescheduledFromInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rescheduledTo?: Prisma.AppointmentUncheckedUpdateManyWithoutRescheduledFromNestedInput
@@ -4003,6 +4097,7 @@ export type AppointmentUncheckedUpdateManyWithoutRescheduledFromInput = {
   consumablesDeducted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   aftercareSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewRequestSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -4132,6 +4227,7 @@ export type AppointmentSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   consumablesDeducted?: boolean
   reminderSentAt?: boolean
   aftercareSentAt?: boolean
+  reviewRequestSentAt?: boolean
   rescheduledFromId?: boolean
   createdById?: boolean
   createdAt?: boolean
@@ -4175,6 +4271,7 @@ export type AppointmentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   consumablesDeducted?: boolean
   reminderSentAt?: boolean
   aftercareSentAt?: boolean
+  reviewRequestSentAt?: boolean
   rescheduledFromId?: boolean
   createdById?: boolean
   createdAt?: boolean
@@ -4208,6 +4305,7 @@ export type AppointmentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   consumablesDeducted?: boolean
   reminderSentAt?: boolean
   aftercareSentAt?: boolean
+  reviewRequestSentAt?: boolean
   rescheduledFromId?: boolean
   createdById?: boolean
   createdAt?: boolean
@@ -4241,12 +4339,13 @@ export type AppointmentSelectScalar = {
   consumablesDeducted?: boolean
   reminderSentAt?: boolean
   aftercareSentAt?: boolean
+  reviewRequestSentAt?: boolean
   rescheduledFromId?: boolean
   createdById?: boolean
   createdAt?: boolean
 }
 
-export type AppointmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "appointmentCode" | "patientId" | "doctorId" | "serviceId" | "resourceId" | "scheduledAt" | "durationMinutes" | "type" | "status" | "source" | "reason" | "notes" | "cancelReason" | "cancelledAt" | "checkedInAt" | "startedAt" | "completedAt" | "consumablesDeducted" | "reminderSentAt" | "aftercareSentAt" | "rescheduledFromId" | "createdById" | "createdAt", ExtArgs["result"]["appointment"]>
+export type AppointmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "appointmentCode" | "patientId" | "doctorId" | "serviceId" | "resourceId" | "scheduledAt" | "durationMinutes" | "type" | "status" | "source" | "reason" | "notes" | "cancelReason" | "cancelledAt" | "checkedInAt" | "startedAt" | "completedAt" | "consumablesDeducted" | "reminderSentAt" | "aftercareSentAt" | "reviewRequestSentAt" | "rescheduledFromId" | "createdById" | "createdAt", ExtArgs["result"]["appointment"]>
 export type AppointmentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   patient?: boolean | Prisma.PatientDefaultArgs<ExtArgs>
   doctor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -4323,6 +4422,7 @@ export type $AppointmentPayload<ExtArgs extends runtime.Types.Extensions.Interna
     consumablesDeducted: boolean
     reminderSentAt: Date | null
     aftercareSentAt: Date | null
+    reviewRequestSentAt: Date | null
     rescheduledFromId: string | null
     createdById: string | null
     createdAt: Date
@@ -4785,6 +4885,7 @@ export interface AppointmentFieldRefs {
   readonly consumablesDeducted: Prisma.FieldRef<"Appointment", 'Boolean'>
   readonly reminderSentAt: Prisma.FieldRef<"Appointment", 'DateTime'>
   readonly aftercareSentAt: Prisma.FieldRef<"Appointment", 'DateTime'>
+  readonly reviewRequestSentAt: Prisma.FieldRef<"Appointment", 'DateTime'>
   readonly rescheduledFromId: Prisma.FieldRef<"Appointment", 'String'>
   readonly createdById: Prisma.FieldRef<"Appointment", 'String'>
   readonly createdAt: Prisma.FieldRef<"Appointment", 'DateTime'>

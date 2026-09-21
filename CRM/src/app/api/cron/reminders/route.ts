@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { sendPreVisitReminders, sendAftercareMessages } from "@/actions/reminders"
+import { sendPreVisitReminders, sendAftercareMessages, sendReviewRequests } from "@/actions/reminders"
 
 /** Vercel Cron (or any scheduler) hits this hourly with `Authorization: Bearer $CRON_SECRET`. */
 export async function GET(request: Request) {
@@ -11,6 +11,10 @@ export async function GET(request: Request) {
     }
   }
 
-  const [reminders, aftercare] = await Promise.all([sendPreVisitReminders(), sendAftercareMessages()])
-  return NextResponse.json({ reminders, aftercare })
+  const [reminders, aftercare, reviewRequests] = await Promise.all([
+    sendPreVisitReminders(),
+    sendAftercareMessages(),
+    sendReviewRequests(),
+  ])
+  return NextResponse.json({ reminders, aftercare, reviewRequests })
 }

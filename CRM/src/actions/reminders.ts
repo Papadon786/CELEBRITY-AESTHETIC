@@ -88,3 +88,44 @@ export async function sendAftercareMessages() {
 
   return { checked: appointments.length, sent }
 }
+
+/**
+ * Asks patients to leave a review ~24h after a completed appointment, once.
+ */
+export async function sendReviewRequests() {
+  const now = new Date()
+  const from = new Date(now.getTime() - 26 * 60 * 60 * 1000)
+  const to = new Date(now.getTime() - 22 * 60 * 60 * 1000)
+  const reviewUrl = process.env.GOOGLE_REVIEW_URL || "https://g.page/r/crown-celebrity-aesthetic/review"
+
+  const appointments = await prisma.appointment.findMany({
+    where: {
+      status: "COMPLETED",
+      completedAt: { gte: from, lte: to },
+      reviewRequestSentAt: null,
+    },
+    include: { patient: true },
+  })
+
+  let sent = 0
+  for (const appt of appointments) {
+    const message =
+      `Hello ${appt.patient.firstName}, thank you for choosing Crown Celebrity Aesthetic! ` +
+      `We'd love your feedback — please share a quick review: ${reviewUrl}`
+
+    try {
+      if (appt.patient.phone) {
+        await NotificationService.send("SMS", { to: { name: appt.patient.firstName, phone: appt.patient.phone }, message })
+        await prisma.message.create({
+          data: { patientId: appt.patientId, channel: "SMS", body: message, subject: "Review Request" },
+        })
+      }
+      await prisma.appointment.update({ where: { id: appt.id }, data: { reviewRequestSentAt: new Date() } })
+      sent++
+    } catch (err) {
+      console.error(`[sendReviewRequests] failed for appointment ${appt.id}:`, err)
+    }
+  }
+
+  return { checked: appointments.length, sent }
+}

@@ -709,6 +709,7 @@ model Appointment {
   consumablesDeducted Boolean           @default(false)
   reminderSentAt      DateTime?
   aftercareSentAt     DateTime?
+  reviewRequestSentAt DateTime?
 
   rescheduledFromId String?
   rescheduledFrom   Appointment?  @relation("AppointmentReschedule", fields: [rescheduledFromId], references: [id])
