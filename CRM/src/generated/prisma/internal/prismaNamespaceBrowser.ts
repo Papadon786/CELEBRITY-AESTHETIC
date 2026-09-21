@@ -81,6 +81,8 @@ export const ModelName = {
   Refund: 'Refund',
   PatientAdvance: 'PatientAdvance',
   AdvanceAdjustment: 'AdvanceAdjustment',
+  PaymentPlan: 'PaymentPlan',
+  Installment: 'Installment',
   CashSession: 'CashSession',
   Expense: 'Expense',
   Message: 'Message',
@@ -597,6 +599,37 @@ export const AdvanceAdjustmentScalarFieldEnum = {
 } as const
 
 export type AdvanceAdjustmentScalarFieldEnum = (typeof AdvanceAdjustmentScalarFieldEnum)[keyof typeof AdvanceAdjustmentScalarFieldEnum]
+
+
+export const PaymentPlanScalarFieldEnum = {
+  id: 'id',
+  billId: 'billId',
+  patientId: 'patientId',
+  totalAmount: 'totalAmount',
+  downPayment: 'downPayment',
+  numberOfInstallments: 'numberOfInstallments',
+  noCostEmi: 'noCostEmi',
+  status: 'status',
+  notes: 'notes',
+  createdById: 'createdById',
+  createdAt: 'createdAt'
+} as const
+
+export type PaymentPlanScalarFieldEnum = (typeof PaymentPlanScalarFieldEnum)[keyof typeof PaymentPlanScalarFieldEnum]
+
+
+export const InstallmentScalarFieldEnum = {
+  id: 'id',
+  paymentPlanId: 'paymentPlanId',
+  installmentNumber: 'installmentNumber',
+  dueDate: 'dueDate',
+  amount: 'amount',
+  status: 'status',
+  paidAt: 'paidAt',
+  paymentId: 'paymentId'
+} as const
+
+export type InstallmentScalarFieldEnum = (typeof InstallmentScalarFieldEnum)[keyof typeof InstallmentScalarFieldEnum]
 
 
 export const CashSessionScalarFieldEnum = {

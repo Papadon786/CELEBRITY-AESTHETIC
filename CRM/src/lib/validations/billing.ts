@@ -20,7 +20,7 @@ export type CreateBillInput = z.infer<typeof createBillSchema>
 
 export const collectPaymentSchema = z.object({
   amount: z.coerce.number().positive("Amount must be greater than zero"),
-  method: z.enum(["CASH", "CARD", "UPI", "NET_BANKING", "INSURANCE", "ADVANCE"]),
+  method: z.enum(["CASH", "CARD", "UPI", "NET_BANKING", "INSURANCE", "ADVANCE", "EMI"]),
   referenceNumber: z.string().trim().optional(),
 })
 export type CollectPaymentInput = z.infer<typeof collectPaymentSchema>

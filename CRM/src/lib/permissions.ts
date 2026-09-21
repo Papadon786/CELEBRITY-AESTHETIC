@@ -38,6 +38,7 @@ export const ALL_AVAILABLE_TABS: TabItemDefinition[] = [
   { id: "refunds", href: "/billing/refunds", label: "Refunds", group: "Sales", description: "Patient refund authorizations and ledger" },
   { id: "finance_dashboard", href: "/finance/dashboard", label: "Finance Dashboard", group: "Sales", description: "Revenue KPIs, payment method splits, P&L" },
   { id: "outstanding_dues", href: "/finance/outstanding", label: "Outstanding Dues", group: "Sales", description: "Unpaid bills and credit patient balances" },
+  { id: "emi_installments", href: "/finance/installments", label: "EMI Installments", group: "Sales", description: "Overdue and upcoming No Cost EMI installments across all patients" },
   { id: "cash_counter", href: "/finance/cash-counter", label: "Cash Counter", group: "Sales", description: "Physical cash drawer opening/closing sessions" },
   { id: "expenses", href: "/finance/expenses", label: "Expenses", group: "Sales", description: "Clinic petty cash and vendor expense logging" },
   { id: "reports", href: "/finance/reports", label: "Financial Reports", group: "Sales", description: "Audited revenue statements and tax breakdowns" },

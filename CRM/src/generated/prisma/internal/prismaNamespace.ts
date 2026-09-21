@@ -427,6 +427,8 @@ export const ModelName = {
   Refund: 'Refund',
   PatientAdvance: 'PatientAdvance',
   AdvanceAdjustment: 'AdvanceAdjustment',
+  PaymentPlan: 'PaymentPlan',
+  Installment: 'Installment',
   CashSession: 'CashSession',
   Expense: 'Expense',
   Message: 'Message',
@@ -481,7 +483,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2702,6 +2704,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.AdvanceAdjustmentCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.AdvanceAdjustmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    PaymentPlan: {
+      payload: Prisma.$PaymentPlanPayload<ExtArgs>
+      fields: Prisma.PaymentPlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PaymentPlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PaymentPlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>
+        }
+        findFirst: {
+          args: Prisma.PaymentPlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PaymentPlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>
+        }
+        findMany: {
+          args: Prisma.PaymentPlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>[]
+        }
+        create: {
+          args: Prisma.PaymentPlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>
+        }
+        createMany: {
+          args: Prisma.PaymentPlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PaymentPlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>[]
+        }
+        delete: {
+          args: Prisma.PaymentPlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>
+        }
+        update: {
+          args: Prisma.PaymentPlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.PaymentPlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PaymentPlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PaymentPlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.PaymentPlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPlanPayload>
+        }
+        aggregate: {
+          args: Prisma.PaymentPlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePaymentPlan>
+        }
+        groupBy: {
+          args: Prisma.PaymentPlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentPlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PaymentPlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentPlanCountAggregateOutputType> | number
+        }
+      }
+    }
+    Installment: {
+      payload: Prisma.$InstallmentPayload<ExtArgs>
+      fields: Prisma.InstallmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InstallmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InstallmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>
+        }
+        findFirst: {
+          args: Prisma.InstallmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InstallmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>
+        }
+        findMany: {
+          args: Prisma.InstallmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>[]
+        }
+        create: {
+          args: Prisma.InstallmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>
+        }
+        createMany: {
+          args: Prisma.InstallmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InstallmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>[]
+        }
+        delete: {
+          args: Prisma.InstallmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>
+        }
+        update: {
+          args: Prisma.InstallmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.InstallmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InstallmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InstallmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.InstallmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InstallmentPayload>
+        }
+        aggregate: {
+          args: Prisma.InstallmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInstallment>
+        }
+        groupBy: {
+          args: Prisma.InstallmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InstallmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InstallmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InstallmentCountAggregateOutputType> | number
         }
       }
     }
@@ -6091,6 +6241,37 @@ export const AdvanceAdjustmentScalarFieldEnum = {
 export type AdvanceAdjustmentScalarFieldEnum = (typeof AdvanceAdjustmentScalarFieldEnum)[keyof typeof AdvanceAdjustmentScalarFieldEnum]
 
 
+export const PaymentPlanScalarFieldEnum = {
+  id: 'id',
+  billId: 'billId',
+  patientId: 'patientId',
+  totalAmount: 'totalAmount',
+  downPayment: 'downPayment',
+  numberOfInstallments: 'numberOfInstallments',
+  noCostEmi: 'noCostEmi',
+  status: 'status',
+  notes: 'notes',
+  createdById: 'createdById',
+  createdAt: 'createdAt'
+} as const
+
+export type PaymentPlanScalarFieldEnum = (typeof PaymentPlanScalarFieldEnum)[keyof typeof PaymentPlanScalarFieldEnum]
+
+
+export const InstallmentScalarFieldEnum = {
+  id: 'id',
+  paymentPlanId: 'paymentPlanId',
+  installmentNumber: 'installmentNumber',
+  dueDate: 'dueDate',
+  amount: 'amount',
+  status: 'status',
+  paidAt: 'paidAt',
+  paymentId: 'paymentId'
+} as const
+
+export type InstallmentScalarFieldEnum = (typeof InstallmentScalarFieldEnum)[keyof typeof InstallmentScalarFieldEnum]
+
+
 export const CashSessionScalarFieldEnum = {
   id: 'id',
   openedById: 'openedById',
@@ -7121,6 +7302,34 @@ export type ListEnumRefundStatusFieldRefInput<$PrismaModel> = FieldRefInputType<
 
 
 /**
+ * Reference to a field of type 'PaymentPlanStatus'
+ */
+export type EnumPaymentPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentPlanStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PaymentPlanStatus[]'
+ */
+export type ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentPlanStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InstallmentStatus'
+ */
+export type EnumInstallmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InstallmentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InstallmentStatus[]'
+ */
+export type ListEnumInstallmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InstallmentStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'CashSessionStatus'
  */
 export type EnumCashSessionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CashSessionStatus'>
@@ -7692,6 +7901,8 @@ export type GlobalOmitConfig = {
   refund?: Prisma.RefundOmit
   patientAdvance?: Prisma.PatientAdvanceOmit
   advanceAdjustment?: Prisma.AdvanceAdjustmentOmit
+  paymentPlan?: Prisma.PaymentPlanOmit
+  installment?: Prisma.InstallmentOmit
   cashSession?: Prisma.CashSessionOmit
   expense?: Prisma.ExpenseOmit
   message?: Prisma.MessageOmit

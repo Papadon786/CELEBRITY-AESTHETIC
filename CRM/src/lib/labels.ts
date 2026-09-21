@@ -120,6 +120,7 @@ export const paymentMethodLabels: Record<string, string> = {
   NET_BANKING: "Net Banking",
   INSURANCE: "Insurance",
   ADVANCE: "Advance Balance",
+  EMI: "EMI",
 }
 
 export const refundStatusLabels: Record<string, string> = {

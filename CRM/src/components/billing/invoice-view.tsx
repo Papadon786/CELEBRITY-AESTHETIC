@@ -17,17 +17,22 @@ import {
 } from "@/components/ui/table"
 import { CollectPaymentDialog } from "@/components/billing/collect-payment-dialog"
 import { RequestRefundDialog } from "@/components/billing/request-refund-dialog"
+import { SetupEmiDialog } from "@/components/billing/setup-emi-dialog"
+import { PaymentPlanCard } from "@/components/billing/payment-plan-card"
 import { formatCurrency, formatDate, formatDateTime, patientDisplayName } from "@/lib/format"
 import { billStatusLabels, billStatusColors, paymentMethodLabels, refundStatusColors, refundStatusLabels } from "@/lib/labels"
 import { CLINIC_INFO } from "@/lib/hospital-info"
 import { cancelBill, type getBill } from "@/actions/billing"
+import type { getPaymentPlanForBill } from "@/actions/payment-plans"
 
 type Bill = NonNullable<Awaited<ReturnType<typeof getBill>>>
+type PaymentPlan = Awaited<ReturnType<typeof getPaymentPlanForBill>>
 
-export function InvoiceView({ bill }: { bill: Bill }) {
+export function InvoiceView({ bill, paymentPlan }: { bill: Bill; paymentPlan?: PaymentPlan }) {
   const [pending, startTransition] = useTransition()
   const canCollect = bill.status !== "CANCELLED" && bill.status !== "REFUNDED" && Number(bill.balanceDue) > 0
   const canCancel = bill.status === "PENDING"
+  const canSetupEmi = canCollect && !paymentPlan
 
   return (
     <div className="space-y-6">
@@ -37,6 +42,7 @@ export function InvoiceView({ bill }: { bill: Bill }) {
         </Link>
         <div className="flex flex-wrap gap-2">
           {canCollect && <CollectPaymentDialog billId={bill.id} patientId={bill.patientId} balanceDue={Number(bill.balanceDue)} />}
+          {canSetupEmi && <SetupEmiDialog billId={bill.id} balanceDue={Number(bill.balanceDue)} />}
           <RequestRefundDialog patientId={bill.patientId} billId={bill.id} maxAmount={Number(bill.amountPaid)} />
           {canCancel && (
             <Button
@@ -140,6 +146,12 @@ export function InvoiceView({ bill }: { bill: Bill }) {
           </div>
         </CardContent>
       </Card>
+
+      {paymentPlan && (
+        <div className="print:hidden">
+          <PaymentPlanCard plan={paymentPlan} />
+        </div>
+      )}
 
       <Card className="print:hidden">
         <CardContent className="pt-6">

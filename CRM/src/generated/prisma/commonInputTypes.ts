@@ -664,6 +664,40 @@ export type EnumRefundStatusWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumRefundStatusFilter<$PrismaModel>
 }
 
+export type EnumPaymentPlanStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PaymentPlanStatus | Prisma.EnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPaymentPlanStatusFilter<$PrismaModel> | $Enums.PaymentPlanStatus
+}
+
+export type EnumPaymentPlanStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PaymentPlanStatus | Prisma.EnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPaymentPlanStatusWithAggregatesFilter<$PrismaModel> | $Enums.PaymentPlanStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPaymentPlanStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPaymentPlanStatusFilter<$PrismaModel>
+}
+
+export type EnumInstallmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InstallmentStatus | Prisma.EnumInstallmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInstallmentStatusFilter<$PrismaModel> | $Enums.InstallmentStatus
+}
+
+export type EnumInstallmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InstallmentStatus | Prisma.EnumInstallmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInstallmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.InstallmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInstallmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInstallmentStatusFilter<$PrismaModel>
+}
+
 export type EnumCashSessionStatusFilter<$PrismaModel = never> = {
   equals?: $Enums.CashSessionStatus | Prisma.EnumCashSessionStatusFieldRefInput<$PrismaModel>
   in?: $Enums.CashSessionStatus[] | Prisma.ListEnumCashSessionStatusFieldRefInput<$PrismaModel>
@@ -1757,6 +1791,40 @@ export type NestedEnumRefundStatusWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumRefundStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumRefundStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPaymentPlanStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PaymentPlanStatus | Prisma.EnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPaymentPlanStatusFilter<$PrismaModel> | $Enums.PaymentPlanStatus
+}
+
+export type NestedEnumPaymentPlanStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PaymentPlanStatus | Prisma.EnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PaymentPlanStatus[] | Prisma.ListEnumPaymentPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPaymentPlanStatusWithAggregatesFilter<$PrismaModel> | $Enums.PaymentPlanStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPaymentPlanStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPaymentPlanStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumInstallmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InstallmentStatus | Prisma.EnumInstallmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInstallmentStatusFilter<$PrismaModel> | $Enums.InstallmentStatus
+}
+
+export type NestedEnumInstallmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InstallmentStatus | Prisma.EnumInstallmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InstallmentStatus[] | Prisma.ListEnumInstallmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInstallmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.InstallmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInstallmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInstallmentStatusFilter<$PrismaModel>
 }
 
 export type NestedEnumCashSessionStatusFilter<$PrismaModel = never> = {

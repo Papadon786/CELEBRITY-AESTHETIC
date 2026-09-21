@@ -194,7 +194,8 @@ export const PaymentMethod = {
   UPI: 'UPI',
   NET_BANKING: 'NET_BANKING',
   INSURANCE: 'INSURANCE',
-  ADVANCE: 'ADVANCE'
+  ADVANCE: 'ADVANCE',
+  EMI: 'EMI'
 } as const
 
 export type PaymentMethod = (typeof PaymentMethod)[keyof typeof PaymentMethod]
@@ -218,6 +219,26 @@ export const RefundStatus = {
 } as const
 
 export type RefundStatus = (typeof RefundStatus)[keyof typeof RefundStatus]
+
+
+export const PaymentPlanStatus = {
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED',
+  DEFAULTED: 'DEFAULTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PaymentPlanStatus = (typeof PaymentPlanStatus)[keyof typeof PaymentPlanStatus]
+
+
+export const InstallmentStatus = {
+  PENDING: 'PENDING',
+  PAID: 'PAID',
+  OVERDUE: 'OVERDUE',
+  WAIVED: 'WAIVED'
+} as const
+
+export type InstallmentStatus = (typeof InstallmentStatus)[keyof typeof InstallmentStatus]
 
 
 export const CashSessionStatus = {

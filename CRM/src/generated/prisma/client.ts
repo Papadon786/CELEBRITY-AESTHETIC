@@ -192,6 +192,16 @@ export type PatientAdvance = Prisma.PatientAdvanceModel
  */
 export type AdvanceAdjustment = Prisma.AdvanceAdjustmentModel
 /**
+ * Model PaymentPlan
+ * 
+ */
+export type PaymentPlan = Prisma.PaymentPlanModel
+/**
+ * Model Installment
+ * 
+ */
+export type Installment = Prisma.InstallmentModel
+/**
  * Model CashSession
  * 
  */

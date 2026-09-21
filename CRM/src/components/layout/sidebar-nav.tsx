@@ -87,6 +87,7 @@ const navGroups: NavGroup[] = [
       { href: "/billing/refunds", label: "Refunds", icon: Undo2 },
       { href: "/finance/dashboard", label: "Finance Dashboard", icon: TrendingUp },
       { href: "/finance/outstanding", label: "Outstanding Dues", icon: AlertCircle },
+      { href: "/finance/installments", label: "EMI Installments", icon: CalendarClock },
       { href: "/finance/cash-counter", label: "Cash Counter", icon: Wallet },
       { href: "/finance/expenses", label: "Expenses", icon: Receipt },
       { href: "/finance/reports", label: "Reports", icon: BarChart3 },
