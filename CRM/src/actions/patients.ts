@@ -41,6 +41,33 @@ function parseDob(dob?: string) {
   return dob ? new Date(dob) : null
 }
 
+/** Flags likely duplicate registrations by phone match or same name + DOB, before a new patient is created. */
+export async function checkDuplicatePatients(params: { phone?: string; firstName?: string; lastName?: string; dob?: string }) {
+  const { phone, firstName, lastName, dob } = params
+  const or: any[] = []
+
+  if (phone && phone.trim().length >= 6) {
+    or.push({ phone: phone.trim() })
+  }
+  if (firstName?.trim() && dob) {
+    or.push({
+      firstName: { equals: firstName.trim(), mode: "insensitive" },
+      lastName: lastName?.trim() ? { equals: lastName.trim(), mode: "insensitive" } : undefined,
+      dob: parseDob(dob),
+    })
+  }
+
+  if (or.length === 0) return []
+
+  const matches = await prisma.patient.findMany({
+    where: { OR: or },
+    select: { id: true, uhid: true, firstName: true, lastName: true, phone: true, dob: true },
+    take: 5,
+  })
+
+  return toPlain(matches)
+}
+
 export async function createPatient(input: PatientCoreInput) {
   const data = patientCoreSchema.parse(input)
   const user = await getCurrentUser()

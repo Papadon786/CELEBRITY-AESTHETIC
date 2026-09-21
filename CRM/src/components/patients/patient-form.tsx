@@ -1,12 +1,13 @@
 "use client"
 
+import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
 import { patientCoreSchema, type PatientCoreInput } from "@/lib/validations/patient"
-import { createPatient, updatePatientCore } from "@/actions/patients"
+import { createPatient, updatePatientCore, checkDuplicatePatients } from "@/actions/patients"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -86,6 +87,24 @@ export function PatientForm({
     },
   })
 
+  const [duplicates, setDuplicates] = useState<Awaited<ReturnType<typeof checkDuplicatePatients>>>([])
+  const phone = form.watch("phone")
+  const firstName = form.watch("firstName")
+  const lastName = form.watch("lastName")
+  const dob = form.watch("dob")
+
+  useEffect(() => {
+    if (patientId) return
+    const timer = setTimeout(() => {
+      if ((phone && phone.trim().length >= 6) || (firstName?.trim() && dob)) {
+        checkDuplicatePatients({ phone, firstName, lastName, dob }).then(setDuplicates).catch(() => {})
+      } else {
+        setDuplicates([])
+      }
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [patientId, phone, firstName, lastName, dob])
+
   const height = form.watch("heightCm")
   const weight = form.watch("weightKg")
   const bmi =
@@ -138,6 +157,27 @@ export function PatientForm({
             <span>
               <strong>Administrator Override:</strong> This registration is locked for receptionists, but you have full administrative editing privileges.
             </span>
+          </div>
+        )}
+
+        {!patientId && duplicates.length > 0 && (
+          <div className="rounded-xl border border-amber-300 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-950/30 space-y-2">
+            <div className="flex items-center gap-2 text-sm text-amber-900 dark:text-amber-300">
+              <ShieldAlert className="h-4 w-4 text-amber-700 dark:text-amber-400 shrink-0" />
+              <p className="font-semibold">Possible existing patient — check before registering a duplicate</p>
+            </div>
+            <div className="space-y-1">
+              {duplicates.map((d) => (
+                <Link
+                  key={d.id}
+                  href={`/patients/${d.id}`}
+                  target="_blank"
+                  className="block text-xs text-amber-800 dark:text-amber-400 underline underline-offset-2"
+                >
+                  {d.firstName} {d.lastName || ""} · UHID {d.uhid} · {d.phone}
+                </Link>
+              ))}
+            </div>
           </div>
         )}
 
