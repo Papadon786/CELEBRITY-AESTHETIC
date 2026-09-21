@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { AlertTriangle, Boxes, History, CheckCircle2, XCircle } from "lucide-react"
+import { AlertTriangle, Boxes, History, CheckCircle2, XCircle, CalendarX } from "lucide-react"
 import { getCurrentUser } from "@/lib/auth"
-import { getInventoryItems, getInventoryAlerts } from "@/actions/inventory"
+import { getInventoryItems, getInventoryAlerts, getExpiringBatches } from "@/actions/inventory"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,11 @@ import { MedicineFormDialog } from "@/components/inventory/medicine-form-dialog"
 
 export default async function InventoryPage() {
   const user = await getCurrentUser()
-  const [items, alerts] = await Promise.all([getInventoryItems(), getInventoryAlerts({ status: "ACTIVE" })])
+  const [items, alerts, expiringBatches] = await Promise.all([
+    getInventoryItems(),
+    getInventoryAlerts({ status: "ACTIVE" }),
+    getExpiringBatches(30),
+  ])
 
   const totalItems = items.length
   const lowStockCount = items.filter((i) => i.isLowStock && i.currentStock > 0).length
@@ -51,6 +55,20 @@ export default async function InventoryPage() {
                 <Link href="/inventory/alerts">
                   <AlertTriangle className="h-4 w-4" />
                   Alerts ({alerts.length})
+                </Link>
+              }
+            />
+          )}
+          {expiringBatches.length > 0 && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-1.5 border-red-500 text-red-600 dark:text-red-400"
+              nativeButton={false}
+              render={
+                <Link href="/inventory/expiring">
+                  <CalendarX className="h-4 w-4" />
+                  Expiring ({expiringBatches.length})
                 </Link>
               }
             />

@@ -33,6 +33,8 @@ export function StockInDialog({ item, trigger }: StockInDialogProps) {
   const [open, setOpen] = useState(false)
   const [quantity, setQuantity] = useState(1)
   const [reason, setReason] = useState("")
+  const [batchNumber, setBatchNumber] = useState("")
+  const [expiryDate, setExpiryDate] = useState("")
   const [pending, startTransition] = useTransition()
 
   function handleSubmit(e: React.FormEvent) {
@@ -48,11 +50,15 @@ export function StockInDialog({ item, trigger }: StockInDialogProps) {
           itemId: item.id,
           quantity,
           reason: reason.trim() || `Restocked (+${quantity} ${item.unit})`,
+          batchNumber: batchNumber.trim() || undefined,
+          expiryDate: expiryDate ? new Date(expiryDate) : undefined,
         })
         toast.success(`Added ${quantity} ${item.unit}(s) to ${item.name}. New stock: ${res.newStock}`)
         setOpen(false)
         setQuantity(1)
         setReason("")
+        setBatchNumber("")
+        setExpiryDate("")
       } catch (err) {
         toast.error(err instanceof Error ? err.message : "Failed to record stock in")
       }
@@ -97,8 +103,29 @@ export function StockInDialog({ item, trigger }: StockInDialogProps) {
               </p>
             </div>
 
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="batchNumber">Batch/Lot Number (Optional)</Label>
+                <Input
+                  id="batchNumber"
+                  value={batchNumber}
+                  onChange={(e) => setBatchNumber(e.target.value)}
+                  placeholder="e.g. LOT-2384"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="expiryDate">Expiry Date (Optional)</Label>
+                <Input
+                  id="expiryDate"
+                  type="date"
+                  value={expiryDate}
+                  onChange={(e) => setExpiryDate(e.target.value)}
+                />
+              </div>
+            </div>
+
             <div className="space-y-1.5">
-              <Label htmlFor="reason">Reason / Batch Notes (Optional)</Label>
+              <Label htmlFor="reason">Reason / Notes (Optional)</Label>
               <Textarea
                 id="reason"
                 placeholder="e.g. Monthly supplier batch replenishment, PO #1042"

@@ -299,6 +299,19 @@ export async function stockIn(input: StockMovementInput) {
       },
     })
 
+    // 2b. Record the batch/expiry, if provided, for FEFO dispensing and expiry alerts
+    if (data.expiryDate) {
+      await tx.inventoryBatch.create({
+        data: {
+          itemId: data.itemId,
+          batchNumber: data.batchNumber || null,
+          expiryDate: data.expiryDate,
+          quantityReceived: data.quantity,
+          quantityRemaining: data.quantity,
+        },
+      })
+    }
+
     // 3. Low-stock alert check: If stock is now above threshold, auto-resolve any active alerts
     if (newStock > item.lowStockThresholdQty) {
       const activeAlert = await tx.inventoryAlert.findFirst({
@@ -380,6 +393,30 @@ export async function stockOut(input: StockMovementInput) {
       where: { id: data.itemId },
       data: { currentStock: newStock },
     })
+
+    // 1b. FEFO deduction: consume from the earliest-expiring non-expired batch
+    // first, so what's dispensed is never from a batch already past expiry.
+    const batches = await tx.inventoryBatch.findMany({
+      where: { itemId: data.itemId, quantityRemaining: { gt: 0 } },
+      orderBy: { expiryDate: "asc" },
+    })
+    if (batches.length > 0) {
+      const now = new Date()
+      const usable = batches.filter((b) => b.expiryDate >= now)
+      const usableQty = usable.reduce((sum, b) => sum + b.quantityRemaining, 0)
+      if (usableQty < data.quantity) {
+        throw new Error(
+          `Only ${usableQty} ${item.unit}(s) of non-expired stock available across tracked batches (the rest has expired and cannot be dispensed).`
+        )
+      }
+      let remaining = data.quantity
+      for (const batch of usable) {
+        if (remaining <= 0) break
+        const use = Math.min(batch.quantityRemaining, remaining)
+        await tx.inventoryBatch.update({ where: { id: batch.id }, data: { quantityRemaining: { decrement: use } } })
+        remaining -= use
+      }
+    }
 
     // 2. Append immutable transaction record
     const transaction = await tx.inventoryTransaction.create({
@@ -472,6 +509,23 @@ export async function stockOut(input: StockMovementInput) {
   revalidatePath(`/inventory/${data.itemId}`)
   revalidatePath("/dashboard")
   return result
+}
+
+// ── Expiry tracking ─────────────────────────────────────────────────────
+
+/** Batches already expired or expiring within `withinDays`, with remaining stock. */
+export async function getExpiringBatches(withinDays = 30) {
+  const cutoff = new Date()
+  cutoff.setDate(cutoff.getDate() + withinDays)
+
+  const batches = await prisma.inventoryBatch.findMany({
+    where: { quantityRemaining: { gt: 0 }, expiryDate: { lte: cutoff } },
+    include: { item: true },
+    orderBy: { expiryDate: "asc" },
+  })
+
+  const now = new Date()
+  return batches.map((b) => ({ ...b, isExpired: b.expiryDate < now }))
 }
 
 // ── Alert Management (Admin Controls) ──────────────────────────────────

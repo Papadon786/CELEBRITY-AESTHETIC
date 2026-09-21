@@ -459,6 +459,7 @@ export const ModelName = {
   Review: 'Review',
   Announcement: 'Announcement',
   InventoryItem: 'InventoryItem',
+  InventoryBatch: 'InventoryBatch',
   InventoryTransaction: 'InventoryTransaction',
   InventoryAlert: 'InventoryAlert',
   AuditLog: 'AuditLog',
@@ -484,7 +485,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5076,6 +5077,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    InventoryBatch: {
+      payload: Prisma.$InventoryBatchPayload<ExtArgs>
+      fields: Prisma.InventoryBatchFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryBatchFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryBatchFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryBatchFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryBatchFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryBatchFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryBatchCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryBatchCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryBatchCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryBatchDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>
+        }
+        update: {
+          args: Prisma.InventoryBatchUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryBatchDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryBatchUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryBatchUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryBatchUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryBatchPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryBatchAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryBatch>
+        }
+        groupBy: {
+          args: Prisma.InventoryBatchGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryBatchGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryBatchCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryBatchCountAggregateOutputType> | number
+        }
+      }
+    }
     InventoryTransaction: {
       payload: Prisma.$InventoryTransactionPayload<ExtArgs>
       fields: Prisma.InventoryTransactionFieldRefs
@@ -6792,6 +6867,19 @@ export const InventoryItemScalarFieldEnum = {
 export type InventoryItemScalarFieldEnum = (typeof InventoryItemScalarFieldEnum)[keyof typeof InventoryItemScalarFieldEnum]
 
 
+export const InventoryBatchScalarFieldEnum = {
+  id: 'id',
+  itemId: 'itemId',
+  batchNumber: 'batchNumber',
+  expiryDate: 'expiryDate',
+  quantityReceived: 'quantityReceived',
+  quantityRemaining: 'quantityRemaining',
+  receivedAt: 'receivedAt'
+} as const
+
+export type InventoryBatchScalarFieldEnum = (typeof InventoryBatchScalarFieldEnum)[keyof typeof InventoryBatchScalarFieldEnum]
+
+
 export const InventoryTransactionScalarFieldEnum = {
   id: 'id',
   itemId: 'itemId',
@@ -8035,6 +8123,7 @@ export type GlobalOmitConfig = {
   review?: Prisma.ReviewOmit
   announcement?: Prisma.AnnouncementOmit
   inventoryItem?: Prisma.InventoryItemOmit
+  inventoryBatch?: Prisma.InventoryBatchOmit
   inventoryTransaction?: Prisma.InventoryTransactionOmit
   inventoryAlert?: Prisma.InventoryAlertOmit
   auditLog?: Prisma.AuditLogOmit

@@ -19,6 +19,8 @@ export const stockMovementSchema = z.object({
   quantity: z.coerce.number().int().positive("Quantity must be greater than 0"),
   reason: z.string().optional(),
   patientId: z.string().optional(),
+  batchNumber: z.string().trim().optional(),
+  expiryDate: z.coerce.date().optional(),
 })
 
 export const stockAdjustmentSchema = z.object({

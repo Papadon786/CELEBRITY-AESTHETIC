@@ -113,6 +113,7 @@ export const ModelName = {
   Review: 'Review',
   Announcement: 'Announcement',
   InventoryItem: 'InventoryItem',
+  InventoryBatch: 'InventoryBatch',
   InventoryTransaction: 'InventoryTransaction',
   InventoryAlert: 'InventoryAlert',
   AuditLog: 'AuditLog',
@@ -1076,6 +1077,19 @@ export const InventoryItemScalarFieldEnum = {
 } as const
 
 export type InventoryItemScalarFieldEnum = (typeof InventoryItemScalarFieldEnum)[keyof typeof InventoryItemScalarFieldEnum]
+
+
+export const InventoryBatchScalarFieldEnum = {
+  id: 'id',
+  itemId: 'itemId',
+  batchNumber: 'batchNumber',
+  expiryDate: 'expiryDate',
+  quantityReceived: 'quantityReceived',
+  quantityRemaining: 'quantityRemaining',
+  receivedAt: 'receivedAt'
+} as const
+
+export type InventoryBatchScalarFieldEnum = (typeof InventoryBatchScalarFieldEnum)[keyof typeof InventoryBatchScalarFieldEnum]
 
 
 export const InventoryTransactionScalarFieldEnum = {

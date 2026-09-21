@@ -1525,10 +1525,28 @@ model InventoryItem {
 
   transactions InventoryTransaction[]
   alerts       InventoryAlert[]
+  batches      InventoryBatch[]
 
   @@index([category])
   @@index([active])
   @@index([name])
+}
+
+// A received lot of stock with its own expiry date — items are dispensed
+// oldest-expiry-first (FEFO). Without this, nothing catches an expired PRP
+// kit, botox vial, or filler being used on a patient.
+model InventoryBatch {
+  id                String        @id @default(cuid())
+  itemId            String
+  item              InventoryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  batchNumber       String?
+  expiryDate        DateTime
+  quantityReceived  Int
+  quantityRemaining Int
+  receivedAt        DateTime      @default(now())
+
+  @@index([itemId])
+  @@index([expiryDate])
 }
 
 enum InventoryTransactionType {

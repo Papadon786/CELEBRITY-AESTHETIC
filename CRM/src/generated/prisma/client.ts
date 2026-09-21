@@ -352,6 +352,11 @@ export type Announcement = Prisma.AnnouncementModel
  */
 export type InventoryItem = Prisma.InventoryItemModel
 /**
+ * Model InventoryBatch
+ * 
+ */
+export type InventoryBatch = Prisma.InventoryBatchModel
+/**
  * Model InventoryTransaction
  * 
  */
