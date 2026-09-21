@@ -74,6 +74,7 @@ model User {
   auditLogs                AuditLog[]             @relation("AuditUser")
   packageSessionsPerformed PackageSessionLog[]    @relation("PackageSessionPerformedBy")
   paymentPlansCreated      PaymentPlan[]          @relation("PaymentPlanCreatedBy")
+  purchaseOrdersCreated    PurchaseOrder[]        @relation("PurchaseOrderCreatedBy")
 
   campaignsCreated Campaign[] @relation("CampaignCreatedBy")
 
@@ -1539,10 +1540,11 @@ model InventoryItem {
   createdAt                DateTime @default(now())
   updatedAt                DateTime @updatedAt
 
-  transactions InventoryTransaction[]
-  alerts       InventoryAlert[]
-  batches      InventoryBatch[]
-  serviceLinks ServiceConsumable[]
+  transactions       InventoryTransaction[]
+  alerts             InventoryAlert[]
+  batches            InventoryBatch[]
+  serviceLinks       ServiceConsumable[]
+  purchaseOrderLines PurchaseOrderItem[]
 
   @@index([category])
   @@index([active])
@@ -1592,6 +1594,67 @@ model InventoryTransaction {
   @@index([type])
   @@index([performedById])
   @@index([timestamp])
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Suppliers & purchase orders — reordering and vendor comparison previously
+// lived entirely outside the system.
+// ─────────────────────────────────────────────────────────────────────────
+
+model Supplier {
+  id          String   @id @default(cuid())
+  name        String
+  contactName String?
+  phone       String?
+  email       String?
+  address     String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  purchaseOrders PurchaseOrder[]
+
+  @@index([active])
+}
+
+enum PurchaseOrderStatus {
+  DRAFT
+  ORDERED
+  PARTIALLY_RECEIVED
+  RECEIVED
+  CANCELLED
+}
+
+model PurchaseOrder {
+  id          String              @id @default(cuid())
+  poNumber    String              @unique
+  supplierId  String
+  supplier    Supplier            @relation(fields: [supplierId], references: [id])
+  status      PurchaseOrderStatus @default(DRAFT)
+  orderedAt   DateTime?
+  expectedAt  DateTime?
+  receivedAt  DateTime?
+  notes       String?
+  createdById String?
+  createdBy   User?               @relation("PurchaseOrderCreatedBy", fields: [createdById], references: [id])
+  createdAt   DateTime            @default(now())
+
+  items PurchaseOrderItem[]
+
+  @@index([supplierId])
+  @@index([status])
+}
+
+model PurchaseOrderItem {
+  id               String        @id @default(cuid())
+  purchaseOrderId  String
+  purchaseOrder    PurchaseOrder @relation(fields: [purchaseOrderId], references: [id], onDelete: Cascade)
+  inventoryItemId  String
+  inventoryItem    InventoryItem @relation(fields: [inventoryItemId], references: [id])
+  quantityOrdered  Int
+  quantityReceived Int           @default(0)
+  unitCost         Decimal?      @db.Decimal(10, 2)
+
+  @@index([purchaseOrderId])
 }
 
 enum InventoryAlertStatus {

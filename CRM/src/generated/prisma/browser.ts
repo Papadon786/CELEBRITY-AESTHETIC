@@ -343,6 +343,21 @@ export type InventoryBatch = Prisma.InventoryBatchModel
  */
 export type InventoryTransaction = Prisma.InventoryTransactionModel
 /**
+ * Model Supplier
+ * 
+ */
+export type Supplier = Prisma.SupplierModel
+/**
+ * Model PurchaseOrder
+ * 
+ */
+export type PurchaseOrder = Prisma.PurchaseOrderModel
+/**
+ * Model PurchaseOrderItem
+ * 
+ */
+export type PurchaseOrderItem = Prisma.PurchaseOrderItemModel
+/**
  * Model InventoryAlert
  * 
  */

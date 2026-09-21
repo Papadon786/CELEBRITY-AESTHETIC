@@ -316,6 +316,7 @@ export type InventoryItemWhereInput = {
   alerts?: Prisma.InventoryAlertListRelationFilter
   batches?: Prisma.InventoryBatchListRelationFilter
   serviceLinks?: Prisma.ServiceConsumableListRelationFilter
+  purchaseOrderLines?: Prisma.PurchaseOrderItemListRelationFilter
 }
 
 export type InventoryItemOrderByWithRelationInput = {
@@ -338,6 +339,7 @@ export type InventoryItemOrderByWithRelationInput = {
   alerts?: Prisma.InventoryAlertOrderByRelationAggregateInput
   batches?: Prisma.InventoryBatchOrderByRelationAggregateInput
   serviceLinks?: Prisma.ServiceConsumableOrderByRelationAggregateInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemOrderByRelationAggregateInput
 }
 
 export type InventoryItemWhereUniqueInput = Prisma.AtLeast<{
@@ -363,6 +365,7 @@ export type InventoryItemWhereUniqueInput = Prisma.AtLeast<{
   alerts?: Prisma.InventoryAlertListRelationFilter
   batches?: Prisma.InventoryBatchListRelationFilter
   serviceLinks?: Prisma.ServiceConsumableListRelationFilter
+  purchaseOrderLines?: Prisma.PurchaseOrderItemListRelationFilter
 }, "id" | "sku">
 
 export type InventoryItemOrderByWithAggregationInput = {
@@ -429,6 +432,7 @@ export type InventoryItemCreateInput = {
   alerts?: Prisma.InventoryAlertCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateInput = {
@@ -451,6 +455,7 @@ export type InventoryItemUncheckedCreateInput = {
   alerts?: Prisma.InventoryAlertUncheckedCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchUncheckedCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUpdateInput = {
@@ -473,6 +478,7 @@ export type InventoryItemUpdateInput = {
   alerts?: Prisma.InventoryAlertUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateInput = {
@@ -495,6 +501,7 @@ export type InventoryItemUncheckedUpdateInput = {
   alerts?: Prisma.InventoryAlertUncheckedUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUncheckedUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateManyInput = {
@@ -668,6 +675,20 @@ export type InventoryItemUpdateOneRequiredWithoutTransactionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.InventoryItemUpdateToOneWithWhereWithoutTransactionsInput, Prisma.InventoryItemUpdateWithoutTransactionsInput>, Prisma.InventoryItemUncheckedUpdateWithoutTransactionsInput>
 }
 
+export type InventoryItemCreateNestedOneWithoutPurchaseOrderLinesInput = {
+  create?: Prisma.XOR<Prisma.InventoryItemCreateWithoutPurchaseOrderLinesInput, Prisma.InventoryItemUncheckedCreateWithoutPurchaseOrderLinesInput>
+  connectOrCreate?: Prisma.InventoryItemCreateOrConnectWithoutPurchaseOrderLinesInput
+  connect?: Prisma.InventoryItemWhereUniqueInput
+}
+
+export type InventoryItemUpdateOneRequiredWithoutPurchaseOrderLinesNestedInput = {
+  create?: Prisma.XOR<Prisma.InventoryItemCreateWithoutPurchaseOrderLinesInput, Prisma.InventoryItemUncheckedCreateWithoutPurchaseOrderLinesInput>
+  connectOrCreate?: Prisma.InventoryItemCreateOrConnectWithoutPurchaseOrderLinesInput
+  upsert?: Prisma.InventoryItemUpsertWithoutPurchaseOrderLinesInput
+  connect?: Prisma.InventoryItemWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.InventoryItemUpdateToOneWithWhereWithoutPurchaseOrderLinesInput, Prisma.InventoryItemUpdateWithoutPurchaseOrderLinesInput>, Prisma.InventoryItemUncheckedUpdateWithoutPurchaseOrderLinesInput>
+}
+
 export type InventoryItemCreateNestedOneWithoutAlertsInput = {
   create?: Prisma.XOR<Prisma.InventoryItemCreateWithoutAlertsInput, Prisma.InventoryItemUncheckedCreateWithoutAlertsInput>
   connectOrCreate?: Prisma.InventoryItemCreateOrConnectWithoutAlertsInput
@@ -701,6 +722,7 @@ export type InventoryItemCreateWithoutServiceLinksInput = {
   transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
   alerts?: Prisma.InventoryAlertCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchCreateNestedManyWithoutItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutServiceLinksInput = {
@@ -722,6 +744,7 @@ export type InventoryItemUncheckedCreateWithoutServiceLinksInput = {
   transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
   alerts?: Prisma.InventoryAlertUncheckedCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchUncheckedCreateNestedManyWithoutItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutServiceLinksInput = {
@@ -759,6 +782,7 @@ export type InventoryItemUpdateWithoutServiceLinksInput = {
   transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
   alerts?: Prisma.InventoryAlertUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUpdateManyWithoutItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutServiceLinksInput = {
@@ -780,6 +804,7 @@ export type InventoryItemUncheckedUpdateWithoutServiceLinksInput = {
   transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
   alerts?: Prisma.InventoryAlertUncheckedUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUncheckedUpdateManyWithoutItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateWithoutBatchesInput = {
@@ -801,6 +826,7 @@ export type InventoryItemCreateWithoutBatchesInput = {
   transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
   alerts?: Prisma.InventoryAlertCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutBatchesInput = {
@@ -822,6 +848,7 @@ export type InventoryItemUncheckedCreateWithoutBatchesInput = {
   transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
   alerts?: Prisma.InventoryAlertUncheckedCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutBatchesInput = {
@@ -859,6 +886,7 @@ export type InventoryItemUpdateWithoutBatchesInput = {
   transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
   alerts?: Prisma.InventoryAlertUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutBatchesInput = {
@@ -880,6 +908,7 @@ export type InventoryItemUncheckedUpdateWithoutBatchesInput = {
   transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
   alerts?: Prisma.InventoryAlertUncheckedUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateWithoutTransactionsInput = {
@@ -901,6 +930,7 @@ export type InventoryItemCreateWithoutTransactionsInput = {
   alerts?: Prisma.InventoryAlertCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutTransactionsInput = {
@@ -922,6 +952,7 @@ export type InventoryItemUncheckedCreateWithoutTransactionsInput = {
   alerts?: Prisma.InventoryAlertUncheckedCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchUncheckedCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutTransactionsInput = {
@@ -959,6 +990,7 @@ export type InventoryItemUpdateWithoutTransactionsInput = {
   alerts?: Prisma.InventoryAlertUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutTransactionsInput = {
@@ -977,6 +1009,111 @@ export type InventoryItemUncheckedUpdateWithoutTransactionsInput = {
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  alerts?: Prisma.InventoryAlertUncheckedUpdateManyWithoutItemNestedInput
+  batches?: Prisma.InventoryBatchUncheckedUpdateManyWithoutItemNestedInput
+  serviceLinks?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedUpdateManyWithoutInventoryItemNestedInput
+}
+
+export type InventoryItemCreateWithoutPurchaseOrderLinesInput = {
+  id?: string
+  name: string
+  category?: string
+  manufacturer?: string | null
+  sku: string
+  unit?: string
+  description?: string | null
+  currentStock?: number
+  referenceStock?: number
+  lowStockThresholdPercent?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  lowStockThresholdQty?: number
+  unitPrice?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
+  alerts?: Prisma.InventoryAlertCreateNestedManyWithoutItemInput
+  batches?: Prisma.InventoryBatchCreateNestedManyWithoutItemInput
+  serviceLinks?: Prisma.ServiceConsumableCreateNestedManyWithoutInventoryItemInput
+}
+
+export type InventoryItemUncheckedCreateWithoutPurchaseOrderLinesInput = {
+  id?: string
+  name: string
+  category?: string
+  manufacturer?: string | null
+  sku: string
+  unit?: string
+  description?: string | null
+  currentStock?: number
+  referenceStock?: number
+  lowStockThresholdPercent?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  lowStockThresholdQty?: number
+  unitPrice?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
+  alerts?: Prisma.InventoryAlertUncheckedCreateNestedManyWithoutItemInput
+  batches?: Prisma.InventoryBatchUncheckedCreateNestedManyWithoutItemInput
+  serviceLinks?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutInventoryItemInput
+}
+
+export type InventoryItemCreateOrConnectWithoutPurchaseOrderLinesInput = {
+  where: Prisma.InventoryItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.InventoryItemCreateWithoutPurchaseOrderLinesInput, Prisma.InventoryItemUncheckedCreateWithoutPurchaseOrderLinesInput>
+}
+
+export type InventoryItemUpsertWithoutPurchaseOrderLinesInput = {
+  update: Prisma.XOR<Prisma.InventoryItemUpdateWithoutPurchaseOrderLinesInput, Prisma.InventoryItemUncheckedUpdateWithoutPurchaseOrderLinesInput>
+  create: Prisma.XOR<Prisma.InventoryItemCreateWithoutPurchaseOrderLinesInput, Prisma.InventoryItemUncheckedCreateWithoutPurchaseOrderLinesInput>
+  where?: Prisma.InventoryItemWhereInput
+}
+
+export type InventoryItemUpdateToOneWithWhereWithoutPurchaseOrderLinesInput = {
+  where?: Prisma.InventoryItemWhereInput
+  data: Prisma.XOR<Prisma.InventoryItemUpdateWithoutPurchaseOrderLinesInput, Prisma.InventoryItemUncheckedUpdateWithoutPurchaseOrderLinesInput>
+}
+
+export type InventoryItemUpdateWithoutPurchaseOrderLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sku?: Prisma.StringFieldUpdateOperationsInput | string
+  unit?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentStock?: Prisma.IntFieldUpdateOperationsInput | number
+  referenceStock?: Prisma.IntFieldUpdateOperationsInput | number
+  lowStockThresholdPercent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  lowStockThresholdQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPrice?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
+  alerts?: Prisma.InventoryAlertUpdateManyWithoutItemNestedInput
+  batches?: Prisma.InventoryBatchUpdateManyWithoutItemNestedInput
+  serviceLinks?: Prisma.ServiceConsumableUpdateManyWithoutInventoryItemNestedInput
+}
+
+export type InventoryItemUncheckedUpdateWithoutPurchaseOrderLinesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sku?: Prisma.StringFieldUpdateOperationsInput | string
+  unit?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentStock?: Prisma.IntFieldUpdateOperationsInput | number
+  referenceStock?: Prisma.IntFieldUpdateOperationsInput | number
+  lowStockThresholdPercent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  lowStockThresholdQty?: Prisma.IntFieldUpdateOperationsInput | number
+  unitPrice?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
   alerts?: Prisma.InventoryAlertUncheckedUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUncheckedUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutInventoryItemNestedInput
@@ -1001,6 +1138,7 @@ export type InventoryItemCreateWithoutAlertsInput = {
   transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutAlertsInput = {
@@ -1022,6 +1160,7 @@ export type InventoryItemUncheckedCreateWithoutAlertsInput = {
   transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
   batches?: Prisma.InventoryBatchUncheckedCreateNestedManyWithoutItemInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutInventoryItemInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutAlertsInput = {
@@ -1059,6 +1198,7 @@ export type InventoryItemUpdateWithoutAlertsInput = {
   transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutAlertsInput = {
@@ -1080,6 +1220,7 @@ export type InventoryItemUncheckedUpdateWithoutAlertsInput = {
   transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
   batches?: Prisma.InventoryBatchUncheckedUpdateManyWithoutItemNestedInput
   serviceLinks?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutInventoryItemNestedInput
+  purchaseOrderLines?: Prisma.PurchaseOrderItemUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 
@@ -1092,6 +1233,7 @@ export type InventoryItemCountOutputType = {
   alerts: number
   batches: number
   serviceLinks: number
+  purchaseOrderLines: number
 }
 
 export type InventoryItemCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1099,6 +1241,7 @@ export type InventoryItemCountOutputTypeSelect<ExtArgs extends runtime.Types.Ext
   alerts?: boolean | InventoryItemCountOutputTypeCountAlertsArgs
   batches?: boolean | InventoryItemCountOutputTypeCountBatchesArgs
   serviceLinks?: boolean | InventoryItemCountOutputTypeCountServiceLinksArgs
+  purchaseOrderLines?: boolean | InventoryItemCountOutputTypeCountPurchaseOrderLinesArgs
 }
 
 /**
@@ -1139,6 +1282,13 @@ export type InventoryItemCountOutputTypeCountServiceLinksArgs<ExtArgs extends ru
   where?: Prisma.ServiceConsumableWhereInput
 }
 
+/**
+ * InventoryItemCountOutputType without action
+ */
+export type InventoryItemCountOutputTypeCountPurchaseOrderLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PurchaseOrderItemWhereInput
+}
+
 
 export type InventoryItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1160,6 +1310,7 @@ export type InventoryItemSelect<ExtArgs extends runtime.Types.Extensions.Interna
   alerts?: boolean | Prisma.InventoryItem$alertsArgs<ExtArgs>
   batches?: boolean | Prisma.InventoryItem$batchesArgs<ExtArgs>
   serviceLinks?: boolean | Prisma.InventoryItem$serviceLinksArgs<ExtArgs>
+  purchaseOrderLines?: boolean | Prisma.InventoryItem$purchaseOrderLinesArgs<ExtArgs>
   _count?: boolean | Prisma.InventoryItemCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryItem"]>
 
@@ -1223,6 +1374,7 @@ export type InventoryItemInclude<ExtArgs extends runtime.Types.Extensions.Intern
   alerts?: boolean | Prisma.InventoryItem$alertsArgs<ExtArgs>
   batches?: boolean | Prisma.InventoryItem$batchesArgs<ExtArgs>
   serviceLinks?: boolean | Prisma.InventoryItem$serviceLinksArgs<ExtArgs>
+  purchaseOrderLines?: boolean | Prisma.InventoryItem$purchaseOrderLinesArgs<ExtArgs>
   _count?: boolean | Prisma.InventoryItemCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type InventoryItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1235,6 +1387,7 @@ export type $InventoryItemPayload<ExtArgs extends runtime.Types.Extensions.Inter
     alerts: Prisma.$InventoryAlertPayload<ExtArgs>[]
     batches: Prisma.$InventoryBatchPayload<ExtArgs>[]
     serviceLinks: Prisma.$ServiceConsumablePayload<ExtArgs>[]
+    purchaseOrderLines: Prisma.$PurchaseOrderItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1650,6 +1803,7 @@ export interface Prisma__InventoryItemClient<T, Null = never, ExtArgs extends ru
   alerts<T extends Prisma.InventoryItem$alertsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$alertsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryAlertPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   batches<T extends Prisma.InventoryItem$batchesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$batchesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryBatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   serviceLinks<T extends Prisma.InventoryItem$serviceLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$serviceLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServiceConsumablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  purchaseOrderLines<T extends Prisma.InventoryItem$purchaseOrderLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$purchaseOrderLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseOrderItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2180,6 +2334,30 @@ export type InventoryItem$serviceLinksArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.ServiceConsumableScalarFieldEnum | Prisma.ServiceConsumableScalarFieldEnum[]
+}
+
+/**
+ * InventoryItem.purchaseOrderLines
+ */
+export type InventoryItem$purchaseOrderLinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PurchaseOrderItem
+   */
+  select?: Prisma.PurchaseOrderItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PurchaseOrderItem
+   */
+  omit?: Prisma.PurchaseOrderItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PurchaseOrderItemInclude<ExtArgs> | null
+  where?: Prisma.PurchaseOrderItemWhereInput
+  orderBy?: Prisma.PurchaseOrderItemOrderByWithRelationInput | Prisma.PurchaseOrderItemOrderByWithRelationInput[]
+  cursor?: Prisma.PurchaseOrderItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PurchaseOrderItemScalarFieldEnum | Prisma.PurchaseOrderItemScalarFieldEnum[]
 }
 
 /**

@@ -441,6 +441,17 @@ export const InventoryTransactionType = {
 export type InventoryTransactionType = (typeof InventoryTransactionType)[keyof typeof InventoryTransactionType]
 
 
+export const PurchaseOrderStatus = {
+  DRAFT: 'DRAFT',
+  ORDERED: 'ORDERED',
+  PARTIALLY_RECEIVED: 'PARTIALLY_RECEIVED',
+  RECEIVED: 'RECEIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PurchaseOrderStatus = (typeof PurchaseOrderStatus)[keyof typeof PurchaseOrderStatus]
+
+
 export const InventoryAlertStatus = {
   ACTIVE: 'ACTIVE',
   ACKNOWLEDGED: 'ACKNOWLEDGED',

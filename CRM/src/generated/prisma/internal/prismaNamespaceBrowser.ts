@@ -116,6 +116,9 @@ export const ModelName = {
   InventoryItem: 'InventoryItem',
   InventoryBatch: 'InventoryBatch',
   InventoryTransaction: 'InventoryTransaction',
+  Supplier: 'Supplier',
+  PurchaseOrder: 'PurchaseOrder',
+  PurchaseOrderItem: 'PurchaseOrderItem',
   InventoryAlert: 'InventoryAlert',
   AuditLog: 'AuditLog',
   WhatsAppTemplate: 'WhatsAppTemplate',
@@ -1118,6 +1121,48 @@ export const InventoryTransactionScalarFieldEnum = {
 } as const
 
 export type InventoryTransactionScalarFieldEnum = (typeof InventoryTransactionScalarFieldEnum)[keyof typeof InventoryTransactionScalarFieldEnum]
+
+
+export const SupplierScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  contactName: 'contactName',
+  phone: 'phone',
+  email: 'email',
+  address: 'address',
+  active: 'active',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierScalarFieldEnum = (typeof SupplierScalarFieldEnum)[keyof typeof SupplierScalarFieldEnum]
+
+
+export const PurchaseOrderScalarFieldEnum = {
+  id: 'id',
+  poNumber: 'poNumber',
+  supplierId: 'supplierId',
+  status: 'status',
+  orderedAt: 'orderedAt',
+  expectedAt: 'expectedAt',
+  receivedAt: 'receivedAt',
+  notes: 'notes',
+  createdById: 'createdById',
+  createdAt: 'createdAt'
+} as const
+
+export type PurchaseOrderScalarFieldEnum = (typeof PurchaseOrderScalarFieldEnum)[keyof typeof PurchaseOrderScalarFieldEnum]
+
+
+export const PurchaseOrderItemScalarFieldEnum = {
+  id: 'id',
+  purchaseOrderId: 'purchaseOrderId',
+  inventoryItemId: 'inventoryItemId',
+  quantityOrdered: 'quantityOrdered',
+  quantityReceived: 'quantityReceived',
+  unitCost: 'unitCost'
+} as const
+
+export type PurchaseOrderItemScalarFieldEnum = (typeof PurchaseOrderItemScalarFieldEnum)[keyof typeof PurchaseOrderItemScalarFieldEnum]
 
 
 export const InventoryAlertScalarFieldEnum = {

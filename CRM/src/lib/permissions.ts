@@ -15,6 +15,8 @@ export const ALL_AVAILABLE_TABS: TabItemDefinition[] = [
   { id: "appointments", href: "/appointments", label: "Appointments", group: "Care", description: "Appointment scheduling and daily slot board" },
   { id: "queue", href: "/queue", label: "Today's Queue", group: "Care", description: "Live waiting room, token calling, check-ins" },
   { id: "inventory", href: "/inventory", label: "Medicine & Stock", group: "Care", description: "Medicine dispensing, stock returns, stock alerts" },
+  { id: "suppliers", href: "/inventory/suppliers", label: "Suppliers", group: "Care", description: "Vendor directory for restocking" },
+  { id: "purchase_orders", href: "/inventory/purchase-orders", label: "Purchase Orders", group: "Care", description: "Reorder from suppliers and receive stock" },
   { id: "prescriptions", href: "/prescriptions", label: "Prescriptions", group: "Care", description: "Digital Rx pad, scanned prescription uploads, cross-patient search" },
   { id: "waiting_list", href: "/waiting-list", label: "Waiting List", group: "Care", description: "Standby patient queue for early openings" },
   { id: "follow_ups", href: "/follow-ups", label: "Follow-ups", group: "Care", description: "Post-consultation follow-up scheduling" },

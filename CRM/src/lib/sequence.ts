@@ -50,3 +50,10 @@ export async function generatePrescriptionNumber(tx?: any) {
   const value = await nextValue(`PRESCRIPTION-${year}`, tx)
   return `RX-${year}-${String(value).padStart(6, "0")}`
 }
+
+/** PO-2026-000045 */
+export async function generatePurchaseOrderNumber(tx?: any) {
+  const year = new Date().getFullYear()
+  const value = await nextValue(`PO-${year}`, tx)
+  return `PO-${year}-${String(value).padStart(6, "0")}`
+}

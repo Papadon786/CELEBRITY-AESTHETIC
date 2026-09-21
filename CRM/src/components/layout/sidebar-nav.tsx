@@ -66,6 +66,8 @@ const navGroups: NavGroup[] = [
       { href: "/appointments", label: "Appointments", icon: CalendarDays },
       { href: "/queue", label: "Queue", icon: ListOrdered },
       { href: "/inventory", label: "Medicine & Stock", icon: Boxes },
+      { href: "/inventory/suppliers", label: "Suppliers", icon: Briefcase },
+      { href: "/inventory/purchase-orders", label: "Purchase Orders", icon: ShoppingCart },
       { href: "/prescriptions", label: "Prescriptions", icon: Pill },
       { href: "/waiting-list", label: "Waiting List", icon: Clock },
       { href: "/follow-ups", label: "Follow-ups", icon: CheckSquare },
