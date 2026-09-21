@@ -437,6 +437,12 @@ export type WhatsAppTemplate = Prisma.WhatsAppTemplateModel
  */
 export type Lead = Prisma.LeadModel
 /**
+ * Model Task
+ * *
+ *  * Internal staff task/handoff — not tied to the patient-specific FollowUp workflow.
+ */
+export type Task = Prisma.TaskModel
+/**
  * Model LeadSourceSpend
  * *
  *  * Marketing spend per lead source, entered manually by staff, used to compute ROI.

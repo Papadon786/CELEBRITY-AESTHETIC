@@ -98,6 +98,8 @@ model User {
   attendance                StaffAttendance[]
   leaveRequests             StaffLeaveRequest[]  @relation("StaffLeaveRequestUser")
   leaveRequestsDecided      StaffLeaveRequest[]  @relation("StaffLeaveRequestDecidedBy")
+  tasksAssigned             Task[]               @relation("TaskAssignedTo")
+  tasksCreated              Task[]               @relation("TaskCreatedBy")
 
   @@index([role])
 }
@@ -229,6 +231,7 @@ model Patient {
   followUps               FollowUp[]
   feedback                Feedback[]
   loyaltyTransactions     LoyaltyTransaction[]
+  tasks                   Task[]
   relatedToFamilyOf       FamilyMember[]           @relation("RelatedPatient")
 
   encounters         Encounter[]
@@ -1975,6 +1978,43 @@ model Lead {
   @@index([assignedToId])
   @@index([followUpDate])
   @@index([createdAt])
+}
+
+enum TaskStatus {
+  OPEN
+  IN_PROGRESS
+  DONE
+  CANCELLED
+}
+
+enum TaskPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+/**
+ * Internal staff task/handoff — not tied to the patient-specific FollowUp workflow.
+ */
+model Task {
+  id           String       @id @default(cuid())
+  title        String
+  description  String?
+  status       TaskStatus   @default(OPEN)
+  priority     TaskPriority @default(NORMAL)
+  dueDate      DateTime?
+  patientId    String?
+  patient      Patient?     @relation(fields: [patientId], references: [id])
+  assignedToId String?
+  assignedTo   User?        @relation("TaskAssignedTo", fields: [assignedToId], references: [id])
+  createdById  String?
+  createdBy    User?        @relation("TaskCreatedBy", fields: [createdById], references: [id])
+  completedAt  DateTime?
+  createdAt    DateTime     @default(now())
+
+  @@index([status])
+  @@index([assignedToId])
 }
 
 /**
