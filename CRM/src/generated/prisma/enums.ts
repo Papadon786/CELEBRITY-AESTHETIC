@@ -157,6 +157,25 @@ export const PatientPackageStatus = {
 export type PatientPackageStatus = (typeof PatientPackageStatus)[keyof typeof PatientPackageStatus]
 
 
+export const AttendanceStatus = {
+  PRESENT: 'PRESENT',
+  HALF_DAY: 'HALF_DAY',
+  ON_LEAVE: 'ON_LEAVE',
+  ABSENT: 'ABSENT'
+} as const
+
+export type AttendanceStatus = (typeof AttendanceStatus)[keyof typeof AttendanceStatus]
+
+
+export const LeaveRequestStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type LeaveRequestStatus = (typeof LeaveRequestStatus)[keyof typeof LeaveRequestStatus]
+
+
 export const ResourceType = {
   ROOM: 'ROOM',
   EQUIPMENT: 'EQUIPMENT'

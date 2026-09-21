@@ -104,6 +104,7 @@ const navGroups: NavGroup[] = [
     text: "text-violet-600 dark:text-violet-400",
     items: [
       { href: "/settings/staff", label: "Staff & Logins", icon: Users, adminOnly: true },
+      { href: "/attendance", label: "Attendance & Leave", icon: CalendarCheck2 },
       { href: "/appointments/availability", label: "Doctor Availability", icon: CalendarClock },
       { href: "/resources", label: "Rooms & Equipment", icon: Boxes },
       { href: "/templates", label: "Doctor Templates", icon: FileEdit },

@@ -421,6 +421,8 @@ export const ModelName = {
   PackageSessionLog: 'PackageSessionLog',
   DoctorAvailability: 'DoctorAvailability',
   DoctorLeave: 'DoctorLeave',
+  StaffAttendance: 'StaffAttendance',
+  StaffLeaveRequest: 'StaffLeaveRequest',
   Resource: 'Resource',
   Appointment: 'Appointment',
   WaitingListEntry: 'WaitingListEntry',
@@ -494,7 +496,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "treatmentPhoto" | "loyaltyTransaction" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "treatmentPhoto" | "loyaltyTransaction" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "staffAttendance" | "staffLeaveRequest" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2271,6 +2273,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.DoctorLeaveCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.DoctorLeaveCountAggregateOutputType> | number
+        }
+      }
+    }
+    StaffAttendance: {
+      payload: Prisma.$StaffAttendancePayload<ExtArgs>
+      fields: Prisma.StaffAttendanceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StaffAttendanceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StaffAttendanceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>
+        }
+        findFirst: {
+          args: Prisma.StaffAttendanceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StaffAttendanceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>
+        }
+        findMany: {
+          args: Prisma.StaffAttendanceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>[]
+        }
+        create: {
+          args: Prisma.StaffAttendanceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>
+        }
+        createMany: {
+          args: Prisma.StaffAttendanceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StaffAttendanceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>[]
+        }
+        delete: {
+          args: Prisma.StaffAttendanceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>
+        }
+        update: {
+          args: Prisma.StaffAttendanceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>
+        }
+        deleteMany: {
+          args: Prisma.StaffAttendanceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StaffAttendanceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StaffAttendanceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>[]
+        }
+        upsert: {
+          args: Prisma.StaffAttendanceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffAttendancePayload>
+        }
+        aggregate: {
+          args: Prisma.StaffAttendanceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStaffAttendance>
+        }
+        groupBy: {
+          args: Prisma.StaffAttendanceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StaffAttendanceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StaffAttendanceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StaffAttendanceCountAggregateOutputType> | number
+        }
+      }
+    }
+    StaffLeaveRequest: {
+      payload: Prisma.$StaffLeaveRequestPayload<ExtArgs>
+      fields: Prisma.StaffLeaveRequestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StaffLeaveRequestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StaffLeaveRequestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>
+        }
+        findFirst: {
+          args: Prisma.StaffLeaveRequestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StaffLeaveRequestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>
+        }
+        findMany: {
+          args: Prisma.StaffLeaveRequestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>[]
+        }
+        create: {
+          args: Prisma.StaffLeaveRequestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>
+        }
+        createMany: {
+          args: Prisma.StaffLeaveRequestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StaffLeaveRequestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>[]
+        }
+        delete: {
+          args: Prisma.StaffLeaveRequestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>
+        }
+        update: {
+          args: Prisma.StaffLeaveRequestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>
+        }
+        deleteMany: {
+          args: Prisma.StaffLeaveRequestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StaffLeaveRequestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StaffLeaveRequestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>[]
+        }
+        upsert: {
+          args: Prisma.StaffLeaveRequestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StaffLeaveRequestPayload>
+        }
+        aggregate: {
+          args: Prisma.StaffLeaveRequestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStaffLeaveRequest>
+        }
+        groupBy: {
+          args: Prisma.StaffLeaveRequestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StaffLeaveRequestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StaffLeaveRequestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StaffLeaveRequestCountAggregateOutputType> | number
         }
       }
     }
@@ -6950,6 +7100,34 @@ export const DoctorLeaveScalarFieldEnum = {
 export type DoctorLeaveScalarFieldEnum = (typeof DoctorLeaveScalarFieldEnum)[keyof typeof DoctorLeaveScalarFieldEnum]
 
 
+export const StaffAttendanceScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  checkInAt: 'checkInAt',
+  checkOutAt: 'checkOutAt',
+  status: 'status',
+  createdAt: 'createdAt'
+} as const
+
+export type StaffAttendanceScalarFieldEnum = (typeof StaffAttendanceScalarFieldEnum)[keyof typeof StaffAttendanceScalarFieldEnum]
+
+
+export const StaffLeaveRequestScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  reason: 'reason',
+  status: 'status',
+  decidedById: 'decidedById',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type StaffLeaveRequestScalarFieldEnum = (typeof StaffLeaveRequestScalarFieldEnum)[keyof typeof StaffLeaveRequestScalarFieldEnum]
+
+
 export const ResourceScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -8202,6 +8380,34 @@ export type ListEnumPatientPackageStatusFieldRefInput<$PrismaModel> = FieldRefIn
 
 
 /**
+ * Reference to a field of type 'AttendanceStatus'
+ */
+export type EnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AttendanceStatus[]'
+ */
+export type ListEnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'LeaveRequestStatus'
+ */
+export type EnumLeaveRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LeaveRequestStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'LeaveRequestStatus[]'
+ */
+export type ListEnumLeaveRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LeaveRequestStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'ResourceType'
  */
 export type EnumResourceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ResourceType'>
@@ -8963,6 +9169,8 @@ export type GlobalOmitConfig = {
   packageSessionLog?: Prisma.PackageSessionLogOmit
   doctorAvailability?: Prisma.DoctorAvailabilityOmit
   doctorLeave?: Prisma.DoctorLeaveOmit
+  staffAttendance?: Prisma.StaffAttendanceOmit
+  staffLeaveRequest?: Prisma.StaffLeaveRequestOmit
   resource?: Prisma.ResourceOmit
   appointment?: Prisma.AppointmentOmit
   waitingListEntry?: Prisma.WaitingListEntryOmit

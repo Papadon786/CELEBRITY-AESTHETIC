@@ -304,6 +304,9 @@ export type UserWhereInput = {
   consentFormsCreated?: Prisma.ConsentFormListRelationFilter
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoListRelationFilter
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionListRelationFilter
+  attendance?: Prisma.StaffAttendanceListRelationFilter
+  leaveRequests?: Prisma.StaffLeaveRequestListRelationFilter
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -362,6 +365,9 @@ export type UserOrderByWithRelationInput = {
   consentFormsCreated?: Prisma.ConsentFormOrderByRelationAggregateInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoOrderByRelationAggregateInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionOrderByRelationAggregateInput
+  attendance?: Prisma.StaffAttendanceOrderByRelationAggregateInput
+  leaveRequests?: Prisma.StaffLeaveRequestOrderByRelationAggregateInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -423,6 +429,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   consentFormsCreated?: Prisma.ConsentFormListRelationFilter
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoListRelationFilter
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionListRelationFilter
+  attendance?: Prisma.StaffAttendanceListRelationFilter
+  leaveRequests?: Prisma.StaffLeaveRequestListRelationFilter
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -517,6 +526,9 @@ export type UserCreateInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -575,6 +587,9 @@ export type UserUncheckedCreateInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUpdateInput = {
@@ -633,6 +648,9 @@ export type UserUpdateInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -691,6 +709,9 @@ export type UserUncheckedUpdateInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -973,6 +994,50 @@ export type UserUpdateOneRequiredWithoutDoctorLeavesNestedInput = {
   upsert?: Prisma.UserUpsertWithoutDoctorLeavesInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutDoctorLeavesInput, Prisma.UserUpdateWithoutDoctorLeavesInput>, Prisma.UserUncheckedUpdateWithoutDoctorLeavesInput>
+}
+
+export type UserCreateNestedOneWithoutAttendanceInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAttendanceInput, Prisma.UserUncheckedCreateWithoutAttendanceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAttendanceInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutAttendanceNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAttendanceInput, Prisma.UserUncheckedCreateWithoutAttendanceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAttendanceInput
+  upsert?: Prisma.UserUpsertWithoutAttendanceInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAttendanceInput, Prisma.UserUpdateWithoutAttendanceInput>, Prisma.UserUncheckedUpdateWithoutAttendanceInput>
+}
+
+export type UserCreateNestedOneWithoutLeaveRequestsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLeaveRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutLeaveRequestsDecidedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsDecidedInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsDecidedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLeaveRequestsDecidedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutLeaveRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLeaveRequestsInput
+  upsert?: Prisma.UserUpsertWithoutLeaveRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutLeaveRequestsInput, Prisma.UserUpdateWithoutLeaveRequestsInput>, Prisma.UserUncheckedUpdateWithoutLeaveRequestsInput>
+}
+
+export type UserUpdateOneWithoutLeaveRequestsDecidedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsDecidedInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsDecidedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLeaveRequestsDecidedInput
+  upsert?: Prisma.UserUpsertWithoutLeaveRequestsDecidedInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutLeaveRequestsDecidedInput, Prisma.UserUpdateWithoutLeaveRequestsDecidedInput>, Prisma.UserUncheckedUpdateWithoutLeaveRequestsDecidedInput>
 }
 
 export type UserCreateNestedOneWithoutAppointmentsAsDoctorInput = {
@@ -1550,6 +1615,9 @@ export type UserCreateWithoutSessionsInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -1607,6 +1675,9 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -1680,6 +1751,9 @@ export type UserUpdateWithoutSessionsInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -1737,6 +1811,9 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutRegisteredPatientsInput = {
@@ -1794,6 +1871,9 @@ export type UserCreateWithoutRegisteredPatientsInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutRegisteredPatientsInput = {
@@ -1851,6 +1931,9 @@ export type UserUncheckedCreateWithoutRegisteredPatientsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutRegisteredPatientsInput = {
@@ -1924,6 +2007,9 @@ export type UserUpdateWithoutRegisteredPatientsInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRegisteredPatientsInput = {
@@ -1981,6 +2067,9 @@ export type UserUncheckedUpdateWithoutRegisteredPatientsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutDocumentsUploadedInput = {
@@ -2038,6 +2127,9 @@ export type UserCreateWithoutDocumentsUploadedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutDocumentsUploadedInput = {
@@ -2095,6 +2187,9 @@ export type UserUncheckedCreateWithoutDocumentsUploadedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutDocumentsUploadedInput = {
@@ -2168,6 +2263,9 @@ export type UserUpdateWithoutDocumentsUploadedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDocumentsUploadedInput = {
@@ -2225,6 +2323,9 @@ export type UserUncheckedUpdateWithoutDocumentsUploadedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutTreatmentPhotosUploadedInput = {
@@ -2282,6 +2383,9 @@ export type UserCreateWithoutTreatmentPhotosUploadedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormCreateNestedManyWithoutWitnessedByInput
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutTreatmentPhotosUploadedInput = {
@@ -2339,6 +2443,9 @@ export type UserUncheckedCreateWithoutTreatmentPhotosUploadedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutWitnessedByInput
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutTreatmentPhotosUploadedInput = {
@@ -2412,6 +2519,9 @@ export type UserUpdateWithoutTreatmentPhotosUploadedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUpdateManyWithoutWitnessedByNestedInput
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTreatmentPhotosUploadedInput = {
@@ -2469,6 +2579,9 @@ export type UserUncheckedUpdateWithoutTreatmentPhotosUploadedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutLoyaltyTransactionsMadeInput = {
@@ -2526,6 +2639,9 @@ export type UserCreateWithoutLoyaltyTransactionsMadeInput = {
   consentFormsWitnessed?: Prisma.ConsentFormCreateNestedManyWithoutWitnessedByInput
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutLoyaltyTransactionsMadeInput = {
@@ -2583,6 +2699,9 @@ export type UserUncheckedCreateWithoutLoyaltyTransactionsMadeInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutWitnessedByInput
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutLoyaltyTransactionsMadeInput = {
@@ -2656,6 +2775,9 @@ export type UserUpdateWithoutLoyaltyTransactionsMadeInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUpdateManyWithoutWitnessedByNestedInput
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLoyaltyTransactionsMadeInput = {
@@ -2713,6 +2835,9 @@ export type UserUncheckedUpdateWithoutLoyaltyTransactionsMadeInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutConsentFormsWitnessedInput = {
@@ -2770,6 +2895,9 @@ export type UserCreateWithoutConsentFormsWitnessedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutConsentFormsWitnessedInput = {
@@ -2827,6 +2955,9 @@ export type UserUncheckedCreateWithoutConsentFormsWitnessedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutConsentFormsWitnessedInput = {
@@ -2889,6 +3020,9 @@ export type UserCreateWithoutConsentFormsCreatedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormCreateNestedManyWithoutWitnessedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutConsentFormsCreatedInput = {
@@ -2946,6 +3080,9 @@ export type UserUncheckedCreateWithoutConsentFormsCreatedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutWitnessedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutConsentFormsCreatedInput = {
@@ -3019,6 +3156,9 @@ export type UserUpdateWithoutConsentFormsWitnessedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutConsentFormsWitnessedInput = {
@@ -3076,6 +3216,9 @@ export type UserUncheckedUpdateWithoutConsentFormsWitnessedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUpsertWithoutConsentFormsCreatedInput = {
@@ -3144,6 +3287,9 @@ export type UserUpdateWithoutConsentFormsCreatedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUpdateManyWithoutWitnessedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutConsentFormsCreatedInput = {
@@ -3201,6 +3347,9 @@ export type UserUncheckedUpdateWithoutConsentFormsCreatedInput = {
   consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutPackageSessionsPerformedInput = {
@@ -3258,6 +3407,9 @@ export type UserCreateWithoutPackageSessionsPerformedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutPackageSessionsPerformedInput = {
@@ -3315,6 +3467,9 @@ export type UserUncheckedCreateWithoutPackageSessionsPerformedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutPackageSessionsPerformedInput = {
@@ -3388,6 +3543,9 @@ export type UserUpdateWithoutPackageSessionsPerformedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPackageSessionsPerformedInput = {
@@ -3445,6 +3603,9 @@ export type UserUncheckedUpdateWithoutPackageSessionsPerformedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutDoctorAvailabilitiesInput = {
@@ -3502,6 +3663,9 @@ export type UserCreateWithoutDoctorAvailabilitiesInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutDoctorAvailabilitiesInput = {
@@ -3559,6 +3723,9 @@ export type UserUncheckedCreateWithoutDoctorAvailabilitiesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutDoctorAvailabilitiesInput = {
@@ -3632,6 +3799,9 @@ export type UserUpdateWithoutDoctorAvailabilitiesInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDoctorAvailabilitiesInput = {
@@ -3689,6 +3859,9 @@ export type UserUncheckedUpdateWithoutDoctorAvailabilitiesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutDoctorLeavesInput = {
@@ -3746,6 +3919,9 @@ export type UserCreateWithoutDoctorLeavesInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutDoctorLeavesInput = {
@@ -3803,6 +3979,9 @@ export type UserUncheckedCreateWithoutDoctorLeavesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutDoctorLeavesInput = {
@@ -3876,6 +4055,9 @@ export type UserUpdateWithoutDoctorLeavesInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDoctorLeavesInput = {
@@ -3933,6 +4115,777 @@ export type UserUncheckedUpdateWithoutDoctorLeavesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
+}
+
+export type UserCreateWithoutAttendanceInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
+}
+
+export type UserUncheckedCreateWithoutAttendanceInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientUncheckedCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentUncheckedCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateUncheckedCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentUncheckedCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundUncheckedCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionUncheckedCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionUncheckedCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetUncheckedCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
+}
+
+export type UserCreateOrConnectWithoutAttendanceInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutAttendanceInput, Prisma.UserUncheckedCreateWithoutAttendanceInput>
+}
+
+export type UserUpsertWithoutAttendanceInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutAttendanceInput, Prisma.UserUncheckedUpdateWithoutAttendanceInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAttendanceInput, Prisma.UserUncheckedCreateWithoutAttendanceInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutAttendanceInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutAttendanceInput, Prisma.UserUncheckedUpdateWithoutAttendanceInput>
+}
+
+export type UserUpdateWithoutAttendanceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutAttendanceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUncheckedUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUncheckedUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUncheckedUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUncheckedUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUncheckedUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUncheckedUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUncheckedUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUncheckedUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
+}
+
+export type UserCreateWithoutLeaveRequestsInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
+}
+
+export type UserUncheckedCreateWithoutLeaveRequestsInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientUncheckedCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentUncheckedCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateUncheckedCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentUncheckedCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundUncheckedCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionUncheckedCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionUncheckedCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetUncheckedCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
+}
+
+export type UserCreateOrConnectWithoutLeaveRequestsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsInput>
+}
+
+export type UserCreateWithoutLeaveRequestsDecidedInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutLeaveRequestsDecidedInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientUncheckedCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentUncheckedCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateUncheckedCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentUncheckedCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundUncheckedCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionUncheckedCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionUncheckedCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetUncheckedCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutLeaveRequestsDecidedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsDecidedInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsDecidedInput>
+}
+
+export type UserUpsertWithoutLeaveRequestsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutLeaveRequestsInput, Prisma.UserUncheckedUpdateWithoutLeaveRequestsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutLeaveRequestsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutLeaveRequestsInput, Prisma.UserUncheckedUpdateWithoutLeaveRequestsInput>
+}
+
+export type UserUpdateWithoutLeaveRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutLeaveRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUncheckedUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUncheckedUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUncheckedUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUncheckedUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUncheckedUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUncheckedUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUncheckedUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUncheckedUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
+}
+
+export type UserUpsertWithoutLeaveRequestsDecidedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutLeaveRequestsDecidedInput, Prisma.UserUncheckedUpdateWithoutLeaveRequestsDecidedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutLeaveRequestsDecidedInput, Prisma.UserUncheckedCreateWithoutLeaveRequestsDecidedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutLeaveRequestsDecidedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutLeaveRequestsDecidedInput, Prisma.UserUncheckedUpdateWithoutLeaveRequestsDecidedInput>
+}
+
+export type UserUpdateWithoutLeaveRequestsDecidedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutLeaveRequestsDecidedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUncheckedUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUncheckedUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUncheckedUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUncheckedUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUncheckedUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUncheckedUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUncheckedUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUncheckedUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutAppointmentsAsDoctorInput = {
@@ -3990,6 +4943,9 @@ export type UserCreateWithoutAppointmentsAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutAppointmentsAsDoctorInput = {
@@ -4047,6 +5003,9 @@ export type UserUncheckedCreateWithoutAppointmentsAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutAppointmentsAsDoctorInput = {
@@ -4109,6 +5068,9 @@ export type UserCreateWithoutAppointmentsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutAppointmentsCreatedInput = {
@@ -4166,6 +5128,9 @@ export type UserUncheckedCreateWithoutAppointmentsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutAppointmentsCreatedInput = {
@@ -4239,6 +5204,9 @@ export type UserUpdateWithoutAppointmentsAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAppointmentsAsDoctorInput = {
@@ -4296,6 +5264,9 @@ export type UserUncheckedUpdateWithoutAppointmentsAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUpsertWithoutAppointmentsCreatedInput = {
@@ -4364,6 +5335,9 @@ export type UserUpdateWithoutAppointmentsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAppointmentsCreatedInput = {
@@ -4421,6 +5395,9 @@ export type UserUncheckedUpdateWithoutAppointmentsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutWaitingListEntriesInput = {
@@ -4478,6 +5455,9 @@ export type UserCreateWithoutWaitingListEntriesInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutWaitingListEntriesInput = {
@@ -4535,6 +5515,9 @@ export type UserUncheckedCreateWithoutWaitingListEntriesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutWaitingListEntriesInput = {
@@ -4608,6 +5591,9 @@ export type UserUpdateWithoutWaitingListEntriesInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWaitingListEntriesInput = {
@@ -4665,6 +5651,9 @@ export type UserUncheckedUpdateWithoutWaitingListEntriesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutPrescriptionsWrittenInput = {
@@ -4722,6 +5711,9 @@ export type UserCreateWithoutPrescriptionsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutPrescriptionsWrittenInput = {
@@ -4779,6 +5771,9 @@ export type UserUncheckedCreateWithoutPrescriptionsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutPrescriptionsWrittenInput = {
@@ -4852,6 +5847,9 @@ export type UserUpdateWithoutPrescriptionsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPrescriptionsWrittenInput = {
@@ -4909,6 +5907,9 @@ export type UserUncheckedUpdateWithoutPrescriptionsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutPaymentsReceivedInput = {
@@ -4966,6 +5967,9 @@ export type UserCreateWithoutPaymentsReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutPaymentsReceivedInput = {
@@ -5023,6 +6027,9 @@ export type UserUncheckedCreateWithoutPaymentsReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutPaymentsReceivedInput = {
@@ -5096,6 +6103,9 @@ export type UserUpdateWithoutPaymentsReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentsReceivedInput = {
@@ -5153,6 +6163,9 @@ export type UserUncheckedUpdateWithoutPaymentsReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutRefundsProcessedInput = {
@@ -5210,6 +6223,9 @@ export type UserCreateWithoutRefundsProcessedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutRefundsProcessedInput = {
@@ -5267,6 +6283,9 @@ export type UserUncheckedCreateWithoutRefundsProcessedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutRefundsProcessedInput = {
@@ -5340,6 +6359,9 @@ export type UserUpdateWithoutRefundsProcessedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRefundsProcessedInput = {
@@ -5397,6 +6419,9 @@ export type UserUncheckedUpdateWithoutRefundsProcessedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutAdvancesReceivedInput = {
@@ -5454,6 +6479,9 @@ export type UserCreateWithoutAdvancesReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutAdvancesReceivedInput = {
@@ -5511,6 +6539,9 @@ export type UserUncheckedCreateWithoutAdvancesReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutAdvancesReceivedInput = {
@@ -5584,6 +6615,9 @@ export type UserUpdateWithoutAdvancesReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAdvancesReceivedInput = {
@@ -5641,6 +6675,9 @@ export type UserUncheckedUpdateWithoutAdvancesReceivedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutCommissionsEarnedInput = {
@@ -5698,6 +6735,9 @@ export type UserCreateWithoutCommissionsEarnedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutCommissionsEarnedInput = {
@@ -5755,6 +6795,9 @@ export type UserUncheckedCreateWithoutCommissionsEarnedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutCommissionsEarnedInput = {
@@ -5817,6 +6860,9 @@ export type UserCreateWithoutCommissionsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutCommissionsCreatedInput = {
@@ -5874,6 +6920,9 @@ export type UserUncheckedCreateWithoutCommissionsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutCommissionsCreatedInput = {
@@ -5947,6 +6996,9 @@ export type UserUpdateWithoutCommissionsEarnedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCommissionsEarnedInput = {
@@ -6004,6 +7056,9 @@ export type UserUncheckedUpdateWithoutCommissionsEarnedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUpsertWithoutCommissionsCreatedInput = {
@@ -6072,6 +7127,9 @@ export type UserUpdateWithoutCommissionsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCommissionsCreatedInput = {
@@ -6129,6 +7187,9 @@ export type UserUncheckedUpdateWithoutCommissionsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutSalesTargetsInput = {
@@ -6186,6 +7247,9 @@ export type UserCreateWithoutSalesTargetsInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutSalesTargetsInput = {
@@ -6243,6 +7307,9 @@ export type UserUncheckedCreateWithoutSalesTargetsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutSalesTargetsInput = {
@@ -6316,6 +7383,9 @@ export type UserUpdateWithoutSalesTargetsInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSalesTargetsInput = {
@@ -6373,6 +7443,9 @@ export type UserUncheckedUpdateWithoutSalesTargetsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutPaymentPlansCreatedInput = {
@@ -6430,6 +7503,9 @@ export type UserCreateWithoutPaymentPlansCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutPaymentPlansCreatedInput = {
@@ -6487,6 +7563,9 @@ export type UserUncheckedCreateWithoutPaymentPlansCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutPaymentPlansCreatedInput = {
@@ -6560,6 +7639,9 @@ export type UserUpdateWithoutPaymentPlansCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentPlansCreatedInput = {
@@ -6617,6 +7699,9 @@ export type UserUncheckedUpdateWithoutPaymentPlansCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutCashSessionsOpenedInput = {
@@ -6674,6 +7759,9 @@ export type UserCreateWithoutCashSessionsOpenedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutCashSessionsOpenedInput = {
@@ -6731,6 +7819,9 @@ export type UserUncheckedCreateWithoutCashSessionsOpenedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutCashSessionsOpenedInput = {
@@ -6793,6 +7884,9 @@ export type UserCreateWithoutCashSessionsClosedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutCashSessionsClosedInput = {
@@ -6850,6 +7944,9 @@ export type UserUncheckedCreateWithoutCashSessionsClosedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutCashSessionsClosedInput = {
@@ -6923,6 +8020,9 @@ export type UserUpdateWithoutCashSessionsOpenedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCashSessionsOpenedInput = {
@@ -6980,6 +8080,9 @@ export type UserUncheckedUpdateWithoutCashSessionsOpenedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUpsertWithoutCashSessionsClosedInput = {
@@ -7048,6 +8151,9 @@ export type UserUpdateWithoutCashSessionsClosedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCashSessionsClosedInput = {
@@ -7105,6 +8211,9 @@ export type UserUncheckedUpdateWithoutCashSessionsClosedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutExpensesRecordedInput = {
@@ -7162,6 +8271,9 @@ export type UserCreateWithoutExpensesRecordedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutExpensesRecordedInput = {
@@ -7219,6 +8331,9 @@ export type UserUncheckedCreateWithoutExpensesRecordedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutExpensesRecordedInput = {
@@ -7292,6 +8407,9 @@ export type UserUpdateWithoutExpensesRecordedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutExpensesRecordedInput = {
@@ -7349,6 +8467,9 @@ export type UserUncheckedUpdateWithoutExpensesRecordedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutMessagesSentInput = {
@@ -7406,6 +8527,9 @@ export type UserCreateWithoutMessagesSentInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutMessagesSentInput = {
@@ -7463,6 +8587,9 @@ export type UserUncheckedCreateWithoutMessagesSentInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutMessagesSentInput = {
@@ -7536,6 +8663,9 @@ export type UserUpdateWithoutMessagesSentInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMessagesSentInput = {
@@ -7593,6 +8723,9 @@ export type UserUncheckedUpdateWithoutMessagesSentInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutCampaignsCreatedInput = {
@@ -7650,6 +8783,9 @@ export type UserCreateWithoutCampaignsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutCampaignsCreatedInput = {
@@ -7707,6 +8843,9 @@ export type UserUncheckedCreateWithoutCampaignsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutCampaignsCreatedInput = {
@@ -7780,6 +8919,9 @@ export type UserUpdateWithoutCampaignsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCampaignsCreatedInput = {
@@ -7837,6 +8979,9 @@ export type UserUncheckedUpdateWithoutCampaignsCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutNotesWrittenInput = {
@@ -7894,6 +9039,9 @@ export type UserCreateWithoutNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutNotesWrittenInput = {
@@ -7951,6 +9099,9 @@ export type UserUncheckedCreateWithoutNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutNotesWrittenInput = {
@@ -8024,6 +9175,9 @@ export type UserUpdateWithoutNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutNotesWrittenInput = {
@@ -8081,6 +9235,9 @@ export type UserUncheckedUpdateWithoutNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutFollowUpsAssignedInput = {
@@ -8138,6 +9295,9 @@ export type UserCreateWithoutFollowUpsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutFollowUpsAssignedInput = {
@@ -8195,6 +9355,9 @@ export type UserUncheckedCreateWithoutFollowUpsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutFollowUpsAssignedInput = {
@@ -8268,6 +9431,9 @@ export type UserUpdateWithoutFollowUpsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFollowUpsAssignedInput = {
@@ -8325,6 +9491,9 @@ export type UserUncheckedUpdateWithoutFollowUpsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutEncountersAsDoctorInput = {
@@ -8382,6 +9551,9 @@ export type UserCreateWithoutEncountersAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutEncountersAsDoctorInput = {
@@ -8439,6 +9611,9 @@ export type UserUncheckedCreateWithoutEncountersAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutEncountersAsDoctorInput = {
@@ -8512,6 +9687,9 @@ export type UserUpdateWithoutEncountersAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutEncountersAsDoctorInput = {
@@ -8569,6 +9747,9 @@ export type UserUncheckedUpdateWithoutEncountersAsDoctorInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutClinicalNotesWrittenInput = {
@@ -8626,6 +9807,9 @@ export type UserCreateWithoutClinicalNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutClinicalNotesWrittenInput = {
@@ -8683,6 +9867,9 @@ export type UserUncheckedCreateWithoutClinicalNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutClinicalNotesWrittenInput = {
@@ -8756,6 +9943,9 @@ export type UserUpdateWithoutClinicalNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClinicalNotesWrittenInput = {
@@ -8813,6 +10003,9 @@ export type UserUncheckedUpdateWithoutClinicalNotesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutDoctorTemplatesInput = {
@@ -8870,6 +10063,9 @@ export type UserCreateWithoutDoctorTemplatesInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutDoctorTemplatesInput = {
@@ -8927,6 +10123,9 @@ export type UserUncheckedCreateWithoutDoctorTemplatesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutDoctorTemplatesInput = {
@@ -9000,6 +10199,9 @@ export type UserUpdateWithoutDoctorTemplatesInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDoctorTemplatesInput = {
@@ -9057,6 +10259,9 @@ export type UserUncheckedUpdateWithoutDoctorTemplatesInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutDigitalSignatureInput = {
@@ -9114,6 +10319,9 @@ export type UserCreateWithoutDigitalSignatureInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutDigitalSignatureInput = {
@@ -9171,6 +10379,9 @@ export type UserUncheckedCreateWithoutDigitalSignatureInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutDigitalSignatureInput = {
@@ -9244,6 +10455,9 @@ export type UserUpdateWithoutDigitalSignatureInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDigitalSignatureInput = {
@@ -9301,6 +10515,9 @@ export type UserUncheckedUpdateWithoutDigitalSignatureInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutClinicalReportsOrderedInput = {
@@ -9358,6 +10575,9 @@ export type UserCreateWithoutClinicalReportsOrderedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutClinicalReportsOrderedInput = {
@@ -9415,6 +10635,9 @@ export type UserUncheckedCreateWithoutClinicalReportsOrderedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutClinicalReportsOrderedInput = {
@@ -9488,6 +10711,9 @@ export type UserUpdateWithoutClinicalReportsOrderedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClinicalReportsOrderedInput = {
@@ -9545,6 +10771,9 @@ export type UserUncheckedUpdateWithoutClinicalReportsOrderedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutReferralsWrittenInput = {
@@ -9602,6 +10831,9 @@ export type UserCreateWithoutReferralsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutReferralsWrittenInput = {
@@ -9659,6 +10891,9 @@ export type UserUncheckedCreateWithoutReferralsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutReferralsWrittenInput = {
@@ -9732,6 +10967,9 @@ export type UserUpdateWithoutReferralsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReferralsWrittenInput = {
@@ -9789,6 +11027,9 @@ export type UserUncheckedUpdateWithoutReferralsWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutCertificatesIssuedInput = {
@@ -9846,6 +11087,9 @@ export type UserCreateWithoutCertificatesIssuedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutCertificatesIssuedInput = {
@@ -9903,6 +11147,9 @@ export type UserUncheckedCreateWithoutCertificatesIssuedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutCertificatesIssuedInput = {
@@ -9976,6 +11223,9 @@ export type UserUpdateWithoutCertificatesIssuedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCertificatesIssuedInput = {
@@ -10033,6 +11283,9 @@ export type UserUncheckedUpdateWithoutCertificatesIssuedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutInventoryTransactionsInput = {
@@ -10090,6 +11343,9 @@ export type UserCreateWithoutInventoryTransactionsInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutInventoryTransactionsInput = {
@@ -10147,6 +11403,9 @@ export type UserUncheckedCreateWithoutInventoryTransactionsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutInventoryTransactionsInput = {
@@ -10220,6 +11479,9 @@ export type UserUpdateWithoutInventoryTransactionsInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutInventoryTransactionsInput = {
@@ -10277,6 +11539,9 @@ export type UserUncheckedUpdateWithoutInventoryTransactionsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutPurchaseOrdersCreatedInput = {
@@ -10334,6 +11599,9 @@ export type UserCreateWithoutPurchaseOrdersCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutPurchaseOrdersCreatedInput = {
@@ -10391,6 +11659,9 @@ export type UserUncheckedCreateWithoutPurchaseOrdersCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutPurchaseOrdersCreatedInput = {
@@ -10464,6 +11735,9 @@ export type UserUpdateWithoutPurchaseOrdersCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPurchaseOrdersCreatedInput = {
@@ -10521,6 +11795,9 @@ export type UserUncheckedUpdateWithoutPurchaseOrdersCreatedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutAuditLogsInput = {
@@ -10578,6 +11855,9 @@ export type UserCreateWithoutAuditLogsInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutAuditLogsInput = {
@@ -10635,6 +11915,9 @@ export type UserUncheckedCreateWithoutAuditLogsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutAuditLogsInput = {
@@ -10708,6 +11991,9 @@ export type UserUpdateWithoutAuditLogsInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuditLogsInput = {
@@ -10765,6 +12051,9 @@ export type UserUncheckedUpdateWithoutAuditLogsInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutLeadsAssignedInput = {
@@ -10822,6 +12111,9 @@ export type UserCreateWithoutLeadsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutLeadsAssignedInput = {
@@ -10879,6 +12171,9 @@ export type UserUncheckedCreateWithoutLeadsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutLeadsAssignedInput = {
@@ -10952,6 +12247,9 @@ export type UserUpdateWithoutLeadsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLeadsAssignedInput = {
@@ -11009,6 +12307,9 @@ export type UserUncheckedUpdateWithoutLeadsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutLeadActivitiesWrittenInput = {
@@ -11066,6 +12367,9 @@ export type UserCreateWithoutLeadActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutLeadActivitiesWrittenInput = {
@@ -11123,6 +12427,9 @@ export type UserUncheckedCreateWithoutLeadActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutLeadActivitiesWrittenInput = {
@@ -11196,6 +12503,9 @@ export type UserUpdateWithoutLeadActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLeadActivitiesWrittenInput = {
@@ -11253,6 +12563,9 @@ export type UserUncheckedUpdateWithoutLeadActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutProspectsAssignedInput = {
@@ -11310,6 +12623,9 @@ export type UserCreateWithoutProspectsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutProspectsAssignedInput = {
@@ -11367,6 +12683,9 @@ export type UserUncheckedCreateWithoutProspectsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutProspectsAssignedInput = {
@@ -11440,6 +12759,9 @@ export type UserUpdateWithoutProspectsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutProspectsAssignedInput = {
@@ -11497,6 +12819,9 @@ export type UserUncheckedUpdateWithoutProspectsAssignedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutProspectActivitiesWrittenInput = {
@@ -11554,6 +12879,9 @@ export type UserCreateWithoutProspectActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutProspectActivitiesWrittenInput = {
@@ -11611,6 +12939,9 @@ export type UserUncheckedCreateWithoutProspectActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutProspectActivitiesWrittenInput = {
@@ -11684,6 +13015,9 @@ export type UserUpdateWithoutProspectActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutProspectActivitiesWrittenInput = {
@@ -11741,6 +13075,9 @@ export type UserUncheckedUpdateWithoutProspectActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutClientsManagedInput = {
@@ -11798,6 +13135,9 @@ export type UserCreateWithoutClientsManagedInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutClientsManagedInput = {
@@ -11855,6 +13195,9 @@ export type UserUncheckedCreateWithoutClientsManagedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutClientsManagedInput = {
@@ -11928,6 +13271,9 @@ export type UserUpdateWithoutClientsManagedInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClientsManagedInput = {
@@ -11985,6 +13331,9 @@ export type UserUncheckedUpdateWithoutClientsManagedInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserCreateWithoutClientActivitiesWrittenInput = {
@@ -12042,6 +13391,9 @@ export type UserCreateWithoutClientActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserUncheckedCreateWithoutClientActivitiesWrittenInput = {
@@ -12099,6 +13451,9 @@ export type UserUncheckedCreateWithoutClientActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
 }
 
 export type UserCreateOrConnectWithoutClientActivitiesWrittenInput = {
@@ -12172,6 +13527,9 @@ export type UserUpdateWithoutClientActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClientActivitiesWrittenInput = {
@@ -12229,6 +13587,9 @@ export type UserUncheckedUpdateWithoutClientActivitiesWrittenInput = {
   consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
 }
 
 
@@ -12280,6 +13641,9 @@ export type UserCountOutputType = {
   consentFormsCreated: number
   treatmentPhotosUploaded: number
   loyaltyTransactionsMade: number
+  attendance: number
+  leaveRequests: number
+  leaveRequestsDecided: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -12326,6 +13690,9 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   consentFormsCreated?: boolean | UserCountOutputTypeCountConsentFormsCreatedArgs
   treatmentPhotosUploaded?: boolean | UserCountOutputTypeCountTreatmentPhotosUploadedArgs
   loyaltyTransactionsMade?: boolean | UserCountOutputTypeCountLoyaltyTransactionsMadeArgs
+  attendance?: boolean | UserCountOutputTypeCountAttendanceArgs
+  leaveRequests?: boolean | UserCountOutputTypeCountLeaveRequestsArgs
+  leaveRequestsDecided?: boolean | UserCountOutputTypeCountLeaveRequestsDecidedArgs
 }
 
 /**
@@ -12639,6 +14006,27 @@ export type UserCountOutputTypeCountLoyaltyTransactionsMadeArgs<ExtArgs extends 
   where?: Prisma.LoyaltyTransactionWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAttendanceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StaffAttendanceWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountLeaveRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StaffLeaveRequestWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountLeaveRequestsDecidedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StaffLeaveRequestWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -12696,6 +14084,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   consentFormsCreated?: boolean | Prisma.User$consentFormsCreatedArgs<ExtArgs>
   treatmentPhotosUploaded?: boolean | Prisma.User$treatmentPhotosUploadedArgs<ExtArgs>
   loyaltyTransactionsMade?: boolean | Prisma.User$loyaltyTransactionsMadeArgs<ExtArgs>
+  attendance?: boolean | Prisma.User$attendanceArgs<ExtArgs>
+  leaveRequests?: boolean | Prisma.User$leaveRequestsArgs<ExtArgs>
+  leaveRequestsDecided?: boolean | Prisma.User$leaveRequestsDecidedArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -12787,6 +14178,9 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   consentFormsCreated?: boolean | Prisma.User$consentFormsCreatedArgs<ExtArgs>
   treatmentPhotosUploaded?: boolean | Prisma.User$treatmentPhotosUploadedArgs<ExtArgs>
   loyaltyTransactionsMade?: boolean | Prisma.User$loyaltyTransactionsMadeArgs<ExtArgs>
+  attendance?: boolean | Prisma.User$attendanceArgs<ExtArgs>
+  leaveRequests?: boolean | Prisma.User$leaveRequestsArgs<ExtArgs>
+  leaveRequestsDecided?: boolean | Prisma.User$leaveRequestsDecidedArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -12839,6 +14233,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     consentFormsCreated: Prisma.$ConsentFormPayload<ExtArgs>[]
     treatmentPhotosUploaded: Prisma.$TreatmentPhotoPayload<ExtArgs>[]
     loyaltyTransactionsMade: Prisma.$LoyaltyTransactionPayload<ExtArgs>[]
+    attendance: Prisma.$StaffAttendancePayload<ExtArgs>[]
+    leaveRequests: Prisma.$StaffLeaveRequestPayload<ExtArgs>[]
+    leaveRequestsDecided: Prisma.$StaffLeaveRequestPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -13290,6 +14687,9 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   consentFormsCreated<T extends Prisma.User$consentFormsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$consentFormsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConsentFormPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   treatmentPhotosUploaded<T extends Prisma.User$treatmentPhotosUploadedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$treatmentPhotosUploadedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TreatmentPhotoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   loyaltyTransactionsMade<T extends Prisma.User$loyaltyTransactionsMadeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$loyaltyTransactionsMadeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LoyaltyTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  attendance<T extends Prisma.User$attendanceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$attendanceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  leaveRequests<T extends Prisma.User$leaveRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$leaveRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffLeaveRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  leaveRequestsDecided<T extends Prisma.User$leaveRequestsDecidedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$leaveRequestsDecidedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffLeaveRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14771,6 +16171,78 @@ export type User$loyaltyTransactionsMadeArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   distinct?: Prisma.LoyaltyTransactionScalarFieldEnum | Prisma.LoyaltyTransactionScalarFieldEnum[]
+}
+
+/**
+ * User.attendance
+ */
+export type User$attendanceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StaffAttendance
+   */
+  select?: Prisma.StaffAttendanceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StaffAttendance
+   */
+  omit?: Prisma.StaffAttendanceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StaffAttendanceInclude<ExtArgs> | null
+  where?: Prisma.StaffAttendanceWhereInput
+  orderBy?: Prisma.StaffAttendanceOrderByWithRelationInput | Prisma.StaffAttendanceOrderByWithRelationInput[]
+  cursor?: Prisma.StaffAttendanceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StaffAttendanceScalarFieldEnum | Prisma.StaffAttendanceScalarFieldEnum[]
+}
+
+/**
+ * User.leaveRequests
+ */
+export type User$leaveRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StaffLeaveRequest
+   */
+  select?: Prisma.StaffLeaveRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StaffLeaveRequest
+   */
+  omit?: Prisma.StaffLeaveRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StaffLeaveRequestInclude<ExtArgs> | null
+  where?: Prisma.StaffLeaveRequestWhereInput
+  orderBy?: Prisma.StaffLeaveRequestOrderByWithRelationInput | Prisma.StaffLeaveRequestOrderByWithRelationInput[]
+  cursor?: Prisma.StaffLeaveRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StaffLeaveRequestScalarFieldEnum | Prisma.StaffLeaveRequestScalarFieldEnum[]
+}
+
+/**
+ * User.leaveRequestsDecided
+ */
+export type User$leaveRequestsDecidedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StaffLeaveRequest
+   */
+  select?: Prisma.StaffLeaveRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StaffLeaveRequest
+   */
+  omit?: Prisma.StaffLeaveRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StaffLeaveRequestInclude<ExtArgs> | null
+  where?: Prisma.StaffLeaveRequestWhereInput
+  orderBy?: Prisma.StaffLeaveRequestOrderByWithRelationInput | Prisma.StaffLeaveRequestOrderByWithRelationInput[]
+  cursor?: Prisma.StaffLeaveRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StaffLeaveRequestScalarFieldEnum | Prisma.StaffLeaveRequestScalarFieldEnum[]
 }
 
 /**

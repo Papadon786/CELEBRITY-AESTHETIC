@@ -75,6 +75,8 @@ export const ModelName = {
   PackageSessionLog: 'PackageSessionLog',
   DoctorAvailability: 'DoctorAvailability',
   DoctorLeave: 'DoctorLeave',
+  StaffAttendance: 'StaffAttendance',
+  StaffLeaveRequest: 'StaffLeaveRequest',
   Resource: 'Resource',
   Appointment: 'Appointment',
   WaitingListEntry: 'WaitingListEntry',
@@ -494,6 +496,34 @@ export const DoctorLeaveScalarFieldEnum = {
 } as const
 
 export type DoctorLeaveScalarFieldEnum = (typeof DoctorLeaveScalarFieldEnum)[keyof typeof DoctorLeaveScalarFieldEnum]
+
+
+export const StaffAttendanceScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  checkInAt: 'checkInAt',
+  checkOutAt: 'checkOutAt',
+  status: 'status',
+  createdAt: 'createdAt'
+} as const
+
+export type StaffAttendanceScalarFieldEnum = (typeof StaffAttendanceScalarFieldEnum)[keyof typeof StaffAttendanceScalarFieldEnum]
+
+
+export const StaffLeaveRequestScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  reason: 'reason',
+  status: 'status',
+  decidedById: 'decidedById',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type StaffLeaveRequestScalarFieldEnum = (typeof StaffLeaveRequestScalarFieldEnum)[keyof typeof StaffLeaveRequestScalarFieldEnum]
 
 
 export const ResourceScalarFieldEnum = {

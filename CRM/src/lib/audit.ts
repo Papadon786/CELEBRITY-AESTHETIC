@@ -58,10 +58,14 @@ export type AuditAction =
   | "LOYALTY_REFERRAL_APPLIED"
   | "LOYALTY_POINTS_ADJUSTED"
   | "LOYALTY_POINTS_REDEEMED"
+  | "STAFF_CHECKED_IN"
+  | "STAFF_CHECKED_OUT"
+  | "STAFF_LEAVE_REQUESTED"
+  | "STAFF_LEAVE_DECIDED"
 
 interface LogAuditParams {
   action: AuditAction
-  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto" | "LoyaltyTransaction"
+  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto" | "LoyaltyTransaction" | "StaffAttendance" | "StaffLeaveRequest"
   entityId?: string
   metadata?: Record<string, unknown> | null
   userId?: string
