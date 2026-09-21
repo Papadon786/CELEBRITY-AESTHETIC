@@ -118,6 +118,15 @@ export const TreatmentPhotoType = {
 export type TreatmentPhotoType = (typeof TreatmentPhotoType)[keyof typeof TreatmentPhotoType]
 
 
+export const LoyaltyTransactionType = {
+  EARNED_REFERRAL: 'EARNED_REFERRAL',
+  REDEEMED: 'REDEEMED',
+  ADJUSTED: 'ADJUSTED'
+} as const
+
+export type LoyaltyTransactionType = (typeof LoyaltyTransactionType)[keyof typeof LoyaltyTransactionType]
+
+
 export const ConsentStatus = {
   PENDING: 'PENDING',
   SIGNED: 'SIGNED',

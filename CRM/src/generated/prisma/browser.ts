@@ -88,6 +88,11 @@ export type Document = Prisma.DocumentModel
  */
 export type TreatmentPhoto = Prisma.TreatmentPhotoModel
 /**
+ * Model LoyaltyTransaction
+ * 
+ */
+export type LoyaltyTransaction = Prisma.LoyaltyTransactionModel
+/**
  * Model ConsentForm
  * 
  */

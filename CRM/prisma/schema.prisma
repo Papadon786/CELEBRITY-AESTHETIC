@@ -84,16 +84,17 @@ model User {
   leadsAssigned         Lead[]         @relation("LeadAssignedTo")
   leadActivitiesWritten LeadActivity[] @relation("LeadActivityAuthor")
 
-  prospectsAssigned         Prospect[]         @relation("ProspectAssignedTo")
-  prospectActivitiesWritten ProspectActivity[] @relation("ProspectActivityAuthor")
-  clientsManaged            ClientAccount[]    @relation("ClientAccountManager")
-  clientActivitiesWritten   ClientActivity[]   @relation("ClientActivityAuthor")
-  commissionsEarned         Commission[]       @relation("CommissionEarnedBy")
-  commissionsCreated        Commission[]       @relation("CommissionCreatedBy")
-  salesTargets              SalesTarget[]      @relation("SalesTargetOwner")
-  consentFormsWitnessed     ConsentForm[]      @relation("ConsentWitnessedBy")
-  consentFormsCreated       ConsentForm[]      @relation("ConsentCreatedBy")
-  treatmentPhotosUploaded   TreatmentPhoto[]   @relation("TreatmentPhotoUploadedBy")
+  prospectsAssigned         Prospect[]           @relation("ProspectAssignedTo")
+  prospectActivitiesWritten ProspectActivity[]   @relation("ProspectActivityAuthor")
+  clientsManaged            ClientAccount[]      @relation("ClientAccountManager")
+  clientActivitiesWritten   ClientActivity[]     @relation("ClientActivityAuthor")
+  commissionsEarned         Commission[]         @relation("CommissionEarnedBy")
+  commissionsCreated        Commission[]         @relation("CommissionCreatedBy")
+  salesTargets              SalesTarget[]        @relation("SalesTargetOwner")
+  consentFormsWitnessed     ConsentForm[]        @relation("ConsentWitnessedBy")
+  consentFormsCreated       ConsentForm[]        @relation("ConsentCreatedBy")
+  treatmentPhotosUploaded   TreatmentPhoto[]     @relation("TreatmentPhotoUploadedBy")
+  loyaltyTransactionsMade   LoyaltyTransaction[] @relation("LoyaltyTransactionCreatedBy")
 
   @@index([role])
 }
@@ -193,6 +194,12 @@ model Patient {
   lockedAt           DateTime?
   lockedById         String?
 
+  referralCode  String?   @unique
+  referredById  String?
+  referredBy    Patient?  @relation("PatientReferral", fields: [referredById], references: [id])
+  referrals     Patient[] @relation("PatientReferral")
+  loyaltyPoints Int       @default(0)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -218,6 +225,7 @@ model Patient {
   notes                   PatientNote[]
   followUps               FollowUp[]
   feedback                Feedback[]
+  loyaltyTransactions     LoyaltyTransaction[]
   relatedToFamilyOf       FamilyMember[]           @relation("RelatedPatient")
 
   encounters         Encounter[]
@@ -422,6 +430,26 @@ model TreatmentPhoto {
 
   @@index([patientId])
   @@index([appointmentId])
+}
+
+enum LoyaltyTransactionType {
+  EARNED_REFERRAL
+  REDEEMED
+  ADJUSTED
+}
+
+model LoyaltyTransaction {
+  id          String                 @id @default(cuid())
+  patientId   String
+  patient     Patient                @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  points      Int
+  type        LoyaltyTransactionType
+  reason      String?
+  createdById String?
+  createdBy   User?                  @relation("LoyaltyTransactionCreatedBy", fields: [createdById], references: [id])
+  createdAt   DateTime               @default(now())
+
+  @@index([patientId])
 }
 
 // Procedure-specific consent — a Document can hold a scanned PDF, but

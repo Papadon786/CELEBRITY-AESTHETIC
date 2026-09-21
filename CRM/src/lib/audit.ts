@@ -55,10 +55,13 @@ export type AuditAction =
   | "CONSENT_FORM_DECLINED"
   | "TREATMENT_PHOTO_UPLOADED"
   | "TREATMENT_PHOTO_DELETED"
+  | "LOYALTY_REFERRAL_APPLIED"
+  | "LOYALTY_POINTS_ADJUSTED"
+  | "LOYALTY_POINTS_REDEEMED"
 
 interface LogAuditParams {
   action: AuditAction
-  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto"
+  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto" | "LoyaltyTransaction"
   entityId?: string
   metadata?: Record<string, unknown> | null
   userId?: string

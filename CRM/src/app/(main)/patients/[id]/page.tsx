@@ -30,6 +30,8 @@ import { ConsentFormsTab } from "@/components/consent-forms/consent-forms-tab"
 import { getPatientConsentForms } from "@/actions/consent-forms"
 import { TreatmentPhotosTab } from "@/components/treatment-photos/treatment-photos-tab"
 import { getPatientTreatmentPhotos } from "@/actions/treatment-photos"
+import { LoyaltyTab } from "@/components/loyalty/loyalty-tab"
+import { getPatientLoyalty } from "@/actions/loyalty"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default async function PatientProfilePage({
@@ -57,6 +59,7 @@ export default async function PatientProfilePage({
     packageCatalog,
     consentForms,
     treatmentPhotos,
+    loyalty,
   ] = await Promise.all([
     getPatientTimeline(id),
     getPatientCrmData(id),
@@ -73,6 +76,7 @@ export default async function PatientProfilePage({
     listTreatmentPackages(true),
     getPatientConsentForms(id),
     getPatientTreatmentPhotos(id),
+    getPatientLoyalty(id),
   ])
 
   const fullName = patientDisplayName(patient)
@@ -93,6 +97,7 @@ export default async function PatientProfilePage({
           <TabsTrigger value="packages">Packages ({patientPackages.length})</TabsTrigger>
           <TabsTrigger value="consent">Consent Forms ({consentForms.length})</TabsTrigger>
           <TabsTrigger value="photos">Photos ({treatmentPhotos.length})</TabsTrigger>
+          <TabsTrigger value="loyalty">Loyalty</TabsTrigger>
           <TabsTrigger value="family">Family & Insurance</TabsTrigger>
           <TabsTrigger value="medical">Medical History</TabsTrigger>
           <TabsTrigger value="history">Clinical Details</TabsTrigger>
@@ -149,6 +154,9 @@ export default async function PatientProfilePage({
         </TabsContent>
         <TabsContent value="photos" className="mt-4">
           <TreatmentPhotosTab patientId={id} photos={treatmentPhotos} />
+        </TabsContent>
+        <TabsContent value="loyalty" className="mt-4">
+          <LoyaltyTab patientId={id} loyalty={loyalty} />
         </TabsContent>
         <TabsContent value="family" className="mt-4">
           <FamilyInsuranceTab patient={patient} />

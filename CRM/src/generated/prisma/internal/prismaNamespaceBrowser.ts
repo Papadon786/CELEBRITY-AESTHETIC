@@ -65,6 +65,7 @@ export const ModelName = {
   ChronicDisease: 'ChronicDisease',
   Document: 'Document',
   TreatmentPhoto: 'TreatmentPhoto',
+  LoyaltyTransaction: 'LoyaltyTransaction',
   ConsentForm: 'ConsentForm',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
@@ -214,6 +215,9 @@ export const PatientScalarFieldEnum = {
   registrationStatus: 'registrationStatus',
   lockedAt: 'lockedAt',
   lockedById: 'lockedById',
+  referralCode: 'referralCode',
+  referredById: 'referredById',
+  loyaltyPoints: 'loyaltyPoints',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -349,6 +353,19 @@ export const TreatmentPhotoScalarFieldEnum = {
 } as const
 
 export type TreatmentPhotoScalarFieldEnum = (typeof TreatmentPhotoScalarFieldEnum)[keyof typeof TreatmentPhotoScalarFieldEnum]
+
+
+export const LoyaltyTransactionScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  points: 'points',
+  type: 'type',
+  reason: 'reason',
+  createdById: 'createdById',
+  createdAt: 'createdAt'
+} as const
+
+export type LoyaltyTransactionScalarFieldEnum = (typeof LoyaltyTransactionScalarFieldEnum)[keyof typeof LoyaltyTransactionScalarFieldEnum]
 
 
 export const ConsentFormScalarFieldEnum = {
