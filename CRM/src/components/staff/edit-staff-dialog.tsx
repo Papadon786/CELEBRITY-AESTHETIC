@@ -108,6 +108,10 @@ export function EditStaffDialog({
               items={{
                 RECEPTIONIST: "Receptionist (Staff)",
                 DOCTOR: "Doctor",
+                NURSE: "Nurse",
+                TECHNICIAN: "Technician",
+                SALES: "Sales",
+                BILLING: "Billing",
                 ADMIN: "Clinic Administrator",
               }}
               value={role}
@@ -119,6 +123,10 @@ export function EditStaffDialog({
               <SelectContent>
                 <SelectItem value="RECEPTIONIST">Receptionist (Staff)</SelectItem>
                 <SelectItem value="DOCTOR">Doctor</SelectItem>
+                <SelectItem value="NURSE">Nurse</SelectItem>
+                <SelectItem value="TECHNICIAN">Technician</SelectItem>
+                <SelectItem value="SALES">Sales</SelectItem>
+                <SelectItem value="BILLING">Billing</SelectItem>
                 <SelectItem value="ADMIN">Clinic Administrator</SelectItem>
               </SelectContent>
             </Select>

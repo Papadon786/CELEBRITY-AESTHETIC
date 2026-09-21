@@ -16,6 +16,10 @@ import {
   Mail,
   Sliders,
   Layers,
+  Receipt,
+  HeartPulse,
+  Syringe,
+  TrendingUp,
 } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
@@ -60,7 +64,10 @@ const roleBadgeConfig: Record<
   ADMIN: { label: "Admin (Full Access)", icon: Shield, color: "bg-purple-100 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300 border-purple-200" },
   DOCTOR: { label: "Doctor", icon: Stethoscope, color: "bg-teal-100 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 border-teal-200" },
   RECEPTIONIST: { label: "Receptionist", icon: UserCheck, color: "bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 border-blue-200" },
-  BILLING: { label: "Receptionist", icon: UserCheck, color: "bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 border-blue-200" },
+  BILLING: { label: "Billing", icon: Receipt, color: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border-emerald-200" },
+  NURSE: { label: "Nurse", icon: HeartPulse, color: "bg-rose-100 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 border-rose-200" },
+  TECHNICIAN: { label: "Technician", icon: Syringe, color: "bg-amber-100 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 border-amber-200" },
+  SALES: { label: "Sales", icon: TrendingUp, color: "bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-300 border-indigo-200" },
 }
 
 export function StaffTable({ staffList }: { staffList: StaffMember[] }) {

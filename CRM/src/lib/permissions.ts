@@ -220,6 +220,105 @@ export const DEFAULT_RECEPTIONIST_PERMISSIONS: StaffPermissions = {
   },
 }
 
+/** Reception-desk-adjacent billing/finance specialist — was previously falling through to the receptionist preset with no distinct scope. */
+export const DEFAULT_BILLING_PERMISSIONS: StaffPermissions = {
+  allowedTabs: [
+    "/dashboard",
+    "/patients",
+    "/payments",
+    "/billing",
+    "/billing/refunds",
+    "/finance/dashboard",
+    "/finance/outstanding",
+    "/finance/cash-counter",
+    "/finance/expenses",
+    "/finance/reports",
+    "/finance/installments",
+    "/services",
+  ],
+  actionScopes: {
+    canBookAppointments: false,
+    canEditAppointments: false,
+    canCancelAppointments: false,
+    canDispenseMedicine: false,
+    canReturnMedicine: false,
+    canManageMedicineCatalog: false,
+    canManageLeads: false,
+    canExportLeads: false,
+    canCollectPayment: true,
+    canProcessRefunds: false, // Admin only
+    canViewFinancialReports: true,
+    canExportData: true,
+  },
+}
+
+/** Clinical support staff who perform procedures but don't prescribe or manage the clinic's business side. */
+export const DEFAULT_NURSE_PERMISSIONS: StaffPermissions = {
+  allowedTabs: [
+    "/dashboard",
+    "/patients",
+    "/appointments",
+    "/queue",
+    "/inventory",
+    "/waiting-list",
+    "/follow-ups",
+  ],
+  actionScopes: {
+    canBookAppointments: true,
+    canEditAppointments: false,
+    canCancelAppointments: false,
+    canDispenseMedicine: true,
+    canReturnMedicine: true,
+    canManageMedicineCatalog: false,
+    canManageLeads: false,
+    canExportLeads: false,
+    canCollectPayment: false,
+    canProcessRefunds: false,
+    canViewFinancialReports: false,
+    canExportData: false,
+  },
+}
+
+/** Laser/FUE/PMU technicians running procedures — same day-to-day footprint as nursing staff. */
+export const DEFAULT_TECHNICIAN_PERMISSIONS: StaffPermissions = DEFAULT_NURSE_PERMISSIONS
+
+/** Sales/leads specialist — was previously just a relabeled receptionist with no distinct scope. */
+export const DEFAULT_SALES_PERMISSIONS: StaffPermissions = {
+  allowedTabs: [
+    "/dashboard",
+    "/patients",
+    "/sales/leads",
+    "/sales/prospects",
+    "/sales/clients",
+    "/sales",
+    "/communications",
+  ],
+  actionScopes: {
+    canBookAppointments: false,
+    canEditAppointments: false,
+    canCancelAppointments: false,
+    canDispenseMedicine: false,
+    canReturnMedicine: false,
+    canManageMedicineCatalog: false,
+    canManageLeads: true,
+    canExportLeads: true,
+    canCollectPayment: false,
+    canProcessRefunds: false,
+    canViewFinancialReports: false,
+    canExportData: false,
+  },
+}
+
+const ROLE_DEFAULTS: Record<StaffRole, StaffPermissions> = {
+  ADMIN: DEFAULT_ADMIN_PERMISSIONS,
+  DOCTOR: DEFAULT_DOCTOR_PERMISSIONS,
+  RECEPTIONIST: DEFAULT_RECEPTIONIST_PERMISSIONS,
+  BILLING: DEFAULT_BILLING_PERMISSIONS,
+  NURSE: DEFAULT_NURSE_PERMISSIONS,
+  TECHNICIAN: DEFAULT_TECHNICIAN_PERMISSIONS,
+  SALES: DEFAULT_SALES_PERMISSIONS,
+}
+
 /**
  * Returns the effective permissions for a user, falling back to role defaults if not customized.
  */
@@ -229,7 +328,7 @@ export function getEffectivePermissions(user: { role: StaffRole; permissions?: a
     return DEFAULT_ADMIN_PERMISSIONS
   }
 
-  const roleDefault = user.role === "DOCTOR" ? DEFAULT_DOCTOR_PERMISSIONS : DEFAULT_RECEPTIONIST_PERMISSIONS
+  const roleDefault = ROLE_DEFAULTS[user.role] ?? DEFAULT_RECEPTIONIST_PERMISSIONS
 
   if (!user.permissions || typeof user.permissions !== "object") {
     return roleDefault

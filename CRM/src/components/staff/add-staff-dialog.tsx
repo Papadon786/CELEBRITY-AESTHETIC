@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react"
 import { toast } from "sonner"
-import { UserPlus, Stethoscope, Shield, UserCheck, Receipt, Eye, EyeOff } from "lucide-react"
+import { UserPlus, Stethoscope, Shield, UserCheck, Receipt, Eye, EyeOff, HeartPulse, Syringe, TrendingUp } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -20,6 +20,10 @@ import type { StaffRole } from "@/types/database"
 const roleOptions: { value: StaffRole; label: string; icon: typeof UserCheck; desc: string }[] = [
   { value: "RECEPTIONIST", label: "Receptionist (Staff)", icon: UserCheck, desc: "Selective access: Book appointments, check-in tokens, medicine dispensing/returns, payments" },
   { value: "DOCTOR", label: "Doctor", icon: Stethoscope, desc: "Consultations, EMR, Prescriptions & Signature" },
+  { value: "NURSE", label: "Nurse", icon: HeartPulse, desc: "Patient care, queue, medicine dispensing — no prescribing" },
+  { value: "TECHNICIAN", label: "Technician", icon: Syringe, desc: "Laser/FUE/PMU procedures, queue, medicine dispensing — no prescribing" },
+  { value: "SALES", label: "Sales", icon: TrendingUp, desc: "Leads, prospects, clients, and patient communications" },
+  { value: "BILLING", label: "Billing", icon: Receipt, desc: "Payments, invoices, refunds requests, and financial reports" },
   { value: "ADMIN", label: "Clinic Administrator", icon: Shield, desc: "Full CRM control, appointment editing, medicine catalog, staff management, audit logs" },
 ]
 

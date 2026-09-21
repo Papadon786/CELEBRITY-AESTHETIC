@@ -1,4 +1,4 @@
-export type StaffRole = "ADMIN" | "DOCTOR" | "RECEPTIONIST" | "BILLING"
+export type StaffRole = "ADMIN" | "DOCTOR" | "RECEPTIONIST" | "BILLING" | "NURSE" | "TECHNICIAN" | "SALES"
 
 export type Gender = "MALE" | "FEMALE" | "OTHER"
 

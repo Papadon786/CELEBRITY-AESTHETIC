@@ -13,7 +13,10 @@ export const StaffRole = {
   ADMIN: 'ADMIN',
   DOCTOR: 'DOCTOR',
   RECEPTIONIST: 'RECEPTIONIST',
-  BILLING: 'BILLING'
+  BILLING: 'BILLING',
+  NURSE: 'NURSE',
+  TECHNICIAN: 'TECHNICIAN',
+  SALES: 'SALES'
 } as const
 
 export type StaffRole = (typeof StaffRole)[keyof typeof StaffRole]

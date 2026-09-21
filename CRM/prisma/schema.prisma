@@ -26,6 +26,9 @@ enum StaffRole {
   DOCTOR
   RECEPTIONIST
   BILLING
+  NURSE
+  TECHNICIAN
+  SALES
 }
 
 model User {

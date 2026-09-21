@@ -154,4 +154,7 @@ export const staffRoleLabels: Record<string, string> = {
   DOCTOR: "Doctor",
   RECEPTIONIST: "Receptionist",
   BILLING: "Billing",
+  NURSE: "Nurse",
+  TECHNICIAN: "Technician",
+  SALES: "Sales",
 }
