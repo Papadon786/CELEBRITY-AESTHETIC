@@ -393,11 +393,45 @@ export async function updateAppointmentStatus(id: string, status: (typeof ACTIVE
     }).catch((err) => console.error("[Notification] Confirm alert failed:", err))
   }
 
+  if (status === "COMPLETED" && appointment.serviceId && !appointment.consumablesDeducted) {
+    await deductServiceConsumables(appointment.id, appointment.serviceId, appointment.patientId, appointment.appointmentCode)
+  }
+
   revalidatePath("/appointments")
   revalidatePath("/queue")
   revalidatePath(`/patients/${appointment.patientId}`)
   revalidatePath("/dashboard")
   return appointment
+}
+
+/**
+ * Auto-deducts the linked consumable "recipe" for a service when its
+ * appointment completes, instead of relying on staff to remember a manual
+ * stock-out. Best-effort per item — a missing/insufficient item logs a
+ * warning rather than blocking the (already-completed) consultation.
+ */
+async function deductServiceConsumables(appointmentId: string, serviceId: string, patientId: string, appointmentCode: string) {
+  const { stockOut } = await import("./inventory")
+  const recipe = await prisma.serviceConsumable.findMany({ where: { serviceId }, include: { inventoryItem: true } })
+  if (recipe.length === 0) return
+
+  for (const line of recipe) {
+    try {
+      await stockOut({
+        itemId: line.inventoryItemId,
+        quantity: line.quantityPerProcedure,
+        reason: `Auto-deducted for completed appointment ${appointmentCode}`,
+        patientId,
+      })
+    } catch (err) {
+      console.error(
+        `[ServiceConsumables] Could not auto-deduct ${line.inventoryItem.name} for appointment ${appointmentCode}:`,
+        err instanceof Error ? err.message : err
+      )
+    }
+  }
+
+  await prisma.appointment.update({ where: { id: appointmentId }, data: { consumablesDeducted: true } })
 }
 
 export async function assignResourceToAppointment(appointmentId: string, resourceId: string | null) {

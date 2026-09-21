@@ -117,6 +117,11 @@ export type CommunicationPreference = Prisma.CommunicationPreferenceModel
  */
 export type Service = Prisma.ServiceModel
 /**
+ * Model ServiceConsumable
+ * 
+ */
+export type ServiceConsumable = Prisma.ServiceConsumableModel
+/**
  * Model TreatmentPackage
  * 
  */

@@ -276,6 +276,7 @@ export type ServiceWhereInput = {
   appointments?: Prisma.AppointmentListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
   treatmentPackages?: Prisma.TreatmentPackageListRelationFilter
+  consumables?: Prisma.ServiceConsumableListRelationFilter
 }
 
 export type ServiceOrderByWithRelationInput = {
@@ -294,6 +295,7 @@ export type ServiceOrderByWithRelationInput = {
   appointments?: Prisma.AppointmentOrderByRelationAggregateInput
   reviews?: Prisma.ReviewOrderByRelationAggregateInput
   treatmentPackages?: Prisma.TreatmentPackageOrderByRelationAggregateInput
+  consumables?: Prisma.ServiceConsumableOrderByRelationAggregateInput
 }
 
 export type ServiceWhereUniqueInput = Prisma.AtLeast<{
@@ -315,6 +317,7 @@ export type ServiceWhereUniqueInput = Prisma.AtLeast<{
   appointments?: Prisma.AppointmentListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
   treatmentPackages?: Prisma.TreatmentPackageListRelationFilter
+  consumables?: Prisma.ServiceConsumableListRelationFilter
 }, "id" | "slug">
 
 export type ServiceOrderByWithAggregationInput = {
@@ -369,6 +372,7 @@ export type ServiceCreateInput = {
   appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateInput = {
@@ -387,6 +391,7 @@ export type ServiceUncheckedCreateInput = {
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUpdateInput = {
@@ -405,6 +410,7 @@ export type ServiceUpdateInput = {
   appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateInput = {
@@ -423,6 +429,7 @@ export type ServiceUncheckedUpdateInput = {
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateManyInput = {
@@ -521,9 +528,28 @@ export type ServiceSumOrderByAggregateInput = {
   displayOrder?: Prisma.SortOrder
 }
 
+export type ServiceScalarRelationFilter = {
+  is?: Prisma.ServiceWhereInput
+  isNot?: Prisma.ServiceWhereInput
+}
+
 export type ServiceNullableScalarRelationFilter = {
   is?: Prisma.ServiceWhereInput | null
   isNot?: Prisma.ServiceWhereInput | null
+}
+
+export type ServiceCreateNestedOneWithoutConsumablesInput = {
+  create?: Prisma.XOR<Prisma.ServiceCreateWithoutConsumablesInput, Prisma.ServiceUncheckedCreateWithoutConsumablesInput>
+  connectOrCreate?: Prisma.ServiceCreateOrConnectWithoutConsumablesInput
+  connect?: Prisma.ServiceWhereUniqueInput
+}
+
+export type ServiceUpdateOneRequiredWithoutConsumablesNestedInput = {
+  create?: Prisma.XOR<Prisma.ServiceCreateWithoutConsumablesInput, Prisma.ServiceUncheckedCreateWithoutConsumablesInput>
+  connectOrCreate?: Prisma.ServiceCreateOrConnectWithoutConsumablesInput
+  upsert?: Prisma.ServiceUpsertWithoutConsumablesInput
+  connect?: Prisma.ServiceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ServiceUpdateToOneWithWhereWithoutConsumablesInput, Prisma.ServiceUpdateWithoutConsumablesInput>, Prisma.ServiceUncheckedUpdateWithoutConsumablesInput>
 }
 
 export type ServiceCreateNestedOneWithoutTreatmentPackagesInput = {
@@ -590,6 +616,94 @@ export type ServiceUpdateOneWithoutReviewsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ServiceUpdateToOneWithWhereWithoutReviewsInput, Prisma.ServiceUpdateWithoutReviewsInput>, Prisma.ServiceUncheckedUpdateWithoutReviewsInput>
 }
 
+export type ServiceCreateWithoutConsumablesInput = {
+  id?: string
+  slug: string
+  name: string
+  shortDescription?: string | null
+  description?: string | null
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: number
+  displayOrder?: number
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bills?: Prisma.BillCreateNestedManyWithoutServiceInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
+  treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
+}
+
+export type ServiceUncheckedCreateWithoutConsumablesInput = {
+  id?: string
+  slug: string
+  name: string
+  shortDescription?: string | null
+  description?: string | null
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: number
+  displayOrder?: number
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bills?: Prisma.BillUncheckedCreateNestedManyWithoutServiceInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
+  treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
+}
+
+export type ServiceCreateOrConnectWithoutConsumablesInput = {
+  where: Prisma.ServiceWhereUniqueInput
+  create: Prisma.XOR<Prisma.ServiceCreateWithoutConsumablesInput, Prisma.ServiceUncheckedCreateWithoutConsumablesInput>
+}
+
+export type ServiceUpsertWithoutConsumablesInput = {
+  update: Prisma.XOR<Prisma.ServiceUpdateWithoutConsumablesInput, Prisma.ServiceUncheckedUpdateWithoutConsumablesInput>
+  create: Prisma.XOR<Prisma.ServiceCreateWithoutConsumablesInput, Prisma.ServiceUncheckedCreateWithoutConsumablesInput>
+  where?: Prisma.ServiceWhereInput
+}
+
+export type ServiceUpdateToOneWithWhereWithoutConsumablesInput = {
+  where?: Prisma.ServiceWhereInput
+  data: Prisma.XOR<Prisma.ServiceUpdateWithoutConsumablesInput, Prisma.ServiceUncheckedUpdateWithoutConsumablesInput>
+}
+
+export type ServiceUpdateWithoutConsumablesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bills?: Prisma.BillUpdateManyWithoutServiceNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
+  treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
+}
+
+export type ServiceUncheckedUpdateWithoutConsumablesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bills?: Prisma.BillUncheckedUpdateManyWithoutServiceNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
+  treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
+}
+
 export type ServiceCreateWithoutTreatmentPackagesInput = {
   id?: string
   slug: string
@@ -605,6 +719,7 @@ export type ServiceCreateWithoutTreatmentPackagesInput = {
   bills?: Prisma.BillCreateNestedManyWithoutServiceInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutTreatmentPackagesInput = {
@@ -622,6 +737,7 @@ export type ServiceUncheckedCreateWithoutTreatmentPackagesInput = {
   bills?: Prisma.BillUncheckedCreateNestedManyWithoutServiceInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutTreatmentPackagesInput = {
@@ -655,6 +771,7 @@ export type ServiceUpdateWithoutTreatmentPackagesInput = {
   bills?: Prisma.BillUpdateManyWithoutServiceNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutTreatmentPackagesInput = {
@@ -672,6 +789,7 @@ export type ServiceUncheckedUpdateWithoutTreatmentPackagesInput = {
   bills?: Prisma.BillUncheckedUpdateManyWithoutServiceNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateWithoutAppointmentsInput = {
@@ -689,6 +807,7 @@ export type ServiceCreateWithoutAppointmentsInput = {
   bills?: Prisma.BillCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutAppointmentsInput = {
@@ -706,6 +825,7 @@ export type ServiceUncheckedCreateWithoutAppointmentsInput = {
   bills?: Prisma.BillUncheckedCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutAppointmentsInput = {
@@ -739,6 +859,7 @@ export type ServiceUpdateWithoutAppointmentsInput = {
   bills?: Prisma.BillUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutAppointmentsInput = {
@@ -756,6 +877,7 @@ export type ServiceUncheckedUpdateWithoutAppointmentsInput = {
   bills?: Prisma.BillUncheckedUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateWithoutBillsInput = {
@@ -773,6 +895,7 @@ export type ServiceCreateWithoutBillsInput = {
   appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutBillsInput = {
@@ -790,6 +913,7 @@ export type ServiceUncheckedCreateWithoutBillsInput = {
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutBillsInput = {
@@ -823,6 +947,7 @@ export type ServiceUpdateWithoutBillsInput = {
   appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutBillsInput = {
@@ -840,6 +965,7 @@ export type ServiceUncheckedUpdateWithoutBillsInput = {
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateWithoutReviewsInput = {
@@ -857,6 +983,7 @@ export type ServiceCreateWithoutReviewsInput = {
   bills?: Prisma.BillCreateNestedManyWithoutServiceInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutReviewsInput = {
@@ -874,6 +1001,7 @@ export type ServiceUncheckedCreateWithoutReviewsInput = {
   bills?: Prisma.BillUncheckedCreateNestedManyWithoutServiceInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutReviewsInput = {
@@ -907,6 +1035,7 @@ export type ServiceUpdateWithoutReviewsInput = {
   bills?: Prisma.BillUpdateManyWithoutServiceNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutReviewsInput = {
@@ -924,6 +1053,7 @@ export type ServiceUncheckedUpdateWithoutReviewsInput = {
   bills?: Prisma.BillUncheckedUpdateManyWithoutServiceNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 
@@ -936,6 +1066,7 @@ export type ServiceCountOutputType = {
   appointments: number
   reviews: number
   treatmentPackages: number
+  consumables: number
 }
 
 export type ServiceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -943,6 +1074,7 @@ export type ServiceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   appointments?: boolean | ServiceCountOutputTypeCountAppointmentsArgs
   reviews?: boolean | ServiceCountOutputTypeCountReviewsArgs
   treatmentPackages?: boolean | ServiceCountOutputTypeCountTreatmentPackagesArgs
+  consumables?: boolean | ServiceCountOutputTypeCountConsumablesArgs
 }
 
 /**
@@ -983,6 +1115,13 @@ export type ServiceCountOutputTypeCountTreatmentPackagesArgs<ExtArgs extends run
   where?: Prisma.TreatmentPackageWhereInput
 }
 
+/**
+ * ServiceCountOutputType without action
+ */
+export type ServiceCountOutputTypeCountConsumablesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ServiceConsumableWhereInput
+}
+
 
 export type ServiceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1000,6 +1139,7 @@ export type ServiceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   appointments?: boolean | Prisma.Service$appointmentsArgs<ExtArgs>
   reviews?: boolean | Prisma.Service$reviewsArgs<ExtArgs>
   treatmentPackages?: boolean | Prisma.Service$treatmentPackagesArgs<ExtArgs>
+  consumables?: boolean | Prisma.Service$consumablesArgs<ExtArgs>
   _count?: boolean | Prisma.ServiceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["service"]>
 
@@ -1051,6 +1191,7 @@ export type ServiceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   appointments?: boolean | Prisma.Service$appointmentsArgs<ExtArgs>
   reviews?: boolean | Prisma.Service$reviewsArgs<ExtArgs>
   treatmentPackages?: boolean | Prisma.Service$treatmentPackagesArgs<ExtArgs>
+  consumables?: boolean | Prisma.Service$consumablesArgs<ExtArgs>
   _count?: boolean | Prisma.ServiceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ServiceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1063,6 +1204,7 @@ export type $ServicePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     appointments: Prisma.$AppointmentPayload<ExtArgs>[]
     reviews: Prisma.$ReviewPayload<ExtArgs>[]
     treatmentPackages: Prisma.$TreatmentPackagePayload<ExtArgs>[]
+    consumables: Prisma.$ServiceConsumablePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1474,6 +1616,7 @@ export interface Prisma__ServiceClient<T, Null = never, ExtArgs extends runtime.
   appointments<T extends Prisma.Service$appointmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$appointmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AppointmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   reviews<T extends Prisma.Service$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   treatmentPackages<T extends Prisma.Service$treatmentPackagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$treatmentPackagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TreatmentPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  consumables<T extends Prisma.Service$consumablesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$consumablesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServiceConsumablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2000,6 +2143,30 @@ export type Service$treatmentPackagesArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.TreatmentPackageScalarFieldEnum | Prisma.TreatmentPackageScalarFieldEnum[]
+}
+
+/**
+ * Service.consumables
+ */
+export type Service$consumablesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ServiceConsumable
+   */
+  select?: Prisma.ServiceConsumableSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ServiceConsumable
+   */
+  omit?: Prisma.ServiceConsumableOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ServiceConsumableInclude<ExtArgs> | null
+  where?: Prisma.ServiceConsumableWhereInput
+  orderBy?: Prisma.ServiceConsumableOrderByWithRelationInput | Prisma.ServiceConsumableOrderByWithRelationInput[]
+  cursor?: Prisma.ServiceConsumableWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ServiceConsumableScalarFieldEnum | Prisma.ServiceConsumableScalarFieldEnum[]
 }
 
 /**

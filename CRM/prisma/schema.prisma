@@ -432,8 +432,23 @@ model Service {
   appointments      Appointment[]
   reviews           Review[]
   treatmentPackages TreatmentPackage[]
+  consumables       ServiceConsumable[]
 
   @@index([active])
+}
+
+// The "recipe" of consumables (numbing cream, PRP kit, cannulas, etc.) a
+// treatment uses — lets completing an appointment auto-deduct stock instead
+// of relying on staff to remember a separate manual stock-out.
+model ServiceConsumable {
+  id                   String        @id @default(cuid())
+  serviceId            String
+  service              Service       @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  inventoryItemId      String
+  inventoryItem        InventoryItem @relation(fields: [inventoryItemId], references: [id], onDelete: Cascade)
+  quantityPerProcedure Int           @default(1)
+
+  @@unique([serviceId, inventoryItemId])
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -574,28 +589,29 @@ enum AppointmentSource {
 }
 
 model Appointment {
-  id              String            @id @default(cuid())
-  appointmentCode String            @unique
-  patientId       String
-  patient         Patient           @relation(fields: [patientId], references: [id], onDelete: Cascade)
-  doctorId        String
-  doctor          User              @relation("AppointmentDoctor", fields: [doctorId], references: [id])
-  serviceId       String?
-  service         Service?          @relation(fields: [serviceId], references: [id])
-  resourceId      String?
-  resource        Resource?         @relation(fields: [resourceId], references: [id])
-  scheduledAt     DateTime
-  durationMinutes Int               @default(30)
-  type            AppointmentType   @default(IN_PERSON)
-  status          AppointmentStatus @default(PENDING)
-  source          AppointmentSource @default(CRM)
-  reason          String?
-  notes           String?
-  cancelReason    String?
-  cancelledAt     DateTime?
-  checkedInAt     DateTime?
-  startedAt       DateTime?
-  completedAt     DateTime?
+  id                  String            @id @default(cuid())
+  appointmentCode     String            @unique
+  patientId           String
+  patient             Patient           @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId            String
+  doctor              User              @relation("AppointmentDoctor", fields: [doctorId], references: [id])
+  serviceId           String?
+  service             Service?          @relation(fields: [serviceId], references: [id])
+  resourceId          String?
+  resource            Resource?         @relation(fields: [resourceId], references: [id])
+  scheduledAt         DateTime
+  durationMinutes     Int               @default(30)
+  type                AppointmentType   @default(IN_PERSON)
+  status              AppointmentStatus @default(PENDING)
+  source              AppointmentSource @default(CRM)
+  reason              String?
+  notes               String?
+  cancelReason        String?
+  cancelledAt         DateTime?
+  checkedInAt         DateTime?
+  startedAt           DateTime?
+  completedAt         DateTime?
+  consumablesDeducted Boolean           @default(false)
 
   rescheduledFromId String?
   rescheduledFrom   Appointment?  @relation("AppointmentReschedule", fields: [rescheduledFromId], references: [id])
@@ -1526,6 +1542,7 @@ model InventoryItem {
   transactions InventoryTransaction[]
   alerts       InventoryAlert[]
   batches      InventoryBatch[]
+  serviceLinks ServiceConsumable[]
 
   @@index([category])
   @@index([active])

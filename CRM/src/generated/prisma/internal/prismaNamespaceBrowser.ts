@@ -66,6 +66,7 @@ export const ModelName = {
   Document: 'Document',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
+  ServiceConsumable: 'ServiceConsumable',
   TreatmentPackage: 'TreatmentPackage',
   PatientPackage: 'PatientPackage',
   PackageSessionLog: 'PackageSessionLog',
@@ -362,6 +363,16 @@ export const ServiceScalarFieldEnum = {
 export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
 
 
+export const ServiceConsumableScalarFieldEnum = {
+  id: 'id',
+  serviceId: 'serviceId',
+  inventoryItemId: 'inventoryItemId',
+  quantityPerProcedure: 'quantityPerProcedure'
+} as const
+
+export type ServiceConsumableScalarFieldEnum = (typeof ServiceConsumableScalarFieldEnum)[keyof typeof ServiceConsumableScalarFieldEnum]
+
+
 export const TreatmentPackageScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -461,6 +472,7 @@ export const AppointmentScalarFieldEnum = {
   checkedInAt: 'checkedInAt',
   startedAt: 'startedAt',
   completedAt: 'completedAt',
+  consumablesDeducted: 'consumablesDeducted',
   rescheduledFromId: 'rescheduledFromId',
   createdById: 'createdById',
   createdAt: 'createdAt'

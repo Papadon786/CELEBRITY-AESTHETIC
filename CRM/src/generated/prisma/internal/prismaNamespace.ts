@@ -412,6 +412,7 @@ export const ModelName = {
   Document: 'Document',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
+  ServiceConsumable: 'ServiceConsumable',
   TreatmentPackage: 'TreatmentPackage',
   PatientPackage: 'PatientPackage',
   PackageSessionLog: 'PackageSessionLog',
@@ -485,7 +486,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1596,6 +1597,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ServiceCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ServiceCountAggregateOutputType> | number
+        }
+      }
+    }
+    ServiceConsumable: {
+      payload: Prisma.$ServiceConsumablePayload<ExtArgs>
+      fields: Prisma.ServiceConsumableFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ServiceConsumableFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ServiceConsumableFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>
+        }
+        findFirst: {
+          args: Prisma.ServiceConsumableFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ServiceConsumableFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>
+        }
+        findMany: {
+          args: Prisma.ServiceConsumableFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>[]
+        }
+        create: {
+          args: Prisma.ServiceConsumableCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>
+        }
+        createMany: {
+          args: Prisma.ServiceConsumableCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ServiceConsumableCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>[]
+        }
+        delete: {
+          args: Prisma.ServiceConsumableDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>
+        }
+        update: {
+          args: Prisma.ServiceConsumableUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>
+        }
+        deleteMany: {
+          args: Prisma.ServiceConsumableDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ServiceConsumableUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ServiceConsumableUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>[]
+        }
+        upsert: {
+          args: Prisma.ServiceConsumableUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceConsumablePayload>
+        }
+        aggregate: {
+          args: Prisma.ServiceConsumableAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateServiceConsumable>
+        }
+        groupBy: {
+          args: Prisma.ServiceConsumableGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceConsumableGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ServiceConsumableCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceConsumableCountAggregateOutputType> | number
         }
       }
     }
@@ -6150,6 +6225,16 @@ export const ServiceScalarFieldEnum = {
 export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
 
 
+export const ServiceConsumableScalarFieldEnum = {
+  id: 'id',
+  serviceId: 'serviceId',
+  inventoryItemId: 'inventoryItemId',
+  quantityPerProcedure: 'quantityPerProcedure'
+} as const
+
+export type ServiceConsumableScalarFieldEnum = (typeof ServiceConsumableScalarFieldEnum)[keyof typeof ServiceConsumableScalarFieldEnum]
+
+
 export const TreatmentPackageScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -6249,6 +6334,7 @@ export const AppointmentScalarFieldEnum = {
   checkedInAt: 'checkedInAt',
   startedAt: 'startedAt',
   completedAt: 'completedAt',
+  consumablesDeducted: 'consumablesDeducted',
   rescheduledFromId: 'rescheduledFromId',
   createdById: 'createdById',
   createdAt: 'createdAt'
@@ -8076,6 +8162,7 @@ export type GlobalOmitConfig = {
   document?: Prisma.DocumentOmit
   communicationPreference?: Prisma.CommunicationPreferenceOmit
   service?: Prisma.ServiceOmit
+  serviceConsumable?: Prisma.ServiceConsumableOmit
   treatmentPackage?: Prisma.TreatmentPackageOmit
   patientPackage?: Prisma.PatientPackageOmit
   packageSessionLog?: Prisma.PackageSessionLogOmit

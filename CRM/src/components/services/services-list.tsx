@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { DeleteButton } from "@/components/shared/delete-button"
+import { ManageConsumablesDialog } from "@/components/services/manage-consumables-dialog"
 import { formatCurrency } from "@/lib/format"
 import { toggleServiceActive, deleteService, type getServices } from "@/actions/services"
 
@@ -65,6 +66,9 @@ function ServiceCard({ service }: { service: Services[number] }) {
             {service.active ? "Deactivate" : "Activate"}
           </Button>
           <DeleteButton onDelete={() => deleteService(service.id)} />
+        </div>
+        <div className="mt-2">
+          <ManageConsumablesDialog serviceId={service.id} serviceName={service.name} />
         </div>
       </CardContent>
     </Card>
