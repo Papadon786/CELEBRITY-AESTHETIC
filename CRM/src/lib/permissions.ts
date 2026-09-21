@@ -34,6 +34,7 @@ export const ALL_AVAILABLE_TABS: TabItemDefinition[] = [
   { id: "prospects", href: "/sales/prospects", label: "Prospects", group: "Sales", description: "Qualified prospect pipeline, demo bookings, ICP scoring, proposals, and deal negotiation" },
   { id: "clients", href: "/sales/clients", label: "Clients", group: "Sales", description: "Corporate and client accounts, contract values, account managers, and renewals" },
   { id: "sales", href: "/sales", label: "Sales & POS", group: "Sales", description: "Point of Sale counter, quick sales, customer orders, and sales receipts" },
+  { id: "commissions", href: "/sales/commissions", label: "Commissions", group: "Sales", description: "Sales rep commission tracking, approval, and payout" },
 
   // Billing & Finance
   { id: "payments", href: "/payments", label: "Payments", group: "Sales", description: "Patient payment ledger — mark pending payments as paid" },
@@ -291,6 +292,7 @@ export const DEFAULT_SALES_PERMISSIONS: StaffPermissions = {
     "/sales/prospects",
     "/sales/clients",
     "/sales",
+    "/sales/commissions",
     "/communications",
   ],
   actionScopes: {

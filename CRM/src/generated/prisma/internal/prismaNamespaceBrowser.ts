@@ -83,6 +83,8 @@ export const ModelName = {
   Refund: 'Refund',
   PatientAdvance: 'PatientAdvance',
   AdvanceAdjustment: 'AdvanceAdjustment',
+  Commission: 'Commission',
+  SalesTarget: 'SalesTarget',
   PaymentPlan: 'PaymentPlan',
   Installment: 'Installment',
   CashSession: 'CashSession',
@@ -629,6 +631,36 @@ export const AdvanceAdjustmentScalarFieldEnum = {
 } as const
 
 export type AdvanceAdjustmentScalarFieldEnum = (typeof AdvanceAdjustmentScalarFieldEnum)[keyof typeof AdvanceAdjustmentScalarFieldEnum]
+
+
+export const CommissionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  billId: 'billId',
+  saleAmount: 'saleAmount',
+  ratePercent: 'ratePercent',
+  amount: 'amount',
+  status: 'status',
+  notes: 'notes',
+  createdById: 'createdById',
+  createdAt: 'createdAt',
+  paidAt: 'paidAt'
+} as const
+
+export type CommissionScalarFieldEnum = (typeof CommissionScalarFieldEnum)[keyof typeof CommissionScalarFieldEnum]
+
+
+export const SalesTargetScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  targetAmount: 'targetAmount',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type SalesTargetScalarFieldEnum = (typeof SalesTargetScalarFieldEnum)[keyof typeof SalesTargetScalarFieldEnum]
 
 
 export const PaymentPlanScalarFieldEnum = {

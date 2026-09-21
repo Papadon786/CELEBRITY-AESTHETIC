@@ -326,6 +326,7 @@ export type BillWhereInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentListRelationFilter
   patientPackages?: Prisma.PatientPackageListRelationFilter
   paymentPlan?: Prisma.XOR<Prisma.PaymentPlanNullableScalarRelationFilter, Prisma.PaymentPlanWhereInput> | null
+  commissions?: Prisma.CommissionListRelationFilter
 }
 
 export type BillOrderByWithRelationInput = {
@@ -354,6 +355,7 @@ export type BillOrderByWithRelationInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentOrderByRelationAggregateInput
   patientPackages?: Prisma.PatientPackageOrderByRelationAggregateInput
   paymentPlan?: Prisma.PaymentPlanOrderByWithRelationInput
+  commissions?: Prisma.CommissionOrderByRelationAggregateInput
 }
 
 export type BillWhereUniqueInput = Prisma.AtLeast<{
@@ -385,6 +387,7 @@ export type BillWhereUniqueInput = Prisma.AtLeast<{
   advanceAdjustments?: Prisma.AdvanceAdjustmentListRelationFilter
   patientPackages?: Prisma.PatientPackageListRelationFilter
   paymentPlan?: Prisma.XOR<Prisma.PaymentPlanNullableScalarRelationFilter, Prisma.PaymentPlanWhereInput> | null
+  commissions?: Prisma.CommissionListRelationFilter
 }, "id" | "billNumber">
 
 export type BillOrderByWithAggregationInput = {
@@ -453,6 +456,7 @@ export type BillCreateInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateInput = {
@@ -477,6 +481,7 @@ export type BillUncheckedCreateInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillUpdateInput = {
@@ -501,6 +506,7 @@ export type BillUpdateInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateInput = {
@@ -525,6 +531,7 @@ export type BillUncheckedUpdateInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillCreateManyInput = {
@@ -917,6 +924,22 @@ export type BillUpdateOneRequiredWithoutAdvanceAdjustmentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.BillUpdateToOneWithWhereWithoutAdvanceAdjustmentsInput, Prisma.BillUpdateWithoutAdvanceAdjustmentsInput>, Prisma.BillUncheckedUpdateWithoutAdvanceAdjustmentsInput>
 }
 
+export type BillCreateNestedOneWithoutCommissionsInput = {
+  create?: Prisma.XOR<Prisma.BillCreateWithoutCommissionsInput, Prisma.BillUncheckedCreateWithoutCommissionsInput>
+  connectOrCreate?: Prisma.BillCreateOrConnectWithoutCommissionsInput
+  connect?: Prisma.BillWhereUniqueInput
+}
+
+export type BillUpdateOneWithoutCommissionsNestedInput = {
+  create?: Prisma.XOR<Prisma.BillCreateWithoutCommissionsInput, Prisma.BillUncheckedCreateWithoutCommissionsInput>
+  connectOrCreate?: Prisma.BillCreateOrConnectWithoutCommissionsInput
+  upsert?: Prisma.BillUpsertWithoutCommissionsInput
+  disconnect?: Prisma.BillWhereInput | boolean
+  delete?: Prisma.BillWhereInput | boolean
+  connect?: Prisma.BillWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BillUpdateToOneWithWhereWithoutCommissionsInput, Prisma.BillUpdateWithoutCommissionsInput>, Prisma.BillUncheckedUpdateWithoutCommissionsInput>
+}
+
 export type BillCreateNestedOneWithoutPaymentPlanInput = {
   create?: Prisma.XOR<Prisma.BillCreateWithoutPaymentPlanInput, Prisma.BillUncheckedCreateWithoutPaymentPlanInput>
   connectOrCreate?: Prisma.BillCreateOrConnectWithoutPaymentPlanInput
@@ -952,6 +975,7 @@ export type BillCreateWithoutPatientInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutPatientInput = {
@@ -975,6 +999,7 @@ export type BillUncheckedCreateWithoutPatientInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutPatientInput = {
@@ -1045,6 +1070,7 @@ export type BillCreateWithoutInsuranceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutInsuranceInput = {
@@ -1068,6 +1094,7 @@ export type BillUncheckedCreateWithoutInsuranceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutInsuranceInput = {
@@ -1117,6 +1144,7 @@ export type BillCreateWithoutServiceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutServiceInput = {
@@ -1140,6 +1168,7 @@ export type BillUncheckedCreateWithoutServiceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutServiceInput = {
@@ -1189,6 +1218,7 @@ export type BillCreateWithoutPatientPackagesInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutBillInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutPatientPackagesInput = {
@@ -1212,6 +1242,7 @@ export type BillUncheckedCreateWithoutPatientPackagesInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutBillInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutPatientPackagesInput = {
@@ -1251,6 +1282,7 @@ export type BillUpdateWithoutPatientPackagesInput = {
   refunds?: Prisma.RefundUpdateManyWithoutBillNestedInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutPatientPackagesInput = {
@@ -1274,6 +1306,7 @@ export type BillUncheckedUpdateWithoutPatientPackagesInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutBillNestedInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillCreateWithoutAppointmentInput = {
@@ -1297,6 +1330,7 @@ export type BillCreateWithoutAppointmentInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutAppointmentInput = {
@@ -1320,6 +1354,7 @@ export type BillUncheckedCreateWithoutAppointmentInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutAppointmentInput = {
@@ -1369,6 +1404,7 @@ export type BillCreateWithoutItemsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutItemsInput = {
@@ -1392,6 +1428,7 @@ export type BillUncheckedCreateWithoutItemsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutItemsInput = {
@@ -1431,6 +1468,7 @@ export type BillUpdateWithoutItemsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutItemsInput = {
@@ -1454,6 +1492,7 @@ export type BillUncheckedUpdateWithoutItemsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillCreateWithoutPaymentsInput = {
@@ -1477,6 +1516,7 @@ export type BillCreateWithoutPaymentsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutPaymentsInput = {
@@ -1500,6 +1540,7 @@ export type BillUncheckedCreateWithoutPaymentsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutPaymentsInput = {
@@ -1539,6 +1580,7 @@ export type BillUpdateWithoutPaymentsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutPaymentsInput = {
@@ -1562,6 +1604,7 @@ export type BillUncheckedUpdateWithoutPaymentsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillCreateWithoutRefundsInput = {
@@ -1585,6 +1628,7 @@ export type BillCreateWithoutRefundsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutRefundsInput = {
@@ -1608,6 +1652,7 @@ export type BillUncheckedCreateWithoutRefundsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutRefundsInput = {
@@ -1647,6 +1692,7 @@ export type BillUpdateWithoutRefundsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutRefundsInput = {
@@ -1670,6 +1716,7 @@ export type BillUncheckedUpdateWithoutRefundsInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillCreateWithoutAdvanceAdjustmentsInput = {
@@ -1693,6 +1740,7 @@ export type BillCreateWithoutAdvanceAdjustmentsInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutAdvanceAdjustmentsInput = {
@@ -1716,6 +1764,7 @@ export type BillUncheckedCreateWithoutAdvanceAdjustmentsInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
   paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutAdvanceAdjustmentsInput = {
@@ -1755,6 +1804,7 @@ export type BillUpdateWithoutAdvanceAdjustmentsInput = {
   refunds?: Prisma.RefundUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutAdvanceAdjustmentsInput = {
@@ -1776,6 +1826,119 @@ export type BillUncheckedUpdateWithoutAdvanceAdjustmentsInput = {
   items?: Prisma.BillItemUncheckedUpdateManyWithoutBillNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutBillNestedInput
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutBillNestedInput
+  patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
+  paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
+}
+
+export type BillCreateWithoutCommissionsInput = {
+  id?: string
+  billNumber: string
+  totalAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  netAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  amountPaid?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  balanceDue?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: $Enums.BillStatus
+  issuedAt?: Date | string
+  cancelledAt?: Date | string | null
+  patient: Prisma.PatientCreateNestedOneWithoutBillsInput
+  appointment?: Prisma.AppointmentCreateNestedOneWithoutBillsInput
+  insurance?: Prisma.InsuranceCreateNestedOneWithoutBillsInput
+  service?: Prisma.ServiceCreateNestedOneWithoutBillsInput
+  items?: Prisma.BillItemCreateNestedManyWithoutBillInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutBillInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutBillInput
+  advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
+  patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
+  paymentPlan?: Prisma.PaymentPlanCreateNestedOneWithoutBillInput
+}
+
+export type BillUncheckedCreateWithoutCommissionsInput = {
+  id?: string
+  billNumber: string
+  patientId: string
+  appointmentId?: string | null
+  insuranceId?: string | null
+  serviceId?: string | null
+  totalAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  netAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  amountPaid?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  balanceDue?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: $Enums.BillStatus
+  issuedAt?: Date | string
+  cancelledAt?: Date | string | null
+  items?: Prisma.BillItemUncheckedCreateNestedManyWithoutBillInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutBillInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutBillInput
+  advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
+  patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
+  paymentPlan?: Prisma.PaymentPlanUncheckedCreateNestedOneWithoutBillInput
+}
+
+export type BillCreateOrConnectWithoutCommissionsInput = {
+  where: Prisma.BillWhereUniqueInput
+  create: Prisma.XOR<Prisma.BillCreateWithoutCommissionsInput, Prisma.BillUncheckedCreateWithoutCommissionsInput>
+}
+
+export type BillUpsertWithoutCommissionsInput = {
+  update: Prisma.XOR<Prisma.BillUpdateWithoutCommissionsInput, Prisma.BillUncheckedUpdateWithoutCommissionsInput>
+  create: Prisma.XOR<Prisma.BillCreateWithoutCommissionsInput, Prisma.BillUncheckedCreateWithoutCommissionsInput>
+  where?: Prisma.BillWhereInput
+}
+
+export type BillUpdateToOneWithWhereWithoutCommissionsInput = {
+  where?: Prisma.BillWhereInput
+  data: Prisma.XOR<Prisma.BillUpdateWithoutCommissionsInput, Prisma.BillUncheckedUpdateWithoutCommissionsInput>
+}
+
+export type BillUpdateWithoutCommissionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  billNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  netAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  amountPaid?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  balanceDue?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: Prisma.EnumBillStatusFieldUpdateOperationsInput | $Enums.BillStatus
+  issuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  patient?: Prisma.PatientUpdateOneRequiredWithoutBillsNestedInput
+  appointment?: Prisma.AppointmentUpdateOneWithoutBillsNestedInput
+  insurance?: Prisma.InsuranceUpdateOneWithoutBillsNestedInput
+  service?: Prisma.ServiceUpdateOneWithoutBillsNestedInput
+  items?: Prisma.BillItemUpdateManyWithoutBillNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutBillNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutBillNestedInput
+  advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
+  patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
+  paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+}
+
+export type BillUncheckedUpdateWithoutCommissionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  billNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  patientId?: Prisma.StringFieldUpdateOperationsInput | string
+  appointmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  insuranceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serviceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  netAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  amountPaid?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  balanceDue?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: Prisma.EnumBillStatusFieldUpdateOperationsInput | $Enums.BillStatus
+  issuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  items?: Prisma.BillItemUncheckedUpdateManyWithoutBillNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutBillNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutBillNestedInput
+  advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
 }
@@ -1801,6 +1964,7 @@ export type BillCreateWithoutPaymentPlanInput = {
   refunds?: Prisma.RefundCreateNestedManyWithoutBillInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutBillInput
+  commissions?: Prisma.CommissionCreateNestedManyWithoutBillInput
 }
 
 export type BillUncheckedCreateWithoutPaymentPlanInput = {
@@ -1824,6 +1988,7 @@ export type BillUncheckedCreateWithoutPaymentPlanInput = {
   refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutBillInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedCreateNestedManyWithoutBillInput
   patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutBillInput
+  commissions?: Prisma.CommissionUncheckedCreateNestedManyWithoutBillInput
 }
 
 export type BillCreateOrConnectWithoutPaymentPlanInput = {
@@ -1863,6 +2028,7 @@ export type BillUpdateWithoutPaymentPlanInput = {
   refunds?: Prisma.RefundUpdateManyWithoutBillNestedInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutPaymentPlanInput = {
@@ -1886,6 +2052,7 @@ export type BillUncheckedUpdateWithoutPaymentPlanInput = {
   refunds?: Prisma.RefundUncheckedUpdateManyWithoutBillNestedInput
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillCreateManyPatientInput = {
@@ -1926,6 +2093,7 @@ export type BillUpdateWithoutPatientInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutPatientInput = {
@@ -1949,6 +2117,7 @@ export type BillUncheckedUpdateWithoutPatientInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateManyWithoutPatientInput = {
@@ -2006,6 +2175,7 @@ export type BillUpdateWithoutInsuranceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutInsuranceInput = {
@@ -2029,6 +2199,7 @@ export type BillUncheckedUpdateWithoutInsuranceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateManyWithoutInsuranceInput = {
@@ -2086,6 +2257,7 @@ export type BillUpdateWithoutServiceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutServiceInput = {
@@ -2109,6 +2281,7 @@ export type BillUncheckedUpdateWithoutServiceInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateManyWithoutServiceInput = {
@@ -2166,6 +2339,7 @@ export type BillUpdateWithoutAppointmentInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateWithoutAppointmentInput = {
@@ -2189,6 +2363,7 @@ export type BillUncheckedUpdateWithoutAppointmentInput = {
   advanceAdjustments?: Prisma.AdvanceAdjustmentUncheckedUpdateManyWithoutBillNestedInput
   patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutBillNestedInput
   paymentPlan?: Prisma.PaymentPlanUncheckedUpdateOneWithoutBillNestedInput
+  commissions?: Prisma.CommissionUncheckedUpdateManyWithoutBillNestedInput
 }
 
 export type BillUncheckedUpdateManyWithoutAppointmentInput = {
@@ -2219,6 +2394,7 @@ export type BillCountOutputType = {
   refunds: number
   advanceAdjustments: number
   patientPackages: number
+  commissions: number
 }
 
 export type BillCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2227,6 +2403,7 @@ export type BillCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   refunds?: boolean | BillCountOutputTypeCountRefundsArgs
   advanceAdjustments?: boolean | BillCountOutputTypeCountAdvanceAdjustmentsArgs
   patientPackages?: boolean | BillCountOutputTypeCountPatientPackagesArgs
+  commissions?: boolean | BillCountOutputTypeCountCommissionsArgs
 }
 
 /**
@@ -2274,6 +2451,13 @@ export type BillCountOutputTypeCountPatientPackagesArgs<ExtArgs extends runtime.
   where?: Prisma.PatientPackageWhereInput
 }
 
+/**
+ * BillCountOutputType without action
+ */
+export type BillCountOutputTypeCountCommissionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CommissionWhereInput
+}
+
 
 export type BillSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2301,6 +2485,7 @@ export type BillSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   advanceAdjustments?: boolean | Prisma.Bill$advanceAdjustmentsArgs<ExtArgs>
   patientPackages?: boolean | Prisma.Bill$patientPackagesArgs<ExtArgs>
   paymentPlan?: boolean | Prisma.Bill$paymentPlanArgs<ExtArgs>
+  commissions?: boolean | Prisma.Bill$commissionsArgs<ExtArgs>
   _count?: boolean | Prisma.BillCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["bill"]>
 
@@ -2378,6 +2563,7 @@ export type BillInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   advanceAdjustments?: boolean | Prisma.Bill$advanceAdjustmentsArgs<ExtArgs>
   patientPackages?: boolean | Prisma.Bill$patientPackagesArgs<ExtArgs>
   paymentPlan?: boolean | Prisma.Bill$paymentPlanArgs<ExtArgs>
+  commissions?: boolean | Prisma.Bill$commissionsArgs<ExtArgs>
   _count?: boolean | Prisma.BillCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type BillIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2406,6 +2592,7 @@ export type $BillPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     advanceAdjustments: Prisma.$AdvanceAdjustmentPayload<ExtArgs>[]
     patientPackages: Prisma.$PatientPackagePayload<ExtArgs>[]
     paymentPlan: Prisma.$PaymentPlanPayload<ExtArgs> | null
+    commissions: Prisma.$CommissionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2827,6 +3014,7 @@ export interface Prisma__BillClient<T, Null = never, ExtArgs extends runtime.Typ
   advanceAdjustments<T extends Prisma.Bill$advanceAdjustmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Bill$advanceAdjustmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AdvanceAdjustmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   patientPackages<T extends Prisma.Bill$patientPackagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Bill$patientPackagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PatientPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   paymentPlan<T extends Prisma.Bill$paymentPlanArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Bill$paymentPlanArgs<ExtArgs>>): Prisma.Prisma__PaymentPlanClient<runtime.Types.Result.GetResult<Prisma.$PaymentPlanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  commissions<T extends Prisma.Bill$commissionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Bill$commissionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3465,6 +3653,30 @@ export type Bill$paymentPlanArgs<ExtArgs extends runtime.Types.Extensions.Intern
    */
   include?: Prisma.PaymentPlanInclude<ExtArgs> | null
   where?: Prisma.PaymentPlanWhereInput
+}
+
+/**
+ * Bill.commissions
+ */
+export type Bill$commissionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Commission
+   */
+  select?: Prisma.CommissionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Commission
+   */
+  omit?: Prisma.CommissionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CommissionInclude<ExtArgs> | null
+  where?: Prisma.CommissionWhereInput
+  orderBy?: Prisma.CommissionOrderByWithRelationInput | Prisma.CommissionOrderByWithRelationInput[]
+  cursor?: Prisma.CommissionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CommissionScalarFieldEnum | Prisma.CommissionScalarFieldEnum[]
 }
 
 /**

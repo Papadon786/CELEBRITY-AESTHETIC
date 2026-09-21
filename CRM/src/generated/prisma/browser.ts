@@ -178,6 +178,16 @@ export type PatientAdvance = Prisma.PatientAdvanceModel
  */
 export type AdvanceAdjustment = Prisma.AdvanceAdjustmentModel
 /**
+ * Model Commission
+ * 
+ */
+export type Commission = Prisma.CommissionModel
+/**
+ * Model SalesTarget
+ * 
+ */
+export type SalesTarget = Prisma.SalesTargetModel
+/**
  * Model PaymentPlan
  * 
  */

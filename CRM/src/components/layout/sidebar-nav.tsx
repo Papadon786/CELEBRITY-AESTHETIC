@@ -84,6 +84,7 @@ const navGroups: NavGroup[] = [
       { href: "/sales/prospects", label: "Prospects", icon: Star },
       { href: "/sales/clients", label: "Clients", icon: Briefcase },
       { href: "/sales", label: "Sales & POS", icon: ShoppingCart },
+      { href: "/sales/commissions", label: "Commissions", icon: TrendingUp },
       { href: "/payments", label: "Payments", icon: IndianRupee },
       { href: "/billing", label: "Billing", icon: Receipt },
       { href: "/billing/refunds", label: "Refunds", icon: Undo2 },

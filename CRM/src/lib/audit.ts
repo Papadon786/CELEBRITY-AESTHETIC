@@ -46,10 +46,14 @@ export type AuditAction =
   | "PURCHASE_ORDER_CREATED"
   | "PURCHASE_ORDER_RECEIVED"
   | "PURCHASE_ORDER_CANCELLED"
+  | "COMMISSION_CREATED"
+  | "COMMISSION_APPROVED"
+  | "COMMISSION_PAID"
+  | "SALES_TARGET_CREATED"
 
 interface LogAuditParams {
   action: AuditAction
-  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder"
+  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget"
   entityId?: string
   metadata?: Record<string, unknown> | null
   userId?: string
