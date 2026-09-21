@@ -83,6 +83,11 @@ export type ChronicDisease = Prisma.ChronicDiseaseModel
  */
 export type Document = Prisma.DocumentModel
 /**
+ * Model TreatmentPhoto
+ * 
+ */
+export type TreatmentPhoto = Prisma.TreatmentPhotoModel
+/**
  * Model ConsentForm
  * 
  */

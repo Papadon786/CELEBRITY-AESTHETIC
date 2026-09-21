@@ -64,6 +64,7 @@ export const ModelName = {
   Allergy: 'Allergy',
   ChronicDisease: 'ChronicDisease',
   Document: 'Document',
+  TreatmentPhoto: 'TreatmentPhoto',
   ConsentForm: 'ConsentForm',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
@@ -334,6 +335,20 @@ export const DocumentScalarFieldEnum = {
 } as const
 
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
+
+
+export const TreatmentPhotoScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  appointmentId: 'appointmentId',
+  type: 'type',
+  photoUrl: 'photoUrl',
+  caption: 'caption',
+  takenAt: 'takenAt',
+  uploadedById: 'uploadedById'
+} as const
+
+export type TreatmentPhotoScalarFieldEnum = (typeof TreatmentPhotoScalarFieldEnum)[keyof typeof TreatmentPhotoScalarFieldEnum]
 
 
 export const ConsentFormScalarFieldEnum = {

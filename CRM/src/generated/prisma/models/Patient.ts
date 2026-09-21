@@ -430,6 +430,7 @@ export type PatientWhereInput = {
   chronicDiseases?: Prisma.ChronicDiseaseListRelationFilter
   documents?: Prisma.DocumentListRelationFilter
   consentForms?: Prisma.ConsentFormListRelationFilter
+  treatmentPhotos?: Prisma.TreatmentPhotoListRelationFilter
   communicationPreference?: Prisma.XOR<Prisma.CommunicationPreferenceNullableScalarRelationFilter, Prisma.CommunicationPreferenceWhereInput> | null
   appointments?: Prisma.AppointmentListRelationFilter
   waitingListEntries?: Prisma.WaitingListEntryListRelationFilter
@@ -501,6 +502,7 @@ export type PatientOrderByWithRelationInput = {
   chronicDiseases?: Prisma.ChronicDiseaseOrderByRelationAggregateInput
   documents?: Prisma.DocumentOrderByRelationAggregateInput
   consentForms?: Prisma.ConsentFormOrderByRelationAggregateInput
+  treatmentPhotos?: Prisma.TreatmentPhotoOrderByRelationAggregateInput
   communicationPreference?: Prisma.CommunicationPreferenceOrderByWithRelationInput
   appointments?: Prisma.AppointmentOrderByRelationAggregateInput
   waitingListEntries?: Prisma.WaitingListEntryOrderByRelationAggregateInput
@@ -575,6 +577,7 @@ export type PatientWhereUniqueInput = Prisma.AtLeast<{
   chronicDiseases?: Prisma.ChronicDiseaseListRelationFilter
   documents?: Prisma.DocumentListRelationFilter
   consentForms?: Prisma.ConsentFormListRelationFilter
+  treatmentPhotos?: Prisma.TreatmentPhotoListRelationFilter
   communicationPreference?: Prisma.XOR<Prisma.CommunicationPreferenceNullableScalarRelationFilter, Prisma.CommunicationPreferenceWhereInput> | null
   appointments?: Prisma.AppointmentListRelationFilter
   waitingListEntries?: Prisma.WaitingListEntryListRelationFilter
@@ -719,6 +722,7 @@ export type PatientCreateInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -789,6 +793,7 @@ export type PatientUncheckedCreateInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -859,6 +864,7 @@ export type PatientUpdateInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -929,6 +935,7 @@ export type PatientUncheckedUpdateInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -1380,6 +1387,20 @@ export type PatientUpdateOneRequiredWithoutDocumentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PatientUpdateToOneWithWhereWithoutDocumentsInput, Prisma.PatientUpdateWithoutDocumentsInput>, Prisma.PatientUncheckedUpdateWithoutDocumentsInput>
 }
 
+export type PatientCreateNestedOneWithoutTreatmentPhotosInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutTreatmentPhotosInput, Prisma.PatientUncheckedCreateWithoutTreatmentPhotosInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutTreatmentPhotosInput
+  connect?: Prisma.PatientWhereUniqueInput
+}
+
+export type PatientUpdateOneRequiredWithoutTreatmentPhotosNestedInput = {
+  create?: Prisma.XOR<Prisma.PatientCreateWithoutTreatmentPhotosInput, Prisma.PatientUncheckedCreateWithoutTreatmentPhotosInput>
+  connectOrCreate?: Prisma.PatientCreateOrConnectWithoutTreatmentPhotosInput
+  upsert?: Prisma.PatientUpsertWithoutTreatmentPhotosInput
+  connect?: Prisma.PatientWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PatientUpdateToOneWithWhereWithoutTreatmentPhotosInput, Prisma.PatientUpdateWithoutTreatmentPhotosInput>, Prisma.PatientUncheckedUpdateWithoutTreatmentPhotosInput>
+}
+
 export type PatientCreateNestedOneWithoutConsentFormsInput = {
   create?: Prisma.XOR<Prisma.PatientCreateWithoutConsentFormsInput, Prisma.PatientUncheckedCreateWithoutConsentFormsInput>
   connectOrCreate?: Prisma.PatientCreateOrConnectWithoutConsentFormsInput
@@ -1819,6 +1840,7 @@ export type PatientCreateWithoutRegisteredByInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -1888,6 +1910,7 @@ export type PatientUncheckedCreateWithoutRegisteredByInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -2019,6 +2042,7 @@ export type PatientCreateWithoutTagsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -2088,6 +2112,7 @@ export type PatientUncheckedCreateWithoutTagsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -2173,6 +2198,7 @@ export type PatientUpdateWithoutTagsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -2242,6 +2268,7 @@ export type PatientUncheckedUpdateWithoutTagsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -2311,6 +2338,7 @@ export type PatientCreateWithoutFamilyMembersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -2380,6 +2408,7 @@ export type PatientUncheckedCreateWithoutFamilyMembersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -2455,6 +2484,7 @@ export type PatientCreateWithoutRelatedToFamilyOfInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -2524,6 +2554,7 @@ export type PatientUncheckedCreateWithoutRelatedToFamilyOfInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -2608,6 +2639,7 @@ export type PatientUpdateWithoutFamilyMembersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -2677,6 +2709,7 @@ export type PatientUncheckedUpdateWithoutFamilyMembersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -2758,6 +2791,7 @@ export type PatientUpdateWithoutRelatedToFamilyOfInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -2827,6 +2861,7 @@ export type PatientUncheckedUpdateWithoutRelatedToFamilyOfInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -2895,6 +2930,7 @@ export type PatientCreateWithoutInsurancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -2964,6 +3000,7 @@ export type PatientUncheckedCreateWithoutInsurancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -3049,6 +3086,7 @@ export type PatientUpdateWithoutInsurancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -3118,6 +3156,7 @@ export type PatientUncheckedUpdateWithoutInsurancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -3187,6 +3226,7 @@ export type PatientCreateWithoutEmergencyContactsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -3256,6 +3296,7 @@ export type PatientUncheckedCreateWithoutEmergencyContactsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -3341,6 +3382,7 @@ export type PatientUpdateWithoutEmergencyContactsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -3410,6 +3452,7 @@ export type PatientUncheckedUpdateWithoutEmergencyContactsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -3479,6 +3522,7 @@ export type PatientCreateWithoutMedicalAlertsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -3548,6 +3592,7 @@ export type PatientUncheckedCreateWithoutMedicalAlertsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -3633,6 +3678,7 @@ export type PatientUpdateWithoutMedicalAlertsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -3702,6 +3748,7 @@ export type PatientUncheckedUpdateWithoutMedicalAlertsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -3771,6 +3818,7 @@ export type PatientCreateWithoutAllergiesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -3840,6 +3888,7 @@ export type PatientUncheckedCreateWithoutAllergiesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -3925,6 +3974,7 @@ export type PatientUpdateWithoutAllergiesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -3994,6 +4044,7 @@ export type PatientUncheckedUpdateWithoutAllergiesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -4063,6 +4114,7 @@ export type PatientCreateWithoutChronicDiseasesInput = {
   allergies?: Prisma.AllergyCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -4132,6 +4184,7 @@ export type PatientUncheckedCreateWithoutChronicDiseasesInput = {
   allergies?: Prisma.AllergyUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -4217,6 +4270,7 @@ export type PatientUpdateWithoutChronicDiseasesInput = {
   allergies?: Prisma.AllergyUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -4286,6 +4340,7 @@ export type PatientUncheckedUpdateWithoutChronicDiseasesInput = {
   allergies?: Prisma.AllergyUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -4355,6 +4410,7 @@ export type PatientCreateWithoutDocumentsInput = {
   allergies?: Prisma.AllergyCreateNestedManyWithoutPatientInput
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -4424,6 +4480,7 @@ export type PatientUncheckedCreateWithoutDocumentsInput = {
   allergies?: Prisma.AllergyUncheckedCreateNestedManyWithoutPatientInput
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -4509,6 +4566,7 @@ export type PatientUpdateWithoutDocumentsInput = {
   allergies?: Prisma.AllergyUpdateManyWithoutPatientNestedInput
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -4577,6 +4635,303 @@ export type PatientUncheckedUpdateWithoutDocumentsInput = {
   medicalAlerts?: Prisma.MedicalAlertUncheckedUpdateManyWithoutPatientNestedInput
   allergies?: Prisma.AllergyUncheckedUpdateManyWithoutPatientNestedInput
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
+  consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUncheckedUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutPatientNestedInput
+  patientPackages?: Prisma.PatientPackageUncheckedUpdateManyWithoutPatientNestedInput
+  paymentPlans?: Prisma.PaymentPlanUncheckedUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUncheckedUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUncheckedUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUncheckedUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUncheckedUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUncheckedUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUncheckedUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUncheckedUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUncheckedUpdateManyWithoutPatientNestedInput
+}
+
+export type PatientCreateWithoutTreatmentPhotosInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  registeredBy?: Prisma.UserCreateNestedOneWithoutRegisteredPatientsInput
+  tags?: Prisma.PatientTagCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
+  consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutPatientInput
+  patientPackages?: Prisma.PatientPackageCreateNestedManyWithoutPatientInput
+  paymentPlans?: Prisma.PaymentPlanCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountCreateNestedManyWithoutPatientInput
+}
+
+export type PatientUncheckedCreateWithoutTreatmentPhotosInput = {
+  id?: string
+  uhid: string
+  firstName: string
+  lastName?: string | null
+  dob?: Date | string | null
+  gender?: $Enums.Gender | null
+  bloodGroup?: $Enums.BloodGroup | null
+  occupation?: string | null
+  heightCm?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: $Enums.CareCategory | null
+  phone: string
+  alternatePhone?: string | null
+  email?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  city?: string | null
+  state?: string | null
+  postalCode?: string | null
+  country?: string | null
+  photoUrl?: string | null
+  status?: $Enums.PatientStatus
+  notesSummary?: string | null
+  source?: string | null
+  registeredById?: string | null
+  registrationStatus?: $Enums.RegistrationStatus
+  lockedAt?: Date | string | null
+  lockedById?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tags?: Prisma.PatientTagUncheckedCreateNestedManyWithoutPatientInput
+  familyMembers?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutPatientInput
+  insurances?: Prisma.InsuranceUncheckedCreateNestedManyWithoutPatientInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedCreateNestedManyWithoutPatientInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedCreateNestedManyWithoutPatientInput
+  allergies?: Prisma.AllergyUncheckedCreateNestedManyWithoutPatientInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
+  consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
+  prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutPatientInput
+  bills?: Prisma.BillUncheckedCreateNestedManyWithoutPatientInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutPatientInput
+  patientPackages?: Prisma.PatientPackageUncheckedCreateNestedManyWithoutPatientInput
+  paymentPlans?: Prisma.PaymentPlanUncheckedCreateNestedManyWithoutPatientInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutPatientInput
+  notes?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutPatientInput
+  followUps?: Prisma.FollowUpUncheckedCreateNestedManyWithoutPatientInput
+  feedback?: Prisma.FeedbackUncheckedCreateNestedManyWithoutPatientInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUncheckedCreateNestedManyWithoutRelatedPatientInput
+  encounters?: Prisma.EncounterUncheckedCreateNestedManyWithoutPatientInput
+  medicalHistory?: Prisma.MedicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  familyHistory?: Prisma.FamilyHistoryEntryUncheckedCreateNestedManyWithoutPatientInput
+  surgicalHistory?: Prisma.SurgicalHistoryUncheckedCreateNestedManyWithoutPatientInput
+  currentMedications?: Prisma.CurrentMedicationUncheckedCreateNestedManyWithoutPatientInput
+  clinicalReports?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutPatientInput
+  referralNotes?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutPatientInput
+  certificates?: Prisma.CertificateUncheckedCreateNestedManyWithoutPatientInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPatientInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutPatientInput
+  advances?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutPatientInput
+  campaignRecipients?: Prisma.CampaignRecipientUncheckedCreateNestedManyWithoutPatientInput
+  convertedFromLeads?: Prisma.LeadUncheckedCreateNestedManyWithoutConvertedPatientInput
+  convertedFromProspects?: Prisma.ProspectUncheckedCreateNestedManyWithoutConvertedPatientInput
+  clientAccounts?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutPatientInput
+}
+
+export type PatientCreateOrConnectWithoutTreatmentPhotosInput = {
+  where: Prisma.PatientWhereUniqueInput
+  create: Prisma.XOR<Prisma.PatientCreateWithoutTreatmentPhotosInput, Prisma.PatientUncheckedCreateWithoutTreatmentPhotosInput>
+}
+
+export type PatientUpsertWithoutTreatmentPhotosInput = {
+  update: Prisma.XOR<Prisma.PatientUpdateWithoutTreatmentPhotosInput, Prisma.PatientUncheckedUpdateWithoutTreatmentPhotosInput>
+  create: Prisma.XOR<Prisma.PatientCreateWithoutTreatmentPhotosInput, Prisma.PatientUncheckedCreateWithoutTreatmentPhotosInput>
+  where?: Prisma.PatientWhereInput
+}
+
+export type PatientUpdateToOneWithWhereWithoutTreatmentPhotosInput = {
+  where?: Prisma.PatientWhereInput
+  data: Prisma.XOR<Prisma.PatientUpdateWithoutTreatmentPhotosInput, Prisma.PatientUncheckedUpdateWithoutTreatmentPhotosInput>
+}
+
+export type PatientUpdateWithoutTreatmentPhotosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registeredBy?: Prisma.UserUpdateOneWithoutRegisteredPatientsNestedInput
+  tags?: Prisma.PatientTagUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
+  consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
+  prescriptions?: Prisma.PrescriptionUpdateManyWithoutPatientNestedInput
+  bills?: Prisma.BillUpdateManyWithoutPatientNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutPatientNestedInput
+  patientPackages?: Prisma.PatientPackageUpdateManyWithoutPatientNestedInput
+  paymentPlans?: Prisma.PaymentPlanUpdateManyWithoutPatientNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutPatientNestedInput
+  notes?: Prisma.PatientNoteUpdateManyWithoutPatientNestedInput
+  followUps?: Prisma.FollowUpUpdateManyWithoutPatientNestedInput
+  feedback?: Prisma.FeedbackUpdateManyWithoutPatientNestedInput
+  relatedToFamilyOf?: Prisma.FamilyMemberUpdateManyWithoutRelatedPatientNestedInput
+  encounters?: Prisma.EncounterUpdateManyWithoutPatientNestedInput
+  medicalHistory?: Prisma.MedicalHistoryUpdateManyWithoutPatientNestedInput
+  familyHistory?: Prisma.FamilyHistoryEntryUpdateManyWithoutPatientNestedInput
+  surgicalHistory?: Prisma.SurgicalHistoryUpdateManyWithoutPatientNestedInput
+  currentMedications?: Prisma.CurrentMedicationUpdateManyWithoutPatientNestedInput
+  clinicalReports?: Prisma.ClinicalReportUpdateManyWithoutPatientNestedInput
+  referralNotes?: Prisma.ReferralNoteUpdateManyWithoutPatientNestedInput
+  certificates?: Prisma.CertificateUpdateManyWithoutPatientNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPatientNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutPatientNestedInput
+  advances?: Prisma.PatientAdvanceUpdateManyWithoutPatientNestedInput
+  campaignRecipients?: Prisma.CampaignRecipientUpdateManyWithoutPatientNestedInput
+  convertedFromLeads?: Prisma.LeadUpdateManyWithoutConvertedPatientNestedInput
+  convertedFromProspects?: Prisma.ProspectUpdateManyWithoutConvertedPatientNestedInput
+  clientAccounts?: Prisma.ClientAccountUpdateManyWithoutPatientNestedInput
+}
+
+export type PatientUncheckedUpdateWithoutTreatmentPhotosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  uhid?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dob?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  bloodGroup?: Prisma.NullableEnumBloodGroupFieldUpdateOperationsInput | $Enums.BloodGroup | null
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  heightCm?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  weightKg?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  careCategory?: Prisma.NullableEnumCareCategoryFieldUpdateOperationsInput | $Enums.CareCategory | null
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPatientStatusFieldUpdateOperationsInput | $Enums.PatientStatus
+  notesSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  registrationStatus?: Prisma.EnumRegistrationStatusFieldUpdateOperationsInput | $Enums.RegistrationStatus
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lockedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tags?: Prisma.PatientTagUncheckedUpdateManyWithoutPatientNestedInput
+  familyMembers?: Prisma.FamilyMemberUncheckedUpdateManyWithoutPatientNestedInput
+  insurances?: Prisma.InsuranceUncheckedUpdateManyWithoutPatientNestedInput
+  emergencyContacts?: Prisma.EmergencyContactUncheckedUpdateManyWithoutPatientNestedInput
+  medicalAlerts?: Prisma.MedicalAlertUncheckedUpdateManyWithoutPatientNestedInput
+  allergies?: Prisma.AllergyUncheckedUpdateManyWithoutPatientNestedInput
+  chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
@@ -4647,6 +5002,7 @@ export type PatientCreateWithoutConsentFormsInput = {
   allergies?: Prisma.AllergyCreateNestedManyWithoutPatientInput
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -4716,6 +5072,7 @@ export type PatientUncheckedCreateWithoutConsentFormsInput = {
   allergies?: Prisma.AllergyUncheckedCreateNestedManyWithoutPatientInput
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -4801,6 +5158,7 @@ export type PatientUpdateWithoutConsentFormsInput = {
   allergies?: Prisma.AllergyUpdateManyWithoutPatientNestedInput
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -4870,6 +5228,7 @@ export type PatientUncheckedUpdateWithoutConsentFormsInput = {
   allergies?: Prisma.AllergyUncheckedUpdateManyWithoutPatientNestedInput
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -4940,6 +5299,7 @@ export type PatientCreateWithoutCommunicationPreferenceInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
   prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutPatientInput
@@ -5009,6 +5369,7 @@ export type PatientUncheckedCreateWithoutCommunicationPreferenceInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
   prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutPatientInput
@@ -5094,6 +5455,7 @@ export type PatientUpdateWithoutCommunicationPreferenceInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
   prescriptions?: Prisma.PrescriptionUpdateManyWithoutPatientNestedInput
@@ -5163,6 +5525,7 @@ export type PatientUncheckedUpdateWithoutCommunicationPreferenceInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
   prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutPatientNestedInput
@@ -5232,6 +5595,7 @@ export type PatientCreateWithoutPatientPackagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -5301,6 +5665,7 @@ export type PatientUncheckedCreateWithoutPatientPackagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -5386,6 +5751,7 @@ export type PatientUpdateWithoutPatientPackagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -5455,6 +5821,7 @@ export type PatientUncheckedUpdateWithoutPatientPackagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -5524,6 +5891,7 @@ export type PatientCreateWithoutAppointmentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
   prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutPatientInput
@@ -5593,6 +5961,7 @@ export type PatientUncheckedCreateWithoutAppointmentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
   prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutPatientInput
@@ -5678,6 +6047,7 @@ export type PatientUpdateWithoutAppointmentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
   prescriptions?: Prisma.PrescriptionUpdateManyWithoutPatientNestedInput
@@ -5747,6 +6117,7 @@ export type PatientUncheckedUpdateWithoutAppointmentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
   prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutPatientNestedInput
@@ -5816,6 +6187,7 @@ export type PatientCreateWithoutWaitingListEntriesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   prescriptions?: Prisma.PrescriptionCreateNestedManyWithoutPatientInput
@@ -5885,6 +6257,7 @@ export type PatientUncheckedCreateWithoutWaitingListEntriesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   prescriptions?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutPatientInput
@@ -5970,6 +6343,7 @@ export type PatientUpdateWithoutWaitingListEntriesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   prescriptions?: Prisma.PrescriptionUpdateManyWithoutPatientNestedInput
@@ -6039,6 +6413,7 @@ export type PatientUncheckedUpdateWithoutWaitingListEntriesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   prescriptions?: Prisma.PrescriptionUncheckedUpdateManyWithoutPatientNestedInput
@@ -6108,6 +6483,7 @@ export type PatientCreateWithoutPrescriptionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -6177,6 +6553,7 @@ export type PatientUncheckedCreateWithoutPrescriptionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -6262,6 +6639,7 @@ export type PatientUpdateWithoutPrescriptionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -6331,6 +6709,7 @@ export type PatientUncheckedUpdateWithoutPrescriptionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -6400,6 +6779,7 @@ export type PatientCreateWithoutBillsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -6469,6 +6849,7 @@ export type PatientUncheckedCreateWithoutBillsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -6554,6 +6935,7 @@ export type PatientUpdateWithoutBillsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -6623,6 +7005,7 @@ export type PatientUncheckedUpdateWithoutBillsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -6692,6 +7075,7 @@ export type PatientCreateWithoutPaymentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -6761,6 +7145,7 @@ export type PatientUncheckedCreateWithoutPaymentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -6846,6 +7231,7 @@ export type PatientUpdateWithoutPaymentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -6915,6 +7301,7 @@ export type PatientUncheckedUpdateWithoutPaymentsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -6984,6 +7371,7 @@ export type PatientCreateWithoutRefundsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -7053,6 +7441,7 @@ export type PatientUncheckedCreateWithoutRefundsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -7138,6 +7527,7 @@ export type PatientUpdateWithoutRefundsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -7207,6 +7597,7 @@ export type PatientUncheckedUpdateWithoutRefundsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -7276,6 +7667,7 @@ export type PatientCreateWithoutAdvancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -7345,6 +7737,7 @@ export type PatientUncheckedCreateWithoutAdvancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -7430,6 +7823,7 @@ export type PatientUpdateWithoutAdvancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -7499,6 +7893,7 @@ export type PatientUncheckedUpdateWithoutAdvancesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -7568,6 +7963,7 @@ export type PatientCreateWithoutPaymentPlansInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -7637,6 +8033,7 @@ export type PatientUncheckedCreateWithoutPaymentPlansInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -7722,6 +8119,7 @@ export type PatientUpdateWithoutPaymentPlansInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -7791,6 +8189,7 @@ export type PatientUncheckedUpdateWithoutPaymentPlansInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -7860,6 +8259,7 @@ export type PatientCreateWithoutMessagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -7929,6 +8329,7 @@ export type PatientUncheckedCreateWithoutMessagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -8014,6 +8415,7 @@ export type PatientUpdateWithoutMessagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -8083,6 +8485,7 @@ export type PatientUncheckedUpdateWithoutMessagesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -8152,6 +8555,7 @@ export type PatientCreateWithoutCampaignRecipientsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -8221,6 +8625,7 @@ export type PatientUncheckedCreateWithoutCampaignRecipientsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -8306,6 +8711,7 @@ export type PatientUpdateWithoutCampaignRecipientsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -8375,6 +8781,7 @@ export type PatientUncheckedUpdateWithoutCampaignRecipientsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -8444,6 +8851,7 @@ export type PatientCreateWithoutNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -8513,6 +8921,7 @@ export type PatientUncheckedCreateWithoutNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -8598,6 +9007,7 @@ export type PatientUpdateWithoutNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -8667,6 +9077,7 @@ export type PatientUncheckedUpdateWithoutNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -8736,6 +9147,7 @@ export type PatientCreateWithoutFollowUpsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -8805,6 +9217,7 @@ export type PatientUncheckedCreateWithoutFollowUpsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -8890,6 +9303,7 @@ export type PatientUpdateWithoutFollowUpsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -8959,6 +9373,7 @@ export type PatientUncheckedUpdateWithoutFollowUpsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -9028,6 +9443,7 @@ export type PatientCreateWithoutFeedbackInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -9097,6 +9513,7 @@ export type PatientUncheckedCreateWithoutFeedbackInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -9182,6 +9599,7 @@ export type PatientUpdateWithoutFeedbackInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -9251,6 +9669,7 @@ export type PatientUncheckedUpdateWithoutFeedbackInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -9320,6 +9739,7 @@ export type PatientCreateWithoutEncountersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -9389,6 +9809,7 @@ export type PatientUncheckedCreateWithoutEncountersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -9474,6 +9895,7 @@ export type PatientUpdateWithoutEncountersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -9543,6 +9965,7 @@ export type PatientUncheckedUpdateWithoutEncountersInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -9612,6 +10035,7 @@ export type PatientCreateWithoutMedicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -9681,6 +10105,7 @@ export type PatientUncheckedCreateWithoutMedicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -9766,6 +10191,7 @@ export type PatientUpdateWithoutMedicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -9835,6 +10261,7 @@ export type PatientUncheckedUpdateWithoutMedicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -9904,6 +10331,7 @@ export type PatientCreateWithoutFamilyHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -9973,6 +10401,7 @@ export type PatientUncheckedCreateWithoutFamilyHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -10058,6 +10487,7 @@ export type PatientUpdateWithoutFamilyHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -10127,6 +10557,7 @@ export type PatientUncheckedUpdateWithoutFamilyHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -10196,6 +10627,7 @@ export type PatientCreateWithoutSurgicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -10265,6 +10697,7 @@ export type PatientUncheckedCreateWithoutSurgicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -10350,6 +10783,7 @@ export type PatientUpdateWithoutSurgicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -10419,6 +10853,7 @@ export type PatientUncheckedUpdateWithoutSurgicalHistoryInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -10488,6 +10923,7 @@ export type PatientCreateWithoutCurrentMedicationsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -10557,6 +10993,7 @@ export type PatientUncheckedCreateWithoutCurrentMedicationsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -10642,6 +11079,7 @@ export type PatientUpdateWithoutCurrentMedicationsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -10711,6 +11149,7 @@ export type PatientUncheckedUpdateWithoutCurrentMedicationsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -10780,6 +11219,7 @@ export type PatientCreateWithoutClinicalReportsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -10849,6 +11289,7 @@ export type PatientUncheckedCreateWithoutClinicalReportsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -10934,6 +11375,7 @@ export type PatientUpdateWithoutClinicalReportsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -11003,6 +11445,7 @@ export type PatientUncheckedUpdateWithoutClinicalReportsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -11072,6 +11515,7 @@ export type PatientCreateWithoutReferralNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -11141,6 +11585,7 @@ export type PatientUncheckedCreateWithoutReferralNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -11226,6 +11671,7 @@ export type PatientUpdateWithoutReferralNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -11295,6 +11741,7 @@ export type PatientUncheckedUpdateWithoutReferralNotesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -11364,6 +11811,7 @@ export type PatientCreateWithoutCertificatesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -11433,6 +11881,7 @@ export type PatientUncheckedCreateWithoutCertificatesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -11518,6 +11967,7 @@ export type PatientUpdateWithoutCertificatesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -11587,6 +12037,7 @@ export type PatientUncheckedUpdateWithoutCertificatesInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -11656,6 +12107,7 @@ export type PatientCreateWithoutInventoryTransactionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -11725,6 +12177,7 @@ export type PatientUncheckedCreateWithoutInventoryTransactionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -11810,6 +12263,7 @@ export type PatientUpdateWithoutInventoryTransactionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -11879,6 +12333,7 @@ export type PatientUncheckedUpdateWithoutInventoryTransactionsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -11948,6 +12403,7 @@ export type PatientCreateWithoutConvertedFromLeadsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -12017,6 +12473,7 @@ export type PatientUncheckedCreateWithoutConvertedFromLeadsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -12102,6 +12559,7 @@ export type PatientUpdateWithoutConvertedFromLeadsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -12171,6 +12629,7 @@ export type PatientUncheckedUpdateWithoutConvertedFromLeadsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -12240,6 +12699,7 @@ export type PatientCreateWithoutConvertedFromProspectsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -12309,6 +12769,7 @@ export type PatientUncheckedCreateWithoutConvertedFromProspectsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -12394,6 +12855,7 @@ export type PatientUpdateWithoutConvertedFromProspectsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -12463,6 +12925,7 @@ export type PatientUncheckedUpdateWithoutConvertedFromProspectsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -12532,6 +12995,7 @@ export type PatientCreateWithoutClientAccountsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutPatientInput
@@ -12601,6 +13065,7 @@ export type PatientUncheckedCreateWithoutClientAccountsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedCreateNestedManyWithoutPatientInput
   documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutPatientInput
   consentForms?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutPatientInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutPatientInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedCreateNestedOneWithoutPatientInput
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutPatientInput
@@ -12686,6 +13151,7 @@ export type PatientUpdateWithoutClientAccountsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -12755,6 +13221,7 @@ export type PatientUncheckedUpdateWithoutClientAccountsInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -12855,6 +13322,7 @@ export type PatientUpdateWithoutRegisteredByInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutPatientNestedInput
@@ -12924,6 +13392,7 @@ export type PatientUncheckedUpdateWithoutRegisteredByInput = {
   chronicDiseases?: Prisma.ChronicDiseaseUncheckedUpdateManyWithoutPatientNestedInput
   documents?: Prisma.DocumentUncheckedUpdateManyWithoutPatientNestedInput
   consentForms?: Prisma.ConsentFormUncheckedUpdateManyWithoutPatientNestedInput
+  treatmentPhotos?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutPatientNestedInput
   communicationPreference?: Prisma.CommunicationPreferenceUncheckedUpdateOneWithoutPatientNestedInput
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
   waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutPatientNestedInput
@@ -13001,6 +13470,7 @@ export type PatientCountOutputType = {
   chronicDiseases: number
   documents: number
   consentForms: number
+  treatmentPhotos: number
   appointments: number
   waitingListEntries: number
   prescriptions: number
@@ -13040,6 +13510,7 @@ export type PatientCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   chronicDiseases?: boolean | PatientCountOutputTypeCountChronicDiseasesArgs
   documents?: boolean | PatientCountOutputTypeCountDocumentsArgs
   consentForms?: boolean | PatientCountOutputTypeCountConsentFormsArgs
+  treatmentPhotos?: boolean | PatientCountOutputTypeCountTreatmentPhotosArgs
   appointments?: boolean | PatientCountOutputTypeCountAppointmentsArgs
   waitingListEntries?: boolean | PatientCountOutputTypeCountWaitingListEntriesArgs
   prescriptions?: boolean | PatientCountOutputTypeCountPrescriptionsArgs
@@ -13140,6 +13611,13 @@ export type PatientCountOutputTypeCountDocumentsArgs<ExtArgs extends runtime.Typ
  */
 export type PatientCountOutputTypeCountConsentFormsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ConsentFormWhereInput
+}
+
+/**
+ * PatientCountOutputType without action
+ */
+export type PatientCountOutputTypeCountTreatmentPhotosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TreatmentPhotoWhereInput
 }
 
 /**
@@ -13373,6 +13851,7 @@ export type PatientSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   chronicDiseases?: boolean | Prisma.Patient$chronicDiseasesArgs<ExtArgs>
   documents?: boolean | Prisma.Patient$documentsArgs<ExtArgs>
   consentForms?: boolean | Prisma.Patient$consentFormsArgs<ExtArgs>
+  treatmentPhotos?: boolean | Prisma.Patient$treatmentPhotosArgs<ExtArgs>
   communicationPreference?: boolean | Prisma.Patient$communicationPreferenceArgs<ExtArgs>
   appointments?: boolean | Prisma.Patient$appointmentsArgs<ExtArgs>
   waitingListEntries?: boolean | Prisma.Patient$waitingListEntriesArgs<ExtArgs>
@@ -13517,6 +13996,7 @@ export type PatientInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   chronicDiseases?: boolean | Prisma.Patient$chronicDiseasesArgs<ExtArgs>
   documents?: boolean | Prisma.Patient$documentsArgs<ExtArgs>
   consentForms?: boolean | Prisma.Patient$consentFormsArgs<ExtArgs>
+  treatmentPhotos?: boolean | Prisma.Patient$treatmentPhotosArgs<ExtArgs>
   communicationPreference?: boolean | Prisma.Patient$communicationPreferenceArgs<ExtArgs>
   appointments?: boolean | Prisma.Patient$appointmentsArgs<ExtArgs>
   waitingListEntries?: boolean | Prisma.Patient$waitingListEntriesArgs<ExtArgs>
@@ -13567,6 +14047,7 @@ export type $PatientPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     chronicDiseases: Prisma.$ChronicDiseasePayload<ExtArgs>[]
     documents: Prisma.$DocumentPayload<ExtArgs>[]
     consentForms: Prisma.$ConsentFormPayload<ExtArgs>[]
+    treatmentPhotos: Prisma.$TreatmentPhotoPayload<ExtArgs>[]
     communicationPreference: Prisma.$CommunicationPreferencePayload<ExtArgs> | null
     appointments: Prisma.$AppointmentPayload<ExtArgs>[]
     waitingListEntries: Prisma.$WaitingListEntryPayload<ExtArgs>[]
@@ -14031,6 +14512,7 @@ export interface Prisma__PatientClient<T, Null = never, ExtArgs extends runtime.
   chronicDiseases<T extends Prisma.Patient$chronicDiseasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$chronicDiseasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChronicDiseasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   documents<T extends Prisma.Patient$documentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   consentForms<T extends Prisma.Patient$consentFormsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$consentFormsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConsentFormPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  treatmentPhotos<T extends Prisma.Patient$treatmentPhotosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$treatmentPhotosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TreatmentPhotoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   communicationPreference<T extends Prisma.Patient$communicationPreferenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$communicationPreferenceArgs<ExtArgs>>): Prisma.Prisma__CommunicationPreferenceClient<runtime.Types.Result.GetResult<Prisma.$CommunicationPreferencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   appointments<T extends Prisma.Patient$appointmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$appointmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AppointmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   waitingListEntries<T extends Prisma.Patient$waitingListEntriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Patient$waitingListEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WaitingListEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -14751,6 +15233,30 @@ export type Patient$consentFormsArgs<ExtArgs extends runtime.Types.Extensions.In
   take?: number
   skip?: number
   distinct?: Prisma.ConsentFormScalarFieldEnum | Prisma.ConsentFormScalarFieldEnum[]
+}
+
+/**
+ * Patient.treatmentPhotos
+ */
+export type Patient$treatmentPhotosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TreatmentPhoto
+   */
+  select?: Prisma.TreatmentPhotoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TreatmentPhoto
+   */
+  omit?: Prisma.TreatmentPhotoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TreatmentPhotoInclude<ExtArgs> | null
+  where?: Prisma.TreatmentPhotoWhereInput
+  orderBy?: Prisma.TreatmentPhotoOrderByWithRelationInput | Prisma.TreatmentPhotoOrderByWithRelationInput[]
+  cursor?: Prisma.TreatmentPhotoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TreatmentPhotoScalarFieldEnum | Prisma.TreatmentPhotoScalarFieldEnum[]
 }
 
 /**

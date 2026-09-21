@@ -110,6 +110,14 @@ export const DocumentCategory = {
 export type DocumentCategory = (typeof DocumentCategory)[keyof typeof DocumentCategory]
 
 
+export const TreatmentPhotoType = {
+  BEFORE: 'BEFORE',
+  AFTER: 'AFTER'
+} as const
+
+export type TreatmentPhotoType = (typeof TreatmentPhotoType)[keyof typeof TreatmentPhotoType]
+
+
 export const ConsentStatus = {
   PENDING: 'PENDING',
   SIGNED: 'SIGNED',

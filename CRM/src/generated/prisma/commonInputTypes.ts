@@ -423,6 +423,23 @@ export type EnumDocumentCategoryWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumDocumentCategoryFilter<$PrismaModel>
 }
 
+export type EnumTreatmentPhotoTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.TreatmentPhotoType | Prisma.EnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTreatmentPhotoTypeFilter<$PrismaModel> | $Enums.TreatmentPhotoType
+}
+
+export type EnumTreatmentPhotoTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TreatmentPhotoType | Prisma.EnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTreatmentPhotoTypeWithAggregatesFilter<$PrismaModel> | $Enums.TreatmentPhotoType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTreatmentPhotoTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTreatmentPhotoTypeFilter<$PrismaModel>
+}
+
 export type EnumConsentStatusFilter<$PrismaModel = never> = {
   equals?: $Enums.ConsentStatus | Prisma.EnumConsentStatusFieldRefInput<$PrismaModel>
   in?: $Enums.ConsentStatus[] | Prisma.ListEnumConsentStatusFieldRefInput<$PrismaModel>
@@ -1618,6 +1635,23 @@ export type NestedEnumDocumentCategoryWithAggregatesFilter<$PrismaModel = never>
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumDocumentCategoryFilter<$PrismaModel>
   _max?: Prisma.NestedEnumDocumentCategoryFilter<$PrismaModel>
+}
+
+export type NestedEnumTreatmentPhotoTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.TreatmentPhotoType | Prisma.EnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTreatmentPhotoTypeFilter<$PrismaModel> | $Enums.TreatmentPhotoType
+}
+
+export type NestedEnumTreatmentPhotoTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TreatmentPhotoType | Prisma.EnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TreatmentPhotoType[] | Prisma.ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTreatmentPhotoTypeWithAggregatesFilter<$PrismaModel> | $Enums.TreatmentPhotoType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTreatmentPhotoTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTreatmentPhotoTypeFilter<$PrismaModel>
 }
 
 export type NestedEnumConsentStatusFilter<$PrismaModel = never> = {

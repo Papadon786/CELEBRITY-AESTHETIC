@@ -93,6 +93,7 @@ model User {
   salesTargets              SalesTarget[]      @relation("SalesTargetOwner")
   consentFormsWitnessed     ConsentForm[]      @relation("ConsentWitnessedBy")
   consentFormsCreated       ConsentForm[]      @relation("ConsentCreatedBy")
+  treatmentPhotosUploaded   TreatmentPhoto[]   @relation("TreatmentPhotoUploadedBy")
 
   @@index([role])
 }
@@ -204,6 +205,7 @@ model Patient {
   chronicDiseases         ChronicDisease[]
   documents               Document[]
   consentForms            ConsentForm[]
+  treatmentPhotos         TreatmentPhoto[]
   communicationPreference CommunicationPreference?
   appointments            Appointment[]
   waitingListEntries      WaitingListEntry[]
@@ -395,6 +397,31 @@ model Document {
 
   @@index([patientId])
   @@index([category])
+}
+
+// Structured before/after progress photos tied to a treatment — previously
+// only a single generic Patient.photoUrl existed, with no way to pair a
+// before shot with its after shot or tie either to a specific procedure.
+enum TreatmentPhotoType {
+  BEFORE
+  AFTER
+}
+
+model TreatmentPhoto {
+  id            String             @id @default(cuid())
+  patientId     String
+  patient       Patient            @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  appointmentId String?
+  appointment   Appointment?       @relation(fields: [appointmentId], references: [id])
+  type          TreatmentPhotoType
+  photoUrl      String
+  caption       String?
+  takenAt       DateTime           @default(now())
+  uploadedById  String?
+  uploadedBy    User?              @relation("TreatmentPhotoUploadedBy", fields: [uploadedById], references: [id])
+
+  @@index([patientId])
+  @@index([appointmentId])
 }
 
 // Procedure-specific consent — a Document can hold a scanned PDF, but
@@ -668,6 +695,7 @@ model Appointment {
   encounters         Encounter[]
   packageSessionLogs PackageSessionLog[]
   consentForms       ConsentForm[]
+  treatmentPhotos    TreatmentPhoto[]
 
   @@index([patientId])
   @@index([doctorId, scheduledAt])

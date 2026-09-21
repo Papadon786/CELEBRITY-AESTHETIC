@@ -410,6 +410,7 @@ export const ModelName = {
   Allergy: 'Allergy',
   ChronicDisease: 'ChronicDisease',
   Document: 'Document',
+  TreatmentPhoto: 'TreatmentPhoto',
   ConsentForm: 'ConsentForm',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
@@ -492,7 +493,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "treatmentPhoto" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1455,6 +1456,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.DocumentCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.DocumentCountAggregateOutputType> | number
+        }
+      }
+    }
+    TreatmentPhoto: {
+      payload: Prisma.$TreatmentPhotoPayload<ExtArgs>
+      fields: Prisma.TreatmentPhotoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TreatmentPhotoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TreatmentPhotoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>
+        }
+        findFirst: {
+          args: Prisma.TreatmentPhotoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TreatmentPhotoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>
+        }
+        findMany: {
+          args: Prisma.TreatmentPhotoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>[]
+        }
+        create: {
+          args: Prisma.TreatmentPhotoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>
+        }
+        createMany: {
+          args: Prisma.TreatmentPhotoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TreatmentPhotoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>[]
+        }
+        delete: {
+          args: Prisma.TreatmentPhotoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>
+        }
+        update: {
+          args: Prisma.TreatmentPhotoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>
+        }
+        deleteMany: {
+          args: Prisma.TreatmentPhotoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TreatmentPhotoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TreatmentPhotoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>[]
+        }
+        upsert: {
+          args: Prisma.TreatmentPhotoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TreatmentPhotoPayload>
+        }
+        aggregate: {
+          args: Prisma.TreatmentPhotoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTreatmentPhoto>
+        }
+        groupBy: {
+          args: Prisma.TreatmentPhotoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TreatmentPhotoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TreatmentPhotoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TreatmentPhotoCountAggregateOutputType> | number
         }
       }
     }
@@ -6642,6 +6717,20 @@ export const DocumentScalarFieldEnum = {
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
 
 
+export const TreatmentPhotoScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  appointmentId: 'appointmentId',
+  type: 'type',
+  photoUrl: 'photoUrl',
+  caption: 'caption',
+  takenAt: 'takenAt',
+  uploadedById: 'uploadedById'
+} as const
+
+export type TreatmentPhotoScalarFieldEnum = (typeof TreatmentPhotoScalarFieldEnum)[keyof typeof TreatmentPhotoScalarFieldEnum]
+
+
 export const ConsentFormScalarFieldEnum = {
   id: 'id',
   patientId: 'patientId',
@@ -7949,6 +8038,20 @@ export type ListEnumDocumentCategoryFieldRefInput<$PrismaModel> = FieldRefInputT
 
 
 /**
+ * Reference to a field of type 'TreatmentPhotoType'
+ */
+export type EnumTreatmentPhotoTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TreatmentPhotoType'>
+    
+
+
+/**
+ * Reference to a field of type 'TreatmentPhotoType[]'
+ */
+export type ListEnumTreatmentPhotoTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TreatmentPhotoType[]'>
+    
+
+
+/**
  * Reference to a field of type 'ConsentStatus'
  */
 export type EnumConsentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ConsentStatus'>
@@ -8741,6 +8844,7 @@ export type GlobalOmitConfig = {
   allergy?: Prisma.AllergyOmit
   chronicDisease?: Prisma.ChronicDiseaseOmit
   document?: Prisma.DocumentOmit
+  treatmentPhoto?: Prisma.TreatmentPhotoOmit
   consentForm?: Prisma.ConsentFormOmit
   communicationPreference?: Prisma.CommunicationPreferenceOmit
   service?: Prisma.ServiceOmit
