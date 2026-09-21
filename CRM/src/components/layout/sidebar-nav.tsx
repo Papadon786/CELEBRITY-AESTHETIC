@@ -3,7 +3,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 import {
+  ChevronDown,
   LayoutDashboard,
   Users,
   CalendarDays,
@@ -157,6 +159,36 @@ export function NavContent({
     }))
     .filter((group) => group.items.length > 0)
 
+  const activeGroupLabel = visibleGroups.find((group) =>
+    group.items.some(
+      (item) => pathname === item.href || (item.href !== "/dashboard" && pathname?.startsWith(item.href + "/"))
+    )
+  )?.label
+
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() =>
+    activeGroupLabel ? { [activeGroupLabel]: true } : {}
+  )
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("crm-sidebar-open-groups")
+      if (saved) {
+        setOpenGroups((prev) => ({ ...JSON.parse(saved), ...(activeGroupLabel ? { [activeGroupLabel]: true } : {}) }))
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    } catch {}
+  }, [])
+
+  function toggleGroup(label: string) {
+    setOpenGroups((prev) => {
+      const next = { ...prev, [label]: !prev[label] }
+      try {
+        localStorage.setItem("crm-sidebar-open-groups", JSON.stringify(next))
+      } catch {}
+      return next
+    })
+  }
+
   return (
     <div className="flex h-full flex-col bg-background">
       <div className="flex items-center gap-2.5 px-4 h-16 border-b shrink-0">
@@ -175,39 +207,52 @@ export function NavContent({
         </div>
       </div>
       <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-4">
-        {visibleGroups.map((group) => (
-          <div key={group.label}>
-            <div className="flex items-center gap-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", group.dot)} />
-              <span className={cn("text-[11px] font-bold tracking-wider", group.text)}>{group.label}</span>
-            </div>
-            <div className="mt-1 space-y-0.5">
-              {group.items.map((item) => {
-                const Icon = item.icon
-                const isActive =
-                  pathname === item.href ||
-                  (item.href !== "/dashboard" && pathname?.startsWith(item.href + "/"))
+        {visibleGroups.map((group) => {
+          const isOpen = openGroups[group.label] ?? false
 
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={onNavigate}
-                    className={cn(
-                      "flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors",
-                      isActive
-                        ? "bg-primary/10 text-primary font-semibold"
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                    )}
-                  >
-                    <Icon className={cn("h-4 w-4 shrink-0", isActive ? "text-primary" : "text-muted-foreground")} />
-                    <span>{item.label}</span>
-                  </Link>
-                )
-              })}
+          return (
+            <div key={group.label}>
+              <button
+                type="button"
+                onClick={() => toggleGroup(group.label)}
+                className="flex w-full items-center gap-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground rounded-md hover:bg-muted/60"
+              >
+                <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", group.dot)} />
+                <span className={cn("text-[11px] font-bold tracking-wider", group.text)}>{group.label}</span>
+                <ChevronDown
+                  className={cn("h-3.5 w-3.5 ml-auto shrink-0 transition-transform text-muted-foreground", isOpen && "rotate-180")}
+                />
+              </button>
+              {isOpen && (
+                <div className="mt-1 space-y-0.5">
+                  {group.items.map((item) => {
+                    const Icon = item.icon
+                    const isActive =
+                      pathname === item.href ||
+                      (item.href !== "/dashboard" && pathname?.startsWith(item.href + "/"))
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={onNavigate}
+                        className={cn(
+                          "flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors",
+                          isActive
+                            ? "bg-primary/10 text-primary font-semibold"
+                            : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                        )}
+                      >
+                        <Icon className={cn("h-4 w-4 shrink-0", isActive ? "text-primary" : "text-muted-foreground")} />
+                        <span>{item.label}</span>
+                      </Link>
+                    )
+                  })}
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          )
+        })}
       </nav>
     </div>
   )
