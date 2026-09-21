@@ -69,6 +69,8 @@ export const ModelName = {
   ConsentForm: 'ConsentForm',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
+  ProcedureChecklistItem: 'ProcedureChecklistItem',
+  AppointmentChecklistItem: 'AppointmentChecklistItem',
   ServiceConsumable: 'ServiceConsumable',
   TreatmentPackage: 'TreatmentPackage',
   PatientPackage: 'PatientPackage',
@@ -420,6 +422,29 @@ export const ServiceScalarFieldEnum = {
 } as const
 
 export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
+export const ProcedureChecklistItemScalarFieldEnum = {
+  id: 'id',
+  serviceId: 'serviceId',
+  label: 'label',
+  displayOrder: 'displayOrder',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcedureChecklistItemScalarFieldEnum = (typeof ProcedureChecklistItemScalarFieldEnum)[keyof typeof ProcedureChecklistItemScalarFieldEnum]
+
+
+export const AppointmentChecklistItemScalarFieldEnum = {
+  id: 'id',
+  appointmentId: 'appointmentId',
+  checklistItemId: 'checklistItemId',
+  checked: 'checked',
+  checkedById: 'checkedById',
+  checkedAt: 'checkedAt'
+} as const
+
+export type AppointmentChecklistItemScalarFieldEnum = (typeof AppointmentChecklistItemScalarFieldEnum)[keyof typeof AppointmentChecklistItemScalarFieldEnum]
 
 
 export const ServiceConsumableScalarFieldEnum = {

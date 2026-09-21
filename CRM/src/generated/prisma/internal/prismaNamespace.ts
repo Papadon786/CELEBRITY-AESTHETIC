@@ -415,6 +415,8 @@ export const ModelName = {
   ConsentForm: 'ConsentForm',
   CommunicationPreference: 'CommunicationPreference',
   Service: 'Service',
+  ProcedureChecklistItem: 'ProcedureChecklistItem',
+  AppointmentChecklistItem: 'AppointmentChecklistItem',
   ServiceConsumable: 'ServiceConsumable',
   TreatmentPackage: 'TreatmentPackage',
   PatientPackage: 'PatientPackage',
@@ -498,7 +500,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "treatmentPhoto" | "loyaltyTransaction" | "consentForm" | "communicationPreference" | "service" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "staffAttendance" | "staffLeaveRequest" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "task" | "leadSourceSpend" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
+    modelProps: "user" | "session" | "counter" | "patient" | "tag" | "patientTag" | "familyMember" | "insurance" | "emergencyContact" | "medicalAlert" | "allergy" | "chronicDisease" | "document" | "treatmentPhoto" | "loyaltyTransaction" | "consentForm" | "communicationPreference" | "service" | "procedureChecklistItem" | "appointmentChecklistItem" | "serviceConsumable" | "treatmentPackage" | "patientPackage" | "packageSessionLog" | "doctorAvailability" | "doctorLeave" | "staffAttendance" | "staffLeaveRequest" | "resource" | "appointment" | "waitingListEntry" | "prescription" | "prescriptionItem" | "bill" | "billItem" | "payment" | "refund" | "patientAdvance" | "advanceAdjustment" | "commission" | "salesTarget" | "paymentPlan" | "installment" | "cashSession" | "expense" | "message" | "messageTemplate" | "campaign" | "campaignRecipient" | "patientNote" | "followUp" | "feedback" | "encounter" | "vitals" | "diagnosis" | "clinicalNote" | "clinicalNoteVersion" | "medicalHistory" | "familyHistoryEntry" | "surgicalHistory" | "currentMedication" | "doctorTemplate" | "digitalSignature" | "clinicalReport" | "labResultItem" | "referralNote" | "certificate" | "clinicSettings" | "fAQ" | "review" | "announcement" | "inventoryItem" | "inventoryBatch" | "inventoryTransaction" | "supplier" | "purchaseOrder" | "purchaseOrderItem" | "inventoryAlert" | "auditLog" | "whatsAppTemplate" | "lead" | "task" | "leadSourceSpend" | "leadActivity" | "prospect" | "prospectActivity" | "clientAccount" | "clientActivity"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1831,6 +1833,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ServiceCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ServiceCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcedureChecklistItem: {
+      payload: Prisma.$ProcedureChecklistItemPayload<ExtArgs>
+      fields: Prisma.ProcedureChecklistItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcedureChecklistItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcedureChecklistItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcedureChecklistItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcedureChecklistItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>
+        }
+        findMany: {
+          args: Prisma.ProcedureChecklistItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>[]
+        }
+        create: {
+          args: Prisma.ProcedureChecklistItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>
+        }
+        createMany: {
+          args: Prisma.ProcedureChecklistItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcedureChecklistItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcedureChecklistItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>
+        }
+        update: {
+          args: Prisma.ProcedureChecklistItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcedureChecklistItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcedureChecklistItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcedureChecklistItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcedureChecklistItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcedureChecklistItemPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcedureChecklistItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcedureChecklistItem>
+        }
+        groupBy: {
+          args: Prisma.ProcedureChecklistItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcedureChecklistItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcedureChecklistItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcedureChecklistItemCountAggregateOutputType> | number
+        }
+      }
+    }
+    AppointmentChecklistItem: {
+      payload: Prisma.$AppointmentChecklistItemPayload<ExtArgs>
+      fields: Prisma.AppointmentChecklistItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AppointmentChecklistItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AppointmentChecklistItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>
+        }
+        findFirst: {
+          args: Prisma.AppointmentChecklistItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AppointmentChecklistItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>
+        }
+        findMany: {
+          args: Prisma.AppointmentChecklistItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>[]
+        }
+        create: {
+          args: Prisma.AppointmentChecklistItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>
+        }
+        createMany: {
+          args: Prisma.AppointmentChecklistItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AppointmentChecklistItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>[]
+        }
+        delete: {
+          args: Prisma.AppointmentChecklistItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>
+        }
+        update: {
+          args: Prisma.AppointmentChecklistItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.AppointmentChecklistItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AppointmentChecklistItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AppointmentChecklistItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.AppointmentChecklistItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppointmentChecklistItemPayload>
+        }
+        aggregate: {
+          args: Prisma.AppointmentChecklistItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAppointmentChecklistItem>
+        }
+        groupBy: {
+          args: Prisma.AppointmentChecklistItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppointmentChecklistItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AppointmentChecklistItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppointmentChecklistItemCountAggregateOutputType> | number
         }
       }
     }
@@ -7172,6 +7322,29 @@ export const ServiceScalarFieldEnum = {
 export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
 
 
+export const ProcedureChecklistItemScalarFieldEnum = {
+  id: 'id',
+  serviceId: 'serviceId',
+  label: 'label',
+  displayOrder: 'displayOrder',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcedureChecklistItemScalarFieldEnum = (typeof ProcedureChecklistItemScalarFieldEnum)[keyof typeof ProcedureChecklistItemScalarFieldEnum]
+
+
+export const AppointmentChecklistItemScalarFieldEnum = {
+  id: 'id',
+  appointmentId: 'appointmentId',
+  checklistItemId: 'checklistItemId',
+  checked: 'checked',
+  checkedById: 'checkedById',
+  checkedAt: 'checkedAt'
+} as const
+
+export type AppointmentChecklistItemScalarFieldEnum = (typeof AppointmentChecklistItemScalarFieldEnum)[keyof typeof AppointmentChecklistItemScalarFieldEnum]
+
+
 export const ServiceConsumableScalarFieldEnum = {
   id: 'id',
   serviceId: 'serviceId',
@@ -9368,6 +9541,8 @@ export type GlobalOmitConfig = {
   consentForm?: Prisma.ConsentFormOmit
   communicationPreference?: Prisma.CommunicationPreferenceOmit
   service?: Prisma.ServiceOmit
+  procedureChecklistItem?: Prisma.ProcedureChecklistItemOmit
+  appointmentChecklistItem?: Prisma.AppointmentChecklistItemOmit
   serviceConsumable?: Prisma.ServiceConsumableOmit
   treatmentPackage?: Prisma.TreatmentPackageOmit
   patientPackage?: Prisma.PatientPackageOmit

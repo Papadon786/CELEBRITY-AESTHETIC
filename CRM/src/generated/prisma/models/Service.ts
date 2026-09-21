@@ -277,6 +277,7 @@ export type ServiceWhereInput = {
   reviews?: Prisma.ReviewListRelationFilter
   treatmentPackages?: Prisma.TreatmentPackageListRelationFilter
   consumables?: Prisma.ServiceConsumableListRelationFilter
+  checklistItems?: Prisma.ProcedureChecklistItemListRelationFilter
 }
 
 export type ServiceOrderByWithRelationInput = {
@@ -296,6 +297,7 @@ export type ServiceOrderByWithRelationInput = {
   reviews?: Prisma.ReviewOrderByRelationAggregateInput
   treatmentPackages?: Prisma.TreatmentPackageOrderByRelationAggregateInput
   consumables?: Prisma.ServiceConsumableOrderByRelationAggregateInput
+  checklistItems?: Prisma.ProcedureChecklistItemOrderByRelationAggregateInput
 }
 
 export type ServiceWhereUniqueInput = Prisma.AtLeast<{
@@ -318,6 +320,7 @@ export type ServiceWhereUniqueInput = Prisma.AtLeast<{
   reviews?: Prisma.ReviewListRelationFilter
   treatmentPackages?: Prisma.TreatmentPackageListRelationFilter
   consumables?: Prisma.ServiceConsumableListRelationFilter
+  checklistItems?: Prisma.ProcedureChecklistItemListRelationFilter
 }, "id" | "slug">
 
 export type ServiceOrderByWithAggregationInput = {
@@ -373,6 +376,7 @@ export type ServiceCreateInput = {
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateInput = {
@@ -392,6 +396,7 @@ export type ServiceUncheckedCreateInput = {
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUpdateInput = {
@@ -411,6 +416,7 @@ export type ServiceUpdateInput = {
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateInput = {
@@ -430,6 +436,7 @@ export type ServiceUncheckedUpdateInput = {
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateManyInput = {
@@ -538,6 +545,20 @@ export type ServiceNullableScalarRelationFilter = {
   isNot?: Prisma.ServiceWhereInput | null
 }
 
+export type ServiceCreateNestedOneWithoutChecklistItemsInput = {
+  create?: Prisma.XOR<Prisma.ServiceCreateWithoutChecklistItemsInput, Prisma.ServiceUncheckedCreateWithoutChecklistItemsInput>
+  connectOrCreate?: Prisma.ServiceCreateOrConnectWithoutChecklistItemsInput
+  connect?: Prisma.ServiceWhereUniqueInput
+}
+
+export type ServiceUpdateOneRequiredWithoutChecklistItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.ServiceCreateWithoutChecklistItemsInput, Prisma.ServiceUncheckedCreateWithoutChecklistItemsInput>
+  connectOrCreate?: Prisma.ServiceCreateOrConnectWithoutChecklistItemsInput
+  upsert?: Prisma.ServiceUpsertWithoutChecklistItemsInput
+  connect?: Prisma.ServiceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ServiceUpdateToOneWithWhereWithoutChecklistItemsInput, Prisma.ServiceUpdateWithoutChecklistItemsInput>, Prisma.ServiceUncheckedUpdateWithoutChecklistItemsInput>
+}
+
 export type ServiceCreateNestedOneWithoutConsumablesInput = {
   create?: Prisma.XOR<Prisma.ServiceCreateWithoutConsumablesInput, Prisma.ServiceUncheckedCreateWithoutConsumablesInput>
   connectOrCreate?: Prisma.ServiceCreateOrConnectWithoutConsumablesInput
@@ -616,6 +637,98 @@ export type ServiceUpdateOneWithoutReviewsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ServiceUpdateToOneWithWhereWithoutReviewsInput, Prisma.ServiceUpdateWithoutReviewsInput>, Prisma.ServiceUncheckedUpdateWithoutReviewsInput>
 }
 
+export type ServiceCreateWithoutChecklistItemsInput = {
+  id?: string
+  slug: string
+  name: string
+  shortDescription?: string | null
+  description?: string | null
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: number
+  displayOrder?: number
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bills?: Prisma.BillCreateNestedManyWithoutServiceInput
+  appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
+  treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
+}
+
+export type ServiceUncheckedCreateWithoutChecklistItemsInput = {
+  id?: string
+  slug: string
+  name: string
+  shortDescription?: string | null
+  description?: string | null
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: number
+  displayOrder?: number
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  bills?: Prisma.BillUncheckedCreateNestedManyWithoutServiceInput
+  appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
+  treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
+  consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
+}
+
+export type ServiceCreateOrConnectWithoutChecklistItemsInput = {
+  where: Prisma.ServiceWhereUniqueInput
+  create: Prisma.XOR<Prisma.ServiceCreateWithoutChecklistItemsInput, Prisma.ServiceUncheckedCreateWithoutChecklistItemsInput>
+}
+
+export type ServiceUpsertWithoutChecklistItemsInput = {
+  update: Prisma.XOR<Prisma.ServiceUpdateWithoutChecklistItemsInput, Prisma.ServiceUncheckedUpdateWithoutChecklistItemsInput>
+  create: Prisma.XOR<Prisma.ServiceCreateWithoutChecklistItemsInput, Prisma.ServiceUncheckedCreateWithoutChecklistItemsInput>
+  where?: Prisma.ServiceWhereInput
+}
+
+export type ServiceUpdateToOneWithWhereWithoutChecklistItemsInput = {
+  where?: Prisma.ServiceWhereInput
+  data: Prisma.XOR<Prisma.ServiceUpdateWithoutChecklistItemsInput, Prisma.ServiceUncheckedUpdateWithoutChecklistItemsInput>
+}
+
+export type ServiceUpdateWithoutChecklistItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bills?: Prisma.BillUpdateManyWithoutServiceNestedInput
+  appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
+  treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
+}
+
+export type ServiceUncheckedUpdateWithoutChecklistItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  durationMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bills?: Prisma.BillUncheckedUpdateManyWithoutServiceNestedInput
+  appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
+  treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
+  consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
+}
+
 export type ServiceCreateWithoutConsumablesInput = {
   id?: string
   slug: string
@@ -632,6 +745,7 @@ export type ServiceCreateWithoutConsumablesInput = {
   appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutConsumablesInput = {
@@ -650,6 +764,7 @@ export type ServiceUncheckedCreateWithoutConsumablesInput = {
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutConsumablesInput = {
@@ -684,6 +799,7 @@ export type ServiceUpdateWithoutConsumablesInput = {
   appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutConsumablesInput = {
@@ -702,6 +818,7 @@ export type ServiceUncheckedUpdateWithoutConsumablesInput = {
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateWithoutTreatmentPackagesInput = {
@@ -720,6 +837,7 @@ export type ServiceCreateWithoutTreatmentPackagesInput = {
   appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutTreatmentPackagesInput = {
@@ -738,6 +856,7 @@ export type ServiceUncheckedCreateWithoutTreatmentPackagesInput = {
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutTreatmentPackagesInput = {
@@ -772,6 +891,7 @@ export type ServiceUpdateWithoutTreatmentPackagesInput = {
   appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutTreatmentPackagesInput = {
@@ -790,6 +910,7 @@ export type ServiceUncheckedUpdateWithoutTreatmentPackagesInput = {
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateWithoutAppointmentsInput = {
@@ -808,6 +929,7 @@ export type ServiceCreateWithoutAppointmentsInput = {
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutAppointmentsInput = {
@@ -826,6 +948,7 @@ export type ServiceUncheckedCreateWithoutAppointmentsInput = {
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutAppointmentsInput = {
@@ -860,6 +983,7 @@ export type ServiceUpdateWithoutAppointmentsInput = {
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutAppointmentsInput = {
@@ -878,6 +1002,7 @@ export type ServiceUncheckedUpdateWithoutAppointmentsInput = {
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateWithoutBillsInput = {
@@ -896,6 +1021,7 @@ export type ServiceCreateWithoutBillsInput = {
   reviews?: Prisma.ReviewCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutBillsInput = {
@@ -914,6 +1040,7 @@ export type ServiceUncheckedCreateWithoutBillsInput = {
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutBillsInput = {
@@ -948,6 +1075,7 @@ export type ServiceUpdateWithoutBillsInput = {
   reviews?: Prisma.ReviewUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutBillsInput = {
@@ -966,6 +1094,7 @@ export type ServiceUncheckedUpdateWithoutBillsInput = {
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceCreateWithoutReviewsInput = {
@@ -984,6 +1113,7 @@ export type ServiceCreateWithoutReviewsInput = {
   appointments?: Prisma.AppointmentCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceUncheckedCreateWithoutReviewsInput = {
@@ -1002,6 +1132,7 @@ export type ServiceUncheckedCreateWithoutReviewsInput = {
   appointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutServiceInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedCreateNestedManyWithoutServiceInput
   consumables?: Prisma.ServiceConsumableUncheckedCreateNestedManyWithoutServiceInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedCreateNestedManyWithoutServiceInput
 }
 
 export type ServiceCreateOrConnectWithoutReviewsInput = {
@@ -1036,6 +1167,7 @@ export type ServiceUpdateWithoutReviewsInput = {
   appointments?: Prisma.AppointmentUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUpdateManyWithoutServiceNestedInput
 }
 
 export type ServiceUncheckedUpdateWithoutReviewsInput = {
@@ -1054,6 +1186,7 @@ export type ServiceUncheckedUpdateWithoutReviewsInput = {
   appointments?: Prisma.AppointmentUncheckedUpdateManyWithoutServiceNestedInput
   treatmentPackages?: Prisma.TreatmentPackageUncheckedUpdateManyWithoutServiceNestedInput
   consumables?: Prisma.ServiceConsumableUncheckedUpdateManyWithoutServiceNestedInput
+  checklistItems?: Prisma.ProcedureChecklistItemUncheckedUpdateManyWithoutServiceNestedInput
 }
 
 
@@ -1067,6 +1200,7 @@ export type ServiceCountOutputType = {
   reviews: number
   treatmentPackages: number
   consumables: number
+  checklistItems: number
 }
 
 export type ServiceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1075,6 +1209,7 @@ export type ServiceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   reviews?: boolean | ServiceCountOutputTypeCountReviewsArgs
   treatmentPackages?: boolean | ServiceCountOutputTypeCountTreatmentPackagesArgs
   consumables?: boolean | ServiceCountOutputTypeCountConsumablesArgs
+  checklistItems?: boolean | ServiceCountOutputTypeCountChecklistItemsArgs
 }
 
 /**
@@ -1122,6 +1257,13 @@ export type ServiceCountOutputTypeCountConsumablesArgs<ExtArgs extends runtime.T
   where?: Prisma.ServiceConsumableWhereInput
 }
 
+/**
+ * ServiceCountOutputType without action
+ */
+export type ServiceCountOutputTypeCountChecklistItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProcedureChecklistItemWhereInput
+}
+
 
 export type ServiceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1140,6 +1282,7 @@ export type ServiceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   reviews?: boolean | Prisma.Service$reviewsArgs<ExtArgs>
   treatmentPackages?: boolean | Prisma.Service$treatmentPackagesArgs<ExtArgs>
   consumables?: boolean | Prisma.Service$consumablesArgs<ExtArgs>
+  checklistItems?: boolean | Prisma.Service$checklistItemsArgs<ExtArgs>
   _count?: boolean | Prisma.ServiceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["service"]>
 
@@ -1192,6 +1335,7 @@ export type ServiceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   reviews?: boolean | Prisma.Service$reviewsArgs<ExtArgs>
   treatmentPackages?: boolean | Prisma.Service$treatmentPackagesArgs<ExtArgs>
   consumables?: boolean | Prisma.Service$consumablesArgs<ExtArgs>
+  checklistItems?: boolean | Prisma.Service$checklistItemsArgs<ExtArgs>
   _count?: boolean | Prisma.ServiceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ServiceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1205,6 +1349,7 @@ export type $ServicePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     reviews: Prisma.$ReviewPayload<ExtArgs>[]
     treatmentPackages: Prisma.$TreatmentPackagePayload<ExtArgs>[]
     consumables: Prisma.$ServiceConsumablePayload<ExtArgs>[]
+    checklistItems: Prisma.$ProcedureChecklistItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1617,6 +1762,7 @@ export interface Prisma__ServiceClient<T, Null = never, ExtArgs extends runtime.
   reviews<T extends Prisma.Service$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   treatmentPackages<T extends Prisma.Service$treatmentPackagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$treatmentPackagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TreatmentPackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   consumables<T extends Prisma.Service$consumablesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$consumablesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServiceConsumablePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  checklistItems<T extends Prisma.Service$checklistItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Service$checklistItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProcedureChecklistItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2167,6 +2313,30 @@ export type Service$consumablesArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.ServiceConsumableScalarFieldEnum | Prisma.ServiceConsumableScalarFieldEnum[]
+}
+
+/**
+ * Service.checklistItems
+ */
+export type Service$checklistItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProcedureChecklistItem
+   */
+  select?: Prisma.ProcedureChecklistItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProcedureChecklistItem
+   */
+  omit?: Prisma.ProcedureChecklistItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProcedureChecklistItemInclude<ExtArgs> | null
+  where?: Prisma.ProcedureChecklistItemWhereInput
+  orderBy?: Prisma.ProcedureChecklistItemOrderByWithRelationInput | Prisma.ProcedureChecklistItemOrderByWithRelationInput[]
+  cursor?: Prisma.ProcedureChecklistItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProcedureChecklistItemScalarFieldEnum | Prisma.ProcedureChecklistItemScalarFieldEnum[]
 }
 
 /**

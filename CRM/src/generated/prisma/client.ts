@@ -132,6 +132,18 @@ export type CommunicationPreference = Prisma.CommunicationPreferenceModel
  */
 export type Service = Prisma.ServiceModel
 /**
+ * Model ProcedureChecklistItem
+ * *
+ *  * Ordered checklist template for a service — the steps staff must follow for that procedure.
+ */
+export type ProcedureChecklistItem = Prisma.ProcedureChecklistItemModel
+/**
+ * Model AppointmentChecklistItem
+ * *
+ *  * Per-appointment completion state of a ProcedureChecklistItem.
+ */
+export type AppointmentChecklistItem = Prisma.AppointmentChecklistItemModel
+/**
  * Model ServiceConsumable
  * 
  */

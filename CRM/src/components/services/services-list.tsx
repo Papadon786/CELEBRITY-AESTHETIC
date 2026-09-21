@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { DeleteButton } from "@/components/shared/delete-button"
 import { ManageConsumablesDialog } from "@/components/services/manage-consumables-dialog"
+import { ManageChecklistDialog } from "@/components/services/manage-checklist-dialog"
 import { formatCurrency } from "@/lib/format"
 import { toggleServiceActive, deleteService, type getServices } from "@/actions/services"
 
@@ -67,8 +68,9 @@ function ServiceCard({ service }: { service: Services[number] }) {
           </Button>
           <DeleteButton onDelete={() => deleteService(service.id)} />
         </div>
-        <div className="mt-2">
+        <div className="mt-2 flex flex-wrap gap-2">
           <ManageConsumablesDialog serviceId={service.id} serviceName={service.name} />
+          <ManageChecklistDialog serviceId={service.id} serviceName={service.name} />
         </div>
       </CardContent>
     </Card>

@@ -84,22 +84,23 @@ model User {
   leadsAssigned         Lead[]         @relation("LeadAssignedTo")
   leadActivitiesWritten LeadActivity[] @relation("LeadActivityAuthor")
 
-  prospectsAssigned         Prospect[]           @relation("ProspectAssignedTo")
-  prospectActivitiesWritten ProspectActivity[]   @relation("ProspectActivityAuthor")
-  clientsManaged            ClientAccount[]      @relation("ClientAccountManager")
-  clientActivitiesWritten   ClientActivity[]     @relation("ClientActivityAuthor")
-  commissionsEarned         Commission[]         @relation("CommissionEarnedBy")
-  commissionsCreated        Commission[]         @relation("CommissionCreatedBy")
-  salesTargets              SalesTarget[]        @relation("SalesTargetOwner")
-  consentFormsWitnessed     ConsentForm[]        @relation("ConsentWitnessedBy")
-  consentFormsCreated       ConsentForm[]        @relation("ConsentCreatedBy")
-  treatmentPhotosUploaded   TreatmentPhoto[]     @relation("TreatmentPhotoUploadedBy")
-  loyaltyTransactionsMade   LoyaltyTransaction[] @relation("LoyaltyTransactionCreatedBy")
+  prospectsAssigned         Prospect[]                 @relation("ProspectAssignedTo")
+  prospectActivitiesWritten ProspectActivity[]         @relation("ProspectActivityAuthor")
+  clientsManaged            ClientAccount[]            @relation("ClientAccountManager")
+  clientActivitiesWritten   ClientActivity[]           @relation("ClientActivityAuthor")
+  commissionsEarned         Commission[]               @relation("CommissionEarnedBy")
+  commissionsCreated        Commission[]               @relation("CommissionCreatedBy")
+  salesTargets              SalesTarget[]              @relation("SalesTargetOwner")
+  consentFormsWitnessed     ConsentForm[]              @relation("ConsentWitnessedBy")
+  consentFormsCreated       ConsentForm[]              @relation("ConsentCreatedBy")
+  treatmentPhotosUploaded   TreatmentPhoto[]           @relation("TreatmentPhotoUploadedBy")
+  loyaltyTransactionsMade   LoyaltyTransaction[]       @relation("LoyaltyTransactionCreatedBy")
   attendance                StaffAttendance[]
-  leaveRequests             StaffLeaveRequest[]  @relation("StaffLeaveRequestUser")
-  leaveRequestsDecided      StaffLeaveRequest[]  @relation("StaffLeaveRequestDecidedBy")
-  tasksAssigned             Task[]               @relation("TaskAssignedTo")
-  tasksCreated              Task[]               @relation("TaskCreatedBy")
+  leaveRequests             StaffLeaveRequest[]        @relation("StaffLeaveRequestUser")
+  leaveRequestsDecided      StaffLeaveRequest[]        @relation("StaffLeaveRequestDecidedBy")
+  tasksAssigned             Task[]                     @relation("TaskAssignedTo")
+  tasksCreated              Task[]                     @relation("TaskCreatedBy")
+  checklistItemsChecked     AppointmentChecklistItem[]
 
   @@index([role])
 }
@@ -534,8 +535,42 @@ model Service {
   reviews           Review[]
   treatmentPackages TreatmentPackage[]
   consumables       ServiceConsumable[]
+  checklistItems    ProcedureChecklistItem[]
 
   @@index([active])
+}
+
+/**
+ * Ordered checklist template for a service — the steps staff must follow for that procedure.
+ */
+model ProcedureChecklistItem {
+  id           String   @id @default(cuid())
+  serviceId    String
+  service      Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  label        String
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  completions AppointmentChecklistItem[]
+
+  @@index([serviceId])
+}
+
+/**
+ * Per-appointment completion state of a ProcedureChecklistItem.
+ */
+model AppointmentChecklistItem {
+  id              String                 @id @default(cuid())
+  appointmentId   String
+  appointment     Appointment            @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  checklistItemId String
+  checklistItem   ProcedureChecklistItem @relation(fields: [checklistItemId], references: [id], onDelete: Cascade)
+  checked         Boolean                @default(false)
+  checkedById     String?
+  checkedBy       User?                  @relation(fields: [checkedById], references: [id])
+  checkedAt       DateTime?
+
+  @@unique([appointmentId, checklistItemId])
 }
 
 // The "recipe" of consumables (numbing cream, PRP kit, cannulas, etc.) a
@@ -777,6 +812,7 @@ model Appointment {
   packageSessionLogs PackageSessionLog[]
   consentForms       ConsentForm[]
   treatmentPhotos    TreatmentPhoto[]
+  checklistItems     AppointmentChecklistItem[]
 
   @@index([patientId])
   @@index([doctorId, scheduledAt])

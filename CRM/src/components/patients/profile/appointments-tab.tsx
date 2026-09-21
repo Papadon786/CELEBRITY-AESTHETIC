@@ -45,6 +45,7 @@ import {
   type getAppointmentsForPatient,
 } from "@/actions/appointments"
 import { updateFollowUpStatus, type getPatientCrmData } from "@/actions/crm"
+import { AppointmentChecklistDialog } from "@/components/patients/profile/appointment-checklist-dialog"
 import { toast } from "sonner"
 
 type Appointments = Awaited<ReturnType<typeof getAppointmentsForPatient>>
@@ -208,6 +209,8 @@ export function PatientAppointmentsTab({
                             </Link>
                           }
                         />
+
+                        {apt.serviceId && <AppointmentChecklistDialog appointmentId={apt.id} />}
 
                         <DropdownMenu>
                           <DropdownMenuTrigger

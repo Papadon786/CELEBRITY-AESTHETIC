@@ -309,6 +309,7 @@ export type UserWhereInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestListRelationFilter
   tasksAssigned?: Prisma.TaskListRelationFilter
   tasksCreated?: Prisma.TaskListRelationFilter
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -372,6 +373,7 @@ export type UserOrderByWithRelationInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestOrderByRelationAggregateInput
   tasksAssigned?: Prisma.TaskOrderByRelationAggregateInput
   tasksCreated?: Prisma.TaskOrderByRelationAggregateInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -438,6 +440,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   leaveRequestsDecided?: Prisma.StaffLeaveRequestListRelationFilter
   tasksAssigned?: Prisma.TaskListRelationFilter
   tasksCreated?: Prisma.TaskListRelationFilter
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -537,6 +540,7 @@ export type UserCreateInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -600,6 +604,7 @@ export type UserUncheckedCreateInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUpdateInput = {
@@ -663,6 +668,7 @@ export type UserUpdateInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -726,6 +732,7 @@ export type UserUncheckedUpdateInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -964,6 +971,22 @@ export type UserUpdateOneWithoutConsentFormsCreatedNestedInput = {
   delete?: Prisma.UserWhereInput | boolean
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutConsentFormsCreatedInput, Prisma.UserUpdateWithoutConsentFormsCreatedInput>, Prisma.UserUncheckedUpdateWithoutConsentFormsCreatedInput>
+}
+
+export type UserCreateNestedOneWithoutChecklistItemsCheckedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChecklistItemsCheckedInput, Prisma.UserUncheckedCreateWithoutChecklistItemsCheckedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChecklistItemsCheckedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutChecklistItemsCheckedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChecklistItemsCheckedInput, Prisma.UserUncheckedCreateWithoutChecklistItemsCheckedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChecklistItemsCheckedInput
+  upsert?: Prisma.UserUpsertWithoutChecklistItemsCheckedInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutChecklistItemsCheckedInput, Prisma.UserUpdateWithoutChecklistItemsCheckedInput>, Prisma.UserUncheckedUpdateWithoutChecklistItemsCheckedInput>
 }
 
 export type UserCreateNestedOneWithoutPackageSessionsPerformedInput = {
@@ -1666,6 +1689,7 @@ export type UserCreateWithoutSessionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -1728,6 +1752,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -1806,6 +1831,7 @@ export type UserUpdateWithoutSessionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -1868,6 +1894,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutRegisteredPatientsInput = {
@@ -1930,6 +1957,7 @@ export type UserCreateWithoutRegisteredPatientsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutRegisteredPatientsInput = {
@@ -1992,6 +2020,7 @@ export type UserUncheckedCreateWithoutRegisteredPatientsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutRegisteredPatientsInput = {
@@ -2070,6 +2099,7 @@ export type UserUpdateWithoutRegisteredPatientsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRegisteredPatientsInput = {
@@ -2132,6 +2162,7 @@ export type UserUncheckedUpdateWithoutRegisteredPatientsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutDocumentsUploadedInput = {
@@ -2194,6 +2225,7 @@ export type UserCreateWithoutDocumentsUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutDocumentsUploadedInput = {
@@ -2256,6 +2288,7 @@ export type UserUncheckedCreateWithoutDocumentsUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutDocumentsUploadedInput = {
@@ -2334,6 +2367,7 @@ export type UserUpdateWithoutDocumentsUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDocumentsUploadedInput = {
@@ -2396,6 +2430,7 @@ export type UserUncheckedUpdateWithoutDocumentsUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutTreatmentPhotosUploadedInput = {
@@ -2458,6 +2493,7 @@ export type UserCreateWithoutTreatmentPhotosUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutTreatmentPhotosUploadedInput = {
@@ -2520,6 +2556,7 @@ export type UserUncheckedCreateWithoutTreatmentPhotosUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutTreatmentPhotosUploadedInput = {
@@ -2598,6 +2635,7 @@ export type UserUpdateWithoutTreatmentPhotosUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTreatmentPhotosUploadedInput = {
@@ -2660,6 +2698,7 @@ export type UserUncheckedUpdateWithoutTreatmentPhotosUploadedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutLoyaltyTransactionsMadeInput = {
@@ -2722,6 +2761,7 @@ export type UserCreateWithoutLoyaltyTransactionsMadeInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutLoyaltyTransactionsMadeInput = {
@@ -2784,6 +2824,7 @@ export type UserUncheckedCreateWithoutLoyaltyTransactionsMadeInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutLoyaltyTransactionsMadeInput = {
@@ -2862,6 +2903,7 @@ export type UserUpdateWithoutLoyaltyTransactionsMadeInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLoyaltyTransactionsMadeInput = {
@@ -2924,6 +2966,7 @@ export type UserUncheckedUpdateWithoutLoyaltyTransactionsMadeInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutConsentFormsWitnessedInput = {
@@ -2986,6 +3029,7 @@ export type UserCreateWithoutConsentFormsWitnessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutConsentFormsWitnessedInput = {
@@ -3048,6 +3092,7 @@ export type UserUncheckedCreateWithoutConsentFormsWitnessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutConsentFormsWitnessedInput = {
@@ -3115,6 +3160,7 @@ export type UserCreateWithoutConsentFormsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutConsentFormsCreatedInput = {
@@ -3177,6 +3223,7 @@ export type UserUncheckedCreateWithoutConsentFormsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutConsentFormsCreatedInput = {
@@ -3255,6 +3302,7 @@ export type UserUpdateWithoutConsentFormsWitnessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutConsentFormsWitnessedInput = {
@@ -3317,6 +3365,7 @@ export type UserUncheckedUpdateWithoutConsentFormsWitnessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUpsertWithoutConsentFormsCreatedInput = {
@@ -3390,6 +3439,7 @@ export type UserUpdateWithoutConsentFormsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutConsentFormsCreatedInput = {
@@ -3445,6 +3495,275 @@ export type UserUncheckedUpdateWithoutConsentFormsCreatedInput = {
   commissionsCreated?: Prisma.CommissionUncheckedUpdateManyWithoutCreatedByNestedInput
   salesTargets?: Prisma.SalesTargetUncheckedUpdateManyWithoutUserNestedInput
   consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
+  tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
+}
+
+export type UserCreateWithoutChecklistItemsCheckedInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
+  tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
+  tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+}
+
+export type UserUncheckedCreateWithoutChecklistItemsCheckedInput = {
+  id?: string
+  name: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  role: $Enums.StaffRole
+  specialization?: string | null
+  consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  registeredPatients?: Prisma.PatientUncheckedCreateNestedManyWithoutRegisteredByInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedCreateNestedManyWithoutDoctorInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedCreateNestedManyWithoutCreatedByInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedCreateNestedManyWithoutDoctorInput
+  documentsUploaded?: Prisma.DocumentUncheckedCreateNestedManyWithoutUploadedByInput
+  messagesSent?: Prisma.MessageUncheckedCreateNestedManyWithoutSentByInput
+  notesWritten?: Prisma.PatientNoteUncheckedCreateNestedManyWithoutAuthorInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedCreateNestedManyWithoutAssignedToInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedCreateNestedManyWithoutDoctorInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedCreateNestedManyWithoutDoctorInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedCreateNestedManyWithoutDoctorInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedCreateNestedManyWithoutDoctorInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedCreateNestedOneWithoutDoctorInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedCreateNestedManyWithoutDoctorInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedCreateNestedManyWithoutFromDoctorInput
+  certificatesIssued?: Prisma.CertificateUncheckedCreateNestedManyWithoutDoctorInput
+  paymentsReceived?: Prisma.PaymentUncheckedCreateNestedManyWithoutReceivedByInput
+  refundsProcessed?: Prisma.RefundUncheckedCreateNestedManyWithoutProcessedByInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedCreateNestedManyWithoutReceivedByInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedCreateNestedManyWithoutOpenedByInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedCreateNestedManyWithoutClosedByInput
+  expensesRecorded?: Prisma.ExpenseUncheckedCreateNestedManyWithoutRecordedByInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutPerformedByInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedCreateNestedManyWithoutPerformedByInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutCreatedByInput
+  campaignsCreated?: Prisma.CampaignUncheckedCreateNestedManyWithoutCreatedByInput
+  leadsAssigned?: Prisma.LeadUncheckedCreateNestedManyWithoutAssignedToInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedCreateNestedManyWithoutAuthorInput
+  prospectsAssigned?: Prisma.ProspectUncheckedCreateNestedManyWithoutAssignedToInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedCreateNestedManyWithoutAuthorInput
+  clientsManaged?: Prisma.ClientAccountUncheckedCreateNestedManyWithoutAccountManagerInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedCreateNestedManyWithoutAuthorInput
+  commissionsEarned?: Prisma.CommissionUncheckedCreateNestedManyWithoutUserInput
+  commissionsCreated?: Prisma.CommissionUncheckedCreateNestedManyWithoutCreatedByInput
+  salesTargets?: Prisma.SalesTargetUncheckedCreateNestedManyWithoutUserInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutWitnessedByInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedCreateNestedManyWithoutCreatedByInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedCreateNestedManyWithoutUploadedByInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedCreateNestedManyWithoutCreatedByInput
+  attendance?: Prisma.StaffAttendanceUncheckedCreateNestedManyWithoutUserInput
+  leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
+  tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
+  tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+}
+
+export type UserCreateOrConnectWithoutChecklistItemsCheckedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutChecklistItemsCheckedInput, Prisma.UserUncheckedCreateWithoutChecklistItemsCheckedInput>
+}
+
+export type UserUpsertWithoutChecklistItemsCheckedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutChecklistItemsCheckedInput, Prisma.UserUncheckedUpdateWithoutChecklistItemsCheckedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutChecklistItemsCheckedInput, Prisma.UserUncheckedCreateWithoutChecklistItemsCheckedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutChecklistItemsCheckedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutChecklistItemsCheckedInput, Prisma.UserUncheckedUpdateWithoutChecklistItemsCheckedInput>
+}
+
+export type UserUpdateWithoutChecklistItemsCheckedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUpdateManyWithoutCreatedByNestedInput
+  treatmentPhotosUploaded?: Prisma.TreatmentPhotoUpdateManyWithoutUploadedByNestedInput
+  loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUpdateManyWithoutCreatedByNestedInput
+  attendance?: Prisma.StaffAttendanceUpdateManyWithoutUserNestedInput
+  leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
+  leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
+  tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
+  tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutChecklistItemsCheckedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
+  specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  permissions?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  registeredPatients?: Prisma.PatientUncheckedUpdateManyWithoutRegisteredByNestedInput
+  doctorAvailabilities?: Prisma.DoctorAvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorLeaves?: Prisma.DoctorLeaveUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsAsDoctor?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
+  appointmentsCreated?: Prisma.AppointmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  prescriptionsWritten?: Prisma.PrescriptionUncheckedUpdateManyWithoutDoctorNestedInput
+  documentsUploaded?: Prisma.DocumentUncheckedUpdateManyWithoutUploadedByNestedInput
+  messagesSent?: Prisma.MessageUncheckedUpdateManyWithoutSentByNestedInput
+  notesWritten?: Prisma.PatientNoteUncheckedUpdateManyWithoutAuthorNestedInput
+  followUpsAssigned?: Prisma.FollowUpUncheckedUpdateManyWithoutAssignedToNestedInput
+  waitingListEntries?: Prisma.WaitingListEntryUncheckedUpdateManyWithoutDoctorNestedInput
+  encountersAsDoctor?: Prisma.EncounterUncheckedUpdateManyWithoutDoctorNestedInput
+  clinicalNotesWritten?: Prisma.ClinicalNoteUncheckedUpdateManyWithoutDoctorNestedInput
+  doctorTemplates?: Prisma.DoctorTemplateUncheckedUpdateManyWithoutDoctorNestedInput
+  digitalSignature?: Prisma.DigitalSignatureUncheckedUpdateOneWithoutDoctorNestedInput
+  clinicalReportsOrdered?: Prisma.ClinicalReportUncheckedUpdateManyWithoutDoctorNestedInput
+  referralsWritten?: Prisma.ReferralNoteUncheckedUpdateManyWithoutFromDoctorNestedInput
+  certificatesIssued?: Prisma.CertificateUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentsReceived?: Prisma.PaymentUncheckedUpdateManyWithoutReceivedByNestedInput
+  refundsProcessed?: Prisma.RefundUncheckedUpdateManyWithoutProcessedByNestedInput
+  advancesReceived?: Prisma.PatientAdvanceUncheckedUpdateManyWithoutReceivedByNestedInput
+  cashSessionsOpened?: Prisma.CashSessionUncheckedUpdateManyWithoutOpenedByNestedInput
+  cashSessionsClosed?: Prisma.CashSessionUncheckedUpdateManyWithoutClosedByNestedInput
+  expensesRecorded?: Prisma.ExpenseUncheckedUpdateManyWithoutRecordedByNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutPerformedByNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+  packageSessionsPerformed?: Prisma.PackageSessionLogUncheckedUpdateManyWithoutPerformedByNestedInput
+  paymentPlansCreated?: Prisma.PaymentPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  purchaseOrdersCreated?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutCreatedByNestedInput
+  campaignsCreated?: Prisma.CampaignUncheckedUpdateManyWithoutCreatedByNestedInput
+  leadsAssigned?: Prisma.LeadUncheckedUpdateManyWithoutAssignedToNestedInput
+  leadActivitiesWritten?: Prisma.LeadActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  prospectsAssigned?: Prisma.ProspectUncheckedUpdateManyWithoutAssignedToNestedInput
+  prospectActivitiesWritten?: Prisma.ProspectActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  clientsManaged?: Prisma.ClientAccountUncheckedUpdateManyWithoutAccountManagerNestedInput
+  clientActivitiesWritten?: Prisma.ClientActivityUncheckedUpdateManyWithoutAuthorNestedInput
+  commissionsEarned?: Prisma.CommissionUncheckedUpdateManyWithoutUserNestedInput
+  commissionsCreated?: Prisma.CommissionUncheckedUpdateManyWithoutCreatedByNestedInput
+  salesTargets?: Prisma.SalesTargetUncheckedUpdateManyWithoutUserNestedInput
+  consentFormsWitnessed?: Prisma.ConsentFormUncheckedUpdateManyWithoutWitnessedByNestedInput
+  consentFormsCreated?: Prisma.ConsentFormUncheckedUpdateManyWithoutCreatedByNestedInput
   treatmentPhotosUploaded?: Prisma.TreatmentPhotoUncheckedUpdateManyWithoutUploadedByNestedInput
   loyaltyTransactionsMade?: Prisma.LoyaltyTransactionUncheckedUpdateManyWithoutCreatedByNestedInput
   attendance?: Prisma.StaffAttendanceUncheckedUpdateManyWithoutUserNestedInput
@@ -3514,6 +3833,7 @@ export type UserCreateWithoutPackageSessionsPerformedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutPackageSessionsPerformedInput = {
@@ -3576,6 +3896,7 @@ export type UserUncheckedCreateWithoutPackageSessionsPerformedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutPackageSessionsPerformedInput = {
@@ -3654,6 +3975,7 @@ export type UserUpdateWithoutPackageSessionsPerformedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPackageSessionsPerformedInput = {
@@ -3716,6 +4038,7 @@ export type UserUncheckedUpdateWithoutPackageSessionsPerformedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutDoctorAvailabilitiesInput = {
@@ -3778,6 +4101,7 @@ export type UserCreateWithoutDoctorAvailabilitiesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutDoctorAvailabilitiesInput = {
@@ -3840,6 +4164,7 @@ export type UserUncheckedCreateWithoutDoctorAvailabilitiesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutDoctorAvailabilitiesInput = {
@@ -3918,6 +4243,7 @@ export type UserUpdateWithoutDoctorAvailabilitiesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDoctorAvailabilitiesInput = {
@@ -3980,6 +4306,7 @@ export type UserUncheckedUpdateWithoutDoctorAvailabilitiesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutDoctorLeavesInput = {
@@ -4042,6 +4369,7 @@ export type UserCreateWithoutDoctorLeavesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutDoctorLeavesInput = {
@@ -4104,6 +4432,7 @@ export type UserUncheckedCreateWithoutDoctorLeavesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutDoctorLeavesInput = {
@@ -4182,6 +4511,7 @@ export type UserUpdateWithoutDoctorLeavesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDoctorLeavesInput = {
@@ -4244,6 +4574,7 @@ export type UserUncheckedUpdateWithoutDoctorLeavesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutAttendanceInput = {
@@ -4306,6 +4637,7 @@ export type UserCreateWithoutAttendanceInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutAttendanceInput = {
@@ -4368,6 +4700,7 @@ export type UserUncheckedCreateWithoutAttendanceInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutAttendanceInput = {
@@ -4446,6 +4779,7 @@ export type UserUpdateWithoutAttendanceInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAttendanceInput = {
@@ -4508,6 +4842,7 @@ export type UserUncheckedUpdateWithoutAttendanceInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutLeaveRequestsInput = {
@@ -4570,6 +4905,7 @@ export type UserCreateWithoutLeaveRequestsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutLeaveRequestsInput = {
@@ -4632,6 +4968,7 @@ export type UserUncheckedCreateWithoutLeaveRequestsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutLeaveRequestsInput = {
@@ -4699,6 +5036,7 @@ export type UserCreateWithoutLeaveRequestsDecidedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutLeaveRequestsDecidedInput = {
@@ -4761,6 +5099,7 @@ export type UserUncheckedCreateWithoutLeaveRequestsDecidedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutLeaveRequestsDecidedInput = {
@@ -4839,6 +5178,7 @@ export type UserUpdateWithoutLeaveRequestsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLeaveRequestsInput = {
@@ -4901,6 +5241,7 @@ export type UserUncheckedUpdateWithoutLeaveRequestsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUpsertWithoutLeaveRequestsDecidedInput = {
@@ -4974,6 +5315,7 @@ export type UserUpdateWithoutLeaveRequestsDecidedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLeaveRequestsDecidedInput = {
@@ -5036,6 +5378,7 @@ export type UserUncheckedUpdateWithoutLeaveRequestsDecidedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutAppointmentsAsDoctorInput = {
@@ -5098,6 +5441,7 @@ export type UserCreateWithoutAppointmentsAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutAppointmentsAsDoctorInput = {
@@ -5160,6 +5504,7 @@ export type UserUncheckedCreateWithoutAppointmentsAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutAppointmentsAsDoctorInput = {
@@ -5227,6 +5572,7 @@ export type UserCreateWithoutAppointmentsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutAppointmentsCreatedInput = {
@@ -5289,6 +5635,7 @@ export type UserUncheckedCreateWithoutAppointmentsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutAppointmentsCreatedInput = {
@@ -5367,6 +5714,7 @@ export type UserUpdateWithoutAppointmentsAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAppointmentsAsDoctorInput = {
@@ -5429,6 +5777,7 @@ export type UserUncheckedUpdateWithoutAppointmentsAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUpsertWithoutAppointmentsCreatedInput = {
@@ -5502,6 +5851,7 @@ export type UserUpdateWithoutAppointmentsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAppointmentsCreatedInput = {
@@ -5564,6 +5914,7 @@ export type UserUncheckedUpdateWithoutAppointmentsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutWaitingListEntriesInput = {
@@ -5626,6 +5977,7 @@ export type UserCreateWithoutWaitingListEntriesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutWaitingListEntriesInput = {
@@ -5688,6 +6040,7 @@ export type UserUncheckedCreateWithoutWaitingListEntriesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutWaitingListEntriesInput = {
@@ -5766,6 +6119,7 @@ export type UserUpdateWithoutWaitingListEntriesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWaitingListEntriesInput = {
@@ -5828,6 +6182,7 @@ export type UserUncheckedUpdateWithoutWaitingListEntriesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutPrescriptionsWrittenInput = {
@@ -5890,6 +6245,7 @@ export type UserCreateWithoutPrescriptionsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutPrescriptionsWrittenInput = {
@@ -5952,6 +6308,7 @@ export type UserUncheckedCreateWithoutPrescriptionsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutPrescriptionsWrittenInput = {
@@ -6030,6 +6387,7 @@ export type UserUpdateWithoutPrescriptionsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPrescriptionsWrittenInput = {
@@ -6092,6 +6450,7 @@ export type UserUncheckedUpdateWithoutPrescriptionsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutPaymentsReceivedInput = {
@@ -6154,6 +6513,7 @@ export type UserCreateWithoutPaymentsReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutPaymentsReceivedInput = {
@@ -6216,6 +6576,7 @@ export type UserUncheckedCreateWithoutPaymentsReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutPaymentsReceivedInput = {
@@ -6294,6 +6655,7 @@ export type UserUpdateWithoutPaymentsReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentsReceivedInput = {
@@ -6356,6 +6718,7 @@ export type UserUncheckedUpdateWithoutPaymentsReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutRefundsProcessedInput = {
@@ -6418,6 +6781,7 @@ export type UserCreateWithoutRefundsProcessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutRefundsProcessedInput = {
@@ -6480,6 +6844,7 @@ export type UserUncheckedCreateWithoutRefundsProcessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutRefundsProcessedInput = {
@@ -6558,6 +6923,7 @@ export type UserUpdateWithoutRefundsProcessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRefundsProcessedInput = {
@@ -6620,6 +6986,7 @@ export type UserUncheckedUpdateWithoutRefundsProcessedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutAdvancesReceivedInput = {
@@ -6682,6 +7049,7 @@ export type UserCreateWithoutAdvancesReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutAdvancesReceivedInput = {
@@ -6744,6 +7112,7 @@ export type UserUncheckedCreateWithoutAdvancesReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutAdvancesReceivedInput = {
@@ -6822,6 +7191,7 @@ export type UserUpdateWithoutAdvancesReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAdvancesReceivedInput = {
@@ -6884,6 +7254,7 @@ export type UserUncheckedUpdateWithoutAdvancesReceivedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutCommissionsEarnedInput = {
@@ -6946,6 +7317,7 @@ export type UserCreateWithoutCommissionsEarnedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutCommissionsEarnedInput = {
@@ -7008,6 +7380,7 @@ export type UserUncheckedCreateWithoutCommissionsEarnedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutCommissionsEarnedInput = {
@@ -7075,6 +7448,7 @@ export type UserCreateWithoutCommissionsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutCommissionsCreatedInput = {
@@ -7137,6 +7511,7 @@ export type UserUncheckedCreateWithoutCommissionsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutCommissionsCreatedInput = {
@@ -7215,6 +7590,7 @@ export type UserUpdateWithoutCommissionsEarnedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCommissionsEarnedInput = {
@@ -7277,6 +7653,7 @@ export type UserUncheckedUpdateWithoutCommissionsEarnedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUpsertWithoutCommissionsCreatedInput = {
@@ -7350,6 +7727,7 @@ export type UserUpdateWithoutCommissionsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCommissionsCreatedInput = {
@@ -7412,6 +7790,7 @@ export type UserUncheckedUpdateWithoutCommissionsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutSalesTargetsInput = {
@@ -7474,6 +7853,7 @@ export type UserCreateWithoutSalesTargetsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutSalesTargetsInput = {
@@ -7536,6 +7916,7 @@ export type UserUncheckedCreateWithoutSalesTargetsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutSalesTargetsInput = {
@@ -7614,6 +7995,7 @@ export type UserUpdateWithoutSalesTargetsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSalesTargetsInput = {
@@ -7676,6 +8058,7 @@ export type UserUncheckedUpdateWithoutSalesTargetsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutPaymentPlansCreatedInput = {
@@ -7738,6 +8121,7 @@ export type UserCreateWithoutPaymentPlansCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutPaymentPlansCreatedInput = {
@@ -7800,6 +8184,7 @@ export type UserUncheckedCreateWithoutPaymentPlansCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutPaymentPlansCreatedInput = {
@@ -7878,6 +8263,7 @@ export type UserUpdateWithoutPaymentPlansCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentPlansCreatedInput = {
@@ -7940,6 +8326,7 @@ export type UserUncheckedUpdateWithoutPaymentPlansCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutCashSessionsOpenedInput = {
@@ -8002,6 +8389,7 @@ export type UserCreateWithoutCashSessionsOpenedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutCashSessionsOpenedInput = {
@@ -8064,6 +8452,7 @@ export type UserUncheckedCreateWithoutCashSessionsOpenedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutCashSessionsOpenedInput = {
@@ -8131,6 +8520,7 @@ export type UserCreateWithoutCashSessionsClosedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutCashSessionsClosedInput = {
@@ -8193,6 +8583,7 @@ export type UserUncheckedCreateWithoutCashSessionsClosedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutCashSessionsClosedInput = {
@@ -8271,6 +8662,7 @@ export type UserUpdateWithoutCashSessionsOpenedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCashSessionsOpenedInput = {
@@ -8333,6 +8725,7 @@ export type UserUncheckedUpdateWithoutCashSessionsOpenedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUpsertWithoutCashSessionsClosedInput = {
@@ -8406,6 +8799,7 @@ export type UserUpdateWithoutCashSessionsClosedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCashSessionsClosedInput = {
@@ -8468,6 +8862,7 @@ export type UserUncheckedUpdateWithoutCashSessionsClosedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutExpensesRecordedInput = {
@@ -8530,6 +8925,7 @@ export type UserCreateWithoutExpensesRecordedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutExpensesRecordedInput = {
@@ -8592,6 +8988,7 @@ export type UserUncheckedCreateWithoutExpensesRecordedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutExpensesRecordedInput = {
@@ -8670,6 +9067,7 @@ export type UserUpdateWithoutExpensesRecordedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutExpensesRecordedInput = {
@@ -8732,6 +9130,7 @@ export type UserUncheckedUpdateWithoutExpensesRecordedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutMessagesSentInput = {
@@ -8794,6 +9193,7 @@ export type UserCreateWithoutMessagesSentInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutMessagesSentInput = {
@@ -8856,6 +9256,7 @@ export type UserUncheckedCreateWithoutMessagesSentInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutMessagesSentInput = {
@@ -8934,6 +9335,7 @@ export type UserUpdateWithoutMessagesSentInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMessagesSentInput = {
@@ -8996,6 +9398,7 @@ export type UserUncheckedUpdateWithoutMessagesSentInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutCampaignsCreatedInput = {
@@ -9058,6 +9461,7 @@ export type UserCreateWithoutCampaignsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutCampaignsCreatedInput = {
@@ -9120,6 +9524,7 @@ export type UserUncheckedCreateWithoutCampaignsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutCampaignsCreatedInput = {
@@ -9198,6 +9603,7 @@ export type UserUpdateWithoutCampaignsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCampaignsCreatedInput = {
@@ -9260,6 +9666,7 @@ export type UserUncheckedUpdateWithoutCampaignsCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutNotesWrittenInput = {
@@ -9322,6 +9729,7 @@ export type UserCreateWithoutNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutNotesWrittenInput = {
@@ -9384,6 +9792,7 @@ export type UserUncheckedCreateWithoutNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutNotesWrittenInput = {
@@ -9462,6 +9871,7 @@ export type UserUpdateWithoutNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutNotesWrittenInput = {
@@ -9524,6 +9934,7 @@ export type UserUncheckedUpdateWithoutNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutFollowUpsAssignedInput = {
@@ -9586,6 +9997,7 @@ export type UserCreateWithoutFollowUpsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutFollowUpsAssignedInput = {
@@ -9648,6 +10060,7 @@ export type UserUncheckedCreateWithoutFollowUpsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutFollowUpsAssignedInput = {
@@ -9726,6 +10139,7 @@ export type UserUpdateWithoutFollowUpsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFollowUpsAssignedInput = {
@@ -9788,6 +10202,7 @@ export type UserUncheckedUpdateWithoutFollowUpsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutEncountersAsDoctorInput = {
@@ -9850,6 +10265,7 @@ export type UserCreateWithoutEncountersAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutEncountersAsDoctorInput = {
@@ -9912,6 +10328,7 @@ export type UserUncheckedCreateWithoutEncountersAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutEncountersAsDoctorInput = {
@@ -9990,6 +10407,7 @@ export type UserUpdateWithoutEncountersAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutEncountersAsDoctorInput = {
@@ -10052,6 +10470,7 @@ export type UserUncheckedUpdateWithoutEncountersAsDoctorInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutClinicalNotesWrittenInput = {
@@ -10114,6 +10533,7 @@ export type UserCreateWithoutClinicalNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutClinicalNotesWrittenInput = {
@@ -10176,6 +10596,7 @@ export type UserUncheckedCreateWithoutClinicalNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutClinicalNotesWrittenInput = {
@@ -10254,6 +10675,7 @@ export type UserUpdateWithoutClinicalNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClinicalNotesWrittenInput = {
@@ -10316,6 +10738,7 @@ export type UserUncheckedUpdateWithoutClinicalNotesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutDoctorTemplatesInput = {
@@ -10378,6 +10801,7 @@ export type UserCreateWithoutDoctorTemplatesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutDoctorTemplatesInput = {
@@ -10440,6 +10864,7 @@ export type UserUncheckedCreateWithoutDoctorTemplatesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutDoctorTemplatesInput = {
@@ -10518,6 +10943,7 @@ export type UserUpdateWithoutDoctorTemplatesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDoctorTemplatesInput = {
@@ -10580,6 +11006,7 @@ export type UserUncheckedUpdateWithoutDoctorTemplatesInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutDigitalSignatureInput = {
@@ -10642,6 +11069,7 @@ export type UserCreateWithoutDigitalSignatureInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutDigitalSignatureInput = {
@@ -10704,6 +11132,7 @@ export type UserUncheckedCreateWithoutDigitalSignatureInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutDigitalSignatureInput = {
@@ -10782,6 +11211,7 @@ export type UserUpdateWithoutDigitalSignatureInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDigitalSignatureInput = {
@@ -10844,6 +11274,7 @@ export type UserUncheckedUpdateWithoutDigitalSignatureInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutClinicalReportsOrderedInput = {
@@ -10906,6 +11337,7 @@ export type UserCreateWithoutClinicalReportsOrderedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutClinicalReportsOrderedInput = {
@@ -10968,6 +11400,7 @@ export type UserUncheckedCreateWithoutClinicalReportsOrderedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutClinicalReportsOrderedInput = {
@@ -11046,6 +11479,7 @@ export type UserUpdateWithoutClinicalReportsOrderedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClinicalReportsOrderedInput = {
@@ -11108,6 +11542,7 @@ export type UserUncheckedUpdateWithoutClinicalReportsOrderedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutReferralsWrittenInput = {
@@ -11170,6 +11605,7 @@ export type UserCreateWithoutReferralsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutReferralsWrittenInput = {
@@ -11232,6 +11668,7 @@ export type UserUncheckedCreateWithoutReferralsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutReferralsWrittenInput = {
@@ -11310,6 +11747,7 @@ export type UserUpdateWithoutReferralsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReferralsWrittenInput = {
@@ -11372,6 +11810,7 @@ export type UserUncheckedUpdateWithoutReferralsWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutCertificatesIssuedInput = {
@@ -11434,6 +11873,7 @@ export type UserCreateWithoutCertificatesIssuedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutCertificatesIssuedInput = {
@@ -11496,6 +11936,7 @@ export type UserUncheckedCreateWithoutCertificatesIssuedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutCertificatesIssuedInput = {
@@ -11574,6 +12015,7 @@ export type UserUpdateWithoutCertificatesIssuedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCertificatesIssuedInput = {
@@ -11636,6 +12078,7 @@ export type UserUncheckedUpdateWithoutCertificatesIssuedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutInventoryTransactionsInput = {
@@ -11698,6 +12141,7 @@ export type UserCreateWithoutInventoryTransactionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutInventoryTransactionsInput = {
@@ -11760,6 +12204,7 @@ export type UserUncheckedCreateWithoutInventoryTransactionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutInventoryTransactionsInput = {
@@ -11838,6 +12283,7 @@ export type UserUpdateWithoutInventoryTransactionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutInventoryTransactionsInput = {
@@ -11900,6 +12346,7 @@ export type UserUncheckedUpdateWithoutInventoryTransactionsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutPurchaseOrdersCreatedInput = {
@@ -11962,6 +12409,7 @@ export type UserCreateWithoutPurchaseOrdersCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutPurchaseOrdersCreatedInput = {
@@ -12024,6 +12472,7 @@ export type UserUncheckedCreateWithoutPurchaseOrdersCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutPurchaseOrdersCreatedInput = {
@@ -12102,6 +12551,7 @@ export type UserUpdateWithoutPurchaseOrdersCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPurchaseOrdersCreatedInput = {
@@ -12164,6 +12614,7 @@ export type UserUncheckedUpdateWithoutPurchaseOrdersCreatedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutAuditLogsInput = {
@@ -12226,6 +12677,7 @@ export type UserCreateWithoutAuditLogsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutAuditLogsInput = {
@@ -12288,6 +12740,7 @@ export type UserUncheckedCreateWithoutAuditLogsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutAuditLogsInput = {
@@ -12366,6 +12819,7 @@ export type UserUpdateWithoutAuditLogsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuditLogsInput = {
@@ -12428,6 +12882,7 @@ export type UserUncheckedUpdateWithoutAuditLogsInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutLeadsAssignedInput = {
@@ -12490,6 +12945,7 @@ export type UserCreateWithoutLeadsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutLeadsAssignedInput = {
@@ -12552,6 +13008,7 @@ export type UserUncheckedCreateWithoutLeadsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutLeadsAssignedInput = {
@@ -12630,6 +13087,7 @@ export type UserUpdateWithoutLeadsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLeadsAssignedInput = {
@@ -12692,6 +13150,7 @@ export type UserUncheckedUpdateWithoutLeadsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutTasksAssignedInput = {
@@ -12754,6 +13213,7 @@ export type UserCreateWithoutTasksAssignedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutTasksAssignedInput = {
@@ -12816,6 +13276,7 @@ export type UserUncheckedCreateWithoutTasksAssignedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutTasksAssignedInput = {
@@ -12883,6 +13344,7 @@ export type UserCreateWithoutTasksCreatedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestCreateNestedManyWithoutUserInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutTasksCreatedInput = {
@@ -12945,6 +13407,7 @@ export type UserUncheckedCreateWithoutTasksCreatedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutUserInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutTasksCreatedInput = {
@@ -13023,6 +13486,7 @@ export type UserUpdateWithoutTasksAssignedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTasksAssignedInput = {
@@ -13085,6 +13549,7 @@ export type UserUncheckedUpdateWithoutTasksAssignedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUpsertWithoutTasksCreatedInput = {
@@ -13158,6 +13623,7 @@ export type UserUpdateWithoutTasksCreatedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUpdateManyWithoutUserNestedInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTasksCreatedInput = {
@@ -13220,6 +13686,7 @@ export type UserUncheckedUpdateWithoutTasksCreatedInput = {
   leaveRequests?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutUserNestedInput
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutLeadActivitiesWrittenInput = {
@@ -13282,6 +13749,7 @@ export type UserCreateWithoutLeadActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutLeadActivitiesWrittenInput = {
@@ -13344,6 +13812,7 @@ export type UserUncheckedCreateWithoutLeadActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutLeadActivitiesWrittenInput = {
@@ -13422,6 +13891,7 @@ export type UserUpdateWithoutLeadActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutLeadActivitiesWrittenInput = {
@@ -13484,6 +13954,7 @@ export type UserUncheckedUpdateWithoutLeadActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutProspectsAssignedInput = {
@@ -13546,6 +14017,7 @@ export type UserCreateWithoutProspectsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutProspectsAssignedInput = {
@@ -13608,6 +14080,7 @@ export type UserUncheckedCreateWithoutProspectsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutProspectsAssignedInput = {
@@ -13686,6 +14159,7 @@ export type UserUpdateWithoutProspectsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutProspectsAssignedInput = {
@@ -13748,6 +14222,7 @@ export type UserUncheckedUpdateWithoutProspectsAssignedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutProspectActivitiesWrittenInput = {
@@ -13810,6 +14285,7 @@ export type UserCreateWithoutProspectActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutProspectActivitiesWrittenInput = {
@@ -13872,6 +14348,7 @@ export type UserUncheckedCreateWithoutProspectActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutProspectActivitiesWrittenInput = {
@@ -13950,6 +14427,7 @@ export type UserUpdateWithoutProspectActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutProspectActivitiesWrittenInput = {
@@ -14012,6 +14490,7 @@ export type UserUncheckedUpdateWithoutProspectActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutClientsManagedInput = {
@@ -14074,6 +14553,7 @@ export type UserCreateWithoutClientsManagedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutClientsManagedInput = {
@@ -14136,6 +14616,7 @@ export type UserUncheckedCreateWithoutClientsManagedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutClientsManagedInput = {
@@ -14214,6 +14695,7 @@ export type UserUpdateWithoutClientsManagedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClientsManagedInput = {
@@ -14276,6 +14758,7 @@ export type UserUncheckedUpdateWithoutClientsManagedInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserCreateWithoutClientActivitiesWrittenInput = {
@@ -14338,6 +14821,7 @@ export type UserCreateWithoutClientActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserUncheckedCreateWithoutClientActivitiesWrittenInput = {
@@ -14400,6 +14884,7 @@ export type UserUncheckedCreateWithoutClientActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedCreateNestedManyWithoutDecidedByInput
   tasksAssigned?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput
   tasksCreated?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedCreateNestedManyWithoutCheckedByInput
 }
 
 export type UserCreateOrConnectWithoutClientActivitiesWrittenInput = {
@@ -14478,6 +14963,7 @@ export type UserUpdateWithoutClientActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUpdateManyWithoutCheckedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutClientActivitiesWrittenInput = {
@@ -14540,6 +15026,7 @@ export type UserUncheckedUpdateWithoutClientActivitiesWrittenInput = {
   leaveRequestsDecided?: Prisma.StaffLeaveRequestUncheckedUpdateManyWithoutDecidedByNestedInput
   tasksAssigned?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput
   tasksCreated?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  checklistItemsChecked?: Prisma.AppointmentChecklistItemUncheckedUpdateManyWithoutCheckedByNestedInput
 }
 
 
@@ -14596,6 +15083,7 @@ export type UserCountOutputType = {
   leaveRequestsDecided: number
   tasksAssigned: number
   tasksCreated: number
+  checklistItemsChecked: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -14647,6 +15135,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   leaveRequestsDecided?: boolean | UserCountOutputTypeCountLeaveRequestsDecidedArgs
   tasksAssigned?: boolean | UserCountOutputTypeCountTasksAssignedArgs
   tasksCreated?: boolean | UserCountOutputTypeCountTasksCreatedArgs
+  checklistItemsChecked?: boolean | UserCountOutputTypeCountChecklistItemsCheckedArgs
 }
 
 /**
@@ -14995,6 +15484,13 @@ export type UserCountOutputTypeCountTasksCreatedArgs<ExtArgs extends runtime.Typ
   where?: Prisma.TaskWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountChecklistItemsCheckedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AppointmentChecklistItemWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -15057,6 +15553,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   leaveRequestsDecided?: boolean | Prisma.User$leaveRequestsDecidedArgs<ExtArgs>
   tasksAssigned?: boolean | Prisma.User$tasksAssignedArgs<ExtArgs>
   tasksCreated?: boolean | Prisma.User$tasksCreatedArgs<ExtArgs>
+  checklistItemsChecked?: boolean | Prisma.User$checklistItemsCheckedArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -15153,6 +15650,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   leaveRequestsDecided?: boolean | Prisma.User$leaveRequestsDecidedArgs<ExtArgs>
   tasksAssigned?: boolean | Prisma.User$tasksAssignedArgs<ExtArgs>
   tasksCreated?: boolean | Prisma.User$tasksCreatedArgs<ExtArgs>
+  checklistItemsChecked?: boolean | Prisma.User$checklistItemsCheckedArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -15210,6 +15708,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     leaveRequestsDecided: Prisma.$StaffLeaveRequestPayload<ExtArgs>[]
     tasksAssigned: Prisma.$TaskPayload<ExtArgs>[]
     tasksCreated: Prisma.$TaskPayload<ExtArgs>[]
+    checklistItemsChecked: Prisma.$AppointmentChecklistItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -15666,6 +16165,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   leaveRequestsDecided<T extends Prisma.User$leaveRequestsDecidedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$leaveRequestsDecidedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffLeaveRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   tasksAssigned<T extends Prisma.User$tasksAssignedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$tasksAssignedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   tasksCreated<T extends Prisma.User$tasksCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$tasksCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  checklistItemsChecked<T extends Prisma.User$checklistItemsCheckedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$checklistItemsCheckedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AppointmentChecklistItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17267,6 +17767,30 @@ export type User$tasksCreatedArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.TaskScalarFieldEnum | Prisma.TaskScalarFieldEnum[]
+}
+
+/**
+ * User.checklistItemsChecked
+ */
+export type User$checklistItemsCheckedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AppointmentChecklistItem
+   */
+  select?: Prisma.AppointmentChecklistItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AppointmentChecklistItem
+   */
+  omit?: Prisma.AppointmentChecklistItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AppointmentChecklistItemInclude<ExtArgs> | null
+  where?: Prisma.AppointmentChecklistItemWhereInput
+  orderBy?: Prisma.AppointmentChecklistItemOrderByWithRelationInput | Prisma.AppointmentChecklistItemOrderByWithRelationInput[]
+  cursor?: Prisma.AppointmentChecklistItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AppointmentChecklistItemScalarFieldEnum | Prisma.AppointmentChecklistItemScalarFieldEnum[]
 }
 
 /**

@@ -66,10 +66,13 @@ export type AuditAction =
   | "TASK_CREATED"
   | "TASK_STATUS_CHANGED"
   | "TASK_HANDED_OFF"
+  | "CHECKLIST_ITEM_ADDED"
+  | "CHECKLIST_ITEM_DELETED"
+  | "CHECKLIST_ITEM_TOGGLED"
 
 interface LogAuditParams {
   action: AuditAction
-  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto" | "LoyaltyTransaction" | "StaffAttendance" | "StaffLeaveRequest" | "LeadSourceSpend" | "Task"
+  entityType: "Patient" | "Appointment" | "InventoryItem" | "InventoryAlert" | "Bill" | "Payment" | "Refund" | "User" | "System" | "Prescription" | "Campaign" | "TreatmentPackage" | "PatientPackage" | "PaymentPlan" | "Supplier" | "PurchaseOrder" | "Commission" | "SalesTarget" | "ConsentForm" | "TreatmentPhoto" | "LoyaltyTransaction" | "StaffAttendance" | "StaffLeaveRequest" | "LeadSourceSpend" | "Task" | "ProcedureChecklistItem" | "AppointmentChecklistItem"
   entityId?: string
   metadata?: Record<string, unknown> | null
   userId?: string
