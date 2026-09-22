@@ -46,6 +46,7 @@ export interface User {
   email: string
   phone: string | null
   passwordHash: string
+  supabaseUserId: string | null
   role: StaffRole
   specialization: string | null
   consultationFee: number | null

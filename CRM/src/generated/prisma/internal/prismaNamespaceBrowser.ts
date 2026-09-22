@@ -163,6 +163,7 @@ export const UserScalarFieldEnum = {
   email: 'email',
   phone: 'phone',
   passwordHash: 'passwordHash',
+  supabaseUserId: 'supabaseUserId',
   role: 'role',
   specialization: 'specialization',
   consultationFee: 'consultationFee',

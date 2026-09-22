@@ -40,6 +40,7 @@ export type UserMinAggregateOutputType = {
   email: string | null
   phone: string | null
   passwordHash: string | null
+  supabaseUserId: string | null
   role: $Enums.StaffRole | null
   specialization: string | null
   consultationFee: runtime.Decimal | null
@@ -53,6 +54,7 @@ export type UserMaxAggregateOutputType = {
   email: string | null
   phone: string | null
   passwordHash: string | null
+  supabaseUserId: string | null
   role: $Enums.StaffRole | null
   specialization: string | null
   consultationFee: runtime.Decimal | null
@@ -66,6 +68,7 @@ export type UserCountAggregateOutputType = {
   email: number
   phone: number
   passwordHash: number
+  supabaseUserId: number
   role: number
   specialization: number
   consultationFee: number
@@ -90,6 +93,7 @@ export type UserMinAggregateInputType = {
   email?: true
   phone?: true
   passwordHash?: true
+  supabaseUserId?: true
   role?: true
   specialization?: true
   consultationFee?: true
@@ -103,6 +107,7 @@ export type UserMaxAggregateInputType = {
   email?: true
   phone?: true
   passwordHash?: true
+  supabaseUserId?: true
   role?: true
   specialization?: true
   consultationFee?: true
@@ -116,6 +121,7 @@ export type UserCountAggregateInputType = {
   email?: true
   phone?: true
   passwordHash?: true
+  supabaseUserId?: true
   role?: true
   specialization?: true
   consultationFee?: true
@@ -217,6 +223,7 @@ export type UserGroupByOutputType = {
   email: string
   phone: string | null
   passwordHash: string
+  supabaseUserId: string | null
   role: $Enums.StaffRole
   specialization: string | null
   consultationFee: runtime.Decimal | null
@@ -254,6 +261,7 @@ export type UserWhereInput = {
   email?: Prisma.StringFilter<"User"> | string
   phone?: Prisma.StringNullableFilter<"User"> | string | null
   passwordHash?: Prisma.StringFilter<"User"> | string
+  supabaseUserId?: Prisma.StringNullableFilter<"User"> | string | null
   role?: Prisma.EnumStaffRoleFilter<"User"> | $Enums.StaffRole
   specialization?: Prisma.StringNullableFilter<"User"> | string | null
   consultationFee?: Prisma.DecimalNullableFilter<"User"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -318,6 +326,7 @@ export type UserOrderByWithRelationInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
+  supabaseUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   role?: Prisma.SortOrder
   specialization?: Prisma.SortOrderInput | Prisma.SortOrder
   consultationFee?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -379,6 +388,7 @@ export type UserOrderByWithRelationInput = {
 export type UserWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   email?: string
+  supabaseUserId?: string
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
@@ -441,7 +451,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   tasksAssigned?: Prisma.TaskListRelationFilter
   tasksCreated?: Prisma.TaskListRelationFilter
   checklistItemsChecked?: Prisma.AppointmentChecklistItemListRelationFilter
-}, "id" | "email">
+}, "id" | "email" | "supabaseUserId">
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -449,6 +459,7 @@ export type UserOrderByWithAggregationInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
+  supabaseUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   role?: Prisma.SortOrder
   specialization?: Prisma.SortOrderInput | Prisma.SortOrder
   consultationFee?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -471,6 +482,7 @@ export type UserScalarWhereWithAggregatesInput = {
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   phone?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   passwordHash?: Prisma.StringWithAggregatesFilter<"User"> | string
+  supabaseUserId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   role?: Prisma.EnumStaffRoleWithAggregatesFilter<"User"> | $Enums.StaffRole
   specialization?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   consultationFee?: Prisma.DecimalNullableWithAggregatesFilter<"User"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -485,6 +497,7 @@ export type UserCreateInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -549,6 +562,7 @@ export type UserUncheckedCreateInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -613,6 +627,7 @@ export type UserUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -677,6 +692,7 @@ export type UserUncheckedUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -741,6 +757,7 @@ export type UserCreateManyInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -755,6 +772,7 @@ export type UserUpdateManyMutationInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -769,6 +787,7 @@ export type UserUncheckedUpdateManyInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -783,6 +802,7 @@ export type UserCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
+  supabaseUserId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   specialization?: Prisma.SortOrder
   consultationFee?: Prisma.SortOrder
@@ -801,6 +821,7 @@ export type UserMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
+  supabaseUserId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   specialization?: Prisma.SortOrder
   consultationFee?: Prisma.SortOrder
@@ -814,6 +835,7 @@ export type UserMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
+  supabaseUserId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   specialization?: Prisma.SortOrder
   consultationFee?: Prisma.SortOrder
@@ -1635,6 +1657,7 @@ export type UserCreateWithoutSessionsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -1698,6 +1721,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -1777,6 +1801,7 @@ export type UserUpdateWithoutSessionsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -1840,6 +1865,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -1903,6 +1929,7 @@ export type UserCreateWithoutRegisteredPatientsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -1966,6 +1993,7 @@ export type UserUncheckedCreateWithoutRegisteredPatientsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2045,6 +2073,7 @@ export type UserUpdateWithoutRegisteredPatientsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2108,6 +2137,7 @@ export type UserUncheckedUpdateWithoutRegisteredPatientsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2171,6 +2201,7 @@ export type UserCreateWithoutDocumentsUploadedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2234,6 +2265,7 @@ export type UserUncheckedCreateWithoutDocumentsUploadedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2313,6 +2345,7 @@ export type UserUpdateWithoutDocumentsUploadedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2376,6 +2409,7 @@ export type UserUncheckedUpdateWithoutDocumentsUploadedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2439,6 +2473,7 @@ export type UserCreateWithoutTreatmentPhotosUploadedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2502,6 +2537,7 @@ export type UserUncheckedCreateWithoutTreatmentPhotosUploadedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2581,6 +2617,7 @@ export type UserUpdateWithoutTreatmentPhotosUploadedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2644,6 +2681,7 @@ export type UserUncheckedUpdateWithoutTreatmentPhotosUploadedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2707,6 +2745,7 @@ export type UserCreateWithoutLoyaltyTransactionsMadeInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2770,6 +2809,7 @@ export type UserUncheckedCreateWithoutLoyaltyTransactionsMadeInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2849,6 +2889,7 @@ export type UserUpdateWithoutLoyaltyTransactionsMadeInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2912,6 +2953,7 @@ export type UserUncheckedUpdateWithoutLoyaltyTransactionsMadeInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -2975,6 +3017,7 @@ export type UserCreateWithoutConsentFormsWitnessedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3038,6 +3081,7 @@ export type UserUncheckedCreateWithoutConsentFormsWitnessedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3106,6 +3150,7 @@ export type UserCreateWithoutConsentFormsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3169,6 +3214,7 @@ export type UserUncheckedCreateWithoutConsentFormsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3248,6 +3294,7 @@ export type UserUpdateWithoutConsentFormsWitnessedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3311,6 +3358,7 @@ export type UserUncheckedUpdateWithoutConsentFormsWitnessedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3385,6 +3433,7 @@ export type UserUpdateWithoutConsentFormsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3448,6 +3497,7 @@ export type UserUncheckedUpdateWithoutConsentFormsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3511,6 +3561,7 @@ export type UserCreateWithoutChecklistItemsCheckedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3574,6 +3625,7 @@ export type UserUncheckedCreateWithoutChecklistItemsCheckedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3653,6 +3705,7 @@ export type UserUpdateWithoutChecklistItemsCheckedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3716,6 +3769,7 @@ export type UserUncheckedUpdateWithoutChecklistItemsCheckedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3779,6 +3833,7 @@ export type UserCreateWithoutPackageSessionsPerformedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3842,6 +3897,7 @@ export type UserUncheckedCreateWithoutPackageSessionsPerformedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3921,6 +3977,7 @@ export type UserUpdateWithoutPackageSessionsPerformedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -3984,6 +4041,7 @@ export type UserUncheckedUpdateWithoutPackageSessionsPerformedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4047,6 +4105,7 @@ export type UserCreateWithoutDoctorAvailabilitiesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4110,6 +4169,7 @@ export type UserUncheckedCreateWithoutDoctorAvailabilitiesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4189,6 +4249,7 @@ export type UserUpdateWithoutDoctorAvailabilitiesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4252,6 +4313,7 @@ export type UserUncheckedUpdateWithoutDoctorAvailabilitiesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4315,6 +4377,7 @@ export type UserCreateWithoutDoctorLeavesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4378,6 +4441,7 @@ export type UserUncheckedCreateWithoutDoctorLeavesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4457,6 +4521,7 @@ export type UserUpdateWithoutDoctorLeavesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4520,6 +4585,7 @@ export type UserUncheckedUpdateWithoutDoctorLeavesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4583,6 +4649,7 @@ export type UserCreateWithoutAttendanceInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4646,6 +4713,7 @@ export type UserUncheckedCreateWithoutAttendanceInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4725,6 +4793,7 @@ export type UserUpdateWithoutAttendanceInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4788,6 +4857,7 @@ export type UserUncheckedUpdateWithoutAttendanceInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4851,6 +4921,7 @@ export type UserCreateWithoutLeaveRequestsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4914,6 +4985,7 @@ export type UserUncheckedCreateWithoutLeaveRequestsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -4982,6 +5054,7 @@ export type UserCreateWithoutLeaveRequestsDecidedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5045,6 +5118,7 @@ export type UserUncheckedCreateWithoutLeaveRequestsDecidedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5124,6 +5198,7 @@ export type UserUpdateWithoutLeaveRequestsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5187,6 +5262,7 @@ export type UserUncheckedUpdateWithoutLeaveRequestsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5261,6 +5337,7 @@ export type UserUpdateWithoutLeaveRequestsDecidedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5324,6 +5401,7 @@ export type UserUncheckedUpdateWithoutLeaveRequestsDecidedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5387,6 +5465,7 @@ export type UserCreateWithoutAppointmentsAsDoctorInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5450,6 +5529,7 @@ export type UserUncheckedCreateWithoutAppointmentsAsDoctorInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5518,6 +5598,7 @@ export type UserCreateWithoutAppointmentsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5581,6 +5662,7 @@ export type UserUncheckedCreateWithoutAppointmentsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5660,6 +5742,7 @@ export type UserUpdateWithoutAppointmentsAsDoctorInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5723,6 +5806,7 @@ export type UserUncheckedUpdateWithoutAppointmentsAsDoctorInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5797,6 +5881,7 @@ export type UserUpdateWithoutAppointmentsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5860,6 +5945,7 @@ export type UserUncheckedUpdateWithoutAppointmentsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5923,6 +6009,7 @@ export type UserCreateWithoutWaitingListEntriesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -5986,6 +6073,7 @@ export type UserUncheckedCreateWithoutWaitingListEntriesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6065,6 +6153,7 @@ export type UserUpdateWithoutWaitingListEntriesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6128,6 +6217,7 @@ export type UserUncheckedUpdateWithoutWaitingListEntriesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6191,6 +6281,7 @@ export type UserCreateWithoutPrescriptionsWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6254,6 +6345,7 @@ export type UserUncheckedCreateWithoutPrescriptionsWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6333,6 +6425,7 @@ export type UserUpdateWithoutPrescriptionsWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6396,6 +6489,7 @@ export type UserUncheckedUpdateWithoutPrescriptionsWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6459,6 +6553,7 @@ export type UserCreateWithoutPaymentsReceivedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6522,6 +6617,7 @@ export type UserUncheckedCreateWithoutPaymentsReceivedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6601,6 +6697,7 @@ export type UserUpdateWithoutPaymentsReceivedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6664,6 +6761,7 @@ export type UserUncheckedUpdateWithoutPaymentsReceivedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6727,6 +6825,7 @@ export type UserCreateWithoutRefundsProcessedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6790,6 +6889,7 @@ export type UserUncheckedCreateWithoutRefundsProcessedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6869,6 +6969,7 @@ export type UserUpdateWithoutRefundsProcessedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6932,6 +7033,7 @@ export type UserUncheckedUpdateWithoutRefundsProcessedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -6995,6 +7097,7 @@ export type UserCreateWithoutAdvancesReceivedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7058,6 +7161,7 @@ export type UserUncheckedCreateWithoutAdvancesReceivedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7137,6 +7241,7 @@ export type UserUpdateWithoutAdvancesReceivedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7200,6 +7305,7 @@ export type UserUncheckedUpdateWithoutAdvancesReceivedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7263,6 +7369,7 @@ export type UserCreateWithoutCommissionsEarnedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7326,6 +7433,7 @@ export type UserUncheckedCreateWithoutCommissionsEarnedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7394,6 +7502,7 @@ export type UserCreateWithoutCommissionsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7457,6 +7566,7 @@ export type UserUncheckedCreateWithoutCommissionsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7536,6 +7646,7 @@ export type UserUpdateWithoutCommissionsEarnedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7599,6 +7710,7 @@ export type UserUncheckedUpdateWithoutCommissionsEarnedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7673,6 +7785,7 @@ export type UserUpdateWithoutCommissionsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7736,6 +7849,7 @@ export type UserUncheckedUpdateWithoutCommissionsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7799,6 +7913,7 @@ export type UserCreateWithoutSalesTargetsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7862,6 +7977,7 @@ export type UserUncheckedCreateWithoutSalesTargetsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -7941,6 +8057,7 @@ export type UserUpdateWithoutSalesTargetsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8004,6 +8121,7 @@ export type UserUncheckedUpdateWithoutSalesTargetsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8067,6 +8185,7 @@ export type UserCreateWithoutPaymentPlansCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8130,6 +8249,7 @@ export type UserUncheckedCreateWithoutPaymentPlansCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8209,6 +8329,7 @@ export type UserUpdateWithoutPaymentPlansCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8272,6 +8393,7 @@ export type UserUncheckedUpdateWithoutPaymentPlansCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8335,6 +8457,7 @@ export type UserCreateWithoutCashSessionsOpenedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8398,6 +8521,7 @@ export type UserUncheckedCreateWithoutCashSessionsOpenedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8466,6 +8590,7 @@ export type UserCreateWithoutCashSessionsClosedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8529,6 +8654,7 @@ export type UserUncheckedCreateWithoutCashSessionsClosedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8608,6 +8734,7 @@ export type UserUpdateWithoutCashSessionsOpenedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8671,6 +8798,7 @@ export type UserUncheckedUpdateWithoutCashSessionsOpenedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8745,6 +8873,7 @@ export type UserUpdateWithoutCashSessionsClosedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8808,6 +8937,7 @@ export type UserUncheckedUpdateWithoutCashSessionsClosedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8871,6 +9001,7 @@ export type UserCreateWithoutExpensesRecordedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -8934,6 +9065,7 @@ export type UserUncheckedCreateWithoutExpensesRecordedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9013,6 +9145,7 @@ export type UserUpdateWithoutExpensesRecordedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9076,6 +9209,7 @@ export type UserUncheckedUpdateWithoutExpensesRecordedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9139,6 +9273,7 @@ export type UserCreateWithoutMessagesSentInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9202,6 +9337,7 @@ export type UserUncheckedCreateWithoutMessagesSentInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9281,6 +9417,7 @@ export type UserUpdateWithoutMessagesSentInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9344,6 +9481,7 @@ export type UserUncheckedUpdateWithoutMessagesSentInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9407,6 +9545,7 @@ export type UserCreateWithoutCampaignsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9470,6 +9609,7 @@ export type UserUncheckedCreateWithoutCampaignsCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9549,6 +9689,7 @@ export type UserUpdateWithoutCampaignsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9612,6 +9753,7 @@ export type UserUncheckedUpdateWithoutCampaignsCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9675,6 +9817,7 @@ export type UserCreateWithoutNotesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9738,6 +9881,7 @@ export type UserUncheckedCreateWithoutNotesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9817,6 +9961,7 @@ export type UserUpdateWithoutNotesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9880,6 +10025,7 @@ export type UserUncheckedUpdateWithoutNotesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -9943,6 +10089,7 @@ export type UserCreateWithoutFollowUpsAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10006,6 +10153,7 @@ export type UserUncheckedCreateWithoutFollowUpsAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10085,6 +10233,7 @@ export type UserUpdateWithoutFollowUpsAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10148,6 +10297,7 @@ export type UserUncheckedUpdateWithoutFollowUpsAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10211,6 +10361,7 @@ export type UserCreateWithoutEncountersAsDoctorInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10274,6 +10425,7 @@ export type UserUncheckedCreateWithoutEncountersAsDoctorInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10353,6 +10505,7 @@ export type UserUpdateWithoutEncountersAsDoctorInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10416,6 +10569,7 @@ export type UserUncheckedUpdateWithoutEncountersAsDoctorInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10479,6 +10633,7 @@ export type UserCreateWithoutClinicalNotesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10542,6 +10697,7 @@ export type UserUncheckedCreateWithoutClinicalNotesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10621,6 +10777,7 @@ export type UserUpdateWithoutClinicalNotesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10684,6 +10841,7 @@ export type UserUncheckedUpdateWithoutClinicalNotesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10747,6 +10905,7 @@ export type UserCreateWithoutDoctorTemplatesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10810,6 +10969,7 @@ export type UserUncheckedCreateWithoutDoctorTemplatesInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10889,6 +11049,7 @@ export type UserUpdateWithoutDoctorTemplatesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -10952,6 +11113,7 @@ export type UserUncheckedUpdateWithoutDoctorTemplatesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11015,6 +11177,7 @@ export type UserCreateWithoutDigitalSignatureInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11078,6 +11241,7 @@ export type UserUncheckedCreateWithoutDigitalSignatureInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11157,6 +11321,7 @@ export type UserUpdateWithoutDigitalSignatureInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11220,6 +11385,7 @@ export type UserUncheckedUpdateWithoutDigitalSignatureInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11283,6 +11449,7 @@ export type UserCreateWithoutClinicalReportsOrderedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11346,6 +11513,7 @@ export type UserUncheckedCreateWithoutClinicalReportsOrderedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11425,6 +11593,7 @@ export type UserUpdateWithoutClinicalReportsOrderedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11488,6 +11657,7 @@ export type UserUncheckedUpdateWithoutClinicalReportsOrderedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11551,6 +11721,7 @@ export type UserCreateWithoutReferralsWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11614,6 +11785,7 @@ export type UserUncheckedCreateWithoutReferralsWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11693,6 +11865,7 @@ export type UserUpdateWithoutReferralsWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11756,6 +11929,7 @@ export type UserUncheckedUpdateWithoutReferralsWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11819,6 +11993,7 @@ export type UserCreateWithoutCertificatesIssuedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11882,6 +12057,7 @@ export type UserUncheckedCreateWithoutCertificatesIssuedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -11961,6 +12137,7 @@ export type UserUpdateWithoutCertificatesIssuedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12024,6 +12201,7 @@ export type UserUncheckedUpdateWithoutCertificatesIssuedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12087,6 +12265,7 @@ export type UserCreateWithoutInventoryTransactionsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12150,6 +12329,7 @@ export type UserUncheckedCreateWithoutInventoryTransactionsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12229,6 +12409,7 @@ export type UserUpdateWithoutInventoryTransactionsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12292,6 +12473,7 @@ export type UserUncheckedUpdateWithoutInventoryTransactionsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12355,6 +12537,7 @@ export type UserCreateWithoutPurchaseOrdersCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12418,6 +12601,7 @@ export type UserUncheckedCreateWithoutPurchaseOrdersCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12497,6 +12681,7 @@ export type UserUpdateWithoutPurchaseOrdersCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12560,6 +12745,7 @@ export type UserUncheckedUpdateWithoutPurchaseOrdersCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12623,6 +12809,7 @@ export type UserCreateWithoutAuditLogsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12686,6 +12873,7 @@ export type UserUncheckedCreateWithoutAuditLogsInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12765,6 +12953,7 @@ export type UserUpdateWithoutAuditLogsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12828,6 +13017,7 @@ export type UserUncheckedUpdateWithoutAuditLogsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12891,6 +13081,7 @@ export type UserCreateWithoutLeadsAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -12954,6 +13145,7 @@ export type UserUncheckedCreateWithoutLeadsAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13033,6 +13225,7 @@ export type UserUpdateWithoutLeadsAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13096,6 +13289,7 @@ export type UserUncheckedUpdateWithoutLeadsAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13159,6 +13353,7 @@ export type UserCreateWithoutTasksAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13222,6 +13417,7 @@ export type UserUncheckedCreateWithoutTasksAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13290,6 +13486,7 @@ export type UserCreateWithoutTasksCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13353,6 +13550,7 @@ export type UserUncheckedCreateWithoutTasksCreatedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13432,6 +13630,7 @@ export type UserUpdateWithoutTasksAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13495,6 +13694,7 @@ export type UserUncheckedUpdateWithoutTasksAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13569,6 +13769,7 @@ export type UserUpdateWithoutTasksCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13632,6 +13833,7 @@ export type UserUncheckedUpdateWithoutTasksCreatedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13695,6 +13897,7 @@ export type UserCreateWithoutLeadActivitiesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13758,6 +13961,7 @@ export type UserUncheckedCreateWithoutLeadActivitiesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13837,6 +14041,7 @@ export type UserUpdateWithoutLeadActivitiesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13900,6 +14105,7 @@ export type UserUncheckedUpdateWithoutLeadActivitiesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -13963,6 +14169,7 @@ export type UserCreateWithoutProspectsAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14026,6 +14233,7 @@ export type UserUncheckedCreateWithoutProspectsAssignedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14105,6 +14313,7 @@ export type UserUpdateWithoutProspectsAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14168,6 +14377,7 @@ export type UserUncheckedUpdateWithoutProspectsAssignedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14231,6 +14441,7 @@ export type UserCreateWithoutProspectActivitiesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14294,6 +14505,7 @@ export type UserUncheckedCreateWithoutProspectActivitiesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14373,6 +14585,7 @@ export type UserUpdateWithoutProspectActivitiesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14436,6 +14649,7 @@ export type UserUncheckedUpdateWithoutProspectActivitiesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14499,6 +14713,7 @@ export type UserCreateWithoutClientsManagedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14562,6 +14777,7 @@ export type UserUncheckedCreateWithoutClientsManagedInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14641,6 +14857,7 @@ export type UserUpdateWithoutClientsManagedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14704,6 +14921,7 @@ export type UserUncheckedUpdateWithoutClientsManagedInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14767,6 +14985,7 @@ export type UserCreateWithoutClientActivitiesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14830,6 +15049,7 @@ export type UserUncheckedCreateWithoutClientActivitiesWrittenInput = {
   email: string
   phone?: string | null
   passwordHash: string
+  supabaseUserId?: string | null
   role: $Enums.StaffRole
   specialization?: string | null
   consultationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14909,6 +15129,7 @@ export type UserUpdateWithoutClientActivitiesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -14972,6 +15193,7 @@ export type UserUncheckedUpdateWithoutClientActivitiesWrittenInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  supabaseUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumStaffRoleFieldUpdateOperationsInput | $Enums.StaffRole
   specialization?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   consultationFee?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
@@ -15498,6 +15720,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   email?: boolean
   phone?: boolean
   passwordHash?: boolean
+  supabaseUserId?: boolean
   role?: boolean
   specialization?: boolean
   consultationFee?: boolean
@@ -15563,6 +15786,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   email?: boolean
   phone?: boolean
   passwordHash?: boolean
+  supabaseUserId?: boolean
   role?: boolean
   specialization?: boolean
   consultationFee?: boolean
@@ -15577,6 +15801,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   email?: boolean
   phone?: boolean
   passwordHash?: boolean
+  supabaseUserId?: boolean
   role?: boolean
   specialization?: boolean
   consultationFee?: boolean
@@ -15591,6 +15816,7 @@ export type UserSelectScalar = {
   email?: boolean
   phone?: boolean
   passwordHash?: boolean
+  supabaseUserId?: boolean
   role?: boolean
   specialization?: boolean
   consultationFee?: boolean
@@ -15599,7 +15825,7 @@ export type UserSelectScalar = {
   createdAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "phone" | "passwordHash" | "role" | "specialization" | "consultationFee" | "active" | "permissions" | "createdAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "phone" | "passwordHash" | "supabaseUserId" | "role" | "specialization" | "consultationFee" | "active" | "permissions" | "createdAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   registeredPatients?: boolean | Prisma.User$registeredPatientsArgs<ExtArgs>
@@ -15716,6 +15942,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     email: string
     phone: string | null
     passwordHash: string
+    supabaseUserId: string | null
     role: $Enums.StaffRole
     specialization: string | null
     consultationFee: runtime.Decimal | null
@@ -16200,6 +16427,7 @@ export interface UserFieldRefs {
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly phone: Prisma.FieldRef<"User", 'String'>
   readonly passwordHash: Prisma.FieldRef<"User", 'String'>
+  readonly supabaseUserId: Prisma.FieldRef<"User", 'String'>
   readonly role: Prisma.FieldRef<"User", 'StaffRole'>
   readonly specialization: Prisma.FieldRef<"User", 'String'>
   readonly consultationFee: Prisma.FieldRef<"User", 'Decimal'>

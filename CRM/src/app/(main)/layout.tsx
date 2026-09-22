@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation"
 import { getCurrentUserOrNull } from "@/lib/auth"
 import { SidebarNav } from "@/components/layout/sidebar-nav"
 import { Header } from "@/components/layout/header"
@@ -6,6 +7,7 @@ export const dynamic = "force-dynamic"
 
 export default async function MainLayout({ children }: { children: React.ReactNode }) {
   const user = await getCurrentUserOrNull()
+  if (!user) redirect("/login")
 
   return (
     <div className="flex flex-1 min-h-screen">

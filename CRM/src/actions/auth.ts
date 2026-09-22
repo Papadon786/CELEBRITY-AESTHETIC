@@ -2,34 +2,31 @@
 
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
-import { verifyPassword, createSession, destroySession } from "@/lib/auth"
+import { createClient as createSupabaseServerClient } from "@/lib/supabase/server"
 import { loginSchema, type LoginInput } from "@/lib/validations/auth"
 
 export async function login(input: LoginInput) {
   try {
     const data = loginSchema.parse(input)
+    const email = data.email.toLowerCase().trim()
 
-    const user = await prisma.user.findUnique({
-      where: { email: data.email.toLowerCase().trim() },
+    const supabase = await createSupabaseServerClient()
+    const { data: authData, error } = await supabase.auth.signInWithPassword({
+      email,
+      password: data.password,
     })
 
-    if (!user) {
+    if (error || !authData.user) {
       return { success: false, error: "Invalid email or password" }
     }
 
-    if (!user.active) {
-      return { success: false, error: "This staff account is currently inactive. Please contact the administrator." }
+    const user = await prisma.user.findUnique({ where: { supabaseUserId: authData.user.id } })
+
+    if (!user || !user.active) {
+      await supabase.auth.signOut()
+      return { success: false, error: "This account is not set up for CRM access. Contact your administrator." }
     }
 
-    const passwordValid =
-      verifyPassword(data.password, user.passwordHash) ||
-      verifyPassword(data.password.trim(), user.passwordHash)
-
-    if (!passwordValid) {
-      return { success: false, error: "Invalid email or password" }
-    }
-
-    await createSession(user.id)
     return { success: true, user: { id: user.id, name: user.name, role: user.role } }
   } catch (err: any) {
     console.error("[login] Error:", err)
@@ -38,6 +35,7 @@ export async function login(input: LoginInput) {
 }
 
 export async function logout() {
-  await destroySession()
-  redirect("/dashboard")
+  const supabase = await createSupabaseServerClient()
+  await supabase.auth.signOut()
+  redirect("/login")
 }

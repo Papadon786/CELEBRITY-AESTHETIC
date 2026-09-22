@@ -3,7 +3,7 @@
 import { safeRevalidatePath as revalidatePath } from "@/lib/revalidate"
 import { addMinutes, isBefore, isToday, parse, startOfDay, endOfDay } from "date-fns"
 import { prisma } from "@/lib/prisma"
-import { getCurrentUser, getCurrentUserOrNull, requireRole } from "@/lib/auth"
+import { getCurrentUser, requireRole } from "@/lib/auth"
 import { generateAppointmentCode } from "@/lib/sequence"
 import { serializeDecimal } from "@/lib/serialize"
 import { logAudit } from "@/lib/audit"
@@ -96,7 +96,7 @@ export async function getAvailableSlots(doctorId: string, date: Date) {
 
 export async function bookAppointment(input: BookAppointmentInput) {
   const data = bookAppointmentSchema.parse(input)
-  const user = await getCurrentUserOrNull()
+  const user = await getCurrentUser()
 
   // Concurrency-safe atomic transaction
   const appointment = await prisma.$transaction(async (tx) => {

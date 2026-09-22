@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache"
 import { prisma } from "@/lib/prisma"
 import { hashPassword, requireRole } from "@/lib/auth"
+import { getSupabaseAdmin } from "@/lib/supabase"
 import { serializeDecimal } from "@/lib/serialize"
 import type { StaffRole } from "@/types/database"
 
@@ -70,12 +71,22 @@ export async function createStaffMember(input: CreateStaffInput) {
     throw new Error(`A staff account with email ${email} already exists`)
   }
 
+  const { data: authUser, error: authError } = await getSupabaseAdmin().auth.admin.createUser({
+    email,
+    password: input.password,
+    email_confirm: true,
+  })
+  if (authError || !authUser?.user) {
+    throw new Error(authError?.message || "Could not create the login account")
+  }
+
   const user = await prisma.user.create({
     data: {
       name: input.name.trim(),
       email,
       phone: input.phone?.trim() || null,
       passwordHash: hashPassword(input.password),
+      supabaseUserId: authUser.user.id,
       role: input.role,
       specialization: input.role === "DOCTOR" ? input.specialization?.trim() || null : null,
       consultationFee: input.role === "DOCTOR" && input.consultationFee ? input.consultationFee : null,
@@ -156,9 +167,11 @@ export async function toggleStaffStatus(id: string, active: boolean) {
     data: { active },
   })
 
-  // Invalidate any active sessions if deactivated
-  if (!active) {
-    await prisma.session.deleteMany({ where: { userId: id } }).catch(() => {})
+  // Lock/unlock their Supabase login in lockstep with the active flag
+  if (user.supabaseUserId) {
+    await getSupabaseAdmin()
+      .auth.admin.updateUserById(user.supabaseUserId, { ban_duration: active ? "none" : "876000h" })
+      .catch(() => {})
   }
 
   await prisma.auditLog.create({
@@ -183,13 +196,26 @@ export async function resetStaffPassword(id: string, newPassword: string) {
     throw new Error("Password must be at least 6 characters")
   }
 
+  const existing = await prisma.user.findUniqueOrThrow({ where: { id } })
+
+  if (existing.supabaseUserId) {
+    const { error } = await getSupabaseAdmin().auth.admin.updateUserById(existing.supabaseUserId, { password: newPassword })
+    if (error) throw new Error(error.message || "Could not update the login password")
+  } else {
+    // Legacy staff created before Supabase Auth was wired up — set up their login now.
+    const { data: authUser, error } = await getSupabaseAdmin().auth.admin.createUser({
+      email: existing.email,
+      password: newPassword,
+      email_confirm: true,
+    })
+    if (error || !authUser?.user) throw new Error(error?.message || "Could not create the login account")
+    await prisma.user.update({ where: { id }, data: { supabaseUserId: authUser.user.id } })
+  }
+
   const user = await prisma.user.update({
     where: { id },
     data: { passwordHash: hashPassword(newPassword) },
   })
-
-  // Invalidate previous sessions so they must log in with new password
-  await prisma.session.deleteMany({ where: { userId: id } }).catch(() => {})
 
   await prisma.auditLog.create({
     data: {

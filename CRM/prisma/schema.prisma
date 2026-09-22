@@ -37,6 +37,7 @@ model User {
   email           String    @unique
   phone           String?
   passwordHash    String
+  supabaseUserId  String?   @unique
   role            StaffRole
   specialization  String?
   consultationFee Decimal?  @db.Decimal(10, 2)

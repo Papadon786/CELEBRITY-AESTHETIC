@@ -44,6 +44,7 @@ type StaffMember = {
   name: string
   email: string
   phone: string | null
+  supabaseUserId?: string | null
   role: StaffRole
   specialization: string | null
   consultationFee: number | null
@@ -264,7 +265,7 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
                             }}
                           >
                             <KeyRound className="h-4 w-4 text-muted-foreground" />
-                            <span>Reset Password</span>
+                            <span>{staff.supabaseUserId ? "Reset Password" : "Set Up Login"}</span>
                           </DropdownMenuItem>
 
                           <DropdownMenuSeparator />

@@ -1,30 +1,13 @@
 import { cache } from "react"
-import { cookies } from "next/headers"
 import { randomBytes, scryptSync, timingSafeEqual } from "node:crypto"
-import { nanoid } from "nanoid"
 import { prisma } from "@/lib/prisma"
 import { serializeDecimal } from "@/lib/serialize"
+import { createClient as createSupabaseServerClient } from "@/lib/supabase/server"
 import type { StaffRole, User } from "@/types/database"
 
-const SESSION_COOKIE = "celebrity_session"
-const FALLBACK_COOKIE = "zafoor_session"
-const SESSION_TTL_DAYS = 30
-
-export const DEFAULT_ADMIN: User = {
-  id: "usr_admin_default",
-  name: "Clinic Administrator",
-  email: "admin@celebrityaesthetic.com",
-  phone: "9591047171",
-  passwordHash: "",
-  role: "ADMIN" as StaffRole,
-  specialization: "Aesthetic Clinic Management",
-  consultationFee: null as any,
-  active: true,
-  permissions: null,
-  createdAt: new Date(),
-}
-
 // ── Password hashing (scrypt, salted, constant-time compare) ─────────────
+// Kept only so existing rows always have a passwordHash value; the real
+// login check is Supabase Auth (see supabaseUserId on User), not this hash.
 
 export function hashPassword(password: string) {
   const salt = randomBytes(16).toString("hex")
@@ -40,88 +23,36 @@ export function verifyPassword(password: string, stored: string) {
   return hashBuffer.length === candidate.length && timingSafeEqual(candidate, hashBuffer)
 }
 
-// ── Sessions ───────────────────────────────────────────────────────────
-
-export async function createSession(userId: string) {
-  const expiresAt = new Date(Date.now() + SESSION_TTL_DAYS * 24 * 60 * 60 * 1000)
-  const sessionId = "sess_" + nanoid(24)
-
-  try {
-    await prisma.session.create({
-      data: {
-        id: sessionId,
-        userId,
-        expiresAt,
-      },
-    })
-  } catch (err) {
-    console.warn("[createSession] session table insert skipped or failed:", err)
-  }
-
-  const cookieStore = await cookies()
-  cookieStore.set(SESSION_COOKIE, sessionId, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    expires: expiresAt,
-    path: "/",
-  })
-}
-
-export async function destroySession() {
-  try {
-    const cookieStore = await cookies()
-    const sessionId = cookieStore.get(SESSION_COOKIE)?.value
-    if (sessionId) {
-      await prisma.session.delete({ where: { id: sessionId } }).catch(() => {})
-    }
-    cookieStore.delete(SESSION_COOKIE)
-  } catch {
-    // ignore
-  }
-}
-
 /**
- * Returns the currently signed-in user or the default Clinic Administrator.
- * Authentication is bypassed so the CRM can be accessed without a login screen.
+ * Returns the currently signed-in staff user, or null if there is no valid
+ * Supabase session or it isn't linked to an active staff account.
  */
-export const getCurrentUserOrNull = cache(async (): Promise<User> => {
+export const getCurrentUserOrNull = cache(async (): Promise<User | null> => {
   try {
-    const cookieStore = await cookies()
-    const sessionId = cookieStore.get(SESSION_COOKIE)?.value || cookieStore.get(FALLBACK_COOKIE)?.value
+    const supabase = await createSupabaseServerClient()
+    const {
+      data: { user: authUser },
+    } = await supabase.auth.getUser()
 
-    if (sessionId) {
-      const session = await prisma.session.findUnique({
-        where: { id: sessionId },
-        include: { user: true },
-      })
+    if (!authUser) return null
 
-      if (session?.user && session.user.active && new Date(session.expiresAt) >= new Date()) {
-        return serializeDecimal(session.user as User, ["consultationFee"]) as User
-      }
-    }
+    const dbUser = await prisma.user.findUnique({ where: { supabaseUserId: authUser.id } })
+    if (!dbUser || !dbUser.active) return null
 
-    // Default to the first active admin user from the database
-    const dbAdmin = await prisma.user.findFirst({
-      where: { role: "ADMIN", active: true },
-      orderBy: { createdAt: "asc" },
-    })
-
-    if (dbAdmin) {
-      return serializeDecimal(dbAdmin as User, ["consultationFee"]) as User
-    }
-
-    return DEFAULT_ADMIN
+    return serializeDecimal(dbUser as User, ["consultationFee"]) as User
   } catch {
-    return DEFAULT_ADMIN
+    return null
   }
 })
 
 /**
- * Returns the current staff user. Does not redirect to login.
+ * Returns the current staff user. Throws if there is no authenticated session —
+ * callers running inside a page should redirect via getCurrentUserOrNull instead.
  */
 export async function getCurrentUser(): Promise<User> {
-  return await getCurrentUserOrNull()
+  const user = await getCurrentUserOrNull()
+  if (!user) throw new Error("Not authenticated")
+  return user
 }
 
 /** Server-side authorization gate. Allows ADMIN or matching roles. */
