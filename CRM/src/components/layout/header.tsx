@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Search, Plus, Menu, ChevronDown, Settings, LogOut, Shield, User } from "lucide-react"
+import { Search, Menu, ChevronDown, Settings, LogOut, Shield, User } from "lucide-react"
 import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -66,20 +66,6 @@ export function Header({ user }: { user: { name: string; role: string; permissio
           />
         </div>
       </form>
-
-      {/* New Patient CTA Button */}
-      <Button
-        size="sm"
-        className="gap-1 sm:gap-1.5 h-9 shrink-0 px-2.5 sm:px-3 text-xs sm:text-sm font-medium"
-        nativeButton={false}
-        render={
-          <Link href="/patients/new">
-            <Plus className="h-4 w-4 shrink-0" />
-            <span className="hidden sm:inline">New Patient</span>
-            <span className="sm:hidden">New</span>
-          </Link>
-        }
-      />
 
       {/* User Avatar & Profile Dropdown ("CA" = Clinic Admin) */}
       <DropdownMenu>
