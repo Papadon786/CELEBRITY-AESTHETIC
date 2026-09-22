@@ -3,6 +3,7 @@ import "./globals.css";
 import { grotesk, displayFont, accentFont } from "./fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
 import SmoothScroll from "@/components/SmoothScroll";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <FloatingContact />
       </body>
     </html>
   );
