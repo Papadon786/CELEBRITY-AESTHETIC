@@ -9,6 +9,7 @@ import {
   GOOGLE_MAPS_URL,
   GOOGLE_MAPS_EMBED_URL,
   CLINIC_ADDRESS_NAME,
+  CLINIC_ADDRESS,
 } from "@/lib/constants";
 import { Reveal } from "@/components/ui/Reveal";
 import DirectionalCard from "@/components/ui/DirectionalCard";
@@ -111,7 +112,8 @@ export default async function ContactPage({
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-            <div className="mt-6">
+            <p className="mt-6 font-grotesk text-base text-charcoal/75">{CLINIC_ADDRESS}</p>
+            <div className="mt-4">
               <ButtonLink href={GOOGLE_MAPS_URL} variant="secondary" target="_blank" rel="noopener noreferrer">
                 Get Directions →
               </ButtonLink>

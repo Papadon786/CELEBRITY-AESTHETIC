@@ -37,20 +37,22 @@ export const FOOTER_LINKS = [
 
 export const CLINIC_ADDRESS_NAME =
   "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre";
+export const CLINIC_ADDRESS =
+  "9th Block, 1225, 26th Main Rd, Putlanpalya, Jayanagar 9th Block, Jayanagar, Bengaluru, Karnataka 560056";
 export const CLINIC_LAT = 12.9174467;
 export const CLINIC_LNG = 77.5931932;
 
-export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/wHwR9bCYLRUu5Vm86";
+export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/gUm7TJwjdZAe71QR9";
 
 export const GOOGLE_MAPS_EMBED_URL = `https://www.google.com/maps?q=${CLINIC_LAT},${CLINIC_LNG}&z=16&output=embed`;
 
-/** Social links — no confirmed handles are on file yet, so these point to
- * a same-name search on each platform rather than inventing a handle.
- * Swap each `href` for the real profile URL once known. */
+/** Social links. Facebook has no confirmed handle on file yet, so it points
+ * to a same-name search rather than inventing one — swap in the real
+ * profile URL once known. */
 export const SOCIAL_LINKS = [
   {
     label: "Instagram",
-    href: `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(SITE_NAME)}`,
+    href: "https://www.instagram.com/iatam_aesthetics_academy",
   },
   {
     label: "Facebook",

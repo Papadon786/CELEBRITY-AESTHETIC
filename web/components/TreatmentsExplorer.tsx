@@ -28,7 +28,7 @@ const subPillFilters: { value: TreatmentSubCategory; label: string; category: Tr
   { value: "pigmentation", label: "Pigmentation & Brightening", category: "skin" },
   { value: "medi-facials", label: "Advanced Medi Facials", category: "skin" },
   { value: "laser-hair-removal", label: "US FDA Laser Hair Removal", category: "skin" },
-  { value: "anti-aging-injectables", label: "Clinical Aesthetics & Injectables (Botox, Fillers, HIFU)", category: "skin" },
+  { value: "anti-aging-injectables", label: "Injectables & Advanced Devices (Botox, Fillers, HIFU)", category: "skin" },
 ];
 
 export default function TreatmentsExplorer() {

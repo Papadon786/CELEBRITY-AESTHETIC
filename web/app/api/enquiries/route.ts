@@ -191,7 +191,7 @@ export async function POST(request: Request) {
         leadId,
         type: "NOTE",
         title: "Website Enquiry Received",
-        details: `Enquiry from website for ${treatment || "Aesthetic Care"}.\nDate: ${dateStr || "Flexible"} ${timeStr || ""}\nMessage: ${message || "None"}`,
+        details: `Enquiry from website for ${treatment || "General Consultation"}.\nDate: ${dateStr || "Flexible"} ${timeStr || ""}\nMessage: ${message || "None"}`,
       }),
     })
 

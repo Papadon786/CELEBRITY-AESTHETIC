@@ -18,11 +18,11 @@ export const categoryImages: Record<
   },
   aesthetics: {
     src: "/treatments/aesthetics-pillar.jpg",
-    alt: "Facial aesthetic treatment and clinical contouring",
+    alt: "Facial cosmetic treatment and clinical contouring",
   },
   pmu: {
     src: "/treatments/pmu-pillar.jpg",
-    alt: "Permanent makeup and aesthetic micropigmentation",
+    alt: "Permanent makeup and cosmetic micropigmentation",
   },
 };
 
@@ -205,7 +205,7 @@ export const clinicSpaceImages = [
   },
   {
     src: "/clinic/clinic-treatment-suite-bright.jpg",
-    alt: "High-tech aesthetic treatment room with modern medical equipment and seating",
+    alt: "High-tech cosmetic treatment room with modern medical equipment and seating",
     width: 1600,
     height: 901,
   },

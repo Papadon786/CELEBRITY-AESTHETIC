@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import WhatsAppButton from "./WhatsAppButton";
 import { Reveal, RevealItem, RevealStagger } from "./ui/Reveal";
 import {
+  CLINIC_ADDRESS,
   EMAIL,
   FOOTER_LINKS,
   GOOGLE_MAPS_URL,
@@ -78,7 +79,7 @@ export default function Footer() {
           <Logo variant="light" size="large" />
           <p className="mt-4 font-grotesk text-base text-ivory/75 max-w-md">
             Premier consultation-led clinic for advanced hair restoration,
-            clinical skin care &amp; aesthetics, and certified PMU academy training.
+            clinical skin care &amp; injectables, and certified PMU academy training.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <WhatsAppButton variant="light" />
@@ -123,6 +124,10 @@ export default function Footer() {
             Contact
           </h3>
           <ul className="mt-4 space-y-3 font-grotesk text-base text-ivory/80">
+            <li className="flex items-start gap-2.5">
+              <span className="mt-0.5"><PinIcon /></span>
+              <span>{CLINIC_ADDRESS}</span>
+            </li>
             <li>
               <a
                 href={`tel:+${PHONE_DISPLAY}`}

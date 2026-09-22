@@ -13,7 +13,7 @@ const features = [
   {
     title: "Comprehensive",
     description:
-      "Skin, hair, aesthetics and PMU services are considered together, under one roof.",
+      "Skin, hair and PMU services are considered together, under one roof.",
   },
   {
     title: "Consultation-Led",

@@ -38,7 +38,7 @@ export interface Treatment {
 export const categoryLabels: Record<TreatmentCategory, string> = {
   hair: "Hair Treatments",
   skin: "Skin Care",
-  aesthetics: "Aesthetics",
+  aesthetics: "Injectables",
   pmu: "PMU",
 };
 
@@ -50,7 +50,7 @@ export const subCategoryLabels: Record<TreatmentSubCategory, string> = {
   "pigmentation": "Pigmentation & Skin Brightening",
   "medi-facials": "Advanced Medi Facials",
   "laser-hair-removal": "Laser Hair Removal (US FDA Approved)",
-  "anti-aging-injectables": "Clinical Aesthetics & Injectables",
+  "anti-aging-injectables": "Injectables & Advanced Devices",
   "pmu-beauty": "Permanent Makeup (PMU)",
 };
 
@@ -572,7 +572,7 @@ export const treatments: Treatment[] = [
     "slug": "botox",
     "category": "skin",
     "subCategory": "anti-aging-injectables",
-    "subCategoryLabel": "Clinical Aesthetics & Injectables",
+    "subCategoryLabel": "Injectables & Advanced Devices",
     "featured": true,
     "description": "Precision botulinum neurotoxin micro-injections to smooth forehead lines, crow's feet, and frown lines while preserving natural facial expressions.",
     "detail": {
@@ -584,7 +584,7 @@ export const treatments: Treatment[] = [
       "faq": [
         {
           "question": "Will my face look frozen?",
-          "answer": "Never at Crown Celebrity Aesthetic. Our aesthetic physicians practice the 'baby Botox' approach, softening wrinkles while keeping your natural expressions alive."
+          "answer": "Never at Crown Celebrity Aesthetic. Our physicians practice the 'baby Botox' approach, softening wrinkles while keeping your natural expressions alive."
         }
       ]
     }
@@ -594,7 +594,7 @@ export const treatments: Treatment[] = [
     "slug": "fillers",
     "category": "skin",
     "subCategory": "anti-aging-injectables",
-    "subCategoryLabel": "Clinical Aesthetics & Injectables",
+    "subCategoryLabel": "Injectables & Advanced Devices",
     "featured": true,
     "description": "Hyaluronic acid dermal fillers that sculpt facial contours, restore lost youthful volume, and define lips and jawlines.",
     "detail": {
@@ -616,7 +616,7 @@ export const treatments: Treatment[] = [
     "slug": "hifu-double-chin",
     "category": "skin",
     "subCategory": "anti-aging-injectables",
-    "subCategoryLabel": "Clinical Aesthetics & Injectables",
+    "subCategoryLabel": "Injectables & Advanced Devices",
     "description": "High-intensity focused ultrasound focused on the submental zone to melt focal fat and tighten sub-mandibular skin.",
     "detail": {
       "whatIsIt": "Focused ultrasound energy penetrates into the submental fat layer beneath the chin, producing targeted thermal coagulation that permanently reduces stubborn fat cells while tightening overlying loose skin.",
@@ -637,7 +637,7 @@ export const treatments: Treatment[] = [
     "slug": "thread-lift",
     "category": "skin",
     "subCategory": "anti-aging-injectables",
-    "subCategoryLabel": "Clinical Aesthetics & Injectables",
+    "subCategoryLabel": "Injectables & Advanced Devices",
     "description": "Dissolvable PDO/PLLA barbed threads that mechanically lift sagging jowls and cheeks while stimulating long-term collagen.",
     "detail": {
       "whatIsIt": "A minimally invasive contouring procedure where medical-grade polydioxanone (PDO) threads with micro-barbs are inserted beneath the skin to immediately reposition sagging tissues.",
@@ -658,8 +658,8 @@ export const treatments: Treatment[] = [
     "slug": "mnrf-aesthetics",
     "category": "skin",
     "subCategory": "anti-aging-injectables",
-    "subCategoryLabel": "Clinical Aesthetics & Injectables",
-    "description": "Aesthetic microneedling radiofrequency for tightening facial skin laxity, fine lines, and open pores.",
+    "subCategoryLabel": "Injectables & Advanced Devices",
+    "description": "Advanced microneedling radiofrequency for tightening facial skin laxity, fine lines, and open pores.",
     "detail": {
       "whatIsIt": "Targeted radiofrequency energy delivered via insulated micro-needles to stimulate deep neocollagenesis and tighten loose facial skin.",
       "whoMayConsider": "Those with skin laxity, enlarged pores, and fine lines seeking non-surgical tightening.",
@@ -675,12 +675,12 @@ export const treatments: Treatment[] = [
     }
   },
   {
-    "name": "Carbon Laser Aesthetic Glow",
+    "name": "Carbon Laser Glow",
     "slug": "carbon-laser-facial-aesthetics",
     "category": "skin",
     "subCategory": "anti-aging-injectables",
-    "subCategoryLabel": "Clinical Aesthetics & Injectables",
-    "description": "Aesthetic laser facial for instant clarity, refining skin tone and texture before high-profile events.",
+    "subCategoryLabel": "Injectables & Advanced Devices",
+    "description": "Advanced laser facial for instant clarity, refining skin tone and texture before high-profile events.",
     "detail": {
       "whatIsIt": "Application of carbon cream blasted with Q-switch laser pulses for instant radiance.",
       "whoMayConsider": "Anyone wanting an airbrushed, glowing complexion with zero downtime.",
@@ -700,11 +700,11 @@ export const treatments: Treatment[] = [
     "slug": "skin-rejuvenation",
     "category": "skin",
     "subCategory": "anti-aging-injectables",
-    "subCategoryLabel": "Clinical Aesthetics & Injectables",
+    "subCategoryLabel": "Injectables & Advanced Devices",
     "description": "Bespoke holistic anti-aging protocol harmonizing lasers, peels, and bio-nutrients.",
     "detail": {
       "whatIsIt": "A tailored combination protocol addressing multiple signs of aging simultaneously.",
-      "whoMayConsider": "Clients looking for a structured, physician-guided aesthetic refresh.",
+      "whoMayConsider": "Clients looking for a structured, physician-guided cosmetic refresh.",
       "whatToExpect": "Holistic assessment and personalized session roadmap.",
       "journey": "Monitored across 3 to 6 visits.",
       "aftercare": "Personalized home regimen.",
@@ -739,7 +739,7 @@ export const treatments: Treatment[] = [
     }
   },
   {
-    "name": "Scalp Micropigmentation (SMP Hair & Aesthetics)",
+    "name": "Scalp Micropigmentation (SMP)",
     "slug": "smp-hair",
     "category": "hair",
     "subCategory": "hair-care",

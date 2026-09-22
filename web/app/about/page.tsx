@@ -16,7 +16,7 @@ const advancedTechImage = getTreatmentImage(getTreatmentBySlug("mnrf")!);
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Crown Celebrity Aesthetic's consultation-led approach to skin, hair, aesthetics and PMU services.",
+    "Learn about Crown Celebrity Aesthetic's consultation-led approach to skin, hair and PMU services.",
   alternates: { canonical: "/about" },
 };
 
@@ -40,7 +40,7 @@ const philosophySteps = [
 
 const journeySteps = [
   { number: "01", title: "Consult", text: "Understand your concern in full." },
-  { number: "02", title: "Assess", text: "Evaluate your skin, hair or aesthetic goals." },
+  { number: "02", title: "Assess", text: "Evaluate your skin, hair or cosmetic goals." },
   { number: "03", title: "Personalise", text: "Build a treatment plan suited to you." },
   { number: "04", title: "Follow Up", text: "Monitor your treatment journey with us." },
 ];
@@ -68,7 +68,7 @@ const focusAreas = [
     text: "Scalp and hair-focused approaches, considered against the underlying cause of your concern.",
   },
   {
-    name: "Aesthetics",
+    name: "Injectables",
     image: categoryImages.aesthetics,
     text: "Injectable and device-based techniques introduced only after a thorough conversation.",
   },
@@ -96,7 +96,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 max-w-lg font-grotesk text-[17px] leading-relaxed text-charcoal/75">
-              Crown Celebrity Aesthetic brings skin, hair, aesthetics and PMU
+              Crown Celebrity Aesthetic brings skin, hair and PMU
               services together within one consultation-led practice. We
               believe the right treatment plan begins with genuinely
               understanding your concern.
@@ -146,7 +146,7 @@ export default function AboutPage() {
           <SectionHeading
             kicker="What We Do"
             title="Comprehensive care. One destination."
-            description="From facials to advanced aesthetics and PMU, our clinic brings specialised treatments together under one roof."
+            description="From facials to advanced injectables and PMU, our clinic brings specialised treatments together under one roof."
             align="center"
             light
           />
@@ -235,7 +235,7 @@ export default function AboutPage() {
             <SectionHeading
               kicker="Advanced Technology"
               title="Modern technology. Thoughtful treatment."
-              description="We combine clinical expertise with advanced treatment technologies to offer personalised solutions across skin, hair, aesthetics and PMU."
+              description="We combine clinical expertise with advanced treatment technologies to offer personalised solutions across skin, hair and PMU."
             />
             <div className="mt-6 flex flex-wrap gap-2">
               {["Laser", "PRP", "MNRF", "HIFU", "Botox", "Fillers"].map((tag) => (

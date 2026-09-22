@@ -31,7 +31,7 @@ export default function OurTreatments() {
           <SectionHeading
             kicker="Our Treatments"
             title="Focused, physician-led clinical care"
-            description="Signature treatments across hair restoration, hair transplantation, skin care & aesthetics, and permanent makeup (PMU)."
+            description="Signature treatments across hair restoration, hair transplantation, skin care & injectables, and permanent makeup (PMU)."
           />
           <Link
             href="/treatments"

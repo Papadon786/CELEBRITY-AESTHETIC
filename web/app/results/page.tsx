@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   title: "Results",
   description:
-    "Before and after results across skin, hair, aesthetics and PMU treatments at Crown Celebrity Aesthetic.",
+    "Before and after results across skin, hair and PMU treatments at Crown Celebrity Aesthetic.",
   alternates: { canonical: "/results" },
 };
 

@@ -4,7 +4,7 @@ import DirectionalCard from "./ui/DirectionalCard";
 
 const checklist = [
   "Personalised consultation",
-  "Skin, hair & aesthetic concerns",
+  "Skin, hair & cosmetic concerns",
   "For men & women",
   "Appointment-based care",
 ];

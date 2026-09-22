@@ -11,7 +11,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Crown Celebrity Aesthetic — Hair & Skin Clinic, PMU Services & Academy",
   description:
-    "A consultation-led hair and skin clinic offering skin, hair, aesthetics and PMU treatments, plus a dedicated PMU academy.",
+    "A consultation-led hair and skin clinic offering skin, hair and PMU treatments, plus a dedicated PMU academy.",
   alternates: { canonical: "/" },
 };
 

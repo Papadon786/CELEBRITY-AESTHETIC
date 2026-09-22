@@ -126,7 +126,7 @@ export default function MobileMenu({
                           onClick={onClose}
                           className="flex items-center justify-between px-4 py-3 font-semibold uppercase tracking-wider text-ivory transition-colors hover:text-gold-light"
                         >
-                          <span>Skin Care &amp; Aesthetics</span>
+                          <span>Skin Care &amp; Injectables</span>
                           <span className="text-xs text-gold">→</span>
                         </Link>
                         <Link

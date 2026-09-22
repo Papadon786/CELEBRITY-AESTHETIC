@@ -28,7 +28,7 @@ export default function AboutSection() {
           <Reveal>
             <p className="mt-6 max-w-lg font-grotesk text-[17px] leading-relaxed text-charcoal/75">
               Crown Celebrity Aesthetic brings together hair restoration,
-              hair transplant specialities, clinical skin care &amp; aesthetics,
+              hair transplant specialities, clinical skin care,
               and certified PMU services within a single, premier consultation-led practice.
               Every visit begins with an in-depth diagnostic assessment — understanding your
               anatomy, your goals, and charting a tailored clinical path forward.

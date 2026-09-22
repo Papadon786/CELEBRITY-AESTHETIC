@@ -10,7 +10,7 @@ import type { TreatmentCategory } from "@/lib/treatments";
 const pillars = [
   {
     number: "01",
-    name: "Skin & Aesthetics",
+    name: "Skin & Injectables",
     category: "skin" as TreatmentCategory,
     href: "/treatments?category=skin",
     description:
@@ -44,7 +44,7 @@ export default function ServicePillars() {
         <SectionHeading
           kicker="Our Pillars"
           title="Treatments designed around you"
-          description="A considered approach across hair restoration, clinical skin care & aesthetics, and permanent makeup (PMU)."
+          description="A considered approach across hair restoration, clinical skin care & injectables, and permanent makeup (PMU)."
           align="center"
         />
         <Reveal className="mt-6 text-center">

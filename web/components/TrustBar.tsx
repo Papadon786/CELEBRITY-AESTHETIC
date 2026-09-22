@@ -6,7 +6,7 @@
  */
 const trustItems = [
   "Consultation-Led Care",
-  "Skin · Hair · Aesthetics · PMU",
+  "Skin · Hair · Injectables · PMU",
   "Academy-Trained Practitioners",
   "Personalised Treatment Plans",
   "Honest, No-Pressure Advice",
