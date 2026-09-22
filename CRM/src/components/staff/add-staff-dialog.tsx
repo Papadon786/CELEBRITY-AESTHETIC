@@ -99,7 +99,7 @@ export function AddStaffDialog() {
               <Label className="text-xs font-medium" htmlFor="staff-email">
                 Email Address (Login ID) <span className="text-destructive">*</span>
               </Label>
-              <Input id="staff-email" name="email" type="email" placeholder="staff@zafoorclinic.com" required />
+              <Input id="staff-email" name="email" type="email" placeholder="staff@celebrityaesthetic.com" required />
             </div>
           </div>
 

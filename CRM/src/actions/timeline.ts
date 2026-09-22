@@ -65,7 +65,7 @@ export async function getPatientTimeline(patientId: string): Promise<TimelineEve
       id: `apt-${a.id}`,
       type: "APPOINTMENT",
       date: new Date(a.scheduledAt),
-      title: `${appointmentTypeLabels[a.type] || "Appointment"} with Dr. ${a.doctor?.name || "Mufeeda Roohi"}`,
+      title: `${appointmentTypeLabels[a.type] || "Appointment"} with ${a.doctor?.name ? `Dr. ${a.doctor.name}` : "the doctor"}`,
       description: a.reason ?? undefined,
       badge: appointmentStatusLabels[a.status] || a.status,
     })
@@ -76,7 +76,7 @@ export async function getPatientTimeline(patientId: string): Promise<TimelineEve
       id: `rx-${p.id}`,
       type: "PRESCRIPTION",
       date: new Date(p.issuedAt),
-      title: `Prescription by Dr. ${p.doctor?.name || "Mufeeda Roohi"}`,
+      title: `Prescription by ${p.doctor?.name ? `Dr. ${p.doctor.name}` : "the doctor"}`,
       description: (p.items || []).map((i: any) => i.medicineName).join(", ") || p.diagnosis || undefined,
     })
   }
@@ -149,7 +149,7 @@ export async function getPatientTimeline(patientId: string): Promise<TimelineEve
       id: `enc-${e.id}`,
       type: "ENCOUNTER",
       date: new Date(e.signedAt ?? e.encounterDate),
-      title: `Consultation with Dr. ${e.doctor?.name || "Mufeeda Roohi"}`,
+      title: `Consultation with ${e.doctor?.name ? `Dr. ${e.doctor.name}` : "the doctor"}`,
       description: primaryDx?.description ?? (e.chiefComplaints?.join(", ") || undefined),
       badge: "Signed",
     })
@@ -182,7 +182,7 @@ export async function getPatientTimeline(patientId: string): Promise<TimelineEve
       id: `cert-${c.id}`,
       type: "CERTIFICATE",
       date: new Date(c.createdAt),
-      title: `${c.title} issued by Dr. ${c.doctor?.name || "Mufeeda Roohi"}`,
+      title: `${c.title} issued by ${c.doctor?.name ? `Dr. ${c.doctor.name}` : "the doctor"}`,
       badge: c.signedAt ? "Signed" : "Draft",
     })
   }

@@ -183,7 +183,7 @@ export function WhatsAppBlastClient({ templates, tags }: { templates: Template[]
               rows={8}
               value={body}
               onChange={(e) => setBody(e.target.value)}
-              placeholder="Hi {{firstName}}, this is Zafoor Clinic..."
+              placeholder="Hi {{firstName}}, this is Crown Celebrity Aesthetic..."
             />
             <p className="text-xs text-muted-foreground">
               Placeholders: <code>{"{{firstName}}"}</code> <code>{"{{fullName}}"}</code>{" "}

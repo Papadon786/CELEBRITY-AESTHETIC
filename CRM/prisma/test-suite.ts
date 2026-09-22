@@ -32,7 +32,7 @@ function assert(condition: boolean, message: string) {
 
 async function runComprehensiveTestSuite() {
   console.log("==================================================================")
-  console.log("  Zafoor Clinic CRM — Comprehensive Full-Stack Test Suite")
+  console.log("  Crown Celebrity Aesthetic CRM — Comprehensive Full-Stack Test Suite")
   console.log("==================================================================\n")
 
   // Staff accounts

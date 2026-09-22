@@ -1,8 +1,8 @@
-// Zafoor Clinic — real patient seed, digitized from 6 physical prescriptions
-// handed to us by Dr. Mufeeda Roohi. NOTE: only 5 numbered patients were
-// actually listed in the brief (Zainab, Tamil, Yousuf, "B.L", Mohamed
-// Faizoon) despite the "6 physical prescriptions" framing — this script
-// seeds exactly the 5 that were transcribed and does not invent a 6th.
+// Real patient seed, digitized from 6 physical prescriptions handed to us.
+// NOTE: only 5 numbered patients were actually listed in the brief (Zainab,
+// Tamil, Yousuf, "B.L", Mohamed Faizoon) despite the "6 physical
+// prescriptions" framing — this script seeds exactly the 5 that were
+// transcribed and does not invent a 6th.
 //
 // Idempotent (safe to re-run): patients are upserted by a synthetic natural
 // key (name + dob), inventory items by name (case-insensitive, matching the
@@ -230,10 +230,10 @@ const CHARTS: ChartInput[] = [
 async function main() {
   console.log("Seeding real patient data from digitized prescriptions…")
 
-  const doctor = await prisma.user.findUnique({ where: { email: "doctor@zafoorclinic.com" } })
+  const doctor = await prisma.user.findUnique({ where: { email: "naziya@celebrityaesthetic.com" } })
   if (!doctor) {
     throw new Error(
-      "Doctor user (doctor@zafoorclinic.com / Dr. Mufeeda Roohi) not found — run `npm run db:seed` first."
+      "Doctor user (naziya@celebrityaesthetic.com) not found — run `npm run db:seed` first."
     )
   }
 
@@ -267,7 +267,7 @@ async function main() {
           phone: "0000000000",
           source: "CRM",
           status: "ACTIVE",
-          notesSummary: "Seeded from a physical Zafoor Clinic prescription — see flags on prescription/bill records.",
+          notesSummary: "Seeded from a physical prescription — see flags on prescription/bill records.",
         },
       })
       if (chart.flagNote) {

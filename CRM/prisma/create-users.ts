@@ -21,7 +21,7 @@ function hashPassword(password: string) {
 
 async function main() {
   console.log("=========================================================")
-  console.log(" Zafoor Clinic CRM — Supabase Admin & Staff Account Setup")
+  console.log(" Crown Celebrity Aesthetic CRM — Supabase Admin & Staff Account Setup")
   console.log("=========================================================\n")
 
   const accounts = [
@@ -66,58 +66,6 @@ async function main() {
       email: "reception@celebrityaesthetic.com",
       phone: "9591047171",
       password: "Reception@123",
-      role: "RECEPTIONIST" as const,
-    },
-    {
-      name: "Clinic Administrator",
-      email: "admin@zafoorclinic.com",
-      phone: "8940399403",
-      password: "Admin@123456",
-      role: "ADMIN" as const,
-    },
-    {
-      name: "Dr. Mufeeda Roohi",
-      email: "doctor@zafoorclinic.com",
-      phone: "8940399403",
-      password: "Doctor@123",
-      role: "DOCTOR" as const,
-      specialization: "Aesthetic Physician, Diabetologist & Family Physician",
-      consultationFee: 500,
-    },
-    {
-      name: "Front Desk Receptionist",
-      email: "reception@zafoorclinic.com",
-      phone: "8940399403",
-      password: "Reception@123456",
-      role: "RECEPTIONIST" as const,
-    },
-    {
-      name: "Front Desk Receptionist (Staff 1)",
-      email: "reception1@zafoorclinic.com",
-      phone: "8940399403",
-      password: "Reception@123",
-      role: "RECEPTIONIST" as const,
-    },
-    {
-      name: "Patient Desk Receptionist (Staff 2)",
-      email: "reception2@zafoorclinic.com",
-      phone: "8940399403",
-      password: "Reception@123",
-      role: "RECEPTIONIST" as const,
-    },
-    // Standard Demo / Test Logins
-    {
-      name: "Demo Admin",
-      email: "admin@zafoorclinic.test",
-      phone: "8940399403",
-      password: "ChangeMe123!",
-      role: "ADMIN" as const,
-    },
-    {
-      name: "Demo Receptionist",
-      email: "reception@zafoorclinic.test",
-      phone: "8940399403",
-      password: "ChangeMe123!",
       role: "RECEPTIONIST" as const,
     },
   ]

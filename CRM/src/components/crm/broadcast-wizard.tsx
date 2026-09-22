@@ -23,7 +23,7 @@ type Template = { id: string; name: string; body: string; quickReplyButtons: str
 type Tag = { id: string; name: string; color: string }
 type Connection = { configured: boolean; provider: string | null }
 
-const SAMPLE_VARS = { patientName: "Zainab", date: "24 Aug 2026", time: "5:30 PM", doctorName: "Dr. Mufeeda Roohi" }
+const SAMPLE_VARS = { patientName: "Zainab", date: "24 Aug 2026", time: "5:30 PM", doctorName: "Dr. Naziya Baig" }
 
 function fillTemplate(body: string) {
   return body.replace(/{{\s*(\w+)\s*}}/g, (_m, key: string) => (SAMPLE_VARS as Record<string, string>)[key] ?? `{{${key}}}`)
@@ -176,7 +176,7 @@ export function BroadcastWizard({
               <div className="flex justify-center py-4 bg-muted/30 rounded-lg">
                 <div className="max-w-xs w-full rounded-2xl rounded-tl-sm bg-[#dcf8c6] dark:bg-emerald-900/60 p-3 text-sm shadow-sm">
                   <p className="flex items-center gap-1 text-xs font-semibold text-emerald-800 dark:text-emerald-300 mb-1">
-                    <MessageCircle className="h-3.5 w-3.5" /> Zafoor Clinic
+                    <MessageCircle className="h-3.5 w-3.5" /> Crown Celebrity Aesthetic
                   </p>
                   <p className="whitespace-pre-wrap text-foreground">{fillTemplate(selectedTemplate.body)}</p>
                   {selectedTemplate.quickReplyButtons.length > 0 && (

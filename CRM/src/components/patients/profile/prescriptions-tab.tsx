@@ -12,14 +12,14 @@ import type { getPatientPrescriptions } from "@/actions/patients"
 type Prescriptions = Awaited<ReturnType<typeof getPatientPrescriptions>>
 
 const CLINIC = {
-  name: "Zafoor Clinic",
-  doctor: "Dr. Mufeeda Roohi",
-  qualifications: "MBBS., FFM., FAM., FID",
-  specialty: "Family Physician, Diabetologist & Aesthetic Physician",
-  address: "No. 69/70 St. Xavier Street, Opp. Huda Masjid & Next to MedPlus, Seven Wells, Chennai - 600 001.",
-  phone: "+91 89403 99403",
-  email: "zafoorclinic@gmail.com",
-  timings: "Mon - Sat: Evening 6:00 PM - 10:00PM · Sunday: Closed",
+  name: "Crown Celebrity Aesthetic",
+  doctor: "Dr. Naziya Baig",
+  qualifications: "Certified Cosmetologist & Trichologist",
+  specialty: "Lead Cosmetologist & Trichology Specialist",
+  address: "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India",
+  phone: "+91 9591047171",
+  email: "celebrityaestheticcrown@gmail.com",
+  timings: "Mon - Sat: 10:00 AM - 8:00 PM · Sunday: Closed",
 }
 
 function genderInitial(g?: string | null) {

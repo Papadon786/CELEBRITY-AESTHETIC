@@ -16,6 +16,6 @@ export default defineConfig({
       process.env["POSTGRES_URL_NON_POOLING"] ||
       process.env["POSTGRES_PRISMA_URL"] ||
       process.env["POSTGRES_URL"] ||
-      "postgresql://zafoor:zafoor_password@localhost:5432/zafoor_clinic",
+      "postgresql://postgres:postgres@localhost:5432/celebrity_aesthetic_crm",
   },
 });

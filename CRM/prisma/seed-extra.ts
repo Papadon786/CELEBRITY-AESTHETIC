@@ -53,9 +53,9 @@ async function main() {
   )
   await withRetry(() => prisma.cashSession.deleteMany({ where: { openingBalance: 2000 } }))
 
-  const doctor = await withRetry(() => prisma.user.findUniqueOrThrow({ where: { email: "doctor@zafoorclinic.test" } }))
-  const receptionist = await withRetry(() => prisma.user.findUniqueOrThrow({ where: { email: "reception@zafoorclinic.test" } }))
-  const admin = await withRetry(() => prisma.user.findUniqueOrThrow({ where: { email: "admin@zafoorclinic.test" } }))
+  const doctor = await withRetry(() => prisma.user.findUniqueOrThrow({ where: { email: "naziya@celebrityaesthetic.com" } }))
+  const receptionist = await withRetry(() => prisma.user.findUniqueOrThrow({ where: { email: "reception@celebrityaesthetic.com" } }))
+  const admin = await withRetry(() => prisma.user.findUniqueOrThrow({ where: { email: "admin@celebrityaesthetic.com" } }))
   const services = await withRetry(() => prisma.service.findMany())
   const serviceBySlug = Object.fromEntries(services.map((s) => [s.slug, s]))
   const today = new Date()
@@ -350,8 +350,8 @@ async function main() {
 
   // ── Communications log ─────────────────────────────────────────────
   const messageDefs = [
-    { patient: patients[0], channel: "SMS" as const, body: "Reminder: your appointment at Zafoor Clinic is tomorrow at 6:30 PM." },
-    { patient: patients[1], channel: "WHATSAPP" as const, body: "Thank you for visiting Zafoor Clinic. Let us know if you have any questions about your treatment." },
+    { patient: patients[0], channel: "SMS" as const, body: "Reminder: your appointment at Crown Celebrity Aesthetic is tomorrow at 6:30 PM." },
+    { patient: patients[1], channel: "WHATSAPP" as const, body: "Thank you for visiting Crown Celebrity Aesthetic. Let us know if you have any questions about your treatment." },
     { patient: patients[2], channel: "CALL" as const, body: "Called to confirm appointment — patient confirmed." },
   ]
   for (const def of messageDefs) {

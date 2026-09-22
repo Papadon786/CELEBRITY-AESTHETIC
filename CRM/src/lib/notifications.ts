@@ -1,5 +1,5 @@
 /**
- * Multi-Channel Notification Service for Zafoor Clinic
+ * Multi-Channel Notification Service for Crown Celebrity Aesthetic
  * Handles SMS, Email, and WhatsApp notifications for appointments,
  * consultations, and inventory alerts with seamless mock/development fallbacks.
  */

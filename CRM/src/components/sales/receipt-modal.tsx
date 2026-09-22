@@ -189,8 +189,8 @@ export function ReceiptModal({
 
             {/* Footer Notes */}
             <div className="pt-4 text-center text-[10px] text-muted-foreground space-y-1">
-              <p className="font-medium text-foreground">Thank you for visiting Zafoor Clinic!</p>
-              <p>For inquiries, WhatsApp +91 8940399403</p>
+              <p className="font-medium text-foreground">Thank you for visiting Crown Celebrity Aesthetic!</p>
+              <p>For inquiries, WhatsApp +91 9591047171</p>
               <p className="text-[9px] text-muted-foreground/80">Computer-generated receipt • Valid without physical signature</p>
             </div>
           </div>

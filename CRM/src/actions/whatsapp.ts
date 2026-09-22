@@ -5,8 +5,8 @@ import { prisma } from "@/lib/prisma"
 import { getCurrentUser } from "@/lib/auth"
 import { NotificationService } from "@/lib/notifications"
 
-const CLINIC_NAME = "Zafoor Clinic"
-const CLINIC_PHONE = "8940399403"
+const CLINIC_NAME = "Crown Celebrity Aesthetic"
+const CLINIC_PHONE = "9591047171"
 
 function fillTemplate(body: string, patient: { firstName: string; lastName?: string | null }) {
   return body

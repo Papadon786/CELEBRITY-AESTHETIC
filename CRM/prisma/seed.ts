@@ -40,26 +40,6 @@ async function main() {
     },
   })
 
-  // Test admin fallback
-  await prisma.user.upsert({
-    where: { email: "admin@zafoorclinic.com" },
-    update: {
-      name: "Clinic Administrator",
-      phone: "9591047171",
-      passwordHash: hashPassword("Admin@123"),
-      role: "ADMIN",
-      active: true,
-    },
-    create: {
-      name: "Clinic Administrator",
-      email: "admin@zafoorclinic.com",
-      phone: "9591047171",
-      passwordHash: hashPassword("Admin@123"),
-      role: "ADMIN",
-      active: true,
-    },
-  })
-
   // Lead Specialist & Founder: Naziya Baig
   const naziyaDoctor = await prisma.user.upsert({
     where: { email: "naziya@celebrityaesthetic.com" },

@@ -19,7 +19,7 @@ import { z } from "zod"
 const DEFAULT_TEMPLATES = [
   {
     name: "Appointment Reminder",
-    body: "Hi {{patientName}}, this is a reminder for your appointment with {{doctorName}} at {{time}} on {{date}} at Zafoor Clinic.",
+    body: "Hi {{patientName}}, this is a reminder for your appointment with {{doctorName}} at {{time}} on {{date}} at Crown Celebrity Aesthetic.",
     quickReplyButtons: ["Confirm Appointment", "Reschedule"],
   },
   {
