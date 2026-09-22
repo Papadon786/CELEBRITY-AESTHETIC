@@ -102,7 +102,7 @@ export default function Logo({
           <span
             className={`hidden text-[9px] font-medium tracking-widest uppercase sm:block ${subColor}`}
           >
-            Hair &amp; Skin Clinic · IATAM Academy
+            Hair, PMU &amp; Skin Clinic · IATAM Academy
           </span>
         </span>
       )}

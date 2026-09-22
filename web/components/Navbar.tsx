@@ -1,38 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
 import { NAV_LINKS } from "@/lib/constants";
-import { SCROLL_DISTANCE } from "@/lib/heroSequence";
-
-const PIN_DISTANCE_RATIO = Number(SCROLL_DISTANCE.match(/[\d.]+/)?.[0] ?? "380") / 100;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const [previousPathname, setPreviousPathname] = useState(pathname);
+  const headerRef = useRef<HTMLElement>(null);
 
   const isHome = pathname === "/";
 
   // Robust window scroll listener that works across mobile touch, Lenis, and desktop.
-  // The navbar stays transparent until the hero's pinned scroll-driven sequence
-  // (see lib/heroSequence.ts SCROLL_DISTANCE) is 90% done, not just after a
-  // small scroll offset — otherwise it turns solid while the hero is still playing.
+  // The navbar fills solid the instant the "Our Pillars" section reaches it —
+  // not a percentage of the hero's animation, which left it transparent long
+  // after the hero had visually ended.
   useEffect(() => {
-    const heroEl = document.getElementById("hero-pin-target");
+    const pillarsEl = document.getElementById("our-pillars");
 
     const handleScroll = () => {
-      if (!heroEl) {
+      if (!pillarsEl) {
         setScrolled(window.scrollY > 20);
         return;
       }
-      const heroTop = heroEl.getBoundingClientRect().top + window.scrollY;
-      const pinnedDistance = heroEl.offsetHeight * PIN_DISTANCE_RATIO;
-      setScrolled(window.scrollY > heroTop + pinnedDistance * 0.9);
+      const pillarsTop = pillarsEl.getBoundingClientRect().top + window.scrollY;
+      const headerHeight = headerRef.current?.offsetHeight ?? 0;
+      setScrolled(window.scrollY >= pillarsTop - headerHeight);
     };
 
     handleScroll();
@@ -56,7 +54,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      ref={headerRef}
+      className={`fixed inset-x-0 top-0 z-50 transition-[border-color,box-shadow] duration-300 ${
         showSolid
           ? "border-b border-gold/30 bg-charcoal/95 shadow-[0_1px_20px_rgba(23,23,23,0.06)] backdrop-blur"
           : "border-b border-gold/30 bg-charcoal/95 shadow-[0_1px_20px_rgba(23,23,23,0.06)] backdrop-blur lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-none"

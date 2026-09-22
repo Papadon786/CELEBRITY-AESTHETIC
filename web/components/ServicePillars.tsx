@@ -37,6 +37,7 @@ const pillars = [
 export default function ServicePillars() {
   return (
     <section
+      id="our-pillars"
       aria-label="Our service pillars"
       className="border-b border-gold/20 bg-ivory py-12 sm:py-16"
     >
