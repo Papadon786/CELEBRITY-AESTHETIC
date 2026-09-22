@@ -6,6 +6,9 @@ import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
 import { NAV_LINKS } from "@/lib/constants";
+import { SCROLL_DISTANCE } from "@/lib/heroSequence";
+
+const PIN_DISTANCE_RATIO = Number(SCROLL_DISTANCE.match(/[\d.]+/)?.[0] ?? "380") / 100;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,16 +18,27 @@ export default function Navbar() {
 
   const isHome = pathname === "/";
 
-  // Robust window scroll listener that works across mobile touch, Lenis, and desktop
+  // Robust window scroll listener that works across mobile touch, Lenis, and desktop.
+  // The navbar stays transparent until the hero's pinned scroll-driven sequence
+  // (see lib/heroSequence.ts SCROLL_DISTANCE) is 90% done, not just after a
+  // small scroll offset — otherwise it turns solid while the hero is still playing.
   useEffect(() => {
+    const heroEl = document.getElementById("hero-pin-target");
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!heroEl) {
+        setScrolled(window.scrollY > 20);
+        return;
+      }
+      const heroTop = heroEl.getBoundingClientRect().top + window.scrollY;
+      const pinnedDistance = heroEl.offsetHeight * PIN_DISTANCE_RATIO;
+      setScrolled(window.scrollY > heroTop + pinnedDistance * 0.9);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   // Non-home pages always show solid background; home shows solid once scrolled
   const showSolid = !isHome || scrolled;

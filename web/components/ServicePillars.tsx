@@ -10,7 +10,7 @@ import type { TreatmentCategory } from "@/lib/treatments";
 const pillars = [
   {
     number: "01",
-    name: "Skin & Injectables",
+    name: "Skin",
     category: "skin" as TreatmentCategory,
     href: "/treatments?category=skin",
     description:

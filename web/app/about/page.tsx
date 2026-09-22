@@ -68,11 +68,6 @@ const focusAreas = [
     text: "Scalp and hair-focused approaches, considered against the underlying cause of your concern.",
   },
   {
-    name: "Injectables",
-    image: categoryImages.aesthetics,
-    text: "Injectable and device-based techniques introduced only after a thorough conversation.",
-  },
-  {
     name: "PMU",
     image: categoryImages.pmu,
     text: "Semi-permanent makeup delivered with the same care and precision as our clinical treatments.",
@@ -259,7 +254,7 @@ export default function AboutPage() {
             title="Considered across every area we treat"
             align="center"
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {focusAreas.map((area, i) => (
               <DirectionalCard
                 key={area.name}

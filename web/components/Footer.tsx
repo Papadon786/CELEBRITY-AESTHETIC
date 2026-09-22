@@ -162,33 +162,31 @@ export default function Footer() {
       </RevealStagger>
 
       <Reveal className="border-t border-ivory/15">
-        <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-3 px-5 py-6 text-center sm:flex-row sm:px-8 sm:text-left">
+        <div className="mx-auto grid max-w-8xl grid-cols-1 items-center gap-3 px-5 py-6 text-center sm:grid-cols-3 sm:px-8">
           <p className="font-grotesk text-[13px] text-ivory/60">
             © 2026 Crown Celebrity Aesthetic. All rights reserved.
           </p>
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
-            <div className="flex gap-6">
-              <Link
-                href="/privacy"
-                className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
-              >
-                Terms
-              </Link>
-            </div>
-            <a
-              href="https://naazailabs.com"
-              target="_blank"
-              rel="noopener noreferrer"
+          <a
+            href="https://naazailabs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light sm:justify-self-center"
+          >
+            Designed and developed by Naaz AI Labs
+          </a>
+          <div className="flex justify-center gap-6 sm:justify-self-end">
+            <Link
+              href="/privacy"
               className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
             >
-              Designed and developed by Naaz AI Labs
-            </a>
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="font-grotesk text-[13px] text-ivory/60 hover:text-gold-light"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </Reveal>
