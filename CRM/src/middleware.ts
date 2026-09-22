@@ -36,11 +36,15 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser()
 
   if (user && pathname === "/login") {
-    return NextResponse.redirect(new URL("/dashboard", request.url))
+    const redirect = NextResponse.redirect(new URL("/dashboard", request.url))
+    for (const cookie of response.cookies.getAll()) redirect.cookies.set(cookie)
+    return redirect
   }
 
   if (!user && pathname !== "/login") {
-    return NextResponse.redirect(new URL("/login", request.url))
+    const redirect = NextResponse.redirect(new URL("/login", request.url))
+    for (const cookie of response.cookies.getAll()) redirect.cookies.set(cookie)
+    return redirect
   }
 
   return response

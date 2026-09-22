@@ -1,9 +1,6 @@
 import { createClient } from "@supabase/supabase-js"
 
-const supabaseUrl =
-  process.env.NEXT_PUBLIC_SUPABASE_URL ||
-  process.env.SUPABASE_URL ||
-  "https://ewagpvjsimhsxykqsddo.supabase.co"
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ""
 
 const supabaseAnonKey =
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
@@ -18,10 +15,12 @@ const supabaseSecretKey =
   ""
 
 /**
- * Standard Supabase client using public / publishable anon key.
- * Safe for client-side or public server actions.
+ * Standard Supabase client using the public / publishable anon key only.
+ * Safe for client-side or public server actions — never falls back to the
+ * service_role key, which would silently escalate this "public" client to
+ * admin privileges if the anon key env var were ever unset.
  */
-export const supabase = createClient(supabaseUrl, supabaseAnonKey || supabaseSecretKey, {
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     persistSession: false,
     autoRefreshToken: false,

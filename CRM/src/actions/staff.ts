@@ -80,19 +80,26 @@ export async function createStaffMember(input: CreateStaffInput) {
     throw new Error(authError?.message || "Could not create the login account")
   }
 
-  const user = await prisma.user.create({
-    data: {
-      name: input.name.trim(),
-      email,
-      phone: input.phone?.trim() || null,
-      passwordHash: hashPassword(input.password),
-      supabaseUserId: authUser.user.id,
-      role: input.role,
-      specialization: input.role === "DOCTOR" ? input.specialization?.trim() || null : null,
-      consultationFee: input.role === "DOCTOR" && input.consultationFee ? input.consultationFee : null,
-      active: true,
-    },
-  })
+  let user
+  try {
+    user = await prisma.user.create({
+      data: {
+        name: input.name.trim(),
+        email,
+        phone: input.phone?.trim() || null,
+        passwordHash: hashPassword(input.password),
+        supabaseUserId: authUser.user.id,
+        role: input.role,
+        specialization: input.role === "DOCTOR" ? input.specialization?.trim() || null : null,
+        consultationFee: input.role === "DOCTOR" && input.consultationFee ? input.consultationFee : null,
+        active: true,
+      },
+    })
+  } catch (err) {
+    // Don't leave an orphaned Supabase Auth account with no linked staff row.
+    await getSupabaseAdmin().auth.admin.deleteUser(authUser.user.id).catch(() => {})
+    throw err
+  }
 
   // Create audit log
   await prisma.auditLog.create({
