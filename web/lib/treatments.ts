@@ -739,6 +739,53 @@ export const treatments: Treatment[] = [
     }
   },
   {
+    "name": "Eyebrow Microblading",
+    "slug": "eyebrow-microblading",
+    "category": "pmu",
+    "subCategory": "pmu-beauty",
+    "subCategoryLabel": "Permanent Makeup (PMU)",
+    "featured": true,
+    "description": "Hair-stroke micropigmentation that fills sparse brows with fine, natural strokes matched to your brow shape and hair color.",
+    "detail": {
+      "whatIsIt": "Microblading uses a fine hand-tool to deposit pigment in thin, hair-like strokes along the brow, building shape and density that reads as natural rather than drawn-on.",
+      "whoMayConsider": "Anyone with sparse, over-plucked, or uneven brows wanting a low-maintenance, consistently defined shape.",
+      "whatToExpect": "Brow mapping and shape consultation, topical numbing, then hand-etched strokes layered with custom-blended pigment. The session runs 60-90 minutes.",
+      "journey": "Initial strokes appear crisper and darker before softening by 30-40% over 7-10 days. A touch-up session at 4-6 weeks perfects shape and color, lasting 12-18 months.",
+      "aftercare": "Keep brows dry for 7 days, avoid sun and sweat-heavy workouts, and apply the aftercare balm as directed.",
+      "faq": [
+        {
+          "question": "Does microblading hurt?",
+          "answer": "Topical anesthetic is applied before and during the session, so most clients describe it as mild pressure rather than pain."
+        },
+        {
+          "question": "How is this different from a regular tattoo?",
+          "answer": "Microblading deposits pigment more superficially than traditional tattooing, which is why strokes stay fine and why it fades gradually rather than staying permanent."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Thread Lift",
+    "slug": "pmu-thread-lift",
+    "category": "pmu",
+    "subCategory": "pmu-beauty",
+    "subCategoryLabel": "Permanent Makeup (PMU)",
+    "description": "Fine PDO threads placed to subtly lift the brow arch and eye area, complementing your PMU brow or eye work.",
+    "detail": {
+      "whatIsIt": "Dissolvable polydioxanone (PDO) threads are inserted beneath the skin around the brow and temple to gently reposition and lift the tissue, refreshing the eye area.",
+      "whoMayConsider": "Clients with mild brow or lid heaviness wanting a subtle lift, often alongside microblading or lash/brow PMU work.",
+      "whatToExpect": "Topical numbing followed by thread placement through fine entry points. The session takes about 30-45 minutes with minimal downtime.",
+      "journey": "Lift is visible immediately and continues to refine over 4-6 weeks as collagen builds around the threads, lasting 9-12 months.",
+      "aftercare": "Avoid vigorous facial massage or extreme jaw movement for 2 weeks; mild swelling or bruising settles within a few days.",
+      "faq": [
+        {
+          "question": "Will it look overly tight or unnatural?",
+          "answer": "No — the lift is subtle and proportioned to your natural brow line, designed to refresh rather than dramatically alter your expression."
+        }
+      ]
+    }
+  },
+  {
     "name": "Scalp Micropigmentation (SMP)",
     "slug": "smp-hair",
     "category": "hair",
