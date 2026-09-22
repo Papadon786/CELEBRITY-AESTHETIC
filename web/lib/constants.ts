@@ -1,5 +1,5 @@
 export const SITE_NAME = "Crown Celebrity Aesthetic";
-export const SITE_TAGLINE = "Hair & Skin Clinic · PMU Services & Academy";
+export const SITE_TAGLINE = "Hair & Skin Clinic · PMU Services · IATAM Academy";
 export const SITE_URL = "https://crown-celebrity-aesthetic.com";
 
 export const PHONE_DISPLAY = "9591047171";

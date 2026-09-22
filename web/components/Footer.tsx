@@ -79,7 +79,7 @@ export default function Footer() {
           <Logo variant="light" size="large" />
           <p className="mt-4 font-grotesk text-base text-ivory/75 max-w-md">
             Premier consultation-led clinic for advanced hair restoration,
-            clinical skin care &amp; injectables, and certified PMU academy training.
+            clinical skin care &amp; injectables, and certified IATAM Academy training.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <WhatsAppButton variant="light" />

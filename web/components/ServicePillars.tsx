@@ -30,7 +30,7 @@ const pillars = [
     category: "pmu" as TreatmentCategory,
     href: "/pmu-services",
     description:
-      "Eyebrow microblading, semi-permanent lip blush, scalp micropigmentation (SMP), and certified PMU Academy.",
+      "Eyebrow microblading, semi-permanent lip blush, scalp micropigmentation (SMP), and certified IATAM Academy training.",
   },
 ];
 
