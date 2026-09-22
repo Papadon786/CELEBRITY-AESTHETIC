@@ -522,9 +522,9 @@ export const treatments: Treatment[] = [
   {
     "name": "BB Glow Radiance Facial",
     "slug": "bb-glow-facial",
-    "category": "skin",
-    "subCategory": "medi-facials",
-    "subCategoryLabel": "Advanced Medi Facials",
+    "category": "pmu",
+    "subCategory": "pmu-beauty",
+    "subCategoryLabel": "Permanent Makeup (PMU)",
     "description": "Semi-permanent tinted peptide serum micro-infused into the epidermis to blur blemishes and impart a radiant CC-cream finish.",
     "detail": {
       "whatIsIt": "BB Glow is a semi-permanent makeup treatment that micro-infuses skin-colored pigment alongside peptides and niacinamide into the superficial stratum basale.",

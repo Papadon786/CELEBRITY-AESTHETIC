@@ -154,6 +154,10 @@ const treatmentImages: Partial<Record<string, { src: string; alt: string }>> = {
     src: "/treatments/thread-lift.jpg",
     alt: "Thread lift treatment markings on the face",
   },
+  "pmu-thread-lift": {
+    src: "/treatments/pmu-thread-lift.jpg",
+    alt: "PDO thread lift needle being inserted near the brow and temple",
+  },
   "mnrf-aesthetics": {
     src: "/treatments/mnrf-aesthetics.jpg",
     alt: "Radiofrequency skin tightening treatment",
