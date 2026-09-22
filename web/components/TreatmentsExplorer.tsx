@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   categoryLabels,
-  subCategoryLabels,
   treatments,
   type TreatmentCategory,
   type TreatmentSubCategory,
@@ -19,16 +18,6 @@ const mainFilters: { value: "all" | TreatmentCategory; label: string }[] = [
   { value: "skin", label: categoryLabels.skin },
   { value: "hair", label: categoryLabels.hair },
   { value: "pmu", label: categoryLabels.pmu },
-];
-
-const subPillFilters: { value: TreatmentSubCategory; label: string; category: TreatmentCategory }[] = [
-  { value: "hair-restoration", label: "Hair Restoration (GFC, PRP...)", category: "hair" },
-  { value: "hair-transplant", label: "Hair Transplant", category: "hair" },
-  { value: "acne-scars", label: "Acne & Scars (MNRF, CO2...)", category: "skin" },
-  { value: "pigmentation", label: "Pigmentation & Brightening", category: "skin" },
-  { value: "medi-facials", label: "Advanced Medi Facials", category: "skin" },
-  { value: "laser-hair-removal", label: "US FDA Laser Hair Removal", category: "skin" },
-  { value: "anti-aging-injectables", label: "Injectables & Advanced Devices (Botox, Fillers, HIFU)", category: "skin" },
 ];
 
 export default function TreatmentsExplorer() {
@@ -113,30 +102,6 @@ export default function TreatmentsExplorer() {
             </button>
           )}
         </div>
-      </div>
-
-      {/* Subcategory quick pills */}
-      <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-gold/15 pt-4">
-        <span className="font-grotesk text-xs uppercase tracking-wider text-charcoal/50">
-          Specialties:
-        </span>
-        {subPillFilters.map((sub) => {
-          const isSubActive = activeFilter === sub.value;
-          return (
-            <button
-              key={sub.value}
-              type="button"
-              onClick={() => setActiveFilter(isSubActive ? "all" : sub.value)}
-              className={`rounded-full border px-3 py-1 font-grotesk text-[11px] uppercase tracking-wide transition-colors ${
-                isSubActive
-                  ? "border-gold-dark bg-gold/20 font-semibold text-charcoal"
-                  : "border-charcoal/15 text-charcoal/70 hover:border-gold hover:text-gold-dark"
-              }`}
-            >
-              {sub.label}
-            </button>
-          );
-        })}
       </div>
 
       {/* Results header */}

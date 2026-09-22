@@ -49,39 +49,33 @@ export default function Navbar() {
     if (menuOpen) setMenuOpen(false);
   }
 
-  // Desktop hero uses light text when transparent over dark video/canvas
-  const onDarkHero = isHome && !showSolid;
+  // The navbar's filled state now matches TrustBar's burgundy, both when
+  // solid (mobile always; desktop once scrolled past the hero) and when
+  // transparent over the hero's dark video/canvas — so nav text/logo stay
+  // light-on-dark in every state, never the old dark-on-ivory pairing.
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         showSolid
-          ? "border-b border-gold/30 bg-ivory/95 shadow-[0_1px_20px_rgba(23,23,23,0.06)] backdrop-blur"
-          : "border-b border-gold/30 bg-ivory/95 shadow-[0_1px_20px_rgba(23,23,23,0.06)] backdrop-blur lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-none"
+          ? "border-b border-gold/30 bg-charcoal/95 shadow-[0_1px_20px_rgba(23,23,23,0.06)] backdrop-blur"
+          : "border-b border-gold/30 bg-charcoal/95 shadow-[0_1px_20px_rgba(23,23,23,0.06)] backdrop-blur lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-none"
       }`}
     >
       <nav
         aria-label="Primary"
         className="mx-auto flex max-w-8xl items-center justify-between px-4 py-2 sm:px-8 sm:py-2.5"
       >
-        <Logo variant={onDarkHero ? "responsive" : "dark"} />
+        <Logo variant="light" />
 
         {/* Desktop Navigation Links */}
         <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href;
-            const linkClassName = `relative pb-1 font-grotesk text-[13px] uppercase tracking-widest2 transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:transition-transform after:duration-200 ${
-              onDarkHero
-                ? `after:bg-gold-light ${
-                    active
-                      ? "text-gold-light after:scale-x-100"
-                      : "text-ivory/85 after:scale-x-0 hover:text-gold-light hover:after:scale-x-100"
-                  }`
-                : `after:bg-gold-dark ${
-                    active
-                      ? "text-gold-dark after:scale-x-100"
-                      : "text-charcoal/80 after:scale-x-0 hover:text-gold-dark hover:after:scale-x-100"
-                  }`
+            const linkClassName = `relative pb-1 font-grotesk text-[13px] uppercase tracking-widest2 transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:transition-transform after:duration-200 after:bg-gold-light ${
+              active
+                ? "text-gold-light after:scale-x-100"
+                : "text-ivory/85 after:scale-x-0 hover:text-gold-light hover:after:scale-x-100"
             }`;
 
             if (link.href === "/treatments") {
@@ -96,9 +90,7 @@ export default function Navbar() {
                     <svg
                       aria-hidden="true"
                       viewBox="0 0 10 6"
-                      className={`h-1.5 w-2.5 transition-transform duration-200 group-hover:rotate-180 ${
-                        onDarkHero ? "fill-ivory/85" : "fill-charcoal/80"
-                      }`}
+                      className="h-1.5 w-2.5 fill-ivory/85 transition-transform duration-200 group-hover:rotate-180"
                     >
                       <path d="M0 0 L5 6 L10 0 Z" />
                     </svg>
@@ -159,11 +151,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className={`inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-grotesk text-[13px] font-semibold uppercase tracking-widest2 transition-colors ${
-              onDarkHero
-                ? "bg-ivory text-charcoal hover:bg-ivory-100"
-                : "bg-gold text-charcoal hover:bg-gold-light"
-            }`}
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-ivory px-6 py-3 font-grotesk text-[13px] font-semibold uppercase tracking-widest2 text-charcoal transition-colors hover:bg-ivory-100"
           >
             Book Consultation →
           </Link>
@@ -176,20 +164,20 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen((v) => !v)}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-gold/40 bg-gold/10 p-2 text-charcoal transition-all hover:bg-gold/20 active:scale-95 lg:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-gold/40 bg-gold/10 p-2 transition-all hover:bg-gold/20 active:scale-95 lg:hidden"
         >
           <span
-            className={`block h-0.5 w-5 rounded-full bg-charcoal transition-all duration-300 ${
+            className={`block h-0.5 w-5 rounded-full bg-ivory transition-all duration-300 ${
               menuOpen ? "translate-y-2 rotate-45" : ""
             }`}
           />
           <span
-            className={`block h-0.5 w-5 rounded-full bg-charcoal transition-all duration-300 ${
+            className={`block h-0.5 w-5 rounded-full bg-ivory transition-all duration-300 ${
               menuOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block h-0.5 w-5 rounded-full bg-charcoal transition-all duration-300 ${
+            className={`block h-0.5 w-5 rounded-full bg-ivory transition-all duration-300 ${
               menuOpen ? "-translate-y-2 -rotate-45" : ""
             }`}
           />
