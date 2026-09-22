@@ -1,11 +1,14 @@
 import Link from "next/link"
-import { Plus } from "lucide-react"
+import { Plus, Receipt, ShoppingCart } from "lucide-react"
 import { getBills } from "@/actions/billing"
+import { getSalesCatalog } from "@/actions/sales"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BillFilters } from "@/components/billing/bill-filters"
 import { BillTable } from "@/components/billing/bill-table"
 import { Pagination } from "@/components/shared/pagination"
+import { PosTerminal } from "@/components/sales/pos-terminal"
 
 export default async function BillingPage({
   searchParams,
@@ -14,10 +17,10 @@ export default async function BillingPage({
 }) {
   const sp = await searchParams
   const page = Number(sp.page) || 1
-  const { bills, total, pageSize } = await getBills({
-    status: sp.status,
-    page,
-  })
+  const [{ bills, total, pageSize }, catalog] = await Promise.all([
+    getBills({ status: sp.status, page }),
+    getSalesCatalog(),
+  ])
 
   return (
     <div className="space-y-6">
@@ -38,15 +41,32 @@ export default async function BillingPage({
         />
       </div>
 
-      <BillFilters />
+      <Tabs defaultValue="bills">
+        <TabsList>
+          <TabsTrigger value="bills" className="gap-1.5">
+            <Receipt className="h-4 w-4" />
+            Bills
+          </TabsTrigger>
+          <TabsTrigger value="quick-sale" className="gap-1.5">
+            <ShoppingCart className="h-4 w-4" />
+            Quick Sale (POS)
+          </TabsTrigger>
+        </TabsList>
 
-      <Card>
-        <CardContent className="p-0">
-          <BillTable bills={bills} />
-        </CardContent>
-      </Card>
+        <TabsContent value="bills" className="mt-4 space-y-4">
+          <BillFilters />
+          <Card>
+            <CardContent className="p-0">
+              <BillTable bills={bills} />
+            </CardContent>
+          </Card>
+          <Pagination total={total} pageSize={pageSize} currentPage={page} />
+        </TabsContent>
 
-      <Pagination total={total} pageSize={pageSize} currentPage={page} />
+        <TabsContent value="quick-sale" className="mt-4">
+          <PosTerminal catalog={catalog} />
+        </TabsContent>
+      </Tabs>
     </div>
   )
 }
