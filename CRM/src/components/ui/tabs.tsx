@@ -8,8 +8,27 @@ import { cn } from "@/lib/utils"
 function Tabs({
   className,
   orientation = "horizontal",
+  onValueChange,
   ...props
 }: TabsPrimitive.Root.Props) {
+  // Switching tabs moves focus to the newly active tab trigger. If you'd
+  // scrolled down within the previous tab's content, the browser's default
+  // focus-follows-scroll behavior yanks the page back up to bring that
+  // trigger into view — looks like an unwanted "jump to top" on every tab
+  // click. Snap the scroll position back immediately after the browser's
+  // own scroll happens, on the next two frames (one for the DOM update,
+  // one for the focus-triggered scroll itself).
+  const handleValueChange: TabsPrimitive.Root.Props["onValueChange"] = (value, eventDetails) => {
+    const scrollY = window.scrollY
+    const scrollX = window.scrollX
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo(scrollX, scrollY)
+      })
+    })
+    onValueChange?.(value, eventDetails)
+  }
+
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
@@ -18,6 +37,7 @@ function Tabs({
         "group/tabs flex gap-2 data-horizontal:flex-col",
         className
       )}
+      onValueChange={handleValueChange}
       {...props}
     />
   )
