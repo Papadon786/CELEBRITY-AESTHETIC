@@ -136,14 +136,9 @@ enum Gender {
 // The real treatment categories the clinic offers (crown-celebrity-aesthetic.com) —
 // what the patient is registering to be seen for.
 enum CareCategory {
-  HAIR_RESTORATION
-  HAIR_TRANSPLANT
-  SKIN_AND_LASER
-  PERMANENT_MAKEUP
-  ACADEMY
-  SKIN_HAIR_LASER
-  DIABETOLOGY
-  GENERAL_MEDICINE
+  SKIN
+  HAIR
+  PMU
 }
 
 enum BloodGroup {

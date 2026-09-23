@@ -32,14 +32,9 @@ export type Gender = (typeof Gender)[keyof typeof Gender]
 
 
 export const CareCategory = {
-  HAIR_RESTORATION: 'HAIR_RESTORATION',
-  HAIR_TRANSPLANT: 'HAIR_TRANSPLANT',
-  SKIN_AND_LASER: 'SKIN_AND_LASER',
-  PERMANENT_MAKEUP: 'PERMANENT_MAKEUP',
-  ACADEMY: 'ACADEMY',
-  SKIN_HAIR_LASER: 'SKIN_HAIR_LASER',
-  DIABETOLOGY: 'DIABETOLOGY',
-  GENERAL_MEDICINE: 'GENERAL_MEDICINE'
+  SKIN: 'SKIN',
+  HAIR: 'HAIR',
+  PMU: 'PMU'
 } as const
 
 export type CareCategory = (typeof CareCategory)[keyof typeof CareCategory]

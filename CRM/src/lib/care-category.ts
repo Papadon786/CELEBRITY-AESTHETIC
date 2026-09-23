@@ -8,7 +8,7 @@ import type { CareCategory } from "@/generated/prisma/enums"
 export function classifyServiceName(name: string | null | undefined): CareCategory {
   const s = (name ?? "").toLowerCase()
 
-  // 1. Hair Transplant Specialities (Satyam Hair Transplant Centre)
+  // 1. Hair (transplant specialities, restoration, scalp care)
   if (
     s.includes("transplant") ||
     s.includes("fue") ||
@@ -17,13 +17,6 @@ export function classifyServiceName(name: string | null | undefined): CareCatego
     s.includes("eyebrow reconstruct") ||
     s.includes("unshaven") ||
     s.includes("graft") ||
-    s.includes("satyam")
-  ) {
-    return "HAIR_TRANSPLANT"
-  }
-
-  // 2. Hair Restoration (GFC, PRP, Exosomes, Scalp Care)
-  if (
     s.includes("gfc") ||
     s.includes("prp") ||
     s.includes("exosome") ||
@@ -35,10 +28,10 @@ export function classifyServiceName(name: string | null | undefined): CareCatego
     s.includes("alopecia") ||
     s.includes("tricho")
   ) {
-    return "HAIR_RESTORATION"
+    return "HAIR"
   }
 
-  // 3. Permanent Makeup (PMU) & Aesthetic Enhancements
+  // 2. Permanent Makeup (PMU)
   if (
     s.includes("microblading") ||
     s.includes("pmu") ||
@@ -50,20 +43,9 @@ export function classifyServiceName(name: string | null | undefined): CareCatego
     s.includes("eyeliner") ||
     s.includes("tinting")
   ) {
-    return "PERMANENT_MAKEUP"
+    return "PMU"
   }
 
-  // 4. Academy & Professional Courses
-  if (
-    s.includes("academy") ||
-    s.includes("masterclass") ||
-    s.includes("training") ||
-    s.includes("certification") ||
-    s.includes("course")
-  ) {
-    return "ACADEMY"
-  }
-
-  // 5. Skin, Laser Aesthetics, Medi-Facials, Injectables (Default core aesthetic bucket)
-  return "SKIN_AND_LASER"
+  // 3. Skin, laser aesthetics, medi-facials, injectables — default core bucket
+  return "SKIN"
 }

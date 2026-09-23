@@ -17,14 +17,9 @@ export const genderLabels: Record<string, string> = {
 }
 
 export const careCategoryLabels: Record<string, string> = {
-  HAIR_RESTORATION: "Hair Restoration & PRP/GFC",
-  HAIR_TRANSPLANT: "Hair Transplant (Satyam Centre)",
-  SKIN_AND_LASER: "Skin, Lasers & Medi-Facials",
-  PERMANENT_MAKEUP: "Permanent Makeup (PMU)",
-  ACADEMY: "Celebrity Aesthetic Academy",
-  SKIN_HAIR_LASER: "Skin, Hair & Laser",
-  DIABETOLOGY: "Diabetology",
-  GENERAL_MEDICINE: "General Medicine",
+  SKIN: "Skin",
+  HAIR: "Hair",
+  PMU: "PMU",
 }
 
 export const patientStatusLabels: Record<string, string> = {
