@@ -19,7 +19,10 @@ export default function TreatmentsPage() {
           className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center"
           style={{ backgroundImage: "url(/backgrounds/hair-treatments-bg.png)" }}
         />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-ivory/40" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-ivory via-ivory/50 to-ivory/10"
+        />
         <div className="mx-auto max-w-8xl px-5 py-16 sm:px-8 sm:py-24">
           <h1 className="sr-only">All Treatments</h1>
           <SectionHeading
