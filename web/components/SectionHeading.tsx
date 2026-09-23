@@ -21,6 +21,7 @@ export default function SectionHeading({
   align = "left",
   light = false,
   script,
+  descriptionClassName,
 }: {
   kicker?: string;
   title: string;
@@ -29,6 +30,8 @@ export default function SectionHeading({
   light?: boolean;
   /** Optional short decorative script-font accent word/phrase. */
   script?: string;
+  /** Overrides just the description's text color/opacity, independent of `light` (which also affects the kicker/title). */
+  descriptionClassName?: string;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const reduceMotion = usePrefersReducedMotion();
@@ -120,7 +123,7 @@ export default function SectionHeading({
         <p
           data-heading-description
           className={`mt-4 font-grotesk text-[17px] leading-relaxed ${
-            light ? "text-ivory/80" : "text-charcoal/70"
+            descriptionClassName ?? (light ? "text-ivory/80" : "text-charcoal/70")
           }`}
         >
           {description}

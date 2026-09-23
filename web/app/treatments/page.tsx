@@ -25,6 +25,7 @@ export default function TreatmentsPage() {
             kicker="Treatments"
             title="Explore every treatment we offer"
             description="Filter by category to find the right starting point — every card links through to a full treatment page with more detail."
+            descriptionClassName="text-white"
           />
         </div>
       </div>
