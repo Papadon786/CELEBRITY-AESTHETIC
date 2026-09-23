@@ -38,6 +38,13 @@ export default function Logo({
       ? "text-ivory/70"
       : "text-charcoal/65";
 
+  const aestheticColor =
+    variant === "responsive"
+      ? "text-gold-dark lg:text-ivory"
+      : variant === "light"
+      ? "text-ivory"
+      : "text-gold-dark";
+
   const imgDimensions =
     size === "large"
       ? "h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28"
@@ -96,7 +103,7 @@ export default function Logo({
           >
             Crown Celebrity
           </span>
-          <span className="text-[9px] font-bold tracking-[0.24em] uppercase text-gold-dark sm:text-[10px]">
+          <span className={`text-[9px] font-bold tracking-[0.24em] uppercase sm:text-[10px] ${aestheticColor}`}>
             Aesthetic
           </span>
           <span
