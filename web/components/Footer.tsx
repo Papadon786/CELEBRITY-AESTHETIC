@@ -73,7 +73,7 @@ const SOCIAL_ICONS: Record<string, () => ReactElement> = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gold/20 bg-charcoal">
+    <footer id="site-footer" className="border-t border-gold/20 bg-charcoal">
       <RevealStagger className="mx-auto grid max-w-8xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-4">
         <RevealItem className="md:col-span-2">
           <Logo variant="light" size="large" />

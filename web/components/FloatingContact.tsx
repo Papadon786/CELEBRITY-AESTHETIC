@@ -1,13 +1,37 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { buildWhatsAppLink, PHONE_DISPLAY, PHONE_INTL } from "@/lib/constants";
 
 /**
  * Fixed bottom-right quick-access stack — WhatsApp and a one-tap phone
  * call. Site-wide (mounted in the root layout), so it floats above every
  * page's content without needing per-page wiring.
+ *
+ * Hides itself once the footer scrolls into view — being fixed to the same
+ * bottom-right corner, it would otherwise sit directly on top of the
+ * footer's own WhatsApp button and social icons at the bottom of any page.
  */
 export default function FloatingContact() {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const footer = document.getElementById("site-footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), {
+      rootMargin: "0px 0px -80px 0px",
+    });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
+    <div
+      className={`fixed bottom-5 right-5 z-40 flex flex-col gap-3 transition-opacity duration-200 ${
+        hidden ? "pointer-events-none opacity-0" : "opacity-100"
+      }`}
+    >
       <a
         href={buildWhatsAppLink()}
         target="_blank"
