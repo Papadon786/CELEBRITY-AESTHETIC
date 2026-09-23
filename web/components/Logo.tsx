@@ -107,7 +107,7 @@ export default function Logo({
             Aesthetic
           </span>
           <span
-            className={`hidden text-[9px] font-medium tracking-widest uppercase sm:block ${subColor}`}
+            className={`block text-[9px] font-medium tracking-widest uppercase ${subColor}`}
           >
             Hair, PMU &amp; Skin Clinic · IATAM Academy
           </span>
