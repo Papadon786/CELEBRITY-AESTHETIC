@@ -51,5 +51,10 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|uploads).*)"],
+  // Excludes API routes, Next.js internals, and any request for a static
+  // file (logo.jpg, fonts, etc. — anything under public/ with a file
+  // extension) from the auth check. Without the extension exclusion, a
+  // plain <img src="/logo.jpg"> request got redirected to /login like any
+  // other unauthenticated page request, breaking every image on the site.
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|uploads|.*\\..*$).*)"],
 }
