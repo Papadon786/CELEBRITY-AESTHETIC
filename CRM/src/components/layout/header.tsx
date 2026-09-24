@@ -103,7 +103,7 @@ export function Header({ user }: { user: { name: string; role: string; permissio
           <DropdownMenuItem
             className="cursor-pointer gap-2 py-2"
             render={
-              <Link href="/settings/signature" className="flex items-center gap-2 w-full">
+              <Link href="/settings/signature" scroll={false} className="flex items-center gap-2 w-full">
                 <Settings className="h-4 w-4 text-muted-foreground" />
                 <span>Doctor Settings & Signature</span>
               </Link>
@@ -114,7 +114,7 @@ export function Header({ user }: { user: { name: string; role: string; permissio
               <DropdownMenuItem
                 className="cursor-pointer gap-2 py-2"
                 render={
-                  <Link href="/settings/staff" className="flex items-center gap-2 w-full">
+                  <Link href="/settings/staff" scroll={false} className="flex items-center gap-2 w-full">
                     <User className="h-4 w-4 text-muted-foreground" />
                     <span>Staff & User Logins</span>
                   </Link>
@@ -123,7 +123,7 @@ export function Header({ user }: { user: { name: string; role: string; permissio
               <DropdownMenuItem
                 className="cursor-pointer gap-2 py-2"
                 render={
-                  <Link href="/audit-logs" className="flex items-center gap-2 w-full">
+                  <Link href="/audit-logs" scroll={false} className="flex items-center gap-2 w-full">
                     <Shield className="h-4 w-4 text-muted-foreground" />
                     <span>Audit Logs</span>
                   </Link>
