@@ -2,6 +2,7 @@ import { redirect } from "next/navigation"
 import { getCurrentUserOrNull } from "@/lib/auth"
 import { SidebarNav } from "@/components/layout/sidebar-nav"
 import { Header } from "@/components/layout/header"
+import { MainContentContainer } from "@/components/layout/main-content-container"
 
 export const dynamic = "force-dynamic"
 
@@ -10,11 +11,11 @@ export default async function MainLayout({ children }: { children: React.ReactNo
   if (!user) redirect("/login")
 
   return (
-    <div className="flex flex-1 min-h-screen">
+    <div className="flex h-screen w-full overflow-hidden bg-muted/30">
       <SidebarNav role={user.role} permissions={user.permissions} />
-      <div className="flex flex-1 flex-col min-w-0">
+      <div className="flex flex-1 flex-col min-w-0 h-screen overflow-hidden">
         <Header user={{ name: user.name, role: user.role, permissions: user.permissions }} />
-        <main className="flex-1 min-w-0 p-4 lg:p-6">{children}</main>
+        <MainContentContainer>{children}</MainContentContainer>
       </div>
     </div>
   )

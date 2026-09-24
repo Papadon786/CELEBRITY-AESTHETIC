@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import {
   ChevronDown,
   LayoutDashboard,
@@ -178,6 +178,23 @@ export function NavContent({
     } catch {}
   }, [])
 
+  const navRef = useRef<HTMLElement>(null)
+
+  // Restore and preserve sidebar scroll position across clicks & navigation
+  useEffect(() => {
+    const nav = navRef.current
+    if (!nav) return
+    const saved = sessionStorage.getItem("crm_sidebar_scroll_top")
+    if (saved) {
+      nav.scrollTop = Number(saved)
+    }
+    const onScroll = () => {
+      sessionStorage.setItem("crm_sidebar_scroll_top", String(nav.scrollTop))
+    }
+    nav.addEventListener("scroll", onScroll, { passive: true })
+    return () => nav.removeEventListener("scroll", onScroll)
+  }, [])
+
   function toggleGroup(label: string) {
     setOpenGroups((prev) => {
       const next = { ...prev, [label]: !prev[label] }
@@ -189,7 +206,7 @@ export function NavContent({
   }
 
   return (
-    <div className="flex h-full flex-col bg-background">
+    <div className="flex h-full flex-col bg-background overflow-hidden">
       <div className="flex items-center gap-2.5 px-4 h-16 border-b shrink-0">
         <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-500/30 overflow-hidden shadow-sm shrink-0">
           <Image
@@ -205,7 +222,11 @@ export function NavContent({
           <p className="text-[11px] text-muted-foreground truncate">{isAdmin ? "Admin CRM · Bangalore" : "Reception Desk"}</p>
         </div>
       </div>
-      <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-4">
+      <nav
+        ref={navRef}
+        id="crm-sidebar-nav"
+        className="flex-1 overflow-y-auto overscroll-contain py-4 px-3 space-y-4"
+      >
         {visibleGroups.map((group) => {
           const isOpen = openGroups[group.label] ?? false
 
@@ -266,7 +287,7 @@ export function SidebarNav({
   permissions?: any
 }) {
   return (
-    <aside className="hidden lg:flex w-64 flex-col border-r bg-card shrink-0 min-h-screen">
+    <aside className="hidden lg:flex w-64 flex-col border-r bg-card shrink-0 h-screen overflow-hidden">
       <NavContent role={role} permissions={permissions} />
     </aside>
   )

@@ -524,11 +524,31 @@ export async function getAppointments(params: {
 }
 
 export async function getQueue() {
-  const today = new Date()
+  const now = new Date()
+  // India Standard Time (UTC+5:30) day boundary calculation
+  const istOffset = 5.5 * 60 * 60 * 1000
+  const istNow = new Date(now.getTime() + istOffset)
+  const istYear = istNow.getUTCFullYear()
+  const istMonth = istNow.getUTCMonth()
+  const istDate = istNow.getUTCDate()
+
+  const startOfIstToday = new Date(Date.UTC(istYear, istMonth, istDate, 0, 0, 0) - istOffset)
+  const endOfIstToday = new Date(Date.UTC(istYear, istMonth, istDate, 23, 59, 59, 999) - istOffset)
+
+  const minStart = startOfIstToday < startOfDay(now) ? startOfIstToday : startOfDay(now)
+  const maxEnd = endOfIstToday > endOfDay(now) ? endOfIstToday : endOfDay(now)
+
   const appointments = await prisma.appointment.findMany({
     where: {
-      scheduledAt: { gte: startOfDay(today), lte: endOfDay(today) },
-      status: { in: ["PENDING", "CONFIRMED", "ARRIVED", "IN_CONSULTATION"] },
+      OR: [
+        // Any patient actively arrived (waiting) or in consultation
+        { status: { in: ["ARRIVED", "IN_CONSULTATION"] } },
+        // Scheduled or completed today
+        {
+          scheduledAt: { gte: minStart, lte: maxEnd },
+          status: { in: ["PENDING", "CONFIRMED", "COMPLETED"] },
+        },
+      ],
     },
     include: {
       patient: true,

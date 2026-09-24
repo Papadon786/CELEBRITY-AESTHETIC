@@ -3,6 +3,9 @@ import { getDoctors } from "@/lib/auth"
 import { QueueBoard } from "@/components/appointments/queue-board"
 import { WalkInDialog } from "@/components/appointments/walk-in-dialog"
 
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 export default async function QueuePage() {
   const [queue, doctors] = await Promise.all([getTodayQueue(), getDoctors()])
 
