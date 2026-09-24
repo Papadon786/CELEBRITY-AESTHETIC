@@ -33,7 +33,7 @@ const serviceDefs: Array<{ slug: string; name: string; shortDescription: string;
   { slug: "stem-cell-therapy", name: "Follicular Stem Cell Therapy", shortDescription: "Micro-graft cellular suspension to regenerate thinning areas with autologous progenitor cells.", displayOrder: 4, price: 15000 },
   { slug: "anti-dandruff-scalp-detox", name: "Anti-Dandruff Scalp Detox & Trichology", shortDescription: "Clinical scalp peeling, deep follicle clarification, and antifungal infusion therapy.", displayOrder: 5, price: 2500 },
 
-  // Hair Transplant Specialities (Satyam Centre)
+  // Hair Transplant Specialities
   { slug: "male-hair-transplant", name: "Male Hair Transplant (FUE / Bio-FUE)", shortDescription: "Artisan hairline and crown restoration using high-density micro-FUE tailored to male facial proportions.", displayOrder: 6, price: 45000 },
   { slug: "female-hair-transplant", name: "Female Hair Transplant (Diffuse / Parting)", shortDescription: "No-shave or discrete donor transplantation designed for female hairline lowering and parting density.", displayOrder: 7, price: 45000 },
   { slug: "fue-hair-transplant", name: "FUE Hair Transplant", shortDescription: "Advanced Follicular Unit Extraction with micro-punches for zero linear scars and supreme graft survival.", displayOrder: 8, price: 40000 },

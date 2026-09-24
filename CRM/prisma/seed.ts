@@ -88,11 +88,11 @@ async function main() {
     },
   })
 
-  // Surgical Hair Transplant Team (Satyam Centre)
+  // Surgical Hair Transplant Team
   const transplantDoctor = await prisma.user.upsert({
     where: { email: "transplant@celebrityaesthetic.com" },
     update: {
-      name: "Hair Transplant Team (Satyam Centre)",
+      name: "Hair Transplant Team",
       phone: "9591047171",
       passwordHash: hashPassword("Surgeon@123"),
       role: "DOCTOR",
@@ -101,7 +101,7 @@ async function main() {
       active: true,
     },
     create: {
-      name: "Hair Transplant Team (Satyam Centre)",
+      name: "Hair Transplant Team",
       email: "transplant@celebrityaesthetic.com",
       phone: "9591047171",
       passwordHash: hashPassword("Surgeon@123"),
@@ -191,7 +191,7 @@ async function main() {
       durationMinutes: 40,
     },
 
-    // Hair Transplant Specialities (Satyam Centre)
+    // Hair Transplant Specialities
     {
       slug: "male-hair-transplant",
       name: "Male Hair Transplant (FUE / Bio-FUE)",
@@ -690,7 +690,7 @@ async function main() {
       patientName: "Karthik Gowda",
       rating: 5,
       comment:
-        "Underwent FUE Hair Transplant at Satyam Hair Transplant Centre with Crown Celebrity Aesthetic. The surgical precision, hairline mapping, and post-op support were top notch. Natural density has started growing in.",
+        "Underwent FUE Hair Transplant with Crown Celebrity Aesthetic. The surgical precision, hairline mapping, and post-op support were top notch. Natural density has started growing in.",
       serviceSlug: "male-hair-transplant",
     },
     {
@@ -738,12 +738,12 @@ async function main() {
       id: "clinic",
       name: "Crown Celebrity Aesthetic",
       addressLine:
-        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India",
-      landmark: "Near J.P. Nagar / Satyam Centre",
+        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore - 560078, Karnataka, India",
+      landmark: "Near J.P. Nagar",
       phone: "9591047171",
       email: "celebrityaestheticcrown@gmail.com",
       mapQuery:
-        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore",
+        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore",
       weekdayOpen: "10:00",
       weekdayClose: "20:00",
       sundayClosed: false,
@@ -754,12 +754,12 @@ async function main() {
     update: {
       name: "Crown Celebrity Aesthetic",
       addressLine:
-        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India",
-      landmark: "Near J.P. Nagar / Satyam Centre",
+        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore - 560078, Karnataka, India",
+      landmark: "Near J.P. Nagar",
       phone: "9591047171",
       email: "celebrityaestheticcrown@gmail.com",
       mapQuery:
-        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore",
+        "The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore",
       weekdayOpen: "10:00",
       weekdayClose: "20:00",
       sundayClosed: false,
@@ -1307,7 +1307,7 @@ async function main() {
       treatmentCategory: "HAIR_TRANSPLANT",
       treatmentInterest: "Bio-FUE Unshaven Hair Transplant (2,500 Grafts)",
       candidateConcern: "Frontal Hairline Recession - No Shave Required",
-      doctorPreference: "Hair Transplant Team (Satyam Centre)",
+      doctorPreference: "Hair Transplant Team",
       stage: "QUALIFIED",
       value: 0,
       icpScore: 9,
@@ -1372,7 +1372,7 @@ async function main() {
       treatmentCategory: "HAIR_TRANSPLANT",
       treatmentInterest: "FUE Beard Transplant (1,400 Grafts)",
       candidateConcern: "Patchy Beard Growth & Cheek Thinning",
-      doctorPreference: "Hair Transplant Team (Satyam Centre)",
+      doctorPreference: "Hair Transplant Team",
       stage: "QUALIFIED",
       value: 0,
       icpScore: 7,
@@ -1413,7 +1413,7 @@ async function main() {
       treatmentCategory: "HAIR_TRANSPLANT",
       treatmentInterest: "FUE Hair Transplant (2,800 Grafts)",
       candidateConcern: "Norwood 3 Vertex Baldness",
-      doctorPreference: "Hair Transplant Team (Satyam Centre)",
+      doctorPreference: "Hair Transplant Team",
       stage: "PROPOSAL_SENT",
       value: 35000,
       icpScore: 9,
@@ -1493,7 +1493,7 @@ async function main() {
       treatmentCategory: "HAIR_TRANSPLANT",
       treatmentInterest: "FUE Hair Transplant (3,500 Grafts) + PRP",
       candidateConcern: "Norwood Grade 4 Frontal & Mid-Scalp Balding",
-      doctorPreference: "Hair Transplant Team (Satyam Centre)",
+      doctorPreference: "Hair Transplant Team",
       stage: "NEGOTIATION",
       value: 20000,
       icpScore: 9,
@@ -1506,7 +1506,7 @@ async function main() {
       treatmentCategory: "HAIR_TRANSPLANT",
       treatmentInterest: "Bio-FUE Mega Session (4,000 Grafts)",
       candidateConcern: "Norwood Grade 5 Hair Loss - Crown & Frontal Coverage",
-      doctorPreference: "Hair Transplant Team (Satyam Centre)",
+      doctorPreference: "Hair Transplant Team",
       stage: "NEGOTIATION",
       value: 50000,
       icpScore: 10,
@@ -1608,7 +1608,7 @@ async function main() {
     // Closed Won (20 total - Booked Procedures & Treatment Packages)
     ...Array.from({ length: 20 }).map((_, i) => {
       const treatments = [
-        { cat: "HAIR_TRANSPLANT", name: "FUE Hair Transplant (2,500 Grafts)", concern: "Grade 3 Balding", doc: "Hair Transplant Team (Satyam Centre)" },
+        { cat: "HAIR_TRANSPLANT", name: "FUE Hair Transplant (2,500 Grafts)", concern: "Grade 3 Balding", doc: "Hair Transplant Team" },
         { cat: "HAIR_RESTORATION", name: "GFC Regrowth Protocol (6 Sessions)", concern: "Diffuse Thinning", doc: "Reehal Baig" },
         { cat: "SKIN_AESTHETICS", name: "HydraFacial Deluxe MD Annual Plan", concern: "Pore Congestion", doc: "Dr. Naziya Baig" },
         { cat: "ANTI_AGING", name: "Botox Full Face & Dermal Fillers", concern: "Facial Wrinkles", doc: "Dr. Naziya Baig" },

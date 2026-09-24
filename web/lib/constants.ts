@@ -36,7 +36,7 @@ export const FOOTER_LINKS = [
 ];
 
 export const CLINIC_ADDRESS_NAME =
-  "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre";
+  "The Celebrity Aesthetics, Hair PRP, Permanent Makeup";
 export const CLINIC_ADDRESS =
   "9th Block, 1225, 26th Main Rd, Putlanpalya, Jayanagar 9th Block, Jayanagar, Bengaluru, Karnataka 560056";
 export const CLINIC_LAT = 12.9174467;

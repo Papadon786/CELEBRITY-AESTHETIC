@@ -14,7 +14,7 @@ const cities = [["Bengaluru","Karnataka","560001"],["Chennai","Tamil Nadu","6000
 const sources = ["Instagram Ad","Google Ads","Website Form","Referral","Walk-in Enquiry","Facebook Ad","WhatsApp Enquiry"]
 const reasons = [
   "GFC Hair Restoration enquiry",
-  "FUE Hair Transplant consultation (Satyam Centre)",
+  "FUE Hair Transplant consultation",
   "Eyebrow Microblading PMU interest",
   "MNRF Acne Scar Resurfacing",
   "HydraFacial MD booking inquiry",

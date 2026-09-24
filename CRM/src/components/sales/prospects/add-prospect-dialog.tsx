@@ -59,7 +59,7 @@ export function AddProspectDialog({
     treatmentCategory: "HAIR_TRANSPLANT",
     treatmentInterest: "FUE Hair Transplant (3,000 Grafts)",
     candidateConcern: "Norwood Stage 3 hair loss, receding temples",
-    doctorPreference: "Hair Transplant Team (Satyam Centre)",
+    doctorPreference: "Hair Transplant Team",
     email: "",
     phone: "",
     stage: defaultStage,
@@ -83,7 +83,7 @@ export function AddProspectDialog({
     if (cat === "HAIR_TRANSPLANT") {
       defaultInterest = "FUE Hair Transplant (3,000 Grafts)"
       defaultVal = "85000"
-      defaultDoctor = "Hair Transplant Team (Satyam Centre)"
+      defaultDoctor = "Hair Transplant Team"
     } else if (cat === "HAIR_RESTORATION") {
       defaultInterest = "Advanced GFC Protocol (4 Sessions)"
       defaultVal = "32000"
@@ -157,7 +157,7 @@ export function AddProspectDialog({
             treatmentCategory: "HAIR_TRANSPLANT",
             treatmentInterest: "FUE Hair Transplant (3,000 Grafts)",
             candidateConcern: "",
-            doctorPreference: "Hair Transplant Team (Satyam Centre)",
+            doctorPreference: "Hair Transplant Team",
             email: "",
             phone: "",
             stage: "QUALIFIED",
@@ -274,8 +274,8 @@ export function AddProspectDialog({
                 <SelectContent>
                   <SelectItem value="Dr. Naziya Baig">Dr. Naziya Baig (Cosmetologist)</SelectItem>
                   <SelectItem value="Reehal Baig">Reehal Baig (Trichologist)</SelectItem>
-                  <SelectItem value="Hair Transplant Team (Satyam Centre)">
-                    Hair Transplant Team (Satyam Centre)
+                  <SelectItem value="Hair Transplant Team">
+                    Hair Transplant Team
                   </SelectItem>
                   <SelectItem value="Clinical Aesthetic Coordinator">
                     Aesthetic Coordinator

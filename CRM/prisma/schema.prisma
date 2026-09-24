@@ -1681,11 +1681,11 @@ model ClinicSettings {
   id String @id @default("clinic")
 
   name        String @default("Crown Celebrity Aesthetic")
-  addressLine String @default("The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India")
-  landmark    String @default("Near J.P. Nagar / Satyam Centre")
+  addressLine String @default("The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore - 560078, Karnataka, India")
+  landmark    String @default("Near J.P. Nagar")
   phone       String @default("9591047171")
   email       String @default("celebrityaestheticcrown@gmail.com")
-  mapQuery    String @default("The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore")
+  mapQuery    String @default("The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore")
 
   weekdayOpen  String  @default("10:00") // Mon-Sat
   weekdayClose String  @default("20:00")
@@ -2107,7 +2107,7 @@ model Prospect {
   treatmentCategory String? // "HAIR_RESTORATION" | "HAIR_TRANSPLANT" | "SKIN_AESTHETICS" | "ANTI_AGING" | "ACNE_SCARS" | "BRIDAL" | "PMU"
   treatmentInterest String? // e.g. "FUE Hair Transplant (3,000 Grafts)", "GFC Protocol (4 Sessions)"
   candidateConcern  String? // e.g. "Norwood Stage 3 Receding Temples", "Deep Atrophic Acne Scars"
-  doctorPreference  String? // e.g. "Dr. Naziya Baig", "Reehal Baig", "Hair Transplant Team (Satyam Centre)"
+  doctorPreference  String? // e.g. "Dr. Naziya Baig", "Reehal Baig", "Hair Transplant Team"
 
   leadId             String?
   convertedClientId  String?

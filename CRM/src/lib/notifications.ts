@@ -31,7 +31,7 @@ export interface AppointmentNotificationData {
 
 const CLINIC_NAME = "Crown Celebrity Aesthetic"
 const CLINIC_PHONE = "+91 9591047171"
-const CLINIC_ADDRESS = "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India"
+const CLINIC_ADDRESS = "The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore - 560078, Karnataka, India"
 
 export class NotificationService {
   /**

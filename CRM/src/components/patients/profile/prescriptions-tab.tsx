@@ -16,7 +16,7 @@ const CLINIC = {
   doctor: "Dr. Naziya Baig",
   qualifications: "Certified Cosmetologist & Trichologist",
   specialty: "Lead Cosmetologist & Trichology Specialist",
-  address: "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India",
+  address: "The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore - 560078, Karnataka, India",
   phone: "+91 9591047171",
   email: "celebrityaestheticcrown@gmail.com",
   timings: "Mon - Sat: 10:00 AM - 8:00 PM · Sunday: Closed",

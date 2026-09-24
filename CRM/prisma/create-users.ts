@@ -53,7 +53,7 @@ async function main() {
       consultationFee: 600,
     },
     {
-      name: "Hair Transplant Team (Satyam Centre)",
+      name: "Hair Transplant Team",
       email: "transplant@celebrityaesthetic.com",
       phone: "9591047171",
       password: "Surgeon@123",

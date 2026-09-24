@@ -4,8 +4,8 @@
 export const CLINIC_INFO = {
   name: "Crown Celebrity Aesthetic",
   tagline: "Hair & Skin Clinic · PMU Services & Academy",
-  address: "The Celebrity Aesthetics, Hair PRP, Permanent Makeup - Satyam Hair Transplant Centre, Bangalore - 560078, Karnataka, India",
-  landmark: "Near Satyam Hair Transplant Centre, Bangalore",
+  address: "The Celebrity Aesthetics, Hair PRP, Permanent Makeup, Bangalore - 560078, Karnataka, India",
+  landmark: "Jayanagar 9th Block, Bangalore",
   phone: "+91 9591047171",
   phoneDisplay: "9591047171",
   email: "celebrityaestheticcrown@gmail.com",
